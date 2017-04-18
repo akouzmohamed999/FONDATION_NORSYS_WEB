@@ -342,7 +342,6 @@ ul.dropdown {
   width: 15px;
   height: 12px;
   display: block;
-  background: url(../images/up-down.png) no-repeat -3px -13px;
   float: left;
 }
 .wrapper-dropdown-5 .dropdown {
@@ -408,7 +407,6 @@ ul.dropdown {
   width: 15px;
   height: 12px;
   display: block;
-  background: url(../images/up-down.png) no-repeat -3px -13px;
   float: left;
 }
 .wrapper-dropdown-6 .dropdown, .wrapper-dropdown-7 .dropdown, .wrapper-dropdown-8 .dropdown, .wrapper-dropdown-9 .dropdown  {
