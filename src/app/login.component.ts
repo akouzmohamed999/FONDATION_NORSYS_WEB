@@ -22,6 +22,7 @@ export class LoginComponent {
     onSubmit(collaborateur){
         collaborateur.grant_type="pasword";
         collaborateur.client_id="clientIdPassword";
-        this.loginService.login(collaborateur).subscribe();
+        this.loginService.login(collaborateur);
+        //this.loginService.test().subscribe();
     }
 }

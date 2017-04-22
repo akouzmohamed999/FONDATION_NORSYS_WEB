@@ -5,9 +5,9 @@
   <h2 class="form-heading">login</h2>
   <div class="app-cam">
   <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form">
-		<input type="text" class="text" required [formControl]="form.controls['email']" value="E-mail address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail address';}">
-		<input type="password" value="Password" required ="form.controls.['password']" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-		<div class="submit"><input [disabled]="!form.valid" type="submit" value="Login"></div>
+		<input type="text" class="text" required [formControl]="form.controls['email']" value="E-mail address" />
+		<input type="password" value="Password" required [formControl]="form.controls['password']"/>
+		<div class="submit"><input [disabled]="!form.valid" type="submit" value="Login" /></div>
 	</form>
   </div>
    <div class="copy_layout login">

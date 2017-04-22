@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers,RequestOptions} from '@angular/http';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { HttpModule } from '@angular/http';
 import { Observable } from 'rxjs';
 
@@ -7,14 +8,32 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class LoginService {
 
+     APIURL = 'http://localhost:8080/fondation';
 
-    constructor(private http: Http){}
+    constructor(private http: Http,private cookieService:CookieService){}
 
         login(collaborateur){
-            var headers = new Headers({'Authorization':'Basic Y2xpZW50SWRQYXNzd29yZDpzZWNyZXQ=',
-            'Content-Type':'application/x-www-form-urlencoded'});
-            return this.http.post('http://localhost:8080/fondation/oauth/token',JSON.stringify(collaborateur)
-            ,{headers:headers}).map(response => {console.log(response)});
+         
+            let headers = new Headers();
+            headers.append("Authorization","Basic Y2xpZW50SWRQYXNzd29yZDpzZWNyZXQ=");
+            headers.append("Content-Type","application/x-www-form-urlencoded");
+            let options = new RequestOptions({headers: headers});
+            var data = "grant_type=password&client_id=clientIdPassword&username="
+            +collaborateur.email+"&password="+collaborateur.password;
+            return this.http.post(this.APIURL+'/oauth/token',data
+            ,options).map(response => response.json()).subscribe(
+                 data => {
+                     this.cookieService.put("access_token",data.access_token);
+                     this.getLoggedUser();
+                 }
+            );
         }
 
+        getLoggedUser(){
+            var headers = new Headers({'Authorization':'Bearer '+ this.cookieService.get("access_token")});            
+            return this.http.get(this.APIURL+'/collaborateur/loggedUser',{headers:headers})
+            .map(response => response.json()).subscribe(
+                data => console.log(data)
+            );
+        }
 }
