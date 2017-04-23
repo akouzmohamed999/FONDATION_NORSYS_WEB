@@ -17,8 +17,8 @@ import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
 
 const routes  : Routes = [
+  { path:'',component :LoginComponent},
   { path:'adminHome',component :AdminHomeComponent}
-  //{ path:'list',component :MediaItemListComponent}
 ];
 
 @NgModule({

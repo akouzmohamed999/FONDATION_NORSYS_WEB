@@ -21,6 +21,7 @@ export class LoginService {
             let options = new RequestOptions({headers: headers});
             var data = "grant_type=password&client_id=clientIdPassword&username="
             +collaborateur.email+"&password="+collaborateur.password;
+            console.log("///"+data);
             return this.http.post(this.APIURL+'/oauth/token',data
             ,options).map(response => response.json()).subscribe(
                  data => {
