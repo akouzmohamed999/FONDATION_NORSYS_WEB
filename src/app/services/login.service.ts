@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers,RequestOptions} from '@angular/http';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
+import {RouterModule,Routes,Router} from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { Observable } from 'rxjs';
 
@@ -10,7 +11,7 @@ export class LoginService {
 
      APIURL = 'http://localhost:8080/fondation';
 
-    constructor(private http: Http,private cookieService:CookieService){}
+    constructor(private http: Http,private cookieService:CookieService,private router:Router){}
 
         login(collaborateur){
          
@@ -23,17 +24,22 @@ export class LoginService {
             return this.http.post(this.APIURL+'/oauth/token',data
             ,options).map(response => response.json()).subscribe(
                  data => {
-                     this.cookieService.put("access_token",data.access_token);
+                    // this.cookieService.put("access_token",data.access_token);
+                     localStorage.setItem("access_token", data.access_token);
                      this.getLoggedUser();
                  }
             );
         }
 
         getLoggedUser(){
-            var headers = new Headers({'Authorization':'Bearer '+ this.cookieService.get("access_token")});            
+            var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
             return this.http.get(this.APIURL+'/collaborateur/loggedUser',{headers:headers})
             .map(response => response.json()).subscribe(
-                data => console.log(data)
-            );
+                data => {
+                    if(data.Role=='Administrateur'){
+                        console.log('HHHHHHHERRRRE bud');
+                        this.router.navigate(['adminHome']);
+                             }
+                      });
         }
 }

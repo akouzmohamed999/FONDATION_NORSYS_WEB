@@ -4,7 +4,7 @@ import {LoginService} from './services/login.service';
 
 @Component({
     selector : 'login',
-    templateUrl : './login.html',
+    templateUrl : './login.component.html',
     styleUrls :['./css/bootstrap.min.css','./css/style.css','./css/font-awesome.css']
 })
 
@@ -23,6 +23,5 @@ export class LoginComponent {
         collaborateur.grant_type="pasword";
         collaborateur.client_id="clientIdPassword";
         this.loginService.login(collaborateur);
-        //this.loginService.test().subscribe();
     }
 }
