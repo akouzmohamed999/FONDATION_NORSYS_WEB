@@ -15,11 +15,8 @@ export class ProjetService {
 
         getAdminProjets(){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/administrateur/projet?idProjet=1',{headers:headers})
-            .map(response => response.json()).subscribe(
-                data =>{
-                    console.log(data);
-                }
+            return this.http.get(this.APIURL+'/administrateur/',{headers:headers})
+            .map(response => response.json()
             );
         }
 }

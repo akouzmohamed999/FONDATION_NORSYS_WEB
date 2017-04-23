@@ -13,16 +13,13 @@ export class AdminHomeComponent{
 
   ngOnInit(){
     this.getAdministrateurProjects();
-   // console.log(this.projets);
+    console.log(this.projets);
   }
 
   getAdministrateurProjects(){
-    return this.projetService.getAdminProjets();
-    /*.subscribe(projets => {
-      this.projets=projets,
-    console.log(projets)},
-      err => console.error(err)
-      );*/
+     this.projetService.getAdminProjets().subscribe(projets => {
+       this.projets=projets;
+     });
   }
 
 
