@@ -11,11 +11,17 @@ export class ProjetService {
      APIURL = 'http://localhost:8080/fondation';
 
     constructor(private http: Http,private cookieService:CookieService){}
-
-
+    
         getAdminProjets(){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
             return this.http.get(this.APIURL+'/administrateur/',{headers:headers})
+            .map(response => response.json()
+            );
+        }
+
+        getComposanteByProjet(idProjet){
+             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/administrateur/composante?idProjet='+idProjet,{headers:headers})
             .map(response => response.json()
             );
         }

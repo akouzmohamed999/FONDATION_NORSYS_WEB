@@ -1,4 +1,4 @@
-import {Component,Input} from '@angular/core';
+import {Component,Input,Output,EventEmitter} from '@angular/core';
 import {ProjetService} from './services/projet.service';
 
 @Component({
@@ -10,5 +10,13 @@ export class ProjetComponent{
 
 
   @Input()projet;
+  @Output('clicked')click = new EventEmitter();
+
+
+  onClick(){
+    this.click.emit(this.projet);
+  }
+
+
 
 }

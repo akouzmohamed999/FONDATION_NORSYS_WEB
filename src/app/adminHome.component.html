@@ -1,6 +1,12 @@
 <section>   
     <projet
     *ngFor="let projet of projets"
-     [projet]="projet">
+     [projet]="projet" (clicked)="onClicked($event)">
     </projet>
+</section>
+<section>
+    <composante
+    *ngFor="let composante of composantes"
+    [composante]="composante" (composanteClicked)="onComposanteClicked($event)">
+    </composante>
 </section>

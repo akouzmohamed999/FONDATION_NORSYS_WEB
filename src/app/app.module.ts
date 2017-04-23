@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import {LoginComponent} from './login.component';
 import {AdminHomeComponent} from './adminHome.component';
 import {ProjetComponent} from './projet.component';
+import {ComposanteComponent} from './composante.component';
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
 
@@ -23,7 +24,7 @@ const routes  : Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,LoginComponent,AdminHomeComponent,ProjetComponent
+    AppComponent,LoginComponent,AdminHomeComponent,ProjetComponent,ComposanteComponent
   ],
   imports: [
     BrowserModule,
