@@ -8,13 +8,15 @@ import { ProjetService } from './services/projet.service';
 
 export class AdminHomeComponent {
 
-  constructor(private projetService: ProjetService) { }
   projets;
   composantes;
+
+  constructor(private projetService: ProjetService) { }
 
   ngOnInit() {
     this.getAdministrateurProjects();
     this.getComposanteByProjet(1);
+  
   }
 
   getAdministrateurProjects() {
@@ -27,6 +29,7 @@ export class AdminHomeComponent {
     this.projetService.getComposanteByProjet(idProjet).subscribe(
       composantes => {
         this.composantes=composantes;
+        console.log(composantes);
       }
     );
   }

@@ -10,9 +10,9 @@ export class ComposanteComponent{
 
 
   @Input()composante;
-  @Output('composanteClicked') click = new EventEmitter();
+  @Output('composanteClicked') composanteClick = new EventEmitter();
 
   onClick(){
-    this.click.emit(this.composante);
+    this.composanteClick.emit(this.composante);
   }
 }
