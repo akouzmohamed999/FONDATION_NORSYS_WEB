@@ -10,12 +10,14 @@ export class AdminHomeComponent {
 
   projets;
   composantes;
+  activites;
 
   constructor(private projetService: ProjetService) { }
 
   ngOnInit() {
     this.getAdministrateurProjects();
     this.getComposanteByProjet(1);
+    this.getActivitiesByComposante(1);
   
   }
 
@@ -29,7 +31,6 @@ export class AdminHomeComponent {
     this.projetService.getComposanteByProjet(idProjet).subscribe(
       composantes => {
         this.composantes=composantes;
-        console.log(composantes);
       }
     );
   }
@@ -39,6 +40,14 @@ export class AdminHomeComponent {
   }
 
   onComposanteClicked(composante){
-      console.log("88888888888"+composante);
+   this.getActivitiesByComposante(composante.idComposante)
+  }
+
+  getActivitiesByComposante(idComposante){
+    this.projetService.getActivitiesByComposante(idComposante).subscribe(
+      activities => {
+        this.activites=activities;
+      }
+    );
   }
 }

@@ -10,3 +10,9 @@
      [composante]="composante" (composanteClicked)="onComposanteClicked($event)">
     </composante>
 </section>
+<section>
+    <activite
+      *ngFor="let activite of activites"
+     [activite]="activite" >
+    </activite>
+</section>
