@@ -4,8 +4,7 @@ import {LoginService} from './services/login.service';
 
 @Component({
     selector : 'login',
-    templateUrl : './login.component.html',
-    styleUrls :['./css/bootstrap.min.css','./css/style.css','./css/font-awesome.css']
+    templateUrl : './login.component.html'
 })
 
 export class LoginComponent {

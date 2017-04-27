@@ -1,0 +1,18 @@
+    <section>   
+				<projet class="projet"
+				*ngFor="let projet of projets"
+				[projet]="projet" (clicked)="onClicked($event)">
+				</projet>
+		</section>
+		<section>
+    <composante class="composante"
+      *ngFor="let composante of composantes"
+     [composante]="composante" (composanteClicked)="onComposanteClicked($event)">
+    </composante>
+	</section>	
+	<section>
+		<activite class="activite"
+		*ngFor="let activite of activites"
+		[activite]="activite" >
+		</activite>
+	</section>

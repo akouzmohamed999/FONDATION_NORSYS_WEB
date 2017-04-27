@@ -13,19 +13,24 @@ import { AppComponent } from './app.component';
 import {LoginComponent} from './login.component';
 import {AdminHomeComponent} from './adminHome.component';
 import {ProjetComponent} from './projet.component';
+import {GestionProjetComponent} from './gestion-projet.component';
 import {ComposanteComponent} from './composante.component';
 import {ActiviteComponent} from './activite.component';
+import {StatistiquesComponent} from './statistiques.component';
+
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
 
 const routes  : Routes = [
   { path:'',component :LoginComponent},
-  { path:'adminHome',component :AdminHomeComponent}
+  { path:'adminHome',component :AdminHomeComponent},
+  { path:'adminHome/statistiques',component :StatistiquesComponent},
+  { path:'adminHome/gestionProjets',component : GestionProjetComponent}
 ];
 
 @NgModule({
   declarations: [
-    AppComponent,LoginComponent,AdminHomeComponent,ProjetComponent,ComposanteComponent,ActiviteComponent
+    AppComponent,LoginComponent,AdminHomeComponent,ProjetComponent,ComposanteComponent,ActiviteComponent,GestionProjetComponent,StatistiquesComponent
   ],
   imports: [
     BrowserModule,
