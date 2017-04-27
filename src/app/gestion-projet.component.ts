@@ -4,7 +4,7 @@ import { ProjetService } from './services/projet.service';
 
 @Component({
   selector: 'gestion-projet',
-  templateUrl: './gestion-projet.component.html'
+  templateUrl: './templates/gestion-projet.component.html'
   
 })
 

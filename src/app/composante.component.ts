@@ -3,7 +3,7 @@ import {ProjetService} from './services/projet.service';
 
 @Component({
     selector : 'composante',
-    templateUrl :'./composante.component.html'
+    templateUrl :'./templates/composante.component.html'
 })
 
 export class ComposanteComponent{

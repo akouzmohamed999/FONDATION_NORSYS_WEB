@@ -23,9 +23,11 @@ import {ProjetService} from './services/projet.service';
 
 const routes  : Routes = [
   { path:'',component :LoginComponent},
-  { path:'adminHome',component :AdminHomeComponent},
-  { path:'adminHome/statistiques',component :StatistiquesComponent},
-  { path:'adminHome/gestionProjets',component : GestionProjetComponent}
+  { path:'adminHome',component :AdminHomeComponent,children :[
+     { path: '', redirectTo: 'statistiques', pathMatch: 'prefix' },
+     { path:'statistiques',component :StatistiquesComponent,outlet :'adminHomeRoute'},
+     { path:'gestionProjets',component : GestionProjetComponent,outlet :'adminHomeRoute'}
+  ]}
 ];
 
 @NgModule({

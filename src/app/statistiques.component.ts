@@ -3,9 +3,9 @@ import {ProjetService} from './services/projet.service';
 
 @Component({
     selector : 'statistiques',
-    templateUrl :'./statistiques.component.html'
+    templateUrl :'./templates/statistiques.component.html'
 })
 
-export class StatistiquesComponent{
+export class StatistiquesComponent{ 
 
 }

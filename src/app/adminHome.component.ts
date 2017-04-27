@@ -1,27 +1,29 @@
 import { Component } from '@angular/core';
 import { ProjetService } from './services/projet.service';
 import {RouterModule,Routes,Router} from '@angular/router';
-
+import * as $ from "jquery";
 
 @Component({
   selector: 'admin-home',
-  templateUrl: './adminHome.component.html'
+  templateUrl: './templates/adminHome.component.html'
   
 })
 
 export class AdminHomeComponent {
 
-  constructor(private projetService: ProjetService,private router : Router ) { }
-
-  onGestionProjetComponentClick(){
-     this.router.navigate(['adminHome/gestionProjets']);
+  constructor(private projetService: ProjetService,private router : Router ) { 
   }
 
-  onStatistiquesComponentClick(){
-    this.router.navigate(['adminHome/statistiques']);
+  addScripts(chemin){
+    var script = document.createElement( 'script' );
+    script.type = 'text/javascript';
+    script.src = chemin;
+    $("body").append( script );
   }
-  
-  ngOnInit(){
-     this.router.navigate(['adminHome/statistiques']);
+
+  ngAfterViewInit(){
+    this.addScripts('assets/js/jquery.min.js');
+    this.addScripts('assets/js/metisMenu.min.js');
+    this.addScripts('assets/js/custom.js');
   }
 }

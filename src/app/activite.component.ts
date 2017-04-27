@@ -3,7 +3,7 @@ import {ProjetService} from './services/projet.service';
 
 @Component({
     selector : 'activite',
-    templateUrl :'./activite.component.html'
+    templateUrl :'./templates/activite.component.html'
 })
 
 export class ActiviteComponent{
