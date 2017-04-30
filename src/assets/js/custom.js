@@ -1,6 +1,4 @@
 $(function() {
-
-    console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhh"+$)
     $('#side-menu').metisMenu();
 
 });

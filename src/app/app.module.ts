@@ -17,6 +17,8 @@ import {GestionProjetComponent} from './gestion-projet.component';
 import {ComposanteComponent} from './composante.component';
 import {ActiviteComponent} from './activite.component';
 import {StatistiquesComponent} from './statistiques.component';
+import {ProjetDetailsComponent} from './projet-details.component';
+import {CollaborateurComponent} from './collaborateur.component';
 
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
@@ -32,7 +34,9 @@ const routes  : Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,LoginComponent,AdminHomeComponent,ProjetComponent,ComposanteComponent,ActiviteComponent,GestionProjetComponent,StatistiquesComponent
+    AppComponent,LoginComponent,AdminHomeComponent,ProjetComponent,ComposanteComponent,
+    ActiviteComponent,GestionProjetComponent,StatistiquesComponent,ProjetDetailsComponent,
+    CollaborateurComponent
   ],
   imports: [
     BrowserModule,

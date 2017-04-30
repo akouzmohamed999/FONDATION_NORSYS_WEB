@@ -38,11 +38,24 @@
 
   <div class="tab-content">
     <div id="content" class="tab-pane fade in active">
-       <composante class="composante"
-        *ngFor="let composante of composantes"
-        [composante]="composante" (composanteClicked)="onComposanteClicked($event)">
-        </composante>
-    </div>
+        <projet-details [projetDetails]="projetDetails"></projet-details>
+        <div class="panel-group" id="accordion"> 
+              <div class="panel panel-default" *ngFor="let composante of projetDetails.composantes">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#{{composante.intitule}}">{{composante.intitule}}</a>
+                  </h4>
+                </div>
+              <div id="{{composante.intitule}}" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <composante class="composante"
+                    
+                    [composante]="composante" (composanteClicked)="onComposanteClicked($event)">
+                    </composante>
+                </div>
+             </div>
+        </div>
+      </div>
   </div>
 </div>
      

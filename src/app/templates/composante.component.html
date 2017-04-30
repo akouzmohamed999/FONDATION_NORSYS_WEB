@@ -1,4 +1,28 @@
-<h2>{{composante.intitule}}</h2>
-<div>
-    <button (click)=onClick()>Choisir</button>
-</div>
+   <link href="assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- Graph CSS -->
+    <link href="assets/css/lines.css" rel='stylesheet' type='text/css' />
+    <link href="assets/css/font-awesome.css" rel="stylesheet" /> 
+    <link href="assets/css/gestion-projet.component.css" rel="stylesheet" /> 
+
+<!--<h3>{{composante.intitule}}</h3>
+<div class="row">
+    <div class="col-md-6">
+        Ceci est un texttt
+    </div>
+     <div class="col-md-6">
+        <h4>Liste des collaborateur</h4>
+        <collaborateur *ngFor="let collaborateur of collaborateurs" [collaborateur]="collaborateur"></collaborateur>
+    </div>
+     <button  class="btn btn-primary pull-right"  (click)=onClick()>Parcourir</button>-->
+        <div class="row">
+         <div class="col-md-6">
+            Ceci est un texttt
+        </div>
+        <div class="col-md-6">
+            <h4>Liste des collaborateur</h4>
+            <collaborateur *ngFor="let collaborateur of collaborateurs" [collaborateur]="collaborateur"></collaborateur>
+         </div>
+        </div>
+    

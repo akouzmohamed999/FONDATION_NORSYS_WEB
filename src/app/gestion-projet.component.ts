@@ -11,15 +11,15 @@ import * as $ from "jquery";
 export class GestionProjetComponent {
 
   projets;
-  composantes;
-  activites;
+  projetDetails;
 
   constructor(private projetService: ProjetService) { }
 
   ngOnInit() {
     this.getAdministrateurProjects();
-    this.getComposanteByProjet(1);
-    this.getActivitiesByComposante(1);
+    this.getProjetByIdProjet(1);
+    //this.getComposanteByProjet(1);
+   // this.getCollaborateurByComposante(1);
   
   }
 
@@ -29,29 +29,30 @@ export class GestionProjetComponent {
     });
   }
 
-  getComposanteByProjet(idProjet) {
+ /* getComposanteByProjet(idProjet) {
     this.projetService.getComposanteByProjet(idProjet).subscribe(
       composantes => {
         this.composantes=composantes;
       }
     );
-  }
-
-  onClicked(projet){
-    this.getComposanteByProjet(projet.idProjet);
-  }
-
-  onComposanteClicked(composante){
-   this.getActivitiesByComposante(composante.idComposante)
-  }
-
-  getActivitiesByComposante(idComposante){
-    this.projetService.getActivitiesByComposante(idComposante).subscribe(
-      activities => {
-        this.activites=activities;
+  }*/
+  getProjetByIdProjet(idProjet){
+    this.projetDetails = this.projetService.getProjetByidProjet(idProjet).subscribe(
+      projetDetails => {
+        this.projetDetails = projetDetails;
       }
     );
   }
+
+  onClicked(projet){
+    this.getProjetByIdProjet(projet.idProjet);
+    //this.getComposanteByProjet(projet.idProjet);
+  }
+
+  /*onComposanteClicked(composante){
+   this.getActivitiesByComposante(composante.idComposante)
+  }*/
+
 
   addScripts(chemin){
     var script = document.createElement( 'script' );
@@ -61,7 +62,6 @@ export class GestionProjetComponent {
   }
 
   ngAfterViewInit(){
-    this.addScripts('assets/js/jquery.min.js');
     this.addScripts('assets/js/metisMenu.min.js');
     this.addScripts('assets/js/custom.js');
     this.addScripts('assets/js/bootstrap.min.js')
