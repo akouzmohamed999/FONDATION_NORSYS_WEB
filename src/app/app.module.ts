@@ -19,6 +19,7 @@ import {ActiviteComponent} from './activite.component';
 import {StatistiquesComponent} from './statistiques.component';
 import {ProjetDetailsComponent} from './projet-details.component';
 import {CollaborateurComponent} from './collaborateur.component';
+import {ThematiqueComponent} from './thematique.component';
 
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
@@ -36,7 +37,7 @@ const routes  : Routes = [
   declarations: [
     AppComponent,LoginComponent,AdminHomeComponent,ProjetComponent,ComposanteComponent,
     ActiviteComponent,GestionProjetComponent,StatistiquesComponent,ProjetDetailsComponent,
-    CollaborateurComponent
+    CollaborateurComponent,ThematiqueComponent
   ],
   imports: [
     BrowserModule,

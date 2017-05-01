@@ -8,23 +8,32 @@ import {ProjetService} from './services/projet.service';
 
 export class ComposanteComponent{
 
-  constructor (private projetService : ProjetService){
-
-  }
+  
 
   @Input()composante;
+  @Output('composanteClicked') composanteClick = new EventEmitter()
   collaborateurs;
-  @Output('composanteClicked') composanteClick = new EventEmitter();
+  thematique;
 
+  constructor (private projetService : ProjetService){};
   ngOnInit() {
+    this.getThematiqueByComposante(this.composante.idComposante);
     this.getCollaborateurByComposante(this.composante.idComposante);
-  
   }
 
  getCollaborateurByComposante(idComposante){
     this.projetService.getCollaborateurByComposante(idComposante).subscribe(
       collaborateurs => {
         this.collaborateurs=collaborateurs;
+      }
+    );
+  }
+
+  getThematiqueByComposante(idComposante){
+    this.projetService.getThematiqueByComposante(idComposante).subscribe(
+      thematique => {
+        this.thematique=thematique;
+        console.log("KKKKKKKKKKK"+this.thematique);
       }
     );
   }

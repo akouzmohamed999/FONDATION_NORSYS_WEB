@@ -46,4 +46,11 @@ export class ProjetService {
             .map(response => response.json()
             );
         }
+
+         getThematiqueByComposante(idComposante){
+             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/administrateur/thematiqueComposante?idComposante='+idComposante,{headers:headers})
+            .map(response => response.json()
+            );
+        }
 }

@@ -18,9 +18,6 @@ export class GestionProjetComponent {
   ngOnInit() {
     this.getAdministrateurProjects();
     this.getProjetByIdProjet(1);
-    //this.getComposanteByProjet(1);
-   // this.getCollaborateurByComposante(1);
-  
   }
 
   getAdministrateurProjects() {
@@ -29,13 +26,6 @@ export class GestionProjetComponent {
     });
   }
 
- /* getComposanteByProjet(idProjet) {
-    this.projetService.getComposanteByProjet(idProjet).subscribe(
-      composantes => {
-        this.composantes=composantes;
-      }
-    );
-  }*/
   getProjetByIdProjet(idProjet){
     this.projetDetails = this.projetService.getProjetByidProjet(idProjet).subscribe(
       projetDetails => {
@@ -46,12 +36,7 @@ export class GestionProjetComponent {
 
   onClicked(projet){
     this.getProjetByIdProjet(projet.idProjet);
-    //this.getComposanteByProjet(projet.idProjet);
   }
-
-  /*onComposanteClicked(composante){
-   this.getActivitiesByComposante(composante.idComposante)
-  }*/
 
 
   addScripts(chemin){
