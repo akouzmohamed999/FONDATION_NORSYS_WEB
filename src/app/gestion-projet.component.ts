@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProjetService } from './services/projet.service';
+import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from "jquery";
 
 @Component({
@@ -13,7 +14,7 @@ export class GestionProjetComponent {
   projets;
   projetDetails;
 
-  constructor(private projetService: ProjetService) { }
+  constructor(private projetService: ProjetService,private router : Router) { }
 
   ngOnInit() {
     this.getAdministrateurProjects();

@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Fondation Norsys</a>
+                <a class="navbar-brand" href="index.html"><i>Fondation Norsys</i></a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-nav navbar-right">
@@ -109,7 +109,7 @@
                             <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['gestionProjets']}}]">><i class="fa fa-laptop nav_icon"></i>Gestion des Projets</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-indent nav_icon"></i> Propositions de Projets<span class="fa arrow"></span></a>
+                            <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['gestionComposante',1]}}]"><i class="fa fa-indent nav_icon"></i> Propositions de Projets<span class="fa arrow"></span></a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-envelope nav_icon"></i>Ressource Humaines<span class="fa arrow"></span></a>

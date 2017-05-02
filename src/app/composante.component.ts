@@ -1,5 +1,6 @@
 import {Component,Input,Output,EventEmitter} from '@angular/core';
 import {ProjetService} from './services/projet.service';
+import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 
 @Component({
     selector : 'composante',
@@ -8,17 +9,17 @@ import {ProjetService} from './services/projet.service';
 
 export class ComposanteComponent{
 
-  
-
   @Input()composante;
   @Output('composanteClicked') composanteClick = new EventEmitter()
   collaborateurs;
   thematique;
+  nombreActivites;
 
-  constructor (private projetService : ProjetService){};
+  constructor (private projetService : ProjetService,private router:Router){};
   ngOnInit() {
     this.getThematiqueByComposante(this.composante.idComposante);
     this.getCollaborateurByComposante(this.composante.idComposante);
+    this.nombreActivites=this.composante.activites.length;
   }
 
  getCollaborateurByComposante(idComposante){
@@ -33,11 +34,10 @@ export class ComposanteComponent{
     this.projetService.getThematiqueByComposante(idComposante).subscribe(
       thematique => {
         this.thematique=thematique;
-        console.log("KKKKKKKKKKK"+this.thematique);
       }
     );
   }
-  onClick(){
-    this.composanteClick.emit(this.composante);
-  }
+  onClick(idComposante){  
+    this.router.navigate(['/gestionProjet',{outlets:{'adminHomeRoute':['gestionComposante/'+idComposante]}}]);
+}
 }

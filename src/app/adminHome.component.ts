@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProjetService } from './services/projet.service';
-import {RouterModule,Routes,Router} from '@angular/router';
+import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from "jquery";
 
 @Component({
@@ -22,7 +22,6 @@ export class AdminHomeComponent {
   }
 
   ngAfterViewInit(){
-    this.addScripts('assets/js/jquery.min.js');
     this.addScripts('assets/js/metisMenu.min.js');
     this.addScripts('assets/js/custom.js');
     this.addScripts('assets/js/bootstrap.min.js')

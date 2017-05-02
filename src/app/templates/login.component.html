@@ -21,8 +21,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="assets/js/bootstrap.min.js"></script>
 </head>
 <body id="login">
-  <h2 class="form-heading">login</h2>
+  
+  
   <div class="app-cam">
+  <div class="text-center"><img src="assets/images/FondationLogi.png"/></div>
   <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form">
 		<input type="text" class="text" required [formControl]="form.controls['email']" value="E-mail address" />
 		<input type="password" value="Password" required [formControl]="form.controls['password']"/>

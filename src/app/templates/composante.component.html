@@ -20,11 +20,22 @@
          <div class="col-md-6">
              <h4>Thematique traité</h4>
             <thematique *ngIf="thematique != null" [thematique]="thematique" ></thematique>
+            <div class="widget widget1">
+        		<div class="r3_counter_box">
+                    <i class="pull-left fa fa-hand-o-up icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong>{{nombreActivites}}</strong></h5>
+                      <span>Nombre d'activités</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6">
-            <h4>Liste des collaborateur</h4>
+        <div class="col-md-6 r3_counter_box">
+            <h4>Liste des collaborateurs</h4>
             <collaborateur *ngFor="let collaborateur of collaborateurs" [collaborateur]="collaborateur"></collaborateur>
+             <button  class="btn btn-primary pull-right" 
+             [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['gestionComposante',1]}}]">Parcourir</button> 
          </div>
-         <button  class="btn btn-primary pull-right"  (click)=onClick()>Parcourir</button>
         </div>
+        <router-outlet name="test"></router-outlet>
     

@@ -6,11 +6,17 @@
     <link href="assets/css/font-awesome.css" rel="stylesheet" /> 
     <link href="assets/css/gestion-projet.component.css" rel="stylesheet" /> 
 <div class="row">
-  <div class="col-md-4">
     <h4><i>{{projetDetails.description}}</i></h4>
-  </div>
-  
-  <div class="col-md-8">
+  <div class="col-md-6">
+    <div>
+        <div class="widget widget1">
+                      <collaborateur *ngIf="projetDetails.administrateur != null" [collaborateur]="projetDetails.administrateur"></collaborateur>
+                      <collaborateur *ngIf="projetDetails.responsable != null" [collaborateur]="projetDetails.responsable"></collaborateur>  
+        </div>
+    </div>
+</div>
+  <div class="col-md-6">
+        <partenaire *ngFor="let partenaire of projetDetails.partenaires" [partenaire]="partenaire" ></partenaire>
   </div>
 
  <!-- <div id="mycarousel" class="carousel slide" data-ride="carousel">
