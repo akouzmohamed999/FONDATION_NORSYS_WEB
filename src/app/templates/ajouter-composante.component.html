@@ -1,0 +1,19 @@
+
+ <!-- Bootstrap Core CSS -->
+<link href="assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="assets/css/style.css" rel='stylesheet' type='text/css' />
+<link href="assets/css/font-awesome.css" rel="stylesheet"> 
+
+  <div class="container">
+  <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form">
+		<input type="text" class="text" required [formControl]="form.controls['intitule']" value="Intitule de la composante" />
+        <select name="thematique" required [formControl]="form.controls['thematique']">
+                <option value="Education">Education</option>
+                <option value="Agriculture">Agriculture</option>
+                <option value="Santé">Santé</option>
+                <option value="Emploi">Emploi</option>
+         </select>
+		<div class="submit"><input [disabled]="!form.valid" type="submit" value="Creer" /></div>
+	</form>
+  </div>

@@ -29,7 +29,7 @@ export class GestionComposanteComponent{
   getComposanteByidComposante(idComposante){
     this.projetService.getComposanteByComposanteId(idComposante).subscribe(composante =>{
          this.composante=composante;
-         this.getThematiqueByComposante(this.composante.idComposante);
+         this.getThematiqueByComposante(this. composante.idComposante);
          this.getCollaborateurByComposante(this.composante.idComposante);
          this.getActivitiesByIdComposante(this.composante.idComposante);
     });

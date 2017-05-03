@@ -60,4 +60,29 @@ export class ProjetService {
             .map(response => response.json()
             );
         }
+
+        addProjet(projet){
+            let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.post(this.APIURL+'/responsable/addComposante',projet,options)
+            .map(response => response.json()
+            );
+        }
+        
+        addComposanteToProjet(composante,idProjet){
+            var projet;
+            this.getProjetByidProjet(idProjet).subscribe( project => {
+               projet=project;
+            });
+             projet.composantes.push(composante); 
+            let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.post(this.APIURL+'/responsable/addComposante',projet,options)
+            .map(response => response.json()
+            );
+        }
 }

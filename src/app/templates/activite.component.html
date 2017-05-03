@@ -1,6 +1,39 @@
-<h2>{{activite.intitule}}</h2>
-<div>
-    <p>{{activite.dateActivite}}</p>
-    <p>{{activite.dureeActivite}}</p>
-    <p>{{activite.etat}}</p>
+
+<div class="row  r3_counter_box">
+    <h4>{{activite.intitule}}</h4>
+         <div class="col-md-6">
+             <div class="r3_counter_box">
+                    <i class="pull-left fa fa-calendar icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong>{{activite.dateActivite}}</strong></h5>
+                      <span>Date d'activités</span>
+                    </div>
+            </div>
+             <div class="r3_counter_box">
+                    <i class="pull-left fa fa-chain icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong>{{activite.dureeActivite}}</strong></h5>
+                      <span>Duree d'activités</span>
+                    </div>
+            </div>
+             <div class="r3_counter_box">
+                    <i class="pull-left fa fa-dashboard icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong>{{activite.etat}}</strong></h5>
+                      <span>Etat d'activités</span>
+                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Liste des collaborateurs</h4>
+            <collaborateur *ngFor="let collaborateur of activite.collaborateurs" [collaborateur]="collaborateur"></collaborateur>
+         </div>
 </div>
+
+   <link href="assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- Graph CSS -->
+    <link href="assets/css/lines.css" rel='stylesheet' type='text/css' />
+    <link href="assets/css/font-awesome.css" rel="stylesheet" /> 
+    <link href="assets/css/gestion-projet.component.css" rel="stylesheet" />

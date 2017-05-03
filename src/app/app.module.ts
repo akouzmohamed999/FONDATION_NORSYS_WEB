@@ -22,6 +22,8 @@ import {CollaborateurComponent} from './collaborateur.component';
 import {ThematiqueComponent} from './thematique.component';
 import {PartenaireComponent} from './partenaire.component';
 import {GestionComposanteComponent} from './gestion-composante.component';
+import {AjouterComponsanteComponent} from './ajouter-composante.component';
+import {AjouterProjetComponent} from './ajouter-projet.component';
 
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
@@ -32,7 +34,9 @@ export const routes  : Routes = [
      { path: '', redirectTo: 'statistiques', pathMatch: 'full' },
      { path:'statistiques',component :StatistiquesComponent,outlet :'adminHomeRoute'},
      { path:'gestionProjets',component : GestionProjetComponent,outlet :'adminHomeRoute'},
-     { path:'gestionComposante/:id',component : GestionComposanteComponent,outlet :'adminHomeRoute'}         
+     { path:'gestionComposante/:id',component : GestionComposanteComponent,outlet :'adminHomeRoute'},        
+     { path:'ajouterComposante/:id',component : AjouterComponsanteComponent,outlet :'adminHomeRoute'},
+     { path:'ajouterProjet',component : AjouterProjetComponent,outlet :'adminHomeRoute'}  
   ]},
 ];
 
@@ -40,7 +44,8 @@ export const routes  : Routes = [
   declarations: [
     AppComponent,LoginComponent,AdminHomeComponent,ProjetComponent,ComposanteComponent,
     ActiviteComponent,GestionProjetComponent,StatistiquesComponent,ProjetDetailsComponent,
-    CollaborateurComponent,ThematiqueComponent,PartenaireComponent,GestionComposanteComponent
+    CollaborateurComponent,ThematiqueComponent,PartenaireComponent,GestionComposanteComponent,
+    AjouterComponsanteComponent,AjouterProjetComponent
   ],
   imports: [
     BrowserModule,
