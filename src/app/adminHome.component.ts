@@ -10,14 +10,14 @@ import * as $ from "jquery";
   '../assets/css/plugins/toastr/toastr.min.css','../assets/js/plugins/gritter/jquery.gritter.css',
   '../assets/css/animate.css','../assets/css/style.css']
   
-})
+}) 
 
 export class AdminHomeComponent {
 
   constructor(private projetService: ProjetService,private router : Router ) { 
   }
 
-  addScripts(chemin){
+  /*addScripts(chemin){
     var script = document.createElement( 'script' );
     script.type = 'text/javascript';
     script.src = chemin;
@@ -37,7 +37,7 @@ export class AdminHomeComponent {
     this.addScripts('assets/js/plugins/flot/jquery.flot.spline.js');
     this.addScripts('assets/js/plugins/flot/jquery.flot.resize.js');
     this.addScripts('assets/js/plugins/flot/jquery.flot.pie.js');
-    this.addScripts('assets/js/welcome-message.js');
+    //this.addScripts('assets/js/welcome-message.js');
     this.addScripts('assets/js/plugins/peity/jquery.peity.min.js');
     this.addScripts('assets/js/demo/peity-demo.js');
 
@@ -57,5 +57,5 @@ export class AdminHomeComponent {
     this.addScripts('assets/js/plugins/toastr/toastr.min.js'); 
 
     
-  }
+  }*/
 }

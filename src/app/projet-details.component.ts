@@ -10,17 +10,4 @@ import * as $ from "jquery";
 export class ProjetDetailsComponent {
 
  @Input()projetDetails;
-
-  addScripts(chemin){
-    var script = document.createElement( 'script' );
-    script.type = 'text/javascript';
-    script.src = chemin;
-    $("body").append( script );
-  }
-
-  ngAfterViewInit(){
-   this.addScripts('assets/js/bootstrap.min.js');
-    this.addScripts('assets/js/custom.js');
-     this.addScripts('assets/js/metisMenu.min.js');
-  }
 }

@@ -5,7 +5,10 @@ import * as $ from "jquery";
 
 @Component({
   selector: 'gestion-projet',
-  templateUrl: './templates/gestion-projet.component.html'
+  templateUrl: './templates/gestion-projet.component.html',
+  styleUrls : ['../assets/css/bootstrap.min.css','../assets/font-awesome/css/font-awesome.css',
+  '../assets/css/plugins/toastr/toastr.min.css','../assets/js/plugins/gritter/jquery.gritter.css',
+  '../assets/css/animate.css','../assets/css/style.css']
   
 })
 
@@ -37,19 +40,5 @@ export class GestionProjetComponent {
 
   onClicked(projet){
     this.getProjetByIdProjet(projet.idProjet);
-  }
-
-
-  addScripts(chemin){
-    var script = document.createElement( 'script' );
-    script.type = 'text/javascript';
-    script.src = chemin;
-    $("body").append( script );
-  }
-
-  ngAfterViewInit(){
-    this.addScripts('assets/js/metisMenu.min.js');
-    this.addScripts('assets/js/custom.js');
-    this.addScripts('assets/js/bootstrap.min.js')
   }
 }
