@@ -1,15 +1,8 @@
-   <link href="assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-    <!-- Custom CSS -->
-    <link href="assets/css/style.css" rel='stylesheet' type='text/css' />
-    <!-- Graph CSS -->
-    <link href="assets/css/lines.css" rel='stylesheet' type='text/css' />
-    <link href="assets/css/font-awesome.css" rel="stylesheet" /> 
-    <link href="assets/css/gestion-projet.component.css" rel="stylesheet" /> 
 
         <div class="row  r3_counter_box">
          <div class="col-md-6">
              <h4>Thematique traité</h4>
-            <thematique *ngIf="thematique != null" [thematique]="thematique" ></thematique>
+            <thematique *ngIf="composante.thematique != null" [thematique]="composante.thematique" ></thematique>
         </div>
         <div class="col-md-6">
             <h4>Liste des collaborateurs</h4>
@@ -17,7 +10,7 @@
          </div>
          <h3><i>Liste des activites</i></h3>
         </div>
-         <activite *ngFor="let activite of activities" [activite]="activite"></activite>
+         <activite *ngFor="let activite of composante.activities" [activite]="activite"></activite>
 
 
     

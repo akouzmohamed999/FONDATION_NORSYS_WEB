@@ -14,7 +14,7 @@ export class GestionComposanteComponent{
   composante;
   @Output('composanteClicked') composanteClick = new EventEmitter()
   collaborateurs;
-  thematique;
+  thematique; 
   activities;
 
   constructor (private projetService : ProjetService,private route : ActivatedRoute,private router:Router){};
@@ -29,9 +29,9 @@ export class GestionComposanteComponent{
   getComposanteByidComposante(idComposante){
     this.projetService.getComposanteByComposanteId(idComposante).subscribe(composante =>{
          this.composante=composante;
-         this.getThematiqueByComposante(this. composante.idComposante);
+         //this.getThematiqueByComposante(this. composante.idComposante);
          this.getCollaborateurByComposante(this.composante.idComposante);
-         this.getActivitiesByIdComposante(this.composante.idComposante);
+         //this.getActivitiesByIdComposante(this.composante.idComposante);
     });
 }
 

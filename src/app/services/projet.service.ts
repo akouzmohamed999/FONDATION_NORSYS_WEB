@@ -4,11 +4,10 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { HttpModule } from '@angular/http';
 import { Observable } from 'rxjs';
 
-
 @Injectable()
 export class ProjetService {
 
-     APIURL = 'http://localhost:8080/fondation';
+     APIURL = 'http://localhost:8080/fondation'; 
 
     constructor(private http: Http,private cookieService:CookieService){}
     
@@ -66,7 +65,7 @@ export class ProjetService {
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
             headers.append("Content-Type","application/json");  
             let options = new RequestOptions({headers: headers});            
-            return this.http.post(this.APIURL+'/responsable/addComposante',projet,options)
+            return this.http.post(this.APIURL+'/responsable/addProjet',projet,options)
             .map(response => response.json()
             );
         }

@@ -17,8 +17,9 @@ export class ComposanteComponent{
 
   constructor (private projetService : ProjetService,private router:Router){};
   ngOnInit() {
-    this.getThematiqueByComposante(this.composante.idComposante);
+    //this.getThematiqueByComposante(this.composante.idComposante);
     this.getCollaborateurByComposante(this.composante.idComposante);
+    console.log("rrrrrrrrrrrrr"+JSON.stringify(this.composante));
     this.nombreActivites=this.composante.activites.length;
   }
 
