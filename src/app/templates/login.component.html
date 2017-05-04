@@ -24,23 +24,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   </div>
 </body>
 </html>-->
-<!DOCTYPE html>
-<html>
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Fondation Norsys Login</title>
-
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <link href="assets/css/animate.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-
-</head>
 
 <body class="gray-bg">
 
@@ -68,13 +51,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             </div>
             <div class="col-md-6">
-                <div class="ibox-content">
-                   <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form">
-                    <input type="text" class="text" required [formControl]="form.controls['email']" value="E-mail address" />
-                    <input type="password" value="Password" required [formControl]="form.controls['password']"/>
-                    <div class="submit"><input [disabled]="!form.valid" type="submit" value="Login" /></div>
+              <div class="ibox-content">
+    
+                   <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form" class="m-t" role="form">
+                     <div class="form-group">
+                      <input type="text" class="form-control" required [formControl]="form.controls['email']" value="E-mail address" />
+                     </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" value="Password" required [formControl]="form.controls['password']"/>
+                      </div>
+                    <input [disabled]="!form.valid"  class="btn btn-primary block full-width m-b" type="submit" value="Login" />
                 	</form>
-                </div>
+    
+              </div>
             </div>
         </div>
         <hr/>
@@ -89,6 +78,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 
 </body>
-
-</html>
 

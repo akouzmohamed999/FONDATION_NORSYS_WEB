@@ -8,6 +8,7 @@
  */
 ;(function($, window, document, undefined) {
 
+console.log("Metis Menu Is Loaded");
     var pluginName = "metisMenu",
         defaults = {
             toggle: true,
