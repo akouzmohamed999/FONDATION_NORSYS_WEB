@@ -15,6 +15,7 @@ export class ProjetDetailsComponent {
 
   id;
   projetDetails;
+  composantes;
 
   constructor (private projetService : ProjetService,private route : ActivatedRoute,private router:Router){};
   ngOnInit() {
@@ -22,11 +23,18 @@ export class ProjetDetailsComponent {
         this.id= +params['id'];
     });
     this.getProjetById(this.id); 
+    this.getComposantesByIdProjet(this.id);
   }
 
   getProjetById(idProjet){
     this.projetService.getProjetByidProjet(idProjet).subscribe(projet => {
       this.projetDetails = projet;
     })
+  }
+
+  getComposantesByIdProjet(idProjet){
+    this.projetService.getComposanteByProjet(idProjet).subscribe(composantes => {
+      this.composantes=composantes;
+    });
   }
 }

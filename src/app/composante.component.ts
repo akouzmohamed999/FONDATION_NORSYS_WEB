@@ -4,40 +4,30 @@ import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 
 @Component({
     selector : 'composante',
-    templateUrl :'./templates/composante.component.html'
+    templateUrl :'./templates/composante.component.html',
+    styleUrls : ['../assets/css/bootstrap.min.css','../assets/font-awesome/css/font-awesome.css',
+                '../assets/css/plugins/toastr/toastr.min.css','../assets/js/plugins/gritter/jquery.gritter.css',
+                '../assets/css/animate.css','../assets/css/style.css']
 })
 
 export class ComposanteComponent{
 
   @Input()composante;
-  @Output('composanteClicked') composanteClick = new EventEmitter()
-  collaborateurs;
-  thematique;
-  nombreActivites;
+  nombreCollaborateurs;
 
   constructor (private projetService : ProjetService,private router:Router){};
   ngOnInit() {
-    //this.getThematiqueByComposante(this.composante.idComposante);
     this.getCollaborateurByComposante(this.composante.idComposante);
-    console.log("rrrrrrrrrrrrr"+JSON.stringify(this.composante));
-    this.nombreActivites=this.composante.activites.length;
   }
 
  getCollaborateurByComposante(idComposante){
     this.projetService.getCollaborateurByComposante(idComposante).subscribe(
       collaborateurs => {
-        this.collaborateurs=collaborateurs;
+        this.nombreCollaborateurs=collaborateurs.length;
       }
     );
   }
 
-  getThematiqueByComposante(idComposante){
-    this.projetService.getThematiqueByComposante(idComposante).subscribe(
-      thematique => {
-        this.thematique=thematique;
-      }
-    );
-  }
   onClick(idComposante){  
     this.router.navigate(['/gestionProjet',{outlets:{'adminHomeRoute':['gestionComposante/'+idComposante]}}]);
 }

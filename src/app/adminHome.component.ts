@@ -22,7 +22,6 @@ export class AdminHomeComponent {
 
   ngOnInit(){
     this.collaborateur=localStorage.getItem("loggedUser");
-    console.log('gggggggg'+JSON.stringify(this.collaborateur));
     this.role=localStorage.getItem("loggedUserRole");
   }
 
