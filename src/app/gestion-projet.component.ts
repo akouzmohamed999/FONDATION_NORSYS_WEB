@@ -15,30 +15,15 @@ import * as $ from "jquery";
 export class GestionProjetComponent {
 
   projets;
-  projetDetails;
-
   constructor(private projetService: ProjetService,private router : Router) { }
 
   ngOnInit() {
     this.getAdministrateurProjects();
-    this.getProjetByIdProjet(1);
   }
 
   getAdministrateurProjects() {
     this.projetService.getAdminProjets().subscribe(projets => {
       this.projets = projets;
     });
-  }
-
-  getProjetByIdProjet(idProjet){
-    this.projetDetails = this.projetService.getProjetByidProjet(idProjet).subscribe(
-      projetDetails => {
-        this.projetDetails = projetDetails;
-      }
-    );
-  }
-
-  onClicked(projet){
-    this.getProjetByIdProjet(projet.idProjet);
   }
 }

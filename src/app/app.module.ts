@@ -34,6 +34,7 @@ export const routes  : Routes = [
      { path: '', redirectTo: 'statistiques', pathMatch: 'full' },
      { path:'statistiques',component :StatistiquesComponent,outlet :'adminHomeRoute'},
      { path:'gestionProjets',component : GestionProjetComponent,outlet :'adminHomeRoute'},
+     { path:'projetDetails/:id',component : ProjetDetailsComponent,outlet :'adminHomeRoute'},
      { path:'gestionComposante/:id',component : GestionComposanteComponent,outlet :'adminHomeRoute'},        
      { path:'ajouterComposante/:id',component : AjouterComponsanteComponent,outlet :'adminHomeRoute'},
      { path:'ajouterProjet',component : AjouterProjetComponent,outlet :'adminHomeRoute'}  
@@ -52,8 +53,7 @@ export const routes  : Routes = [
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes),
-    RouterModule.forChild(routes)
+    RouterModule.forRoot(routes)
   ],
   providers: [LoginService,CookieService,ProjetService],
   bootstrap: [AppComponent]

@@ -14,7 +14,16 @@ import * as $ from "jquery";
 
 export class AdminHomeComponent {
 
-  constructor(private projetService: ProjetService,private router : Router ) { 
+  constructor(private projetService: ProjetService,private router : Router ) {
+  }
+
+  collaborateur;
+  role;
+
+  ngOnInit(){
+    this.collaborateur=localStorage.getItem("loggedUser");
+    console.log('gggggggg'+JSON.stringify(this.collaborateur));
+    this.role=localStorage.getItem("loggedUserRole");
   }
 
   /*addScripts(chemin){

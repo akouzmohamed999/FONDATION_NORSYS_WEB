@@ -9,5 +9,5 @@ import {ProjetService} from './services/projet.service';
 export class CollaborateurComponent{
 
 
-  @Input()collaborateur;
+  @Input()collaborateur; 
 }
