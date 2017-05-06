@@ -37,7 +37,6 @@ export class LoginService {
             .map(response => response.json()).subscribe(
                 data => {
                     localStorage.setItem("loggedUser", data.Collaborateur.nom+" "+data.Collaborateur.prenom);
-                    console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhh'+localStorage.getItem("loggedUser"));
                     localStorage.setItem("loggedUserRole", data.Role);
                     if(data.Role=='Administrateur'){
                         this.router.navigate(['adminHome']);

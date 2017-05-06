@@ -1,31 +1,29 @@
-
-<div class="row  r3_counter_box">
+  <div>
     <h4>{{activite.intitule}}</h4>
-         <div class="col-md-6">
-             <div class="r3_counter_box">
+         <div class="col-md-4">
+             <div>
                     <i class="pull-left fa fa-calendar icon-rounded"></i>
-                    <div class="stats">
-                      <h5><strong>{{activite.dateActivite}}</strong></h5>
-                      <span>Date d'activités</span>
-                    </div>
+                      <h4><strong> Date d'activités : {{activite.dateActivite}}</strong></h4>
             </div>
-             <div class="r3_counter_box">
+             <div>
                     <i class="pull-left fa fa-chain icon-rounded"></i>
-                    <div class="stats">
-                      <h5><strong>{{activite.dureeActivite}}</strong></h5>
-                      <span>Duree d'activités</span>
-                    </div>
+                      <h4><strong>Duree d'activités : {{activite.dureeActivite}}</strong></h4>
             </div>
-             <div class="r3_counter_box">
+             <div>
                     <i class="pull-left fa fa-dashboard icon-rounded"></i>
-                    <div class="stats">
-                      <h5><strong>{{activite.etat}}</strong></h5>
-                      <span>Etat d'activités</span>
-                    </div>
+                      <h4><strong>Etat d'activités : {{activite.etat}}</strong></h4>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-3">
+            <h4>Annimateur Terrain</h4>
+            <collaborateur  [collaborateur]="activite.animateurTerrain"></collaborateur>
+         </div>
+         <div class="col-md-3">
             <h4>Liste des collaborateurs</h4>
             <collaborateur *ngFor="let collaborateur of activite.collaborateurs" [collaborateur]="collaborateur"></collaborateur>
          </div>
-</div>
+         <div class="col-md-2">
+            <a class="btn btn-white btn-sm "><i class="fa fa-pencil"></i> Modifier </a>
+            <a class="btn btn-white btn-sm "><i class="fa fa-remove"></i> Supprimer </a>
+         </div>
+  </div>

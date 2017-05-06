@@ -4,7 +4,14 @@ import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 
 @Component({
     selector : 'gestion-composante',
-    templateUrl :'./templates/gestion-composante.component.html'
+    templateUrl :'./templates/gestion-composante.component.html',
+    styleUrls : ['../assets/css/bootstrap.min.css',
+                '../assets/font-awesome/css/font-awesome.css',
+                '../assets/css/plugins/iCheck/custom.css',
+                '../assets/css/plugins/toastr/toastr.min.css',
+                '../assets/js/plugins/gritter/jquery.gritter.css',
+                '../assets/css/animate.css','../assets/css/style.css']
+
 })
 
 export class GestionComposanteComponent{
@@ -12,9 +19,7 @@ export class GestionComposanteComponent{
   id;
   sub;
   composante;
-  @Output('composanteClicked') composanteClick = new EventEmitter()
   collaborateurs;
-  thematique; 
   activities;
 
   constructor (private projetService : ProjetService,private route : ActivatedRoute,private router:Router){};
@@ -23,15 +28,13 @@ export class GestionComposanteComponent{
         this.id= +params['id'];
     });
     this.getComposanteByidComposante(this.id);
-    //this.getActivitiesByIdComposante(this.id);
+    this.getActivitiesByIdComposante(this.id);
   }
 
   getComposanteByidComposante(idComposante){
     this.projetService.getComposanteByComposanteId(idComposante).subscribe(composante =>{
          this.composante=composante;
-         //this.getThematiqueByComposante(this. composante.idComposante);
          this.getCollaborateurByComposante(this.composante.idComposante);
-         //this.getActivitiesByIdComposante(this.composante.idComposante);
     });
 }
 
@@ -43,20 +46,10 @@ export class GestionComposanteComponent{
     );
   }
 
-  getThematiqueByComposante(idComposante){
-    this.projetService.getThematiqueByComposante(idComposante).subscribe(
-      thematique => {
-        this.thematique=thematique;
-      }
-    );
-  }
-
   getActivitiesByIdComposante(idCompsante){
       this.projetService.getActivitiesByComposante(idCompsante).subscribe(activities =>{
           this.activities = activities;
+          console.log('gggggggggggggg'+this.activities.length)
       });
-  }
-  onClick(){
-    this.composanteClick.emit(this.composante);
   }
 }

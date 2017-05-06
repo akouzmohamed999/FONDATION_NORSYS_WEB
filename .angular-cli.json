@@ -28,6 +28,8 @@
       "../src/assets/js/plugins/flot/jquery.flot.resize.js",
       "../src/assets/js/plugins/flot/jquery.flot.pie.js",
       "../src/assets/js/plugins/peity/jquery.peity.min.js",
+      "../src/assets/js/plugins/staps/jquery.steps.min.js",
+      "../src/assets/js/plugins/validate/jquery.validate.min.js",
       "../src/assets/js/demo/peity-demo.js",
        "../src/assets/js/inspinia.js",
        "../src/assets/js/plugins/pace/pace.min.js",

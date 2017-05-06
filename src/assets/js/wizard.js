@@ -1,48 +1,5 @@
-import {Component} from "@angular/core";
-import {FormGroup,FormBuilder} from "@angular/forms";
-import {ProjetService} from './services/projet.service';
-import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
-import * as $ from 'jquery'
-
-@Component({
-    selector : 'ajouter-composante',
-    templateUrl : './templates/ajouter-projet.component.html'
-})
-
-export class AjouterProjetComponent {
-
-    form : FormGroup;
-
-    constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute){
-        this.form = formBuilder.group({
-            'intitule' : [''],
-            'description' : [''],
-            'dateDebut' : [''],
-            'dateFin' : ['']
-        })
-    }
-
-   addScripts(chemin){
-    var script = document.createElement( 'script' );
-    script.type = 'text/javascript';
-    script.src = chemin;
-    $("body").append( script );
-  }
-
-  ngAfterViewInit(){
-     $( document ).ready(function() {
-        console.log("jQuery is ready");
-      });
-    this.addScripts('assets/js/plugins/staps/jquery.steps.min.js');
-    this.addScripts('assets/js/plugins/validate/jquery.validate.min.js');
-    this.addScripts('assets/js/inspinia.js');
-    this.addScripts('assets/js/plugins/pace/pace.min.js');
-    this.addScripts('assets/js/wizard.js');
-  }
-
-  /*ngOnInit(){
-       $(document).ready(function(){
-            $("#wizard").steps();
+ $(document).ready(function(){
+            $("#wizard-").steps();
             $("#form").steps({
                 bodyTag: "fieldset",
                 onStepChanging: function (event, currentIndex, newIndex)
@@ -119,13 +76,3 @@ export class AjouterProjetComponent {
                         }
                     });
        });
-  }*/
-
-    onSubmit(projet){
-        this.projetService.addProjet(projet).subscribe(projet =>{
-            if(projet != null){
-                console.log("Ca passe redirection now");
-            }
-        });
-    }
-}
