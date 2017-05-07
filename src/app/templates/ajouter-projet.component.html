@@ -12,7 +12,10 @@
      <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="/assets/css/plugins/iCheck/custom.css" rel="stylesheet">
-    <link href="/assets/css/plugins/steps/jquery.steps.css" rel="stylesheet">
+    <link href="/assets/css/plugins/steps/jquery.steps.css" rel="stylesheet"> 
+    <link href="/assets/css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link href="/assets/css/plugins/nouslider/jquery.nouislider.css" rel="stylesheet">
+    <link href="/assets/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
     <link href="/assets/css/animate.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
  <div class="row">
@@ -44,26 +47,43 @@
                             </h2>
                             <p>
                                 This example show how to use Steps with jQuery Validation plugin.
-                            </p>
+                            </p>                          
 
-                            <form id="form" action="#" class="wizard-big">
-                                <h1>Account</h1>
+                            <form id="form" action="#" class="wizard-big" (ngSubmit)="onSubmit(form.value)" [formGroup]="form">  
+
+                                   <h1>Informations générales</h1>
                                 <fieldset>
-                                    <h2>Account Information</h2>
                                     <div class="row">
                                         <div class="col-lg-8">
                                             <div class="form-group">
-                                                <label>Username *</label>
-                                                <input id="userName" name="userName" type="text" class="form-control required">
+                                                <label>Intitule de projet *</label>
+                                                <input type="text"  required [formControl]="form.controls['intitule']" class="form-control required" />
                                             </div>
                                             <div class="form-group">
-                                                <label>Password *</label>
-                                                <input id="password" name="password" type="text" class="form-control required">
+                                                <label>Description de projet *</label>
+                                                <input type="text" required [formControl]="form.controls['description']" class="form-control required" />
                                             </div>
-                                            <div class="form-group">
-                                                <label>Confirm Password *</label>
-                                                <input id="confirm" name="confirm" type="text" class="form-control required">
+                                            <div class="form-group" id="data_1">
+                                                <label class="font-noraml">Date Debut</label>
+                                                <div class="input-group date">
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" required [formControl]="form.controls['dateDebut']">
+                                                </div>
                                             </div>
+                                            <div class="form-group" id="data_1">
+                                                <label class="font-noraml">Date Fin *</label>
+                                                <div class="input-group date">
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control required" required [formControl]="form.controls['dateFin']">
+                                                </div>
+                                            </div>
+
+                                            <!--<div class="form-group">
+                                                <label>Date de début *</label>
+                                               <input type="text"  required [formControl]="form.controls['dateDebut']" class="form-control required" />
+                                            </div>
+                                             <div class="form-group">
+                                                <label>Date Fin *</label>
+                                               <input type="text"  required [formControl]="form.controls['dateFin']" class="form-control required" />
+                                            </div>-->
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="text-center">
@@ -73,46 +93,37 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </fieldset>
-                                <h1>Profile</h1>
+                                <h1>Désigner les Collaborateurs</h1>
                                 <fieldset>
-                                    <h2>Profile Information</h2>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label>First name *</label>
-                                                <input id="name" name="name" type="text" class="form-control required">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Last name *</label>
-                                                <input id="surname" name="surname" type="text" class="form-control required">
-                                            </div>
+                                    <h2>Collaborateurs</h2> 
+                                    <div class="ibox-content">
+                                        <p>
+                                            With chosen select uesr can fase chose from large in select input.
+                                        </p>
+                                        <div class="form-group">
+                                        <label class="font-noraml">Basic example</label>
+                                        <div class="input-group">
+                                        <select id="chosen" data-placeholder="Choose a Country..." class="chosen-select" multiple style="width:350px;" tabindex="-1">
+                                        <option value="">Select</option>
+                                        <option value="United States">United States</option>
+                                        <option value="United Kingdom">United Kingdom</option>
+                                        <option value="Afghanistan">Afghanistan</option>
+                                        <option value="Aland Islands">Aland Islands</option>
+                                        <option value="Albania">Albania</option>     
+                            
+                                        </select>
                                         </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label>Email *</label>
-                                                <input id="email" name="email" type="text" class="form-control required email">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Address *</label>
-                                                <input id="address" name="address" type="text" class="form-control">
-                                            </div>
                                         </div>
-                                    </div>
+                                        </div>
                                 </fieldset>
+                             
 
-                                <h1>Warning</h1>
+                                <h1>Responsable</h1>
                                 <fieldset>
                                     <div class="text-center" style="margin-top: 120px">
-                                        <h2>You did it Man :-)</h2>
+                                        <h2>Projet Crée</h2>
                                     </div>
-                                </fieldset>
-
-                                <h1>Finish</h1>
-                                <fieldset>
-                                    <h2>Terms and Conditions</h2>
-                                    <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">I agree with the Terms and Conditions.</label>
                                 </fieldset>
                             </form>
                         </div>

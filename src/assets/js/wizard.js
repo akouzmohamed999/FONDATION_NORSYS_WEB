@@ -1,5 +1,4 @@
  $(document).ready(function(){
-            $("#wizard-").steps();
             $("#form").steps({
                 bodyTag: "fieldset",
                 onStepChanging: function (event, currentIndex, newIndex)
@@ -75,4 +74,6 @@
                             }
                         }
                     });
+                    
        });
+       

@@ -28,7 +28,7 @@ export class AdminHomeComponent {
     this.role=localStorage.getItem("loggedUserRole");
   }
 
-  /*addScripts(chemin){
+  addScripts(chemin){
     var script = document.createElement( 'script' );
     script.type = 'text/javascript';
     script.src = chemin;
@@ -39,34 +39,6 @@ export class AdminHomeComponent {
      $( document ).ready(function() {
         console.log("jQuery is ready");
       });
-    this.addScripts('assets/js/jquery-2.1.1.js');
-    this.addScripts('assets/js/bootstrap.min.js');
-    this.addScripts('assets/js/plugins/metisMenu/jquery.metisMenu.js');
-    //this.addScripts('assets/js/plugins/metisMenu/jquery.slimscroll.min.js');
-    this.addScripts('assets/js/plugins/flot/jquery.flot.js');
-    this.addScripts('assets/js/plugins/flot/jquery.flot.tooltip.min.js');
-    this.addScripts('assets/js/plugins/flot/jquery.flot.spline.js');
-    this.addScripts('assets/js/plugins/flot/jquery.flot.resize.js');
-    this.addScripts('assets/js/plugins/flot/jquery.flot.pie.js');
-    //this.addScripts('assets/js/welcome-message.js');
-    this.addScripts('assets/js/plugins/peity/jquery.peity.min.js');
-    this.addScripts('assets/js/demo/peity-demo.js');
-
-    this.addScripts('assets/js/inspinia.js');
-    this.addScripts('assets/js/plugins/pace/pace.min.js');
-    
-    this.addScripts('assets/js/plugins/jquery-ui/jquery-ui.min.js');
-
-    this.addScripts('assets/js/plugins/gritter/jquery.gritter.min.js');
-
-    this.addScripts('assets/js/plugins/sparkline/jquery.sparkline.min.js');
-
-    this.addScripts('assets/js/demo/sparkline-demo.js');
-
-    this.addScripts('assets/js/plugins/chartJs/Chart.min.js');
-
-    this.addScripts('assets/js/plugins/toastr/toastr.min.js'); 
-
-    
-  }*/
+    this.addScripts('assets/js/plugins/metisMenu/jquery.metisMenu.js'); 
+  }
 }

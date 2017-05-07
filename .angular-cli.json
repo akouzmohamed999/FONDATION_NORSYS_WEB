@@ -21,7 +21,8 @@
       "styles": [],
       "scripts": [
       "../node_modules/jquery/dist/jquery.min.js","../src/assets/js/bootstrap.min.js"
-      ,"../src/assets/js/plugins/metisMenu/jquery.metisMenu.js",
+      ,"../src/assets/js/plugins/metisMenu/jquery.metisMenu.js"
+      ,"../src/assets/js/plugins/chosen/chosen.jquery.js",
       "../src/assets/js/plugins/flot/jquery.flot.js",
       "../src/assets/js/plugins/flot/jquery.flot.tooltip.min.js",
       "../src/assets/js/plugins/flot/jquery.flot.spline.js",
@@ -29,6 +30,10 @@
       "../src/assets/js/plugins/flot/jquery.flot.pie.js",
       "../src/assets/js/plugins/peity/jquery.peity.min.js",
       "../src/assets/js/plugins/staps/jquery.steps.min.js",
+      "../src/assets/js/plugins/jsKnob/jquery.knob.js",
+      "../src/assets/js/plugins/jasny/jasny-bootstrap.min.js",
+      "../src/assets/js/plugins/datapicker/bootstrap-datepicker.js",
+      "../src/assets/js/plugins/nouslider/jquery.nouislider.min.js",
       "../src/assets/js/plugins/validate/jquery.validate.min.js",
       "../src/assets/js/demo/peity-demo.js",
        "../src/assets/js/inspinia.js",
