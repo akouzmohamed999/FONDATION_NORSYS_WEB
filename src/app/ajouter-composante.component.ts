@@ -22,6 +22,7 @@ export class AjouterComponsanteComponent {
     sub;
     form : FormGroup;
     thematiques;
+    projet;
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute){
         this.form = formBuilder.group({
             'intitule' : [''],
@@ -35,15 +36,23 @@ export class AjouterComponsanteComponent {
     });
 
     this.getAllThematiques();
+    this.getComposanteProjet();
     }
 
     onSubmit(composante){
         console.log('THEMATIQUE CHOISI '+composante.thematique.intitule)
         composante.thematique={"idThematique":1,"intitule":"Agriculture","description":"la mise en place d'un système d'irrigation sophistiqué"};
-        this.projetService.addComposanteToProjet(composante,this.id).subscribe(projet =>{
-            if(projet != null){
-                console.log("Ca passe redirection now !!!!!!!!");
+        composante.projet=this.projet;
+        this.projetService.addComposanteToProjet(composante).subscribe(ccc =>{
+            if(ccc != null){
+                console.log("Ca passe redirection now !!!!!!!!"+JSON.stringify(ccc));
             }
+        });
+    }
+
+    getComposanteProjet(){
+        this.projetService.getProjetByidProjet(this.id).subscribe(projet => {
+            this.projet=projet;
         });
     }
 

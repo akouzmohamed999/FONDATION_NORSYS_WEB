@@ -69,12 +69,8 @@ export class ProjetService {
             );
         }
         
-        addComposanteToProjet(composante,idProjet){
-            var projet;
-            this.getProjetByidProjet(idProjet).subscribe( project => {
-               projet=project;
-            });
-            composante.projet=projet;
+        addComposanteToProjet(composante){
+        
             let headers = new Headers();
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
             headers.append("Content-Type","application/json");  
@@ -82,6 +78,7 @@ export class ProjetService {
             return this.http.post(this.APIURL+'/responsable/addComposante',composante,options)
             .map(response => response.json()
             );
+           
         }
 
         getAllCollaborateur(){
