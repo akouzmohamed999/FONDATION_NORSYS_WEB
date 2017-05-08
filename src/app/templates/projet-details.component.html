@@ -48,6 +48,14 @@
                                     </dl>
                                 </div>
                             </div>
+                             <div class="row">
+                                <div>
+                                        <a *ngIf="projetDetails?.idProjet != null"
+                                        [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterComposante',projetDetails?.idProjet]}}]"
+                                         class="btn btn-primary btn-xs pull-right"><i class="fa fa-plus"></i>Ajouter une Composante </a>
+                                </div>
+                            </div>
+
 
                                     <div class="panel-group" id="accordion"> 
                                         <div class="panel panel-default" *ngFor="let composante of composantes">

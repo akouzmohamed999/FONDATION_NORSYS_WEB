@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {FormGroup,FormBuilder} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
     selector : 'ajouter-composante',
@@ -20,7 +21,7 @@ export class AjouterComponsanteComponent {
     id;
     sub;
     form : FormGroup;
-
+    thematiques;
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute){
         this.form = formBuilder.group({
             'intitule' : [''],
@@ -32,13 +33,24 @@ export class AjouterComponsanteComponent {
     this.sub = this.route.params.subscribe(params => {
         this.id= +params['id'];
     });
+
+    this.getAllThematiques();
     }
 
     onSubmit(composante){
+        console.log('THEMATIQUE CHOISI '+composante.thematique.intitule)
+        composante.thematique={"idThematique":1,"intitule":"Agriculture","description":"la mise en place d'un système d'irrigation sophistiqué"};
         this.projetService.addComposanteToProjet(composante,this.id).subscribe(projet =>{
             if(projet != null){
-                console.log("Ca passe redirection now");
+                console.log("Ca passe redirection now !!!!!!!!");
             }
         });
+    }
+
+    getAllThematiques(){
+        this.projetService.getAllThematiques().subscribe( thematiques =>{
+            this.thematiques = thematiques;
+            console.log(JSON.stringify(this.thematiques));
+        })
     }
 }

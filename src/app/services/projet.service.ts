@@ -74,12 +74,12 @@ export class ProjetService {
             this.getProjetByidProjet(idProjet).subscribe( project => {
                projet=project;
             });
-             projet.composantes.push(composante); 
+            composante.projet=projet;
             let headers = new Headers();
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
             headers.append("Content-Type","application/json");  
             let options = new RequestOptions({headers: headers});            
-            return this.http.post(this.APIURL+'/responsable/addComposante',projet,options)
+            return this.http.post(this.APIURL+'/responsable/addComposante',composante,options)
             .map(response => response.json()
             );
         }
@@ -94,6 +94,13 @@ export class ProjetService {
         getAllPartenaire(){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
             return this.http.get(this.APIURL+'/administrateur/partenaires',{headers:headers})
+            .map(response => response.json()
+            );
+        }
+
+        getAllThematiques(){
+            var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/responsable/thematiques',{headers:headers})
             .map(response => response.json()
             );
         }

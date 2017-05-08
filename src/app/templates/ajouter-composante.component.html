@@ -1,4 +1,4 @@
-  <div class="container">
+ <!-- <div class="container">
   <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form">
 		<input type="text" class="text" required [formControl]="form.controls['intitule']" value="Intitule de la composante" />
         <select name="thematique" required [formControl]="form.controls['thematique']">
@@ -9,4 +9,23 @@
          </select>
 		<div class="submit"><input [disabled]="!form.valid" type="submit" value="Creer" /></div>
 	</form>
-  </div>
+  </div>-->
+  <div class="row text-center">
+                <div class="col-lg-8 wrapper wrapper-content animated fadeInUp">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                        </div>
+                        <div class="ibox-content">                  
+
+                            <form id="form" action="#"  (ngSubmit)="onSubmit(form.value)" [formGroup]="form">  
+                                   <h3>Informations générales</h3>
+                                   <input type="text" class="form-control" required [formControl]="form.controls['intitule']" value="Intitule de la composante" />
+                                  <select name="thematique" class="form-control" required [formControl]="form.controls['thematique']">
+                                          <option *ngFor="let thematique of thematiques" value="{{thematique}}">{{thematique.intitule}}</option>
+                                  </select>
+		                            <div class="submit"><input [disabled]="!form.valid" type="submit" value="Creer" class="btn btn-primary pull-right"/></div>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>

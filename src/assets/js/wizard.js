@@ -1,5 +1,7 @@
  $(document).ready(function(){
 
+    $.validator.setDefaults({ ignore: ":hidden:not(#chosen)" });
+
    $("#form").steps({
                 bodyTag: "fieldset",
                 onStepChanging: function (event, currentIndex, newIndex)
@@ -27,7 +29,7 @@
                     }
 
                     // Disable validation on fields that are disabled or hidden.
-                    form.validate().settings.ignore = ":disabled,:hidden:not(select)";
+                    form.validate().settings.ignore = ":disabled,:hidden:not(#chosen)";
 
                     // Start validation; Prevent going forward if false
                     return form.valid();
@@ -52,7 +54,7 @@
 
                     // Disable validation on fields that are disabled.
                     // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
-                    form.validate().settings.ignore = ":disabled,:hidden:not(select)";
+                    form.validate().settings.ignore = ":disabled:hidden:not(#chosen)";
 
                     // Start validation; Prevent form submission if false
                     return form.valid();
@@ -75,6 +77,7 @@
                                 equalTo: "#password"
                             }
                         },
+
                     });
 
 

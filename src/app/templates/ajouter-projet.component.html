@@ -78,22 +78,14 @@
                                         <div class="form-group">
                                         <label class="font-noraml">Basic example</label>
                                             <div class="input-group">
-                                        <select id="chosen" data-placeholder="Choose a Country..."  multiple style="width:350px;" tabindex="-1">
-                                        <option value="">Select</option>
-                                        <option value="United States">United States</option>
-                                        <option value="United Kingdom">United Kingdom</option>
-                                        <option value="Afghanistan">Afghanistan</option>
-                                        <option value="Aland Islands">Aland Islands</option>
-                                        <option value="Albania">Albania</option>     
-                            
+                                        <select id="chosen"  multiple style="width:350px;" class="form-control">
+                                             <option *ngFor="let partenaire of partenaires" value="partenaire" >{{partenaire.nom}}</option>                            
                                         </select>
                                         </div>
                                            
                                         </div>
                                         </div>
                                 </fieldset>
-                             
-
                                 <h1>Responsable</h1>
                                 <fieldset>
                                     <div class="text-center" style="margin-top: 120px">
