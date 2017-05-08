@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/Rx';
@@ -55,7 +54,7 @@ export const routes  : Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [LoginService,CookieService,ProjetService],
+  providers: [LoginService,ProjetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

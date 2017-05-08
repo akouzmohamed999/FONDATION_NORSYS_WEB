@@ -42,10 +42,11 @@ export class AjouterProjetComponent {
 
 
         this.addScripts('assets/js/plugins/chosen/chosen.jquery.js');
-        this.addScripts('assets/js/multi-select.js');
         this.addScripts('assets/js/plugins/datapicker/bootstrap-datepicker.js');
+        
+        this.addScripts('assets/js/multi-select.js');
         this.addScripts('assets/js/wizard.js');
-        this.addScripts('assets/js/date-picker.js');
+        //this.addScripts('assets/js/date-picker.js');
        
   }
 

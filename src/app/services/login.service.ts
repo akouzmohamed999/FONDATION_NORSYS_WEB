@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers,RequestOptions} from '@angular/http';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
 import {RouterModule,Routes,Router} from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { Observable } from 'rxjs';
@@ -11,7 +10,7 @@ export class LoginService {
 
      APIURL = 'http://localhost:8080/fondation';
 
-    constructor(private http: Http,private cookieService:CookieService,private router:Router){}
+    constructor(private http: Http,private router:Router){}
 
         login(collaborateur){
          

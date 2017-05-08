@@ -22,32 +22,9 @@
                 <div class="col-lg-12 wrapper wrapper-content animated fadeInUp">
                     <div class="ibox">
                         <div class="ibox-title">
-                            <h5>Wizard with Validation</h5>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#">Config option 1</a>
-                                    </li>
-                                    <li><a href="#">Config option 2</a>
-                                    </li>
-                                </ul>
-                                <a class="close-link">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </div>
+                            <h5>Assistant de création de projet</h5>
                         </div>
-                        <div class="ibox-content">
-                            <h2>
-                                Validation Wizard Form
-                            </h2>
-                            <p>
-                                This example show how to use Steps with jQuery Validation plugin.
-                            </p>                          
+                        <div class="ibox-content">                  
 
                             <form id="form" action="#" class="wizard-big" (ngSubmit)="onSubmit(form.value)" [formGroup]="form">  
 
@@ -98,13 +75,10 @@
                                 <fieldset>
                                     <h2>Collaborateurs</h2> 
                                     <div class="ibox-content">
-                                        <p>
-                                            With chosen select uesr can fase chose from large in select input.
-                                        </p>
                                         <div class="form-group">
                                         <label class="font-noraml">Basic example</label>
-                                        <div class="input-group">
-                                        <select id="chosen" data-placeholder="Choose a Country..." class="chosen-select" multiple style="width:350px;" tabindex="-1">
+                                            <div class="input-group">
+                                        <select id="chosen" data-placeholder="Choose a Country..."  multiple style="width:350px;" tabindex="-1">
                                         <option value="">Select</option>
                                         <option value="United States">United States</option>
                                         <option value="United Kingdom">United Kingdom</option>
@@ -114,6 +88,7 @@
                             
                                         </select>
                                         </div>
+                                           
                                         </div>
                                         </div>
                                 </fieldset>
