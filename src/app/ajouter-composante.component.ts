@@ -40,12 +40,16 @@ export class AjouterComponsanteComponent {
     }
 
     onSubmit(composante){
-        console.log('THEMATIQUE CHOISI '+composante.thematique.intitule)
-        composante.thematique={"idThematique":1,"intitule":"Agriculture","description":"la mise en place d'un système d'irrigation sophistiqué"};
+        console.log('THEMATIQUE CHOISI '+JSON.stringify(composante.thematique));
+        //composante.thematique={"idThematique":1,"intitule":"Agriculture","description":"la mise en place d'un système d'irrigation sophistiqué"};
         composante.projet=this.projet;
         this.projetService.addComposanteToProjet(composante).subscribe(ccc =>{
             if(ccc != null){
-                console.log("Ca passe redirection now !!!!!!!!"+JSON.stringify(ccc));
+                $("#success").show();
+               setTimeout(function() { $("#success").hide(); }, 5000);
+            }else{
+                $("#fail").show();
+               setTimeout(function() { $("#fail").hide(); }, 5000);
             }
         });
     }
