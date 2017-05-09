@@ -41,7 +41,7 @@ export class SupprimerComponsanteComponent {
 
     onSupprimerclick(){
         this.projetService.deleteComposante(this.composante.idComposante).subscribe(
-            ()  => this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['projetDetails',1]}}])
+            ()  => this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['projetDetails',this.idProjet]}}])
         )
     }
 
@@ -49,8 +49,8 @@ export class SupprimerComponsanteComponent {
         this.projetService.getComposanteByComposanteId(idComposante)
         .subscribe(composante => {
             this.composante = composante;
-            this.idProjet=this.composante.idComposante;
-            console.log('FFFFFFFFFFFFFFF'+JSON.stringify(this.composante));
+            this.idProjet=this.composante.projet.idProjet;
+            console.log('FFFFFFFFFFFFFFF'+this.idProjet);
         });
     }
 
