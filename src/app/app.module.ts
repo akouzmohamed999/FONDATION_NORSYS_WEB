@@ -22,6 +22,7 @@ import {ThematiqueComponent} from './thematique.component';
 import {PartenaireComponent} from './partenaire.component';
 import {GestionComposanteComponent} from './gestion-composante.component';
 import {ModifierComponsanteComponent} from './modifier-composante.component';
+import {SupprimerComponsanteComponent} from './supprimer-composante.component';
 import {AjouterComponsanteComponent} from './ajouter-composante.component';
 import {AjouterProjetComponent} from './ajouter-projet.component';
 
@@ -38,7 +39,8 @@ export const routes  : Routes = [
      { path:'gestionComposante/:id',component : GestionComposanteComponent,outlet :'adminHomeRoute'},        
      { path:'ajouterComposante/:id',component : AjouterComponsanteComponent,outlet :'adminHomeRoute'},
      { path:'ajouterProjet',component : AjouterProjetComponent,outlet :'adminHomeRoute'},
-     { path:'modifierComposante/:id',component : ModifierComponsanteComponent,outlet :'adminHomeRoute'}  
+     { path:'modifierComposante/:id',component : ModifierComponsanteComponent,outlet :'adminHomeRoute'},
+     { path:'supprimerComposante/:id',component : SupprimerComponsanteComponent,outlet :'adminHomeRoute'}  
   ]},
 ];
 
@@ -47,7 +49,7 @@ export const routes  : Routes = [
     AppComponent,LoginComponent,AdminHomeComponent,ProjetComponent,ComposanteComponent,
     ActiviteComponent,GestionProjetComponent,StatistiquesComponent,ProjetDetailsComponent,
     CollaborateurComponent,ThematiqueComponent,PartenaireComponent,GestionComposanteComponent,
-    AjouterComponsanteComponent,AjouterProjetComponent,ModifierComponsanteComponent
+    AjouterComponsanteComponent,AjouterProjetComponent,ModifierComponsanteComponent,SupprimerComponsanteComponent
   ],
   imports: [
     BrowserModule,

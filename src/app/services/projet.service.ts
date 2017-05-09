@@ -96,9 +96,7 @@ export class ProjetService {
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
             headers.append("Content-Type","application/json");  
             let options = new RequestOptions({headers: headers});            
-            return this.http.delete(this.APIURL+'/responsable/deleteComposante?idComposante='+idComposante,options)
-            .map(response => response.json()
-            );
+            return this.http.delete(this.APIURL+'/responsable/deleteComposante?idComposante='+idComposante,options);
         }
 
         getAllCollaborateur(){
