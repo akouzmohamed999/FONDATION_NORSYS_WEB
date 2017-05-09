@@ -35,10 +35,11 @@ export class LoginService {
             return this.http.get(this.APIURL+'/collaborateur/loggedUser',{headers:headers})
             .map(response => response.json()).subscribe(
                 data => {
-                    localStorage.setItem("loggedUser", data.Collaborateur.nom+" "+data.Collaborateur.prenom);
+                    localStorage.setItem("loggedUserId", JSON.stringify(data.Collaborateur.idCollaborateur));
+                    localStorage.setItem("loggedUserName", data.Collaborateur.nom+" "+data.Collaborateur.prenom);
                     localStorage.setItem("loggedUserRole", data.Role);
                     if(data.Role=='Administrateur'){
-                        this.router.navigate(['adminHome']);
+                       setTimeout(() => this.router.navigate(['adminHome'])) ;
                              }
                       });
         }
