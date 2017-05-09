@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {FormGroup,FormBuilder} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
+import {Location} from '@angular/common';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from 'jquery';
 
@@ -23,7 +24,7 @@ export class AjouterComponsanteComponent {
     form : FormGroup;
     thematiques;
     projet;
-    constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute){
+    constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router:Router,private _location:Location){
         this.form = formBuilder.group({
             'intitule' : [''],
             'thematique' : ['']
@@ -46,10 +47,11 @@ export class AjouterComponsanteComponent {
         this.projetService.addComposanteToProjet(composante).subscribe(ccc =>{
             if(ccc != null){
                 $("#success").show();
-               setTimeout(function() { $("#success").hide(); }, 5000);
+                setTimeout(function() { $("#success").hide(); }, 3000);
+                 this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['projetDetails',this.id]}}]);
             }else{
                 $("#fail").show();
-               setTimeout(function() { $("#fail").hide(); }, 5000);
+               setTimeout(function() { $("#fail").hide(); }, 3000);
             }
         });
     }
@@ -65,5 +67,8 @@ export class AjouterComponsanteComponent {
             this.thematiques = thematiques;
             console.log(JSON.stringify(this.thematiques));
         })
+    }
+    onAnullerclick(){
+         this._location.back();
     }
 }
