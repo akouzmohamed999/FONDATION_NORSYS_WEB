@@ -81,6 +81,26 @@ export class ProjetService {
            
         }
 
+        updateComposante(composante){
+            let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.put(this.APIURL+'/responsable/updateComposante',composante,options)
+            .map(response => response.json()
+            );
+        }
+
+        deleteComposante(idComposante){
+             let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.delete(this.APIURL+'/responsable/deleteComposante?idComposante='+idComposante,options)
+            .map(response => response.json()
+            );
+        }
+
         getAllCollaborateur(){
            var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
             return this.http.get(this.APIURL+'/responsable/collaborateurs',{headers:headers})

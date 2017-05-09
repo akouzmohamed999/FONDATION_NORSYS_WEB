@@ -1,28 +1,16 @@
- <!-- <div class="container">
-  <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form">
-		<input type="text" class="text" required [formControl]="form.controls['intitule']" value="Intitule de la composante" />
-        <select name="thematique" required [formControl]="form.controls['thematique']">
-                <option value="Education">Education</option>
-                <option value="Agriculture">Agriculture</option>
-                <option value="Santé">Santé</option>
-                <option value="Emploi">Emploi</option>
-         </select>
-		<div class="submit"><input [disabled]="!form.valid" type="submit" value="Creer" /></div>
-	</form>
-  </div>-->
-  <div class="row">
+<div class="row">
                 <div class="col-lg-8 wrapper wrapper-content animated fadeInUp">
                     <div class="panel panel-primary">
                         <div class="ibox-title">
                         </div>
                         <div class="panel-body">                  
-                        <p id="success" class="panel panel-success" style="display:none">Composante ajoutée avec succée</p>
+                        <p id="success" class="panel panel-success" style="display:none">Composante Mise à Jour avec succée</p>
                         <p id="fail" class="panel panel-danger" style="display:none">Une Erreure s'est produite</p>
                             <form id="form" action="#"  (ngSubmit)="onSubmit(form.value)" [formGroup]="form" >  
                                    <h2>Informations générales</h2>
                                    <div class="form-group">
                                        <label class="control-label">Intitule de la composante *</label>
-                                       <input type="text" class="form-control" required [formControl]="form.controls['intitule']" value="Intitule de la composante" />
+                                       <input type="text" class="form-control" required [formControl]="form.controls['intitule']" value="{{composante?.intitule}}" />
                                    </div>
                                     <div class="form-group">
                                        <label class="control-label">Thematique de la composante *</label>
@@ -32,7 +20,7 @@
                                         </select>
                                    </div>
 		                            <div class="clearfix">
-                                        <input [disabled]="!form.valid" type="submit" value="Creer" class="btn btn-primary pull-right"/>
+                                        <input [disabled]="!form.valid" type="submit" value="Modifier" class="btn btn-primary pull-right"/>
                                         <button class="btn btn-primary pull-right"
                                        (click)="onAnullerclick()" >Annuler</button>
                                     </div>
