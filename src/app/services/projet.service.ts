@@ -68,7 +68,35 @@ export class ProjetService {
             .map(response => response.json()
             );
         }
+
+       addActivite(activite){
+            let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.post(this.APIURL+'/responsable/addActivite',activite,options)
+            .map(response => response.json()
+            );
+        }
+
+        updateActivite(activite){
+            let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.put(this.APIURL+'/responsable/updateActivite',activite,options)
+            .map(response => response.json()
+            );
+        }
         
+       deleteActivite(idActivite){
+             let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.delete(this.APIURL+'/responsable/deleteActivite?idActivite='+idActivite,options);
+        }
+
         addComposanteToProjet(composante){
         
             let headers = new Headers();
@@ -78,8 +106,7 @@ export class ProjetService {
             return this.http.post(this.APIURL+'/responsable/addComposante',composante,options)
             .map(response => response.json()
             );
-           
-        }
+          }
 
         updateComposante(composante){
             let headers = new Headers();
@@ -97,6 +124,15 @@ export class ProjetService {
             headers.append("Content-Type","application/json");  
             let options = new RequestOptions({headers: headers});            
             return this.http.delete(this.APIURL+'/responsable/deleteComposante?idComposante='+idComposante,options);
+        }
+
+        addBenificiaire(benificiaire){
+            let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.post(this.APIURL+'/responsable/addBenificiaire',benificiaire,options)
+            .map(response => response.json()
         }
 
         getAllCollaborateur(){
