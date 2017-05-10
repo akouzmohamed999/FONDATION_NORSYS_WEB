@@ -52,12 +52,12 @@ export class ProjetService {
             );
         }
 
-         getThematiqueByComposante(idComposante){
+        /* getThematiqueByComposante(idComposante){
              var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
             return this.http.get(this.APIURL+'/administrateur/thematiqueComposante?idComposante='+idComposante,{headers:headers})
             .map(response => response.json()
             );
-        }
+        }*/
 
         addProjet(projet){
             let headers = new Headers();
@@ -102,6 +102,20 @@ export class ProjetService {
         getAllCollaborateur(){
            var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
             return this.http.get(this.APIURL+'/responsable/collaborateurs',{headers:headers})
+            .map(response => response.json()
+            );
+        }
+
+        getAllResponsables(){
+             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/responsable/responsables',{headers:headers})
+            .map(response => response.json()
+            );
+        }
+
+        getAdministrateurById(idAdministrateur){
+            var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/administrateur/adminById?idAdministrateur='+idAdministrateur,{headers:headers})
             .map(response => response.json()
             );
         }

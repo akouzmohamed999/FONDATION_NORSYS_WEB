@@ -1,9 +1,14 @@
  $(document).ready(function(){
-
-    $.validator.setDefaults({ ignore: ":hidden:not(#chosen)" });
-
    $("#form").steps({
+                headerTag: "h1",
                 bodyTag: "fieldset",
+                transitionEffect: "fade",
+                 labels: {
+                    finish: "Créer Projet",
+                    next: "Suivant",
+                    previous: "Précedent",
+                    cancel: "Annuler"
+                },
                 onStepChanging: function (event, currentIndex, newIndex)
                 {
                     // Always allow going backward even if the current step contains invalid fields!
@@ -29,7 +34,7 @@
                     }
 
                     // Disable validation on fields that are disabled or hidden.
-                    form.validate().settings.ignore = ":disabled,:hidden:not(#chosen)";
+                    form.validate().settings.ignore = ":disabled,:hidden";
 
                     // Start validation; Prevent going forward if false
                     return form.valid();
@@ -39,13 +44,13 @@
                     // Suppress (skip) "Warning" step if the user is old enough.
                     if (currentIndex === 2 && Number($("#age").val()) >= 18)
                     {
-                        $(this).steps("next");
+                        $(this).steps("Suivant");
                     }
 
                     // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
                     if (currentIndex === 2 && priorIndex === 3)
                     {
-                        $(this).steps("previous");
+                        $(this).steps("Précedent");
                     }
                 },
                 onFinishing: function (event, currentIndex)
@@ -54,7 +59,7 @@
 
                     // Disable validation on fields that are disabled.
                     // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
-                    form.validate().settings.ignore = ":disabled:hidden:not(#chosen)";
+                    form.validate().settings.ignore = ":disabled:hidden";
 
                     // Start validation; Prevent form submission if false
                     return form.valid();
@@ -64,7 +69,9 @@
                     var form = $(this);
 
                     // Submit form input
-                    form.submit();
+
+                    console.log('SUBMITING FORM'+form)
+                 $("#test").click();
                 }
                 
             }).validate({
