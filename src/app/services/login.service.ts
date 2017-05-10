@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,NgZone } from '@angular/core';
 import { Http, Headers,RequestOptions} from '@angular/http';
 import {RouterModule,Routes,Router} from '@angular/router';
 import { HttpModule } from '@angular/http';
@@ -10,7 +10,7 @@ export class LoginService {
 
      APIURL = 'http://localhost:8080/fondation';
 
-    constructor(private http: Http,private router:Router){}
+    constructor(private http: Http,private router:Router,private _ngZone:NgZone){}
 
         login(collaborateur){
          
@@ -39,7 +39,9 @@ export class LoginService {
                     localStorage.setItem("loggedUserName", data.Collaborateur.nom+" "+data.Collaborateur.prenom);
                     localStorage.setItem("loggedUserRole", data.Role);
                     if(data.Role=='Administrateur'){
-                       setTimeout(() => this.router.navigate(['adminHome'])) ;
+                        this._ngZone.run(() => {
+                            this.router.navigate(['/adminHome']);     
+                        });
                              }
                       });
         }

@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component,NgZone} from "@angular/core";
 import {FormGroup,FormBuilder} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
@@ -24,7 +24,7 @@ export class AjouterProjetComponent {
     partenaires;
     administrateur;
 
-    constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router : Router){
+    constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router : Router,private _ngZone:NgZone){
         this.form = formBuilder.group({
             'intitule' : [''],
             'description' : [''],
@@ -58,7 +58,7 @@ export class AjouterProjetComponent {
         
         //this.addScripts('assets/js/multi-select.js');
         //this.addScripts('assets/js/wizard.js');
-        this.addScripts('assets/js/date-picker.js');
+        //this.addScripts('assets/js/date-picker.js');
        
   }
 
@@ -87,8 +87,10 @@ export class AjouterProjetComponent {
         projet.administrateur=this.administrateur;
         this.projetService.addProjet(projet).subscribe(projet =>{
             if(projet != null){
+                 this._ngZone.run(() => {
+                          this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['gestionProjets']}}]); 
+                        });
                 console.log("Ca passe redirection now");
-                this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['gestionProjets']}}]);
             }
         });
     }
