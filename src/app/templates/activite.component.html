@@ -1,29 +1,32 @@
-  <div>
-    <h4>{{activite.intitule}}</h4>
-         <div class="col-md-4">
-             <div>
-                    <i class="pull-left fa fa-calendar icon-rounded"></i>
-                      <h4><strong> Date d'activités : {{activite.dateActivite}}</strong></h4>
-            </div>
-             <div>
-                    <i class="pull-left fa fa-chain icon-rounded"></i>
-                      <h4><strong>Duree d'activités : {{activite.dureeActivite}}</strong></h4>
-            </div>
-             <div>
-                    <i class="pull-left fa fa-dashboard icon-rounded"></i>
-                      <h4><strong>Etat d'activités : {{activite.etat}}</strong></h4>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <h4>Annimateur Terrain</h4>
-            <collaborateur  [collaborateur]="activite.animateurTerrain"></collaborateur>
-         </div>
-         <div class="col-md-3">
-            <h4>Liste des collaborateurs</h4>
-            <collaborateur *ngFor="let collaborateur of activite.collaborateurs" [collaborateur]="collaborateur"></collaborateur>
-         </div>
-         <div class="col-md-2">
-            <a class="btn btn-white btn-sm "><i class="fa fa-pencil"></i> Modifier </a>
-            <a class="btn btn-white btn-sm "><i class="fa fa-remove"></i> Supprimer </a>
-         </div>
-  </div>
+   <div class="ibox-content">
+                            <div class="project-list">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Intitulé d'activité</th>
+                                            <th>Date d'activité</th>
+                                            <th>Annimateur Terrain</th>
+                                        </tr>
+                                  </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="project-status">
+                                            {{activite.intitule}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{activite.dateActivite}}
+                                        </td>
+                                       
+                                        <td class="project-title">
+                                           {{activite.animateurTerrain.prenom}} {{activite.animateurTerrain.nom}}
+                                        </td>
+                                        <td class="project-actions">
+                                      
+                                         <a  class="btn btn-white btn-sm "   [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['activiteDetails',activite.idActivite]}}]" ><i class="fa fa-dashboard"></i> Details </a>
+                                        </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+ 

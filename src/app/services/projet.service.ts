@@ -127,6 +127,13 @@ export class ProjetService {
             );
         }
 
+        getActiviteById(idActivite){
+             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/collaborateur/activiteById?idActivite='+idActivite,{headers:headers})
+            .map(response => response.json()
+            );
+        }
+
         getAllThematiques(){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
             return this.http.get(this.APIURL+'/responsable/thematiques',{headers:headers})
