@@ -5,7 +5,7 @@ import * as $ from "jquery";
 
 @Component({
   selector: 'gestion-contact',
-  templateUrl: './templates/gestion-contact.component.html',
+  templateUrl: './templates/liste-partenaires.component.html',
   styleUrls : ['../assets/css/bootstrap.min.css',
                 '../assets/font-awesome/css/font-awesome.css',
                 '../assets/css/plugins/iCheck/custom.css',
@@ -15,7 +15,7 @@ import * as $ from "jquery";
   
 })
 
-export class GestionContactComponent {
+export class ListePartenairesComponent {
 
   partenaires;
   constructor(private projetService: ProjetService,private router : Router) { }

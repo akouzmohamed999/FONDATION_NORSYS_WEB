@@ -1,0 +1,35 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+            <div class="pull-right" >
+                 <a  [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterPartenaire']}}]"
+                 class="btn btn-primary btn-xs pull-right"><i class="fa fa-plus"></i>Ajouter Un Partenaire </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let partenaire of partenaires">
+                <div class="contact-box">
+         
+                    <div class="col-sm-3">
+                        <div class="text-center">
+                            <img alt="image" class="img-circle m-t-xs img-responsive" src="assets/img/a2.jpg">
+                            <div class="m-t-xs font-bold"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h3><strong>{{partenaire.nom}}</strong></h3>
+                        <p><i class="fa fa-bookmark"></i><strong> : {{partenaire.type}}</strong></p>
+                        <p><i class="fa fa-map-marker"></i><strong> : {{partenaire.adresse}}</strong></p>
+                        <p><i class="fa fa-at"></i><strong> : {{partenaire.email}}</strong></p>
+                        <p><i class="fa fa-phone"></i><strong> : {{partenaire.numeroTelephone}}</strong></p>
+                    </div>
+                    <div class="col-sm-3">
+                        <button [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierPartenaire',partenaire.idPartenaire]}}]"
+                        class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></button>
+                        <button [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterPartenaire']}}]"
+                        class="btn btn-primary btn-xs"><i class="fa fa-trash"></i></button>
+                    </div>
+                    <div class="clearfix"></div>  
+                </div>
+            </div>
+        </div>
+        </div>

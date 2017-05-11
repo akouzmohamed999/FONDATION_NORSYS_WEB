@@ -31,12 +31,22 @@
                             </div>
                             <div class="row">
                                 <div class="clearfix pull-right">
-                                    <a *ngIf="composante?.idComposante != null" [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierComposante',composante?.idComposante]}}]" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>Modifier </a>
-                                    <a *ngIf="composante?.idComposante != null" [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['supprimerComposante',composante?.idComposante]}}]" class="btn btn-danger btn-xs"><i class="fa fa-remove"></i>Supprimer</a>
 
+                                    <a *ngIf="composante?.idComposante != null" 
+                                    [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierComposante',composante?.idComposante]}}]" class="btn btn-primary btn-xs">
+                                    <i class="fa fa-edit"></i>Modifier </a>
+                                    <a *ngIf="composante?.idComposante != null" [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['supprimerComposante',composante?.idComposante]}}]" class="btn btn-danger btn-xs"><i class="fa fa-remove"></i>Supprimer</a>
                                 </div>
                             </div>
+                       
                           <h3><i>Liste des activites</i></h3>
+                          <div class="row">
+                                <div class="clearfix pull-right">
+                           <a class="btn btn-white btn-sm" *ngIf="composante?.idComposante != null"
+                            [routerLink]="['/adminHome', {outlets: {'adminHomeRoute':['ajouterActivite',composante?.idComposante]}}]">
+                           <i class="fa fa-plus"></i> Ajouter une Activité </a>
+                                </div>
+                        </div>
                           <table class="table table-hover table-striped">
                             <tbody>
                             <tr *ngFor="let activite of activities">
