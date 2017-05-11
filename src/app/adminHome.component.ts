@@ -34,8 +34,8 @@ export class AdminHomeComponent {
     }  
     else
       localStorage.removeItem('firstLoad');
-  }
-  
+  } 
+
     this.collaborateur=localStorage.getItem("loggedUserName");
     this.role=localStorage.getItem("loggedUserRole");
 
