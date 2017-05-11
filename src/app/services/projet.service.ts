@@ -212,4 +212,32 @@ export class ProjetService {
             .map(response => response.json()
             );
         }
+
+        addCollaborateur(collaborateur){
+            let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.post(this.APIURL+'//administrateur/AddCollaborateur',collaborateur,options)
+            .map(response => response.json()
+            );
+        }
+
+        updateCollaborateur(collaborateur){
+            let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.put(this.APIURL+'/administrateur/updateCollaborateur',collaborateur,options)
+            .map(response => response.json()
+            );
+        }
+        
+       deleteCollaborateur(idCollaborateur){
+             let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.delete(this.APIURL+'/administrateur/DeleteCollaborateur?idCollaborateur='+idCollaborateur,options);
+        }
 }

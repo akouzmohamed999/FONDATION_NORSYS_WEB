@@ -47,10 +47,8 @@
                     <li>
                         <a href="mailbox.html"><i class="fa fa-user"></i> <span class="nav-label">Gestion des Ressource Humaines </span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="mailbox.html">Inbox</a></li>
-                            <li><a href="mail_detail.html">Email view</a></li>
-                            <li><a href="mail_compose.html">Compose email</a></li>
-                            <li><a href="email_template.html">Email templates</a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]">Liste des Ressource Humaines</a></li>
+                            <li><a href="mail_detail.html">Ajouter Une Ressource</a></li>
                         </ul>
                     </li>
                      <li>
