@@ -29,7 +29,7 @@
                                        <input type="text" class="form-control" required [formControl]="form.controls['numeroTelephone']" value="{{partenaire?.numeroTelephone}}"/>
                                    </div>
 		                            <div class="clearfix pull-right">
-                                        <input [disabled]="!form.valid" type="submit" value="Valider" class="btn btn-primary"/>
+                                        <input type="submit" value="Valider" class="btn btn-primary"/>
                                         <button class="btn btn-primary"
                                        (click)="onAnullerclick()" >Annuler</button>
                                     </div>

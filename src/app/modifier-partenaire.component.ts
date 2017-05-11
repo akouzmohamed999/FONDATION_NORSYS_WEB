@@ -45,13 +45,13 @@ export class ModifierPartenaireComponent {
 
     onSubmit(partenaire){
         this.partenaire.nom=partenaire.nom;
-        this.partenaire.nom=partenaire.type;
-        this.partenaire.nom=partenaire.adresse;
-        this.partenaire.nom=partenaire.email;
-        this.partenaire.nom=partenaire.numeroTelephone;
+        this.partenaire.type=partenaire.type;
+        this.partenaire.adresse=partenaire.adresse;
+        this.partenaire.email=partenaire.email;
+        this.partenaire.numeroTelephone=partenaire.numeroTelephone;
         console.log('RRRRRRRRRRR'+JSON.stringify(this.partenaire));
 
-        this.projetService.updatePartenaire(partenaire).subscribe(partenaire =>{
+        this.projetService.updatePartenaire(this.partenaire).subscribe(partenaire =>{
             if(partenaire != null){
                  this._ngZone.run(() => {
                           this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['listePartenaire']}}]); 
@@ -69,6 +69,7 @@ export class ModifierPartenaireComponent {
         this.projetService.getPartenaireById(idPartenaire).subscribe(partenaire =>
         {
             this.partenaire=partenaire;
+            console.log('partenaire : '+JSON.stringify(this.partenaire));
         })
     }
 }
