@@ -29,4 +29,10 @@ export class ListePartenairesComponent {
       this.partenaires = partenaires;
     });
   }
+
+  onDeleteClick(){
+    console.log('CLICK RECEIVED');
+    $('#myModal').hide();
+     this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['listePartenaire']}}]);   
+  }
 }

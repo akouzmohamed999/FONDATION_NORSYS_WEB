@@ -156,12 +156,12 @@ export class ProjetService {
             );
         }
 
-        removePartenaire(idPartenaire){
+        deletePartenaire(idPartenaire){
             let headers = new Headers();
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
             headers.append("Content-Type","application/json");  
             let options = new RequestOptions({headers: headers});            
-            return this.http.delete(this.APIURL+'/responsable/deletePartenaire?idPartenaire='+idPartenaire,options);
+            return this.http.delete(this.APIURL+'/administrateur/deletePartenaire?idPartenaire='+idPartenaire,options);
         }
 
         getPartenaireById(idPartenaire){
