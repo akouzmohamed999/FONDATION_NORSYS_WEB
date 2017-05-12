@@ -3,9 +3,20 @@
                 <div class="wrapper wrapper-content animated fadeInUp">
                     <div class="ibox">
                     <div class="ibox-content">
+                       
                         <div class="col-lg-6"><h2>Détails de l'activité</h2></div>
                             <div class="project-list">
+                                
                                 <table class="table table-hover">
+                                     <div class="row">
+                                <div class="clearfix pull-right">
+                                    <a *ngIf="activite?.idActivite != null" 
+                                    [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierActivite',activite?.idActivite]}}]" class="btn btn-primary btn-xs">
+                                    <i class="fa fa-edit"></i>Modifier </a>
+                                    <!--<a *ngIf="activité?.idActivite != null" [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['supprimerActivite',activite?.idActivite]}}]" class="btn btn-danger btn-xs">
+                                    <i class="fa fa-remove"></i>Supprimer</a>-->
+                                </div>
+                            </div>
                                     <thead>
                                         <tr>
                                             <th>Intitulé d'activité</th>

@@ -1,0 +1,65 @@
+<div class="row">
+                <div class="col-lg-8 wrapper wrapper-content animated fadeInUp">
+                    <div class="panel panel-primary">
+                        <div class="ibox-title">
+                        </div>
+                        <div class="panel-body">                  
+                        <p id="success" class="panel panel-success" style="display:none">Activite Mise à Jour avec succée</p>
+                        <p id="fail" class="panel panel-danger" style="display:none">Une Erreure s'est produite</p>
+                            <form id="form" action="#"  (ngSubmit)="onSubmit(form.value)" [formGroup]="form" >  
+                                   <h2>L'Activite</h2>
+                                   <div class="form-group">
+                                       <label class="control-label">Intitule*</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['intitule']" value="{{activite?.intitule}}" />
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">Date d'activite*</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['intitule']" value="{{activite?.dateActivite}}" />
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">Durée*</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['intitule']" value="{{activite?.dureeActivite}}" />
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">Etat*</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['intitule']" value="{{activite?.etat}}" />
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">Lieu*</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['intitule']" value="{{activite?.lieu}}" />
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">Animateur de Terrain*</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['intitule']" value="{{activite?.animateurTerrain}}" />
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">Composante*</label>
+                                       <select name="composante" class="form-control" required [formControl]="form.controls['composante']">
+                                          <option *ngFor="let composante of composantes" [ngValue]="composante" class="form-control"
+                                          >{{activite.intitule}}</option>
+                                        </select>
+                                   </div>
+                                    <div class="form-group">
+                                       <label class="control-label">Collaborateur*</label>
+                                       <select name="collaborateur" class="form-control" required [formControl]="form.controls['collaborateur']">
+                                          <option *ngFor="let collaborateur of collaborateurs" [ngValue]="thematique" class="form-control"
+                                          >{{thematique.intitule}}</option>
+                                        </select>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">Benificiaire*</label>
+                                       <select name="benificiaire" class="form-control" required [formControl]="form.controls['benificiaire']">
+                                          <option *ngFor="let benificiaire of benificiaires" [ngValue]="benificiaire" class="form-control"
+                                          >{{benificiaire.intitule}}</option>
+                                        </select>
+                                   </div>
+		                            <div class="clearfix pull-right">
+                                        <input [disabled]="!form.valid" type="submit" value="Modifier" class="btn btn-primary"/>
+                                        <button class="btn btn-primary"
+                                       (click)="onAnullerclick()" >Annuler</button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>

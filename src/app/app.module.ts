@@ -35,6 +35,7 @@ import {ListeCollaborateurComponent} from './liste-Rh.component';
 // import {AjouterCollaborateurComponent} from './ajouter-Rh.component';
 // import {ModifierCollaborateurComponent} from './modifier-Rh.component';
 // import {SupprimerCollaborateurComponent} from './supprimer-Rh.component';
+import {ModifierActiviteComponent} from './modifier-activite.component';
 
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
@@ -58,6 +59,7 @@ export const routes  : Routes = [
      { path:'modifierPartenaire/:id',component :ModifierPartenaireComponent,outlet :'adminHomeRoute'},
      { path:'deletePartenaire/:id',component :SupprimerPartenaireComponent,outlet :'deletePartenaireRoute'},
      { path:'listeCollaborateur',component :ListeCollaborateurComponent,outlet :'adminHomeRoute'},
+     { path:'modifierActivite/:id',component :ModifierActiviteComponent,outlet :'adminHomeRoute'},
   ]},
 ];
 
@@ -68,7 +70,7 @@ export const routes  : Routes = [
     CollaborateurComponent,ThematiqueComponent,PartenaireComponent,GestionComposanteComponent,
     AjouterComponsanteComponent,AjouterProjetComponent,ModifierComponsanteComponent,SupprimerComponsanteComponent,
     ActiviteDetailsComponent,AjouterActiviteComponent,ListePartenairesComponent,AjouterPartenaireComponent,ModifierPartenaireComponent,
-    SupprimerPartenaireComponent,ListeCollaborateurComponent
+    SupprimerPartenaireComponent,ListeCollaborateurComponent,ModifierActiviteComponent
   ],
   imports: [
     BrowserModule,
