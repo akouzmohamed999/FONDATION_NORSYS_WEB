@@ -247,4 +247,12 @@ export class ProjetService {
             let options = new RequestOptions({headers: headers});            
             return this.http.delete(this.APIURL+'/administrateur/DeleteCollaborateur?idCollaborateur='+idCollaborateur,options);
         }
+
+        getEtatActivite(){
+             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/responsable/activite',{headers:headers})
+            .map(response => response.json()
+            );
+              }
+       
 }

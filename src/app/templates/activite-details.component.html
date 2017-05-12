@@ -10,8 +10,9 @@
                                     <a *ngIf="activiteDetails?.idActivite != null" 
                                     [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierActivite',activiteDetails?.idActivite]}}]" class="btn btn-primary btn-xs">
                                     <i class="fa fa-edit"></i>Modifier </a>
-                                    <!--<a *ngIf="activité?.idActivite != null" [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['supprimerActivite',activite?.idActivite]}}]" class="btn btn-danger btn-xs">
-                                    <i class="fa fa-remove"></i>Supprimer</a>-->
+                                    <a *ngIf="activite?.idActivite != null" [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['supprimerActivite',activite?.idActivite]}}]"
+                                     class="btn btn-danger btn-xs">
+                                    <i class="fa fa-remove"></i>Supprimer</a>
                                 </div>
                             </div>
                             <div class="project-list">

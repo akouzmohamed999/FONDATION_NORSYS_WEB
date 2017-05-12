@@ -20,11 +20,13 @@ import * as $ from 'jquery'
 
 export class ModifierActiviteComponent {
 
-
     id;
     sub;
     form : FormGroup;
-    activite;
+    activiteDetails;
+    collaborateurs;
+    benificiaires;
+    composante;
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router:Router,private _location:Location,private _ngZone:NgZone){
         this.form = formBuilder.group({
             'intitule' : [''],
@@ -33,7 +35,7 @@ export class ModifierActiviteComponent {
             'etat' : [''],
             'lieu' : [''],
             'animateurTerrain' : [''],
-            'composante' : [''],
+            'collaborateurs' : [''],
             'benificiaires' : ['']
         })
     }
@@ -43,23 +45,24 @@ export class ModifierActiviteComponent {
         this.id= +params['id'];
         });
     this.getActiviteById(this.id);
+    this.getAllCollaborateurs();
+    this.getAllBenificiaire();
     }
 
     onSubmit(activite){
-        this.activite.intitule=activite.intitule;
-        this.activite.dateActivite=activite.dateActivite;
-        this.activite.dureeActivite=activite.dureeActivite;
-        this.activite.etat=activite.etat;
-        this.activite.lieu=activite.lieu;
-        this.activite.animateurTerrain=activite.animateurTerrain;
-        this.activite.composante=activite.composante;
-        this.activite.benificiaires=activite.benificiaires;
-        console.log('RRRRRRRRRRR'+JSON.stringify(this.activite));
+        this.activiteDetails.intitule=activite.intitule;
+        this.activiteDetails.dateActivite=activite.dateActivite;
+        this.activiteDetails.dureeActivite=activite.dureeActivite;
+        this.activiteDetails.etat=activite.etat;
+        this.activiteDetails.lieu=activite.lieu;
+        this.activiteDetails.animateurTerrain=activite.animateurTerrain;
+        this.activiteDetails.composante=activite.composante;
+        this.activiteDetails.benificiaires=activite.benificiaires;
 
-        this.projetService.updateActivite(this.activite).subscribe(activite =>{
+        this.projetService.updateActivite(this.activiteDetails).subscribe(activite =>{
             if(activite != null){
                  this._ngZone.run(() => {
-                          this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['listeActivite']}}]); 
+                          this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['activiteDetails',this.activiteDetails.idActivite]}}]); 
                         });
                 console.log("Ca passe redirection now");
             }
@@ -73,8 +76,29 @@ export class ModifierActiviteComponent {
     getActiviteById(idActivite){
         this.projetService.getActiviteById(idActivite).subscribe(activite =>
         {
-            this.activite=activite;
-            console.log('activite : '+JSON.stringify(this.activite));
+            this.activiteDetails=activite;
+            this.getComposanteByIdComposante(this.activiteDetails.composante.idComposante);
+        })
+    }
+
+    getAllCollaborateurs(){
+        this.projetService.getAllCollaborateur().subscribe( collaborateurs => {
+            this.collaborateurs=collaborateurs;
+        })
+    }
+
+
+    getAllBenificiaire(){
+        this.projetService.getAllBenificiaires().subscribe(
+            benificiaires => {
+                this.benificiaires = benificiaires;
+               // console.log('FFFFFFFFFFFFFFFFFFFFFF'+JSON.stringify(benificiaires));
+            }
+        )
+    }
+    getComposanteByIdComposante(idComposante){
+        this.projetService.getComposanteByComposanteId(idComposante).subscribe(composante => {
+            this.composante=composante;
         })
     }
 }
