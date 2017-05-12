@@ -1,0 +1,81 @@
+
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/assets/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/assets/css/plugins/steps/jquery.steps.css" rel="stylesheet"> 
+    <link href="/assets/css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link href="/assets/css/plugins/nouslider/jquery.nouislider.css" rel="stylesheet">
+    <link href="/assets/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="/assets/css/animate.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">        
+    
+
+                        <div class="ibox-content">                  
+
+                            <form id="form" action="#" class="wizard-big" (ngSubmit)="onSubmit(form.value)" [formGroup]="form">  
+                                <h1>Informations générales</h1>
+                                <fieldset>
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <div class="form-group">
+                                                <label>Nom *</label>
+                                                <input type="text"  required [formControl]="form.controls['nom']" class="form-control required"
+                                                 value="{{benificiaire?.nom}}"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Prenom *</label>
+                                                <input type="text" required [formControl]="form.controls['prenom']" class="form-control required"
+                                                value="{{benificiaire?.prenom}}" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>CIN *</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" required [formControl]="form.controls['CIN']"
+                                                    value="{{benificiaire?.cin}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>L'age *</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control required" required [formControl]="form.controls['age']"
+                                                    value="{{benificiaire?.age}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Numéro Téléphone *</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control required" required [formControl]="form.controls['numeroTelephone']"
+                                                    value="{{benificiaire?.numeroTelephone}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Pays *</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control required" required [formControl]="form.controls['pays']"
+                                                    value="{{benificiaire?.pays}}">
+                                                </div>
+                                            </div>
+                                             <div class="form-group">
+                                                <label>Ville *</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control required" required [formControl]="form.controls['ville']"
+                                                    value="{{benificiaire?.ville}}">
+                                                </div>
+                                            </div> <div class="form-group">
+                                                <label>Adresse *</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control required" required [formControl]="form.controls['adresse']"
+                                                    value="{{benificiaire?.adresse}}">
+                                                </div>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group pull-right">
+                                        <input type="submit" value="Valider" class="btn btn-primary" id="test"/>
+                                        <button class="btn btn-primary" id="test">Annuler</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>

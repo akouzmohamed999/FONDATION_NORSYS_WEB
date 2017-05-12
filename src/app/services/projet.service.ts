@@ -178,6 +178,31 @@ export class ProjetService {
             );
         }
 
+        getBenificiaireById(idBenificiaire){
+             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/responsable/findBenificiaire?idBenificiaire='+idBenificiaire,{headers:headers})
+            .map(response => response.json()
+            );
+        }
+
+        updateBenificiaire(benificiaire){
+            let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.put(this.APIURL+'/responsable/updateBenificiaire',benificiaire,options)
+            .map(response => response.json()
+            );
+        }
+
+        deleteBenificiaire(idBenificiaire){
+             let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.delete(this.APIURL+'/responsable/deleteBenificiaires?idBenificiaire='+idBenificiaire,options);
+        }
+
         getAllCollaborateur(){
            var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
             return this.http.get(this.APIURL+'/responsable/collaborateurs',{headers:headers})
@@ -205,7 +230,7 @@ export class ProjetService {
             .map(response => response.json()
             );
         }
-
+        
         getActiviteById(idActivite){
              var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
             return this.http.get(this.APIURL+'/collaborateur/activiteById?idActivite='+idActivite,{headers:headers})
