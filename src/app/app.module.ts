@@ -27,6 +27,7 @@ import {AjouterComponsanteComponent} from './ajouter-composante.component';
 import {AjouterProjetComponent} from './ajouter-projet.component';
 import {ActiviteDetailsComponent} from './activite-details.component';
 import {AjouterActiviteComponent} from './ajouter-activite.component';
+import {AjouterBenificiaireActiviteComponent} from './ajouter-benificiaire-activite.component';
 import {ListePartenairesComponent} from './liste-partenaires.component';
 import {AjouterPartenaireComponent} from './ajouter-partenaire.component';
 import {ModifierPartenaireComponent} from './modifier-partenaire.component';
@@ -70,7 +71,7 @@ export const routes  : Routes = [
     CollaborateurComponent,ThematiqueComponent,PartenaireComponent,GestionComposanteComponent,
     AjouterComponsanteComponent,AjouterProjetComponent,ModifierComponsanteComponent,SupprimerComponsanteComponent,
     ActiviteDetailsComponent,AjouterActiviteComponent,ListePartenairesComponent,AjouterPartenaireComponent,ModifierPartenaireComponent,
-    SupprimerPartenaireComponent,ListeCollaborateurComponent,ModifierActiviteComponent
+    SupprimerPartenaireComponent,ListeCollaborateurComponent,ModifierActiviteComponent,AjouterBenificiaireActiviteComponent
   ],
   imports: [
     BrowserModule,

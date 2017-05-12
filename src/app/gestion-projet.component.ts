@@ -24,9 +24,11 @@ export class GestionProjetComponent {
     this.getAdministrateurProjects();
   }
 
+
   getAdministrateurProjects() {
     this.projetService.getAdminProjets().subscribe(projets => {
       this.projets = projets;
+      
     });
   }
 }

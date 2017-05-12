@@ -24,8 +24,21 @@ export class AdminHomeComponent {
   role;
 
   ngOnInit(){
+
+     if( window.localStorage )
+  {
+    if( !localStorage.getItem('firstLoad') )
+    {
+      localStorage['firstLoad'] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem('firstLoad');
+  } 
+
     this.collaborateur=localStorage.getItem("loggedUserName");
     this.role=localStorage.getItem("loggedUserRole");
+
   }
 
   addScripts(chemin){

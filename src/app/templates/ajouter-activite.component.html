@@ -48,10 +48,30 @@
                                                 [ngValue]="collaborateur" >{{collaborateur.prenom}} {{collaborateur.nom}}</option>                            
                                             </select>
                                             </div>
+
+                                             <div class="form-group">
+                                                <label>Bénificiaires *</label>
+                                              <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['benificiaires']">
+                                                <option *ngFor="let benificiaire of benificiaires" 
+                                                [ngValue]="benificiaire" >{{benificiaire.prenom}} {{benificiaires.nom}}</option>                            
+                                            </select>
+                                            </div>
                                             
 
                                             <div class="input_fields_wrap">
-                                                <button id="addBenificiaire" class="btn btn-primary" (click)="onAddBenificiaire()">Ajouter Beneficiaires</button>
+                                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                                                    <i class="fa fa-plus"></i>Ajouter Beneficiaires</button>
+                                                
+
+                                                <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                        <div class="modal-content animated bounceInRight">
+                                                        
+                                                        <ajouter-benificiaire-activite (added)="onAddedClick()" ></ajouter-benificiaire-activite>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                             </div>
 
                                             <!--<div class="form-group">

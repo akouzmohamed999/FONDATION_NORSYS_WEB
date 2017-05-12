@@ -126,6 +126,13 @@ export class ProjetService {
             return this.http.delete(this.APIURL+'/responsable/deleteComposante?idComposante='+idComposante,options);
         }
 
+        getAllBenificiaires(){
+            var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/responsable/benificiaires',{headers:headers})
+            .map(response => response.json()
+            );
+        }
+
         addBenificiaire(benificiaire){
             let headers = new Headers();
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
