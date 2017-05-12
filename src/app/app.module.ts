@@ -27,17 +27,17 @@ import {AjouterComponsanteComponent} from './ajouter-composante.component';
 import {AjouterProjetComponent} from './ajouter-projet.component';
 import {ActiviteDetailsComponent} from './activite-details.component';
 import {AjouterActiviteComponent} from './ajouter-activite.component';
+import {SupprimerActiviteComponent} from './supprimer-activite.component';
 import {AjouterBenificiaireActiviteComponent} from './ajouter-benificiaire-activite.component';
 import {ListePartenairesComponent} from './liste-partenaires.component';
 import {AjouterPartenaireComponent} from './ajouter-partenaire.component';
 import {ModifierPartenaireComponent} from './modifier-partenaire.component';
 import {SupprimerPartenaireComponent} from './supprimer-partenaire.component';
 import {ListeCollaborateurComponent} from './liste-Rh.component';
-// import {AjouterCollaborateurComponent} from './ajouter-Rh.component';
-// import {ModifierCollaborateurComponent} from './modifier-Rh.component';
-// import {SupprimerCollaborateurComponent} from './supprimer-Rh.component';
 import {ModifierActiviteComponent} from './modifier-activite.component';
-import {SupprimerActiviteComponent} from './supprimer-activite.component';
+import {ListeBenificiairesComponent} from './liste-benificiaires.component';
+import{ModifierBenificiaireActiviteComponent} from './modifier-benificiaire.comonent';
+import {SupprimerBenificiaireComponent} from './supprimer-benificiaire.component';
 
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
@@ -62,7 +62,8 @@ export const routes  : Routes = [
      { path:'deletePartenaire/:id',component :SupprimerPartenaireComponent,outlet :'deletePartenaireRoute'},
      { path:'listeCollaborateur',component :ListeCollaborateurComponent,outlet :'adminHomeRoute'},
      { path:'modifierActivite/:id',component :ModifierActiviteComponent,outlet :'adminHomeRoute'},
-      { path:'deleteActivite/:id',component :SupprimerActiviteComponent,outlet :'adminHomeRoute'},
+     { path:'listeBenificiaire',component :ListeBenificiairesComponent,outlet :'adminHomeRoute'},
+     { path:'modifierBenificiaire/:id',component :ModifierBenificiaireActiviteComponent,outlet :'adminHomeRoute'},
   ]},
 ];
 
@@ -73,7 +74,8 @@ export const routes  : Routes = [
     CollaborateurComponent,ThematiqueComponent,PartenaireComponent,GestionComposanteComponent,
     AjouterComponsanteComponent,AjouterProjetComponent,ModifierComponsanteComponent,SupprimerComponsanteComponent,
     ActiviteDetailsComponent,AjouterActiviteComponent,ListePartenairesComponent,AjouterPartenaireComponent,ModifierPartenaireComponent,
-    SupprimerPartenaireComponent,ListeCollaborateurComponent,ModifierActiviteComponent,AjouterBenificiaireActiviteComponent,SupprimerActiviteComponent
+    SupprimerPartenaireComponent,ListeCollaborateurComponent,ModifierActiviteComponent,AjouterBenificiaireActiviteComponent,SupprimerActiviteComponent,
+    ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent
   ],
   imports: [
     BrowserModule,

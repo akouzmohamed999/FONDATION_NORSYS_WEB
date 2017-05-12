@@ -55,7 +55,7 @@
                         <a href="mailbox.html"><i class="fa fa-phone"></i> <span class="nav-label">Gestion des Contacts</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listePartenaire']}}]">Liste des Partenaires</a></li>
-                            <li><a href="mail_detail.html">Liste des Bénificiaires</a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeBenificiaire']}}]">Liste des Bénificiaires</a></li>
                         </ul>
                     </li>
                     <li>

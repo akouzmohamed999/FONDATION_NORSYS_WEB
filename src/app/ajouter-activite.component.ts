@@ -46,7 +46,7 @@ ngOnInit(){
 onSubmit(activite){
        
        activite.composante=this.composante;
-       console.log('ACTIVITE A AJOUTE : '+activite);
+       console.log('ACTIVITE A AJOUTE : '+JSON.stringify(activite));
         this.projetService.addActivite(activite).subscribe(activite =>{
             if(activite != null){
                  this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['gestionComposante',this.composante.idComposante]}}]); 

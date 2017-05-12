@@ -10,9 +10,21 @@
                                     <a *ngIf="activiteDetails?.idActivite != null" 
                                     [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierActivite',activiteDetails?.idActivite]}}]" class="btn btn-primary btn-xs">
                                     <i class="fa fa-edit"></i>Modifier </a>
-                                    <a *ngIf="activite?.idActivite != null" [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['supprimerActivite',activite?.idActivite]}}]"
-                                     class="btn btn-danger btn-xs">
-                                    <i class="fa fa-remove"></i>Supprimer</a>
+
+                                      <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal">Supprimer
+                                        </button>
+                        
+
+                         <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content animated bounceInRight">
+                                   
+                                <supprimer-activite  [activite]="activiteDetails"></supprimer-activite>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
                                 </div>
                             </div>
                             <div class="project-list">

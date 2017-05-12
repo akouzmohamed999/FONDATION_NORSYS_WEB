@@ -10,23 +10,28 @@
                                    <h2>Informations générales</h2>
                                    <div class="form-group">
                                        <label class="control-label">Nom *</label>
-                                       <input type="text" class="form-control" required [formControl]="form.controls['nom']" value="{{partenaire?.nom}}"/>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['nom']" 
+                                       [value]="partenaire?.nom" value="{{partenaire?.nom}}"/>
                                    </div>
                                    <div class="form-group">
                                        <label class="control-label">Type *</label>
-                                       <input type="text" class="form-control" required [formControl]="form.controls['type']" value="{{partenaire?.type}}"/>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['type']" 
+                                       [value]="partenaire?.type" value="{{partenaire?.type}}"/>
                                    </div>
                                    <div class="form-group">
                                        <label class="control-label">Adresse *</label>
-                                       <input type="text" class="form-control" required [formControl]="form.controls['adresse']" value="{{partenaire?.adresse}}"/>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['adresse']"
+                                       [value]="partenaire?.adresse" value="{{partenaire?.adresse}}"/>
                                    </div>
                                    <div class="form-group">
                                        <label class="control-label">Email *</label>
-                                       <input type="text" class="form-control" required [formControl]="form.controls['email']" value="{{partenaire?.email}}"/>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['email']" 
+                                       [value]="partenaire?.email" value="{{partenaire?.email}}"/>
                                    </div>
                                    <div class="form-group">
                                        <label class="control-label">Numéro de Téléphone *</label>
-                                       <input type="text" class="form-control" required [formControl]="form.controls['numeroTelephone']" value="{{partenaire?.numeroTelephone}}"/>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['numeroTelephone']" 
+                                       [value]="partenaire?.numeroTelephone" value="{{partenaire?.numeroTelephone}}"/>
                                    </div>
 		                            <div class="clearfix pull-right">
                                         <input type="submit" value="Valider" class="btn btn-primary"/>

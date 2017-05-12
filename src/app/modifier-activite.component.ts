@@ -58,6 +58,7 @@ export class ModifierActiviteComponent {
         this.activiteDetails.animateurTerrain=activite.animateurTerrain;
         this.activiteDetails.composante=activite.composante;
         this.activiteDetails.benificiaires=activite.benificiaires;
+        this.activiteDetails.collaborateurs=activite.collaborateurs;
 
         this.projetService.updateActivite(this.activiteDetails).subscribe(activite =>{
             if(activite != null){
