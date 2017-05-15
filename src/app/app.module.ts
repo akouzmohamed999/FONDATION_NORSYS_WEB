@@ -38,6 +38,7 @@ import {ModifierActiviteComponent} from './modifier-activite.component';
 import {ListeBenificiairesComponent} from './liste-benificiaires.component';
 import{ModifierBenificiaireActiviteComponent} from './modifier-benificiaire.comonent';
 import {SupprimerBenificiaireComponent} from './supprimer-benificiaire.component';
+import {AjouterRapportComponent} from './ajouter-rapport.component';
 
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
@@ -64,6 +65,7 @@ export const routes  : Routes = [
      { path:'modifierActivite/:id',component :ModifierActiviteComponent,outlet :'adminHomeRoute'},
      { path:'listeBenificiaire',component :ListeBenificiairesComponent,outlet :'adminHomeRoute'},
      { path:'modifierBenificiaire/:id',component :ModifierBenificiaireActiviteComponent,outlet :'adminHomeRoute'},
+     { path:'ajouterRapport',component :AjouterRapportComponent,outlet :'adminHomeRoute'},
   ]},
 ];
 
@@ -75,7 +77,7 @@ export const routes  : Routes = [
     AjouterComponsanteComponent,AjouterProjetComponent,ModifierComponsanteComponent,SupprimerComponsanteComponent,
     ActiviteDetailsComponent,AjouterActiviteComponent,ListePartenairesComponent,AjouterPartenaireComponent,ModifierPartenaireComponent,
     SupprimerPartenaireComponent,ListeCollaborateurComponent,ModifierActiviteComponent,AjouterBenificiaireActiviteComponent,SupprimerActiviteComponent,
-    ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent
+    ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent,AjouterRapportComponent
   ],
   imports: [
     BrowserModule,

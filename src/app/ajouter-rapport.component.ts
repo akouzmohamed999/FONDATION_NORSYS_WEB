@@ -5,8 +5,8 @@ import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from 'jquery'
 
 @Component({
-    selector : 'ajouter-composante',
-    templateUrl : './templates/ajouter-projet.component.html',
+    selector : 'ajouter-rapport',
+    templateUrl : './templates/ajouter-rapport.component.html',
     styleUrls:["../assets/css/bootstrap.min.css",
              "../assets/font-awesome/css/font-awesome.css",
              "../assets/css/plugins/iCheck/custom.css",
@@ -17,7 +17,7 @@ import * as $ from 'jquery'
              "../assets/css/style.css"]
 })
 
-export class AjouterProjetComponent {
+export class AjouterRapportComponent {
 
     form : FormGroup;
     responsables;
@@ -35,11 +35,6 @@ export class AjouterProjetComponent {
         })
     }
 
-    ngOnInit(){
-        this.getAllResponsable();
-        this.getAllPartenaires();
-        this.getAdministrateurById(localStorage.getItem("loggedUserId"));
-    }
    addScripts(chemin){
     var script = document.createElement( 'script' );
     script.type = 'text/javascript';
@@ -58,38 +53,7 @@ export class AjouterProjetComponent {
         
         //this.addScripts('assets/js/multi-select.js');
         //this.addScripts('assets/js/wizard.js');
-        this.addScripts('assets/js/date-picker.js');
+        this.addScripts('assets/js/submit.js');
        
   }
-
-
-  getAllResponsable(){
-      this.projetService.getAllResponsables().subscribe(responsable => {
-          this.responsables = responsable;
-      })
-  }
-
-  getAllPartenaires(){
-      this.projetService.getAllPartenaire().subscribe(partenaires =>{
-          this.partenaires = partenaires;
-      })
-  }
-
-  getAdministrateurById(idAdministrateur){
-    this.projetService.getAdministrateurById(idAdministrateur).subscribe(administrateur => {
-        this.administrateur=administrateur;
-    })
-  }
-
-    onSubmit(projet){
-        projet.administrateur=this.administrateur;
-        this.projetService.addProjet(projet).subscribe(projet =>{
-            if(projet != null){
-                 this._ngZone.run(() => {
-                          this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['gestionProjets']}}]); 
-                        });
-                console.log("Ca passe redirection now");
-            }
-        });
-    }
 }

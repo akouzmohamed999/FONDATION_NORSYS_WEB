@@ -74,7 +74,8 @@
                     <li>
                         <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Rapport</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="mailbox.html">Liste des Rapports</a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterRapport']}}]">Liste des Rapports</a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterRapport']}}]">Ajouter un  Rapport</a></li>
                         </ul>
                     </li>
                 </ul>
