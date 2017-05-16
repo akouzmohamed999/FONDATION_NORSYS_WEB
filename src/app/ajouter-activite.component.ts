@@ -3,6 +3,7 @@ import {FormGroup,FormBuilder} from "@angular/forms";
 import {Location} from "@angular/common";
 import {ProjetService} from './services/projet.service';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
+import {IMyDpOptions} from 'mydatepicker';
 import * as $ from 'jquery'
 
 @Component({
@@ -34,6 +35,11 @@ export class AjouterActiviteComponent {
         
       }
 
+      private myDatePickerOptions: IMyDpOptions = {
+        // other options...
+        dateFormat: 'yyyy-mm-dd',
+    };
+
 ngOnInit(){
      this.sub = this.route.params.subscribe(params => {
         this.id= +params['id'];
@@ -46,7 +52,7 @@ ngOnInit(){
 onSubmit(activite){
        
        activite.composante=this.composante;
-       console.log('ACTIVITE A AJOUTE : '+JSON.stringify(activite));
+       activite.dateActivite=activite.dateActivite.formatted;
         this.projetService.addActivite(activite).subscribe(activite =>{
             if(activite != null){
                  this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['gestionComposante',this.composante.idComposante]}}]); 
@@ -68,7 +74,6 @@ onSubmit(activite){
         this.projetService.getAllBenificiaires().subscribe(
             benificiaires => {
                 this.benificiaires = benificiaires;
-                console.log('FFFFFFFFFFFFFFFFFFFFFF'+JSON.stringify(benificiaires));
             }
         )
     }

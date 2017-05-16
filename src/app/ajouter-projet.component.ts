@@ -2,6 +2,7 @@ import {Component,NgZone} from "@angular/core";
 import {FormGroup,FormBuilder} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
+import {IMyDpOptions} from 'mydatepicker';
 import * as $ from 'jquery'
 
 @Component({
@@ -24,6 +25,10 @@ export class AjouterProjetComponent {
     partenaires;
     administrateur;
 
+    private myDatePickerOptions: IMyDpOptions = {
+        // other options...
+        dateFormat: 'yyyy-mm-dd',
+    };
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router : Router,private _ngZone:NgZone){
         this.form = formBuilder.group({
             'intitule' : [''],
@@ -58,7 +63,7 @@ export class AjouterProjetComponent {
         
         //this.addScripts('assets/js/multi-select.js');
         //this.addScripts('assets/js/wizard.js');
-        this.addScripts('assets/js/date-picker.js');
+        //this.addScripts('assets/js/date-picker.js');
        
   }
 
@@ -82,13 +87,17 @@ export class AjouterProjetComponent {
   }
 
     onSubmit(projet){
+        var dateDebut = projet.dateDebut.formatted;
+        var dateFin = projet.dateFin.formatted;
         projet.administrateur=this.administrateur;
+
+        projet.dateDebut=dateDebut;
+        projet.dateFin=dateFin;
         this.projetService.addProjet(projet).subscribe(projet =>{
             if(projet != null){
                  this._ngZone.run(() => {
                           this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['gestionProjets']}}]); 
                         });
-                console.log("Ca passe redirection now");
             }
         });
     }

@@ -212,7 +212,7 @@ export class ProjetService {
 
         getAllResponsables(){
              var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/responsable/responsables',{headers:headers})
+            return this.http.get(this.APIURL+'/administrateur/responsables',{headers:headers})
             .map(response => response.json()
             );
         }

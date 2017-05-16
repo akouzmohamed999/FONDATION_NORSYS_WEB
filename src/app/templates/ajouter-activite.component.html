@@ -23,7 +23,7 @@
                                             </div>
                                            <div class="form-group">
                                                 <label>Date d'activité *</label>
-                                                <input type="text" required [formControl]="form.controls['dateActivite']" class="form-control required" />
+                                                 <my-date-picker name="mydate" [options]="myDatePickerOptions" [formControl]="form.controls['dateActivite']" required></my-date-picker>
                                             </div>
                                            <div class="form-group">
                                                 <label>Durée d'activité *</label>

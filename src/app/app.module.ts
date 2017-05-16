@@ -39,6 +39,7 @@ import {ListeBenificiairesComponent} from './liste-benificiaires.component';
 import{ModifierBenificiaireActiviteComponent} from './modifier-benificiaire.comonent';
 import {SupprimerBenificiaireComponent} from './supprimer-benificiaire.component';
 import {AjouterRapportComponent} from './ajouter-rapport.component';
+import { MyDatePickerModule } from 'mydatepicker';
 
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
@@ -84,6 +85,7 @@ export const routes  : Routes = [
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    MyDatePickerModule,
     RouterModule.forRoot(routes)
   ],
   providers: [LoginService,ProjetService],
