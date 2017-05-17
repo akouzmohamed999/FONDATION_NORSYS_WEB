@@ -41,8 +41,10 @@ import {SupprimerBenificiaireComponent} from './supprimer-benificiaire.component
 import {AjouterRapportComponent} from './ajouter-rapport.component';
 import { MyDatePickerModule } from 'mydatepicker';
 
+
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
+//import {RapportSubmit} from '../assets/js/submit';
 
 export const routes  : Routes = [
   { path:'',component :LoginComponent},
@@ -66,7 +68,7 @@ export const routes  : Routes = [
      { path:'modifierActivite/:id',component :ModifierActiviteComponent,outlet :'adminHomeRoute'},
      { path:'listeBenificiaire',component :ListeBenificiairesComponent,outlet :'adminHomeRoute'},
      { path:'modifierBenificiaire/:id',component :ModifierBenificiaireActiviteComponent,outlet :'adminHomeRoute'},
-     { path:'ajouterRapport',component :AjouterRapportComponent,outlet :'adminHomeRoute'},
+     { path:'ajouterRapport/:id',component :AjouterRapportComponent,outlet :'adminHomeRoute'},
   ]},
 ];
 

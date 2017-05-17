@@ -1,17 +1,13 @@
-$(document).ready(function () {
 
-    $("#btnSubmit").click(function (event) {
+import { Injectable } from '@angular/core';
+import { Http, Headers,RequestOptions} from '@angular/http';
+import { HttpModule } from '@angular/http';
+import { Observable } from 'rxjs';
+@Injectable()
+export class RapportSubmit{
 
-        //stop submit the form, we will post it manually.
-        event.preventDefault();
 
-        fire_ajax_submit();
-
-    });
-
-});
-
-function fire_ajax_submit() {
+ fire_ajax_submit() {
 
     // Get form
     var form = $('#fileUploadForm')[0];
@@ -23,10 +19,10 @@ function fire_ajax_submit() {
     $("#btnSubmit").prop("disabled", true);
 
     $.ajax({
-        type: "POST",
+        type: 'POST',
         enctype: 'multipart/form-data',
         headers: { 'Authorization': 'Bearer '+localStorage.getItem('access_token')},
-        url: "http://localhost:8080/fondation/responsable/addFichierRapport",
+        url: 'http://localhost:8080/fondation/responsable/addFichierRapport',
         data: data,
         //http://api.jquery.com/jQuery.ajax/
         //https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects
@@ -36,7 +32,7 @@ function fire_ajax_submit() {
         timeout: 600000,
         success: function (data) {
 
-            $("#result").text(data);
+            $('#result').text(data);
             console.log("SUCCESS : ", data);
             $("#btnSubmit").prop("disabled", false);
 
@@ -49,5 +45,7 @@ function fire_ajax_submit() {
 
         }
     });
+
+}
 
 }

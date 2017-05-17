@@ -85,8 +85,9 @@
                     <img src="assets/img/file.png" class="img-responsive">
                     <h5>Dernier Rapport Ajouté</h5>
                     <ul class="list-unstyled project-files">
-                        <li><a href=""><i class="fa fa-file"></i> Rapport_#15.docx</a></li>
-                        <li><a href="#" class="btn btn-xs btn-primary">Ajouter un Rapport </a></li>
+            
+                        <li><a *ngIf="projetDetails?.idProjet != null"
+                                        [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterRapport',projetDetails?.idProjet]}}]" class="btn btn-xs btn-primary">Ajouter un Rapport </a></li>
                     </ul>
                      <h5>Dernier Bilan Ajouté</h5>
                     <ul class="list-unstyled project-files">

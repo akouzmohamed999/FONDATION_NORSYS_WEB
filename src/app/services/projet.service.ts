@@ -250,7 +250,7 @@ export class ProjetService {
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
             headers.append("Content-Type","application/json");  
             let options = new RequestOptions({headers: headers});            
-            return this.http.post(this.APIURL+'//administrateur/AddCollaborateur',collaborateur,options)
+            return this.http.post(this.APIURL+'/administrateur/AddCollaborateur',collaborateur,options)
             .map(response => response.json()
             );
         }
@@ -279,5 +279,21 @@ export class ProjetService {
             .map(response => response.json()
             );
               }
-       
+        addRapportProjet(rapportProjet){
+             let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.post(this.APIURL+'/responsable/addRapport',rapportProjet,options)
+            .map(response => response.json()
+            );
+        }
+        addFichierRapport(data){
+            let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.post(this.APIURL+'/responsable/addFichierRapport',data,options)
+            .map(response => response.json()
+            );  
+        }
 }

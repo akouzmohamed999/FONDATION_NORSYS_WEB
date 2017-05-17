@@ -1,8 +1,10 @@
 import {Component,NgZone} from "@angular/core";
-import {FormGroup,FormBuilder} from "@angular/forms";
+import {FormGroup,FormBuilder,Form} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
-import * as $ from 'jquery'
+import * as $ from 'jquery';
+
+
 
 @Component({
     selector : 'ajouter-rapport',
@@ -20,21 +22,25 @@ import * as $ from 'jquery'
 export class AjouterRapportComponent {
 
     form : FormGroup;
-    responsables;
-    partenaires;
-    administrateur;
+    projet;
+    sub;
+    id;
+    fire_ajax_submit:any;
 
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router : Router,private _ngZone:NgZone){
         this.form = formBuilder.group({
             'intitule' : [''],
-            'description' : [''],
-            'dateDebut' : [''],
-            'dateFin' : [''],
-            'partenaires':[''],
-            'responsable':['']
+            'type' : ['']
         })
     }
 
+
+    ngOnInit(){
+        this.sub = this.route.params.subscribe(params => {
+        this.id= +params['id'];
+    });
+    
+    }
    addScripts(chemin){
     var script = document.createElement( 'script' );
     script.type = 'text/javascript';
@@ -56,4 +62,35 @@ export class AjouterRapportComponent {
         this.addScripts('assets/js/submit.js');
        
   }
+   onSubmit(rapportProjet){
+   console.log("Ca passe redirection now !!!!!!!!!!!!!!!!!");
+
+        rapportProjet.projet=this.projet;
+        rapportProjet.fichierRapport="testdetest.txt";
+        this.projetService.addRapportProjet(rapportProjet).subscribe( rapportProjet =>{
+            if(rapportProjet != null){
+            
+               // this.projetService.addFichierRapport(rapportProjet.file).subscribe(
+                   // message => {
+                      //  fire_ajax_submit();
+                      $('#btnSubmit').click();
+                            this._ngZone.run(() => {
+
+                          this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['projetDetails',this.id]}}]); 
+                        });
+                console.log("Ca passe redirection now");
+                   // }
+                //)
+         }
+       });
+    }
+
+
+  getProjetByid(idProjet){
+      this.projetService.getProjetByidProjet(idProjet).subscribe(projet => {
+          this.projet = projet;
+      })
+  }
+
+  
 }
