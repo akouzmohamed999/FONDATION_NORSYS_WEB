@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
+import { MyDatePickerModule } from 'mydatepicker';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/Rx';
@@ -39,7 +40,8 @@ import {ListeBenificiairesComponent} from './liste-benificiaires.component';
 import{ModifierBenificiaireActiviteComponent} from './modifier-benificiaire.comonent';
 import {SupprimerBenificiaireComponent} from './supprimer-benificiaire.component';
 import {AjouterRapportComponent} from './ajouter-rapport.component';
-import { MyDatePickerModule } from 'mydatepicker';
+import {ListeRapportProjetComponent} from './liste-rapport-projet.component';
+
 
 
 import {LoginService} from './services/login.service';
@@ -69,6 +71,7 @@ export const routes  : Routes = [
      { path:'listeBenificiaire',component :ListeBenificiairesComponent,outlet :'adminHomeRoute'},
      { path:'modifierBenificiaire/:id',component :ModifierBenificiaireActiviteComponent,outlet :'adminHomeRoute'},
      { path:'ajouterRapport/:id',component :AjouterRapportComponent,outlet :'adminHomeRoute'},
+     { path:'listeRapportProjet/:id',component :ListeRapportProjetComponent,outlet :'adminHomeRoute'},
   ]},
 ];
 
@@ -80,7 +83,8 @@ export const routes  : Routes = [
     AjouterComponsanteComponent,AjouterProjetComponent,ModifierComponsanteComponent,SupprimerComponsanteComponent,
     ActiviteDetailsComponent,AjouterActiviteComponent,ListePartenairesComponent,AjouterPartenaireComponent,ModifierPartenaireComponent,
     SupprimerPartenaireComponent,ListeCollaborateurComponent,ModifierActiviteComponent,AjouterBenificiaireActiviteComponent,SupprimerActiviteComponent,
-    ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent,AjouterRapportComponent
+    ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent,AjouterRapportComponent,
+    ListeRapportProjetComponent
   ],
   imports: [
     BrowserModule,

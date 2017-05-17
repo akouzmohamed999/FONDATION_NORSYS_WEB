@@ -53,11 +53,11 @@
                                     <div class="row">
                                         <div class="col-lg-8">
                                             <div class="form-group">
-                                                <label>Intitule de projet *</label>
+                                                <label>Intitule de rapport </label>
                                                 <input type="text"  required [formControl]="form.controls['intitule']" class="form-control required" />
                                             </div>
                                             <div class="form-group">
-                                                <label>Description de projet *</label>
+                                                <label>Type de rapport</label>
                                                 <input type="text" required [formControl]="form.controls['type']" class="form-control required" />
                                             </div>
                                         </div>
@@ -78,8 +78,8 @@
                                 </fieldset>
                             </form>
                             <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
-                                <input type="file" name="file" /><br/><br/>
-                                <input type="submit" value="Submit" id="btnSubmit"/>
+                                <input type="file" name="file" id="file"/>
+                                <input type="submit" value="Submit" id="btnSubmit" style="{display: none}"/>
                             </form>
                         </div>
                     </div>

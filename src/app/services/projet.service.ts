@@ -296,4 +296,11 @@ export class ProjetService {
             .map(response => response.json()
             );  
         }
+
+        getRapportByIdProjet(idProjet){
+             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/responsable/rapportsProjetByProjet?idProjet='+idProjet,{headers:headers})
+            .map(response => response.json()
+            );
+        }
 }

@@ -38,6 +38,7 @@ export class AjouterRapportComponent {
     ngOnInit(){
         this.sub = this.route.params.subscribe(params => {
         this.id= +params['id'];
+        this.getProjetByid(this.id);
     });
     
     }
@@ -66,10 +67,10 @@ export class AjouterRapportComponent {
    console.log("Ca passe redirection now !!!!!!!!!!!!!!!!!");
 
         rapportProjet.projet=this.projet;
-        rapportProjet.fichierRapport="testdetest.txt";
+        rapportProjet.fichierRapport=$('#file').val();;
         this.projetService.addRapportProjet(rapportProjet).subscribe( rapportProjet =>{
             if(rapportProjet != null){
-            
+            console.log('FFFFFFFFFFFFF'+JSON.stringify(rapportProjet ));
                // this.projetService.addFichierRapport(rapportProjet.file).subscribe(
                    // message => {
                       //  fire_ajax_submit();
