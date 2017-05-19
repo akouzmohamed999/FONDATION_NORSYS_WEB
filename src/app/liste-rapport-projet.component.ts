@@ -41,4 +41,22 @@ export class ListeRapportProjetComponent {
         }
       )
     }
+
+     addScripts(chemin){
+    var script = document.createElement( 'script' );
+    script.type = 'text/javascript';
+    script.src = chemin;
+    $("body").append( script );
+  }
+
+  ngAfterViewInit(){
+     $( document ).ready(function() {
+        console.log("jQuery is ready");
+      });
+
+
+        this.addScripts('assets/js/downloadRapport.js');
+       
+  }
+
 }

@@ -41,7 +41,7 @@
                           <h3><i>Liste des activites</i></h3>
                           <div class="row">
                                 <div class="clearfix pull-right">
-                           <a class="btn btn-white btn-sm" *ngIf="composante?.idComposante != null"
+                           <a class="btn btn-white btn-sm" *ngIf="composante?.idComposante != null" 
                             [routerLink]="['/adminHome', {outlets: {'adminHomeRoute':['ajouterActivite',composante?.idComposante]}}]">
                            <i class="fa fa-plus"></i> Ajouter une Activité </a>
                                 </div>
