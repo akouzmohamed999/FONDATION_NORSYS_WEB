@@ -240,7 +240,7 @@ export class ProjetService {
 
         getAllResponsables(){
              var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/responsable/responsables',{headers:headers})
+            return this.http.get(this.APIURL+'/administrateur/responsables',{headers:headers})
             .map(response => response.json()
             );
         }
@@ -340,5 +340,28 @@ export class ProjetService {
             .map(response => response.json()
             );
               }
-       
+        addRapportProjet(rapportProjet){
+             let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.post(this.APIURL+'/responsable/addRapport',rapportProjet,options)
+            .map(response => response.json()
+            );
+        }
+        addFichierRapport(data){
+            let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.post(this.APIURL+'/responsable/addFichierRapport',data,options)
+            .map(response => response.json()
+            );  
+        }
+
+        getRapportByIdProjet(idProjet){
+             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/responsable/rapportsProjetByProjet?idProjet='+idProjet,{headers:headers})
+            .map(response => response.json()
+            );
+        }
 }

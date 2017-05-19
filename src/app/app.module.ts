@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
+import { MyDatePickerModule } from 'mydatepicker';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/Rx';
@@ -44,10 +45,13 @@ import {ListeResponsableComponent} from './liste-Responsable.component';
 import {ListeAdministarteurComponent} from './liste-Administrateur.component';
 //import {AjouterCollaborateurComponent} from './ajouter-collaborateur.component';
 import {AjouterRhComponent} from './ajouter-Rh.component';
+import {AjouterRapportComponent} from './ajouter-rapport.component';
+import {ListeRapportProjetComponent} from './liste-rapport-projet.component';
 
 
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
+//import {RapportSubmit} from '../assets/js/submit';
 
 export const routes  : Routes = [
   { path:'',component :LoginComponent},
@@ -76,8 +80,9 @@ export const routes  : Routes = [
      { path:'supprimerCollaborateur/:id',component : SupprimerCollaborateurComponent,outlet : 'adminHomeRoute'},
       //{ path:'supprimerResponsable/:id',component : SupprimerResponsableComponent,outlet : 'adminHomeRoute'},
      //{ path:'ajouterCollaborateur',component : AjouterCollaborateurComponent,outlet : 'adminHomeRoute'},
-     { path:'ajouterRh',component : AjouterRhComponent,outlet :'adminHomeRoute'}
-    
+     { path:'ajouterRh',component : AjouterRhComponent,outlet :'adminHomeRoute'},
+     { path:'ajouterRapport/:id',component :AjouterRapportComponent,outlet :'adminHomeRoute'},
+     { path:'listeRapportProjet/:id',component :ListeRapportProjetComponent,outlet :'adminHomeRoute'},
   ]},
 ];
 
@@ -92,7 +97,8 @@ export const routes  : Routes = [
     SupprimerPartenaireComponent,ListeCollaborateurComponent,ListeResponsableComponent,ModifierActiviteComponent,
     AjouterBenificiaireActiviteComponent,SupprimerActiviteComponent,
     ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent,SupprimerCollaborateurComponent,
-    ListeAdministarteurComponent,AjouterRhComponent
+    ListeAdministarteurComponent,AjouterRhComponent,AjouterRapportComponent,
+    ListeRapportProjetComponent
     
   ],
   imports: [
@@ -100,6 +106,7 @@ export const routes  : Routes = [
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    MyDatePickerModule,
     RouterModule.forRoot(routes)
   ],
   providers: [LoginService,ProjetService],

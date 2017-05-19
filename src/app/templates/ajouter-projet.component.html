@@ -41,27 +41,14 @@
                                                 <label>Description de projet *</label>
                                                 <input type="text" required [formControl]="form.controls['description']" class="form-control required" />
                                             </div>
-                                            <div class="form-group" id="data_1">
+                                            <div class="form-group">
                                                 <label>Date De Debut *</label>
-                                                <div class="input-group date">
-                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" required [formControl]="form.controls['dateDebut']">
-                                                </div>
+                                                 <my-date-picker name="mydate" [options]="myDatePickerOptions" [formControl]="form.controls['dateDebut']" required></my-date-picker>
                                             </div>
-                                            <div class="form-group" id="data_1">
-                                                <label>Date De Fin *</label>
-                                                <div class="input-group date">
-                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control required" required [formControl]="form.controls['dateFin']">
-                                                </div>
+                                            <div class="form-group" >
+                                                <label>Date De Fin *</label>    
+                                                <my-date-picker name="mydate"  [options]="myDatePickerOptions" [formControl]="form.controls['dateFin']" required></my-date-picker>
                                             </div>
-
-                                            <!--<div class="form-group">
-                                                <label>Date de début *</label>
-                                               <input type="text"  required [formControl]="form.controls['dateDebut']" class="form-control required" />
-                                            </div>
-                                             <div class="form-group">
-                                                <label>Date Fin *</label>
-                                               <input type="text"  required [formControl]="form.controls['dateFin']" class="form-control required" />
-                                            </div>-->
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="text-center">
@@ -72,11 +59,11 @@
                                         </div>
                                     </div>
                                 </fieldset>
-                                <h1>Désigner les Collaborateurs</h1>
+                                <h1>Partenaires</h1>
                                 <fieldset> 
                                     <div class="ibox-content">
                                         <div class="form-group">
-                                        <label class="font-noraml">Choisissez un ou plusieurs Collaborateurs</label>
+                                        <label class="font-noraml">Désigner vos partenaires</label>
                                             <div class="input-group">
                                         <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['partenaires']">
                                              <option *ngFor="let partenaire of partenaires" [ngValue]="partenaire" >{{partenaire.nom}}</option>                            
@@ -103,7 +90,7 @@
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-group pull-right">
-                                        <input type="submit" value="Creer" class="btn btn-primary" id="test"/>
+                                        <input type="submit" value="Valider" class="btn btn-primary" id="test"/>
                                         <button class="btn btn-primary" id="test">Annuler</button>
                                     </div>
                                 </fieldset>

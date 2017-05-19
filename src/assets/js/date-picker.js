@@ -1,9 +1,7 @@
 $(document).ready(function(){
-$('#data_1 .input-group.date').datepicker({
+$('#data_1').datepicker({
                 todayBtn: "linked",
-                keyboardNavigation: false,
-                forceParse: false,
-                calendarWeeks: true,
+                format: 'dd/mm/yyyy',
                 autoclose: true
             });
 });
