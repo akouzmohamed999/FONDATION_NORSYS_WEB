@@ -1,0 +1,55 @@
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="wrapper wrapper-content animated fadeInUp">
+
+                    <div class="ibox">
+                         <!--<div class="pull-right" >
+                     <a  [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterResponsable']}}]"
+                      class="btn btn-primary btn-xs pull-right"><i class="fa fa-plus"></i>Ajouter Un Responsable </a>
+                        </div>-->
+                        <div class="ibox-title">
+                            <h4>Liste des Responsables</h4>
+                        </div>
+                       
+                        <div class="ibox-content">
+                            <div class="project-list">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Nom </th>
+                                            <th>Prenom</th>
+                                            <th>CIN</th>
+                                            <th>Adresse</th>
+                                            <th>E-mail</th>
+                                            <th class="project-actions">Options</th>
+                                        </tr>
+                                  </thead>
+                                    <tbody>
+                                    <tr  *ngFor="let responsable of responsables">
+                                        <td class="project-title">
+                                            {{responsable.nom}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{responsable.prenom}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{responsable.cin}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{responsable.adresse}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{responsable.email}}
+                                        </td>
+                                        <td class="project-actions">
+                                            <a class="btn btn-danger btn-xs"><i class="fa fa-remove"></i>Supprimer</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

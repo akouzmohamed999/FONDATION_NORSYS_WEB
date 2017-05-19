@@ -45,14 +45,47 @@
                             [routerLink]="['/adminHome', {outlets: {'adminHomeRoute':['ajouterActivite',composante?.idComposante]}}]">
                            <i class="fa fa-plus"></i> Ajouter une Activité </a>
                                 </div>
+                                
                         </div>
+                        <!--<div class="row">
                           <table class="table table-hover table-striped">
                             <tbody>
                             <tr *ngFor="let activite of activities">
                                  <activite [activite]="activite"></activite>
                             </tr>
                             </tbody>
-                        </table>
+                        </table>-->
+                         <div class="ibox-content">
+                            <div class="project-list">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Intitule</th>
+                                            <th>Date</th>
+                                            <th>Annimateur de Terrain</th>
+                                            <th class="project-actions">Options</th>
+                                        </tr>
+                                  </thead>
+                                    <tbody>
+                                    <tr  *ngFor="let activite of activities">
+                                        <td class="project-title">
+                                              {{activite.intitule}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{activite.dateActivite}}
+                                        </td>
+                                        <td class="project-completion">
+                                            {{activite.animateurTerrain.prenom}} {{activite.animateurTerrain.nom}}
+                                        </td>
+                                        
+                                        <td class="project-actions">
+                                            <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['activiteDetails',activite.idActivite]}}]" class="btn btn-white btn-sm"><i class="fa fa-search"></i> Details </a>
+                                       </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>

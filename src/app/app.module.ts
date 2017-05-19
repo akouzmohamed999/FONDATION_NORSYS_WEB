@@ -33,11 +33,18 @@ import {ListePartenairesComponent} from './liste-partenaires.component';
 import {AjouterPartenaireComponent} from './ajouter-partenaire.component';
 import {ModifierPartenaireComponent} from './modifier-partenaire.component';
 import {SupprimerPartenaireComponent} from './supprimer-partenaire.component';
-import {ListeCollaborateurComponent} from './liste-Rh.component';
+import {ListeCollaborateurComponent} from './liste-Collaborateur.component';
 import {ModifierActiviteComponent} from './modifier-activite.component';
 import {ListeBenificiairesComponent} from './liste-benificiaires.component';
 import{ModifierBenificiaireActiviteComponent} from './modifier-benificiaire.comonent';
 import {SupprimerBenificiaireComponent} from './supprimer-benificiaire.component';
+import {SupprimerCollaborateurComponent} from './supprimer-Collaborateur.component';
+// import {SupprimerResponsableComponent} from './supprimer-responsable.component';
+import {ListeResponsableComponent} from './liste-Responsable.component';
+import {ListeAdministarteurComponent} from './liste-Administrateur.component';
+//import {AjouterCollaborateurComponent} from './ajouter-collaborateur.component';
+import {AjouterRhComponent} from './ajouter-Rh.component';
+
 
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
@@ -60,10 +67,17 @@ export const routes  : Routes = [
      { path:'ajouterPartenaire',component :AjouterPartenaireComponent,outlet :'adminHomeRoute'},
      { path:'modifierPartenaire/:id',component :ModifierPartenaireComponent,outlet :'adminHomeRoute'},
      { path:'deletePartenaire/:id',component :SupprimerPartenaireComponent,outlet :'deletePartenaireRoute'},
-     { path:'listeCollaborateur',component :ListeCollaborateurComponent,outlet :'adminHomeRoute'},
      { path:'modifierActivite/:id',component :ModifierActiviteComponent,outlet :'adminHomeRoute'},
      { path:'listeBenificiaire',component :ListeBenificiairesComponent,outlet :'adminHomeRoute'},
      { path:'modifierBenificiaire/:id',component :ModifierBenificiaireActiviteComponent,outlet :'adminHomeRoute'},
+     { path:'listeCollaborateur',component :ListeCollaborateurComponent,outlet :'adminHomeRoute'},
+     { path:'listeResponsable',component :ListeResponsableComponent,outlet :'adminHomeRoute'},
+     { path:'listeAdministrateur',component :ListeAdministarteurComponent,outlet :'adminHomeRoute'},
+     { path:'supprimerCollaborateur/:id',component : SupprimerCollaborateurComponent,outlet : 'adminHomeRoute'},
+      //{ path:'supprimerResponsable/:id',component : SupprimerResponsableComponent,outlet : 'adminHomeRoute'},
+     //{ path:'ajouterCollaborateur',component : AjouterCollaborateurComponent,outlet : 'adminHomeRoute'},
+     { path:'ajouterRh',component : AjouterRhComponent,outlet :'adminHomeRoute'}
+    
   ]},
 ];
 
@@ -73,9 +87,13 @@ export const routes  : Routes = [
     ActiviteComponent,GestionProjetComponent,StatistiquesComponent,ProjetDetailsComponent,
     CollaborateurComponent,ThematiqueComponent,PartenaireComponent,GestionComposanteComponent,
     AjouterComponsanteComponent,AjouterProjetComponent,ModifierComponsanteComponent,SupprimerComponsanteComponent,
-    ActiviteDetailsComponent,AjouterActiviteComponent,ListePartenairesComponent,AjouterPartenaireComponent,ModifierPartenaireComponent,
-    SupprimerPartenaireComponent,ListeCollaborateurComponent,ModifierActiviteComponent,AjouterBenificiaireActiviteComponent,SupprimerActiviteComponent,
-    ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent
+    ActiviteDetailsComponent,AjouterActiviteComponent,ListePartenairesComponent,AjouterPartenaireComponent,
+    ModifierPartenaireComponent,
+    SupprimerPartenaireComponent,ListeCollaborateurComponent,ListeResponsableComponent,ModifierActiviteComponent,
+    AjouterBenificiaireActiviteComponent,SupprimerActiviteComponent,
+    ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent,SupprimerCollaborateurComponent,
+    ListeAdministarteurComponent,AjouterRhComponent
+    
   ],
   imports: [
     BrowserModule,

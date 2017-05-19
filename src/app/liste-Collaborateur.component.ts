@@ -4,8 +4,8 @@ import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from "jquery";
 
 @Component({
-  selector: 'gestion-Rh',
-  templateUrl: './templates/liste-Rh.component.html',
+  selector: 'gestion-Collaborateur',
+  templateUrl: './templates/liste-Collaborateur.component.html',
   styleUrls : ['../assets/css/bootstrap.min.css',
                 '../assets/font-awesome/css/font-awesome.css',
                 '../assets/css/plugins/iCheck/custom.css',
@@ -14,22 +14,21 @@ import * as $ from "jquery";
                 '../assets/css/animate.css','../assets/css/style.css']
   
 })
-
 export class ListeCollaborateurComponent {
-
+  // responsable;
+  // administarteur;
   collaborateurs;
-  constructor(private projetService: ProjetService,private router : Router) { }
+  constructor(private projetService: ProjetService,private route:ActivatedRoute,private router : Router) { }
 
   ngOnInit() {
     this.getCollaborateurs();
   }
 
   getCollaborateurs() {
-    this.projetService.getAllCollaborateur().subscribe(collaborateurs => {
+    this.projetService.getCollaborateur().subscribe(collaborateurs => {
       this.collaborateurs = collaborateurs;
     });
   }
-
   onDeleteClick(){
     console.log('CLICK RECEIVED');
     $('#myModal').hide();

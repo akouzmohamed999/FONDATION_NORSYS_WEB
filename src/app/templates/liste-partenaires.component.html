@@ -5,7 +5,7 @@
                  class="btn btn-primary btn-xs pull-right"><i class="fa fa-plus"></i>Ajouter Un Partenaire </a>
             </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
             <div class="col-lg-4" *ngFor="let partenaire of partenaires">
                 <div class="contact-box">
          
@@ -27,21 +27,79 @@
                         class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></button>
                         <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
                             <i class="fa fa-trash"></i></button>
-                        
-
-                         <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog">
                                 <div class="modal-content animated bounceInRight">
-                                   
                                 <supprimer-partenaire (deleted)="onDeleteClick()" [partenaire]="partenaire"></supprimer-partenaire>
-                                        
-                                    </div>
+                                </div>
                                 </div>
                             </div>
-
-                    </div>
+                       </div>
                     <div class="clearfix"></div>  
                 </div>
             </div>
+        </div>-->
+      <div class="row">
+            <div class="col-lg-12">
+                <div class="wrapper wrapper-content animated fadeInUp">
+
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h4>La liste des Bénificiaires</h4>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="project-list">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>nom</th>
+                                            <th>Type</th>
+                                            <th>Numéro de Téléphone</th>
+                                            <th>Adresse</th>
+                                            <th>Email</th>
+                                            <th class="project-actions">Options</th>
+                                        </tr>
+                                  </thead>
+                                    <tbody>
+                                    <tr  *ngFor="let partenaire of partenaires">
+                                        <td class="project-title">
+                                           {{partenaire.nom}}
+                                        </td>
+                                        <td class="project-status">
+                                            {{partenaire.type}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{partenaire.numeroTelephone}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{partenaire.adresse}}
+                                        </td>
+                                         <td class="project-title">
+                                            {{partenaire.email}}
+                                        </td>
+                                        <td class="project-actions">
+                        <button [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierPartenaire',partenaire.idPartenaire]}}]"
+                        class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i>Modifier</button>
+                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-trash"></i>Supprimer</button>
+                        <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content animated bounceInRight">
+                                <supprimer-partenaire (deleted)="onDeleteClick()" [partenaire]="partenaire"></supprimer-partenaire>
+                                </div>
+                                </div>
+                            </div>
+                    <div class="clearfix">
+                             </div> 
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
+
+     

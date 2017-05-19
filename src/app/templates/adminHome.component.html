@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Fondation Norsys</title>
-
 </head>
-
 <body>
     <div id="wrapper">
         <nav class="navbar-default navbar-static-side" role="navigation">
@@ -32,49 +26,51 @@
                         </div>
                     </li>
                     <li class="active">
-                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Acceuil</span> <span class="fa arrow"></span></a>
+                        <a><i class="fa fa-th-large"></i> <span class="nav-label">Acceuil</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li ><a href="dashboard_4_1.html">Statistique Personnalisée</a></li>
+                            <li ><a href="#">Statistique Personnalisée</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-bell"></i> <span class="nav-label">Gestion des Projet</span><span class="fa arrow"></span></a>
+                        <a><i class="fa fa-bell"></i> <span class="nav-label">Gestion des Projet</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['gestionProjets']}}]">Liste des Projet</a></li>
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterProjet']}}]">Créer un Projet</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="mailbox.html"><i class="fa fa-user"></i> <span class="nav-label">Gestion des Ressource Humaines </span><span class="fa arrow"></span></a>
+                        <a><i class="fa fa-user"></i> <span class="nav-label">Gestion des Ressource Humaines </span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]">Liste des Ressource Humaines</a></li>
-                            <li><a href="mail_detail.html">Ajouter Une Ressource</a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeAdministrateur']}}]">Liste d'Administrateurs</a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]">Liste des Collaborateurs</a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeResponsable']}}]">Liste des Responssables</a></li>
+                            <li><a  [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterRh']}}]">Ajouter Un Collaborateur</a></li>
                         </ul>
                     </li>
                      <li>
-                        <a href="mailbox.html"><i class="fa fa-phone"></i> <span class="nav-label">Gestion des Contacts</span><span class="fa arrow"></span></a>
+                        <a><i class="fa fa-phone"></i> <span class="nav-label">Gestion des Contacts</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listePartenaire']}}]">Liste des Partenaires</a></li>
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeBenificiaire']}}]">Liste des Bénificiaires</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Gestion des Propositions </span><span class="fa arrow"></span></a>
+                        <a><i class="fa fa-envelope"></i> <span class="nav-label">Gestion des Propositions </span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="mailbox.html">Liste des Propositions</a></li>
-                            <li><a href="mail_detail.html">Liste des rendez-vous</a></li>
+                            <li><a href="#">Liste des Propositions</a></li>
+                            <li><a href="#">Liste des rendez-vous</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Bilans</span><span class="fa arrow"></span></a>
+                        <a><i class="fa fa-envelope"></i> <span class="nav-label">Bilans</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="mailbox.html">Liste des Bilans</a></li>
+                            <li><a href="#">Liste des Bilans</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Rapport</span><span class="fa arrow"></span></a>
+                        <a><i class="fa fa-envelope"></i> <span class="nav-label">Rapport</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="mailbox.html">Liste des Rapports</a></li>
+                            <li><a href="#">Liste des Rapports</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -83,86 +79,12 @@
         </nav>
 
         <div id="page-wrapper" class="gray-bg dashbard-1">
-        <div class="row border-bottom">
-        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-            <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
-                <div class="form-group">
-                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
-                </div>
-            </form>
-        </div>
-            <ul class="nav navbar-top-links navbar-right">
-                <li>
-                    <span class="m-r-sm text-muted welcome-message">Fondation Norsys</span>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="mailbox.html">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="profile.html">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="grid_options.html">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <div class="text-center link-block">
-                                <a href="notifications.html">
-                                    <strong>See All Alerts</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-
-
-                <li>
-                    <a href="login.html">
-                        <i class="fa fa-sign-out"></i> Log out
-                    </a>
-                </li>
-            </ul>
-
-        </nav>
-        </div>
+       
         <div class="row">
             <div class="col-lg-12">
                 <div class="row wrapper border-bottom white-bg page-heading">
                     <div class="col-lg-10">
-                        <h2>Espace Administrateur</h2>
-                        <ol class="breadcrumb">
-                            <li>
-                                <a href="index.html">Home</a>
-                            </li>
-                            <li>
-                                <a>Gestion Des Projets</a>
-                            </li>
-                        </ol>
+                        
                     </div>
                 </div>
                        <router-outlet name="adminHomeRoute"></router-outlet> 
@@ -170,6 +92,7 @@
         </div>
 
         </div>
+        
     </div>
 
    </body>
