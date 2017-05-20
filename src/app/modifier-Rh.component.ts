@@ -76,10 +76,10 @@ export class ModifierCollaborateurComponent {
     }
 
     getCollaborateurByIdCollaborateur(idCollaborateur){
-        this.projetService.getollaborateurByidCollaborateur(idCollaborateur).subscribe(Collaborateur =>
+       /* this.projetService.getollaborateurByidCollaborateur(idCollaborateur).subscribe(Collaborateur =>
         {
             this.collaborateur=Collaborateur;
             console.log('Collaborateur : '+JSON.stringify(this.collaborateur));
-        })
+        })*/
     }
 }
