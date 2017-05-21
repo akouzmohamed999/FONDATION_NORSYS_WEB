@@ -10,27 +10,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--<div class="row">
-                                <div class="col-lg-5">
-                                    <dl class="dl-horizontal">
-
-                                        <dt>Crée Par:</dt> <dd>{{projetDetails?.administrateur.prenom}} {{projetDetails?.administrateur.nom}}</dd>
-                                        <dt>Responsable:</dt> <dd>{{projetDetails?.responsable.prenom}} {{projetDetails?.responsable.nom}}</dd>
-                                        <dt>Date Début:</dt> <dd> {{projetDetails?.dateDebut}}</dd>
-                                        <dt>Date Fin:</dt> <dd> {{projetDetails?.dateFin}}</dd>
-                                    </dl>
-                                </div>
-                                <div class="col-lg-7" id="cluster_info">
-                                    <dl class="dl-horizontal" >
-                                        <dt>Partenaires:</dt>
-                                        <dd class="project-people" *ngFor="let partenaire of projetDetails?.partenaires">
-                                            <partenaire [partenaire]="partenaire" ></partenaire>              
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>-->
-
-
                          <table class="table table-hover">
                                     <thead>
                                         <tr>
@@ -39,7 +18,6 @@
                                             <th>Date Début</th>
                                             <th>Date Fin</th>
                                             <th>Partenaires</th>
-                                            <!--<th class="project-actions"></th>-->
                                         </tr>
                                   </thead>
                                     <tbody>
@@ -95,20 +73,17 @@
             </div>
             <div class="col-lg-3">
                 <div class="wrapper wrapper-content project-manager animated fadeInDown">
-                    <h2 class="fa fa-tag">Pièces Jointes</h2>
-                    <img src="assets/img/file.png" class="img-responsive">
-                    <h5>Dernier Rapport Ajouté</h5>
+                    <h2>Rapport & Bilan</h2>
+                    <p><img src="assets/img/file.png" class="img-responsive"></p>
                     <ul class="list-unstyled project-files">
-            
-                        <li><a *ngIf="projetDetails?.idProjet != null"
-                                        [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterRapport',projetDetails?.idProjet]}}]" class="btn btn-xs btn-primary">AJouter un Rapport </a></li>
-                         <li><a *ngIf="projetDetails?.idProjet != null"
-                                        [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeRapportProjet',projetDetails?.idProjet]}}]" class="btn btn-xs btn-primary">Afficher liste des Rapports </a></li>
-                    </ul>
-                     <h5>Dernier Bilan Ajouté</h5>
-                    <ul class="list-unstyled project-files">
-                        <li><a href=""><i class="fa fa-file"></i> Bilan_#15.docx</a></li>
-                        <li><a href="#" class="btn btn-xs btn-primary">Ajouter un bilan </a></li>
+                         <li><button *ngIf="projetDetails?.idProjet != null"
+                                        [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeRapportProjet',projetDetails?.idProjet]}}]"
+                                         class="btn btn-sm btn-primary"><i class="fa fa-search-plus"></i> Liste des Rapports </button>
+                            <button *ngIf="projetDetails?.idProjet != null"
+                                        [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeBilanProjet',projetDetails?.idProjet]}}]"
+                                         class="btn btn-sm btn-primary"><i class="fa fa-search-plus"></i> Liste des Bilans </button>
+                                         
+                                         </li>
                     </ul>
                 </div>
             </div>

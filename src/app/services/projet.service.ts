@@ -364,4 +364,30 @@ export class ProjetService {
             .map(response => response.json()
             );
         }
+
+        addBilanProjet(bilanProjet){
+              let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.post(this.APIURL+'/responsable/addBilan',bilanProjet,options)
+            .map(response => response.json()
+            );
+        }
+
+         addFichierBilan(data){
+            let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.post(this.APIURL+'/responsable/addFichierBilan',data,options)
+            .map(response => response.json()
+            );  
+        }
+
+        getBilansByIdProjet(idProjet){
+        var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/responsable/bilansProjetByProjet?idProjet='+idProjet,{headers:headers})
+            .map(response => response.json()
+            );
+        }
 }

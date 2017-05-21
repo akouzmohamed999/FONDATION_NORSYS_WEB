@@ -5,26 +5,26 @@
                         <div class="col-lg-12">
 
                          <button 
-                                     [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterRapport',projet?.idProjet]}}]" 
-                                        class="btn btn-xs btn-primary pull-right">AJouter un Rapport </button>
+                            [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterBilan',projet?.idProjet]}}]" 
+                                        class="btn btn-xs btn-primary pull-right">Ajouter un Bilan </button>
                         </div>
                     </div>
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Liste des Rapport </h5>
+                        <h5>Liste des bilans </h5>
                     </div>
 
                     <div class="ibox-content inspinia-timeline">
-                        <div class="timeline-item" *ngFor="let rapport of rapports">
+                        <div class="timeline-item" *ngFor="let bilan of bilans">
                             <div class="row">
                                 <div class="col-xs-3 date">
                                     <i class="fa fa-file-text"></i>
     
-                                    <p class="text-navy">{{rapport?.type}}</p>
+                                    <p class="text-navy">{{bilan?.type}}</p>
                                 </div>
                                 <div class="col-xs-7 content">
-                                    <h3 class="m-b-xs"><strong>{{rapport?.intitule}}</strong></h3>
-                                    <p id="file">{{rapport?.fichierRapport}}</p>
+                                    <h3 class="m-b-xs"><strong>{{bilan?.intitule}}</strong></h3>
+                                    <p id="file">{{bilan?.fichierBilan}}</p>
                                     <button id="download">Télécharger</button>
                                 </div>
                             </div>

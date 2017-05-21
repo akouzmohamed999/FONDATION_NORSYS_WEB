@@ -5,8 +5,8 @@ import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from "jquery";
 
 @Component({
-  selector: 'liste-rapport-projet',
-  templateUrl: './templates/liste-rapport-projet.component.html',
+  selector: 'liste-bilan-projet',
+  templateUrl: './templates/liste-bilan-projet.component.html',
   styleUrls : ['../assets/css/bootstrap.min.css',
                 '../assets/font-awesome/css/font-awesome.css',
                 '../assets/css/plugins/iCheck/custom.css',
@@ -16,12 +16,12 @@ import * as $ from "jquery";
   
 })
 
-export class ListeRapportProjetComponent {
+export class ListeBilansProjetComponent {
 
   
     id;
     sub;
-    rapports;
+    bilans;
     projet;
 
     constructor(private projetService: ProjetService,
@@ -32,14 +32,14 @@ export class ListeRapportProjetComponent {
         this.sub = this.route.params.subscribe(params => {
         this.id= +params['id'];
         });
-       this.getRapportsByIdProjet(this.id);
+       this.getBilansByIdProjet(this.id);
        this.getProjetById(this.id);
     }
 
-    getRapportsByIdProjet(idProjet){
-      this.projetService.getRapportByIdProjet(idProjet).subscribe(
-        rapports => {
-          this.rapports = rapports;
+    getBilansByIdProjet(idProjet){
+      this.projetService.getBilansByIdProjet(idProjet).subscribe(
+        bilans => {
+          this.bilans = bilans;
         }
       )
     }
@@ -52,12 +52,7 @@ export class ListeRapportProjetComponent {
   }
 
   ngAfterViewInit(){
-     $( document ).ready(function() {
-        console.log("jQuery is ready");
-      });
-
-        this.addScripts('assets/js/downloadRapport.js');
-       
+        this.addScripts('assets/js/downloadBilan.js');    
   }
 
   getProjetById(idProjet){

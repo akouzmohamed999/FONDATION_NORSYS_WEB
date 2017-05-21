@@ -40,24 +40,21 @@ import {ListeBenificiairesComponent} from './liste-benificiaires.component';
 import{ModifierBenificiaireActiviteComponent} from './modifier-benificiaire.comonent';
 import {SupprimerBenificiaireComponent} from './supprimer-benificiaire.component';
 import {SupprimerCollaborateurComponent} from './supprimer-Collaborateur.component';
-// import {SupprimerResponsableComponent} from './supprimer-responsable.component';
 import {ListeResponsableComponent} from './liste-Responsable.component';
 import {ListeAdministarteurComponent} from './liste-Administrateur.component';
-//import {AjouterCollaborateurComponent} from './ajouter-collaborateur.component';
 import {AjouterRhComponent} from './ajouter-Rh.component';
 import {AjouterRapportComponent} from './ajouter-rapport.component';
 import {ListeRapportProjetComponent} from './liste-rapport-projet.component';
-
+import {AjouterBilanComponent} from './ajouter-bilan.component';
+import {ListeBilansProjetComponent} from './liste-bilans.component';
 
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
-//import {RapportSubmit} from '../assets/js/submit';
 
 export const routes  : Routes = [
   { path:'',component :LoginComponent},
   { path:'adminHome',component :AdminHomeComponent,children :[
-     { path: '', redirectTo: 'statistiques', pathMatch: 'full' },
-     { path:'statistiques',component :StatistiquesComponent,outlet :'adminHomeRoute'},
+     { path:'',component :StatistiquesComponent,outlet :'adminHomeRoute'},
      { path:'gestionProjets',component : GestionProjetComponent,outlet :'adminHomeRoute'},
      { path:'projetDetails/:id',component : ProjetDetailsComponent,outlet :'adminHomeRoute'},
      { path:'gestionComposante/:id',component : GestionComposanteComponent,outlet :'adminHomeRoute'},        
@@ -78,11 +75,11 @@ export const routes  : Routes = [
      { path:'listeResponsable',component :ListeResponsableComponent,outlet :'adminHomeRoute'},
      { path:'listeAdministrateur',component :ListeAdministarteurComponent,outlet :'adminHomeRoute'},
      { path:'supprimerCollaborateur/:id',component : SupprimerCollaborateurComponent,outlet : 'adminHomeRoute'},
-      //{ path:'supprimerResponsable/:id',component : SupprimerResponsableComponent,outlet : 'adminHomeRoute'},
-     //{ path:'ajouterCollaborateur',component : AjouterCollaborateurComponent,outlet : 'adminHomeRoute'},
      { path:'ajouterRh',component : AjouterRhComponent,outlet :'adminHomeRoute'},
      { path:'ajouterRapport/:id',component :AjouterRapportComponent,outlet :'adminHomeRoute'},
      { path:'listeRapportProjet/:id',component :ListeRapportProjetComponent,outlet :'adminHomeRoute'},
+     { path:'ajouterBilan/:id',component :AjouterBilanComponent,outlet :'adminHomeRoute'},
+     { path:'listeBilanProjet/:id',component :ListeBilansProjetComponent,outlet :'adminHomeRoute'},
   ]},
 ];
 
@@ -97,8 +94,9 @@ export const routes  : Routes = [
     SupprimerPartenaireComponent,ListeCollaborateurComponent,ListeResponsableComponent,ModifierActiviteComponent,
     AjouterBenificiaireActiviteComponent,SupprimerActiviteComponent,
     ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent,SupprimerCollaborateurComponent,
-    ListeAdministarteurComponent,AjouterRhComponent,AjouterRapportComponent,
-    ListeRapportProjetComponent
+    ListeAdministarteurComponent,AjouterRhComponent,AjouterRapportComponent,ListeRapportProjetComponent,ListeBilansProjetComponent,
+    AjouterBilanComponent
+    
     
   ],
   imports: [
