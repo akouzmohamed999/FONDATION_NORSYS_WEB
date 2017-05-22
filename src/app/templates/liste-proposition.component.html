@@ -1,0 +1,49 @@
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="wrapper wrapper-content animated fadeInUp">
+
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h4>Liste des Propositions</h4>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="project-list">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Thematique</th>
+                                            <th>Objectif</th>
+                                            <th>ZoneGeographique</th>
+                                            <th>Porteur Projet</th>
+                                            <th class="project-actions">Options</th>
+                                        </tr>
+                                  </thead>
+                                    <tbody>
+                                    <tr  *ngFor="let proposition of propositions">
+                                        <td class="project-title">
+                                            {{proposition.thematique}}
+                                        </td>
+                                        <td class="project-completion">
+                                               {{proposition.objectif}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{proposition.zoneGeographiqe}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{proposition.porteurProjet.nom}} {{proposition.porteurProjet.prenom}} 
+                                        </td>
+                                        <td class="project-actions">
+                                            <!--<a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['projetDetails',projet.idProjet]}}]"
+                                             class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Détails</a>-->
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     

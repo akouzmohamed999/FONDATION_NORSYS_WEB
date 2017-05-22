@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { ProjetService } from './services/projet.service';
+import { PropositionService } from './services/proposition.service';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from "jquery";
 
 @Component({
-  selector: 'gestion-projet',
-  templateUrl: './templates/gestion-projet.component.html',
+  selector: 'liste-proposition',
+  templateUrl: './templates/liste-proposition.component.html',
   styleUrls : ['../assets/css/bootstrap.min.css',
                 '../assets/font-awesome/css/font-awesome.css',
                 '../assets/css/plugins/iCheck/custom.css',
@@ -15,10 +15,10 @@ import * as $ from "jquery";
   
 })
 
-export class GestionProjetComponent {
+export class ListePropositionComponent {
 
-  projets;
-  constructor(private projetService: ProjetService,private router : Router) { }
+  propositions;
+  constructor(private propositionService: PropositionService,private router : Router) { }
 
   ngOnInit() {
     this.getAdministrateurProjects();
@@ -26,8 +26,8 @@ export class GestionProjetComponent {
 
 
   getAdministrateurProjects() {
-    this.projetService.getAdminProjets().subscribe(projets => {
-      this.projets = projets;
+    this.propositionService.getAllProposition().subscribe(propositions => {
+      this.propositions = propositions;
     });
   }
 }

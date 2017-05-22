@@ -50,6 +50,7 @@ import {ListeBilansProjetComponent} from './liste-bilans.component';
 
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
+import {PropositionService} from './services/proposition.service';
 
 export const routes  : Routes = [
   { path:'',component :LoginComponent},
@@ -107,7 +108,7 @@ export const routes  : Routes = [
     MyDatePickerModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [LoginService,ProjetService],
+  providers: [LoginService,ProjetService,PropositionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
