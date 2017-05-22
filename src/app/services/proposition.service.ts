@@ -64,4 +64,11 @@ export class PropositionService {
             let options = new RequestOptions({headers: headers});            
             return this.http.delete(this.APIURL+'/administrateur/deleteRendezVous?idRendezVous='+idRendezVous,options);
         }
+
+        getPropositionByid(idProposition){
+             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/administrateur/projetById?idProposition='+idProposition,{headers:headers})
+            .map(response => response.json()
+            );
+        }
 }

@@ -19,7 +19,7 @@ export class ProjetService {
 
         getCollaborateur(){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/administrateur/Collaborateurs',{headers:headers})
+            return this.http.get(this.APIURL+'/responsable/Collaborateurs',{headers:headers})
             .map(response => response.json()
             );
         }
@@ -275,7 +275,7 @@ export class ProjetService {
 
         getAllThematiques(){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/responsable/thematiques',{headers:headers})
+            return this.http.get(this.APIURL+'/public/thematiques',{headers:headers})
             .map(response => response.json()
             );
         }

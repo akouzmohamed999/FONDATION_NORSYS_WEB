@@ -1,0 +1,88 @@
+<div class="row">
+            <div class="col-lg-9">
+                <div class="wrapper wrapper-content animated fadeInUp">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            {{proposition?.thematique.intitule}}
+                                         </div>
+                                         <div class="col-lg-4">
+                                            {{proposition?.objectif}}
+                                         </div>
+                                         <div class="col-lg-4">
+                                            {{proposition?.typeAction}}
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="col-lg-12">
+                                     <div class="row">
+                                        <div class="col-lg-4">
+                                            {{proposition?.datePrevision}}
+                                         </div>
+                                         <div class="col-lg-4">
+                                            {{proposition?.populationCible}}
+                                         </div>
+                                         <div class="col-lg-4">
+                                            {{proposition?.zoneGeographiqe}}
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            {{proposition?.dureeAction}}
+                                         </div>
+                                         <div class="col-lg-4">
+                                            {{proposition?.budgetPrevisionnel}}
+                                         </div>
+                                         <div class="col-lg-4">
+                                            {{proposition?.typeSoutien}}
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="wrapper wrapper-content project-manager animated fadeInDown">
+                    <div class="row" >
+                            <div class="contact-box">
+                        <a href="profile.html">
+                        <div class="col-sm-4">
+                            <div class="text-center">
+                                <img alt="image" class="img-circle m-t-xs img-responsive" src="assets/img/a2.jpg">
+                                <div class="m-t-xs font-bold">Porteur De Projet</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <h3><strong>{{proposition?.porteurProjet.nom}}
+                                     {{proposition?.porteurProjet.prenom}}</strong></h3>
+                            <p><i class="fa fa-at"></i>{{proposition?.porteurProjet.email}}</p>
+                            <p><i class="fa fa-phone"></i>{{proposition?.porteurProjet.numeroTelephone}}</p>
+                        </div>
+                        <div class="clearfix"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h2>Annexe</h2>
+                        <p><img src="assets/img/file.png" class="img-responsive"></p>
+                         <ul class="list-unstyled project-files">
+                             <li><p id="file">{{proposition?.Annexe}}</p></li>
+                                <li><button id="download" class="btn btn-sm btn-primary"><i class="fa fa-download"></i> Télécharger l'Annexe </button>
+                                                
+                                    </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>

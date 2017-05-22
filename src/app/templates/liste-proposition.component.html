@@ -4,7 +4,7 @@
 
                     <div class="ibox">
                         <div class="ibox-title">
-                            <h4>Liste des Propositions</h4>
+                            <h2>Liste des Propositions</h2>
                         </div>
                         <div class="ibox-content">
                             <div class="project-list">
@@ -21,7 +21,7 @@
                                     <tbody>
                                     <tr  *ngFor="let proposition of propositions">
                                         <td class="project-title">
-                                            {{proposition.thematique}}
+                                            {{proposition.thematique.intitule}}
                                         </td>
                                         <td class="project-completion">
                                                {{proposition.objectif}}
@@ -33,8 +33,8 @@
                                             {{proposition.porteurProjet.nom}} {{proposition.porteurProjet.prenom}} 
                                         </td>
                                         <td class="project-actions">
-                                            <!--<a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['projetDetails',projet.idProjet]}}]"
-                                             class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Détails</a>-->
+                                            <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['propositionDetails',proposition.idProposition]}}]"
+                                             class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Détails</a>
                                         </td>
                                     </tr>
                                     </tbody>
