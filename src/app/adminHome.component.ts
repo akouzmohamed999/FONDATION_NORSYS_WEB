@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProjetService } from './services/projet.service';
+import { PropositionService } from './services/proposition.service';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from "jquery";
 
@@ -17,11 +18,12 @@ import * as $ from "jquery";
 
 export class AdminHomeComponent {
 
-  constructor(private projetService: ProjetService,private router : Router ) {
+  constructor(private projetService: ProjetService,private propositionService:PropositionService,private router : Router ) {
   }
 
   collaborateur;
   role;
+  nombrePropositions;
 
   ngOnInit(){
 /*
@@ -38,7 +40,7 @@ export class AdminHomeComponent {
 
     this.collaborateur=localStorage.getItem("loggedUserName");
     this.role=localStorage.getItem("loggedUserRole");
-
+    this.getNonVuePropositions();
   }
 
   addScripts(chemin){
@@ -53,5 +55,14 @@ export class AdminHomeComponent {
         console.log("jQuery is ready");
       });
     this.addScripts('assets/js/plugins/metisMenu/jquery.metisMenu.js'); 
+  }
+
+  getNonVuePropositions(){
+    this.propositionService.getAllNonVueProposition().subscribe(
+      
+      propositions =>{
+        this.nombrePropositions=propositions.length;
+      }
+    )
   }
 }

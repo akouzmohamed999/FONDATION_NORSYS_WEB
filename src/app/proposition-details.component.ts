@@ -42,7 +42,13 @@ export class PropositionDetailsComponent {
 
   getPropositionById(idProposition){
     this.propositionService.getPropositionByid(idProposition).subscribe(proposition => {
-      this.proposition = proposition;
+      proposition.etat="Vue";
+      this.propositionService.updateProposition(proposition).subscribe(
+        propositionFinale =>{
+          this.proposition = propositionFinale;
+        }
+      )
+      
     })
   }
 

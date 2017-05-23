@@ -51,10 +51,22 @@ export class PropositionService {
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
             headers.append("Content-Type","application/json");  
             let options = new RequestOptions({headers: headers});            
-            return this.http.put(this.APIURL+'/responsable/updateRendezVous',rendezVous,options)
+            return this.http.put(this.APIURL+'/administrateur/updateRendezVous',rendezVous,options)
             .map(response => response.json()
             );
         }
+
+         updateProposition(proposition){
+
+              let headers = new Headers();
+            headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
+            headers.append("Content-Type","application/json");  
+            let options = new RequestOptions({headers: headers});            
+            return this.http.put(this.APIURL+'/administrateur/updateProposition',proposition,options)
+            .map(response => response.json()
+            );
+        }
+
 
         deleteRendezVous(idRendezVous){
 
