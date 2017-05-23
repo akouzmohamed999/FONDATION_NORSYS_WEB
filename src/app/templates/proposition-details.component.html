@@ -2,86 +2,180 @@
             <div class="col-lg-9">
                 <div class="wrapper wrapper-content animated fadeInUp">
                     <div class="ibox">
+                        
                         <div class="ibox-content">
+                            <h2 style="margin-bottom: 40px">Détails De la Porposition </h2>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="row">
-                                        <div class="col-lg-4">
-                                            {{proposition?.thematique.intitule}}
-                                         </div>
-                                         <div class="col-lg-4">
-                                            {{proposition?.objectif}}
-                                         </div>
-                                         <div class="col-lg-4">
-                                            {{proposition?.typeAction}}
-                                         </div>
+                            <div class="project-list">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <div class="col-lg-4" >
+                                                <th>Intitule</th>
+                                            </div>
+                                            <div class="col-lg-4" >
+                                                <th>Objectif</th>
+                                            </div>
+                                            <div class="col-lg-4" >
+                                                <th>Type D'action</th>
+                                            </div>
+                                        </tr>
+                                  </thead>
+                                    <tbody>
+                                    <tr>
+                                        <div class="col-lg-4" >
+                                            <td class="project-title">
+                                                {{proposition?.thematique.intitule}}
+                                            </td>
+                                        </div>
+                                        <div class="col-lg-4" >
+                                          <td class="project-title">
+                                                {{proposition?.objectif}}
+                                          </td>
+                                        </div>
+                                        <div class="col-lg-4" >
+                                            <td class="project-completion">
+                                                {{proposition?.typeAction}}
+                                            </td>
+                                        </div>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                                          
                                     </div>
                                 </div>
                             </div>
                              <div class="row">
                                 <div class="col-lg-12">
                                      <div class="row">
-                                        <div class="col-lg-4">
-                                            {{proposition?.datePrevision}}
-                                         </div>
-                                         <div class="col-lg-4">
-                                            {{proposition?.populationCible}}
-                                         </div>
-                                         <div class="col-lg-4">
-                                            {{proposition?.zoneGeographiqe}}
-                                         </div>
+                             <div class="project-list">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <div class="col-lg-4" >
+                                                <th>Date de Prévision</th>
+                                            </div>
+                                            <div class="col-lg-4" >
+                                                <th>Population Ciblé</th>
+                                            </div>
+                                            <div class="col-lg-4" >
+                                                <th>Zone Géographique</th>
+                                            </div>
+                                        </tr>
+                                  </thead>
+                                    <tbody>
+
+                                     <tr>
+                                        <div class="col-lg-4" >
+                                            <td class="project-title">
+                                                {{proposition?.datePrevision}}
+                                            </td>
+                                        </div>
+                                        <div class="col-lg-4" >
+                                          <td class="project-title">
+                                                {{proposition?.populationCible}}
+                                          </td>
+                                        </div>
+                                        <div class="col-lg-4" >
+                                            <td class="project-completion">
+                                                {{proposition?.zoneGeographiqe}}
+                                            </td>
+                                        </div>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
                                     </div>
                                 </div>
                             </div>
                              <div class="row">
                                 <div class="col-lg-12">
                                     <div class="row">
-                                        <div class="col-lg-4">
-                                            {{proposition?.dureeAction}}
-                                         </div>
-                                         <div class="col-lg-4">
-                                            {{proposition?.budgetPrevisionnel}}
-                                         </div>
-                                         <div class="col-lg-4">
-                                            {{proposition?.typeSoutien}}
-                                         </div>
+                             <div class="project-list">
+                                <table class="table table-hover">
+                                    <thead>
+                                         <tr>
+                                            <div class="col-lg-4" >
+                                                <th>Durée d'action</th>
+                                            </div>
+                                            <div class="col-lg-4" >
+                                                <th>Budget Previsionnel</th>
+                                            </div>
+                                            <div class="col-lg-4" >
+                                                <th>Type de Soutien</th>
+                                            </div>
+                                        </tr>
+                                  </thead>
+                                    <tbody>
+                                     <tr>
+                                        <div class="col-lg-4" >
+                                            <td class="project-title">
+                                                {{proposition?.dureeAction}}
+                                            </td>
+                                        </div>
+                                        <div class="col-lg-4" >
+                                          <td class="project-title">
+                                                {{proposition?.budgetPrevisionnel}}
+                                          </td>
+                                        </div>
+                                        <div class="col-lg-4" >
+                                            <td class="project-completion">
+                                                {{proposition?.typeSoutien}}
+                                            </td>
+                                        </div>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                     </div>
                                 </div>
                             </div>
+                        <div class="row">
+                            <div class="col-lg-12 pull-right">
+                                <button class="btn btn-primary"><i class="fa fa-calendar"></i>Créer un Rendez-Vous</button>
+                                <button class="btn btn-danger"><i class="fa fa-trash"></i>Supprimer</button>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="wrapper wrapper-content project-manager animated fadeInDown">
-                    <div class="row" >
-                            <div class="contact-box">
-                        <a href="profile.html">
-                        <div class="col-sm-4">
-                            <div class="text-center">
-                                <img alt="image" class="img-circle m-t-xs img-responsive" src="assets/img/a2.jpg">
-                                <div class="m-t-xs font-bold">Porteur De Projet</div>
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <div class="row" >
+                                    <div class="contact-box">
+                                <div class="col-sm-4">
+                                    <div class="text-center">
+                                        <img alt="image" class="img-circle m-t-xs img-responsive" src="assets/img/a2.jpg">
+                                        <div class="m-t-xs font-bold">Porteur De Projet</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <h3><strong>{{proposition?.porteurProjet.nom}}
+                                            {{proposition?.porteurProjet.prenom}}</strong></h3>
+                                    <p><i class="fa fa-at"></i>{{proposition?.porteurProjet.email}}</p>
+                                    <p><i class="fa fa-phone"></i>{{proposition?.porteurProjet.numeroTelephone}}</p>
+                                </div>
+                                <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h2>Annexe</h2>
+                                <p><img src="assets/img/file.png" class="img-responsive"></p>
+                                <ul class="list-unstyled project-files">
+                                    <li><p id="file">{{proposition?.Annexe}}</p></li>
+                                        <li><button id="download" class="btn btn-sm btn-primary"><i class="fa fa-download"></i> Télécharger l'Annexe </button>
+                                                        
+                                   </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="col-sm-8">
-                            <h3><strong>{{proposition?.porteurProjet.nom}}
-                                     {{proposition?.porteurProjet.prenom}}</strong></h3>
-                            <p><i class="fa fa-at"></i>{{proposition?.porteurProjet.email}}</p>
-                            <p><i class="fa fa-phone"></i>{{proposition?.porteurProjet.numeroTelephone}}</p>
-                        </div>
-                        <div class="clearfix"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <h2>Annexe</h2>
-                        <p><img src="assets/img/file.png" class="img-responsive"></p>
-                         <ul class="list-unstyled project-files">
-                             <li><p id="file">{{proposition?.Annexe}}</p></li>
-                                <li><button id="download" class="btn btn-sm btn-primary"><i class="fa fa-download"></i> Télécharger l'Annexe </button>
-                                                
-                                    </li>
-                        </ul>
                     </div>
                 </div>
             </div>
