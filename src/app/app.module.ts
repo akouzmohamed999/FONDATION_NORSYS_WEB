@@ -49,6 +49,7 @@ import {AjouterBilanComponent} from './ajouter-bilan.component';
 import {ListeBilansProjetComponent} from './liste-bilans.component';
 import {ListePropositionComponent} from './liste-propositions.component';
 import {PropositionDetailsComponent} from './proposition-details.component';
+import {AjouterRendezVousComponent} from './ajouter-rendez-vous.component';
 
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
@@ -85,6 +86,7 @@ export const routes  : Routes = [
      { path:'listeBilanProjet/:id',component :ListeBilansProjetComponent,outlet :'adminHomeRoute'},
      { path:'listeProposition',component :ListePropositionComponent,outlet :'adminHomeRoute'},
      { path:'propositionDetails/:id',component :PropositionDetailsComponent,outlet :'adminHomeRoute'},
+     { path:'ajouterRendezVous/:id',component :AjouterRendezVousComponent,outlet :'adminHomeRoute'},
   ]},
 ];
 
@@ -100,7 +102,7 @@ export const routes  : Routes = [
     AjouterBenificiaireActiviteComponent,SupprimerActiviteComponent,
     ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent,SupprimerCollaborateurComponent,
     ListeAdministarteurComponent,AjouterRhComponent,AjouterRapportComponent,ListeRapportProjetComponent,ListeBilansProjetComponent,
-    AjouterBilanComponent,ListePropositionComponent,PropositionDetailsComponent
+    AjouterBilanComponent,ListePropositionComponent,PropositionDetailsComponent,AjouterRendezVousComponent
     
     
   ],
