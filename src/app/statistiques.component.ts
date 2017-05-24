@@ -116,6 +116,7 @@ export class StatistiquesComponent{
         this.viewDate = date;
       }
     }
+    console.log("DAYYYYYYYYYYY  "+ this.viewDate);
   }
 
   eventTimesChanged({event, newStart, newEnd}: CalendarEventTimesChangedEvent): void {

@@ -28,7 +28,8 @@
                     <li class="active">
                         <a><i class="fa fa-th-large"></i> <span class="nav-label">Acceuil</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li ><a href="#">Statistique Personnalisée</a></li>
+                            <li ><a  [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['statistiques']}}]">Calendrier</a></li>
+                            <li ><a href="#">Statistiques</a></li>
                         </ul>
                     </li>
                     <li>

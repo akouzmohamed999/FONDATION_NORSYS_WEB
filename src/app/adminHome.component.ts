@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ChangeDetectionStrategy } from '@angular/core';
 import { ProjetService } from './services/projet.service';
 import { PropositionService } from './services/proposition.service';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
@@ -6,6 +6,7 @@ import * as $ from "jquery";
 
 @Component({
   selector: 'admin-home',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './templates/adminHome.component.html',
   styleUrls : ['../assets/css/bootstrap.min.css',
                 '../assets/font-awesome/css/font-awesome.css',
@@ -51,9 +52,6 @@ export class AdminHomeComponent {
   }
 
   ngAfterViewInit(){
-     $( document ).ready(function() {
-        console.log("jQuery is ready");
-      });
     this.addScripts('assets/js/plugins/metisMenu/jquery.metisMenu.js'); 
   }
 

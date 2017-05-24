@@ -63,6 +63,7 @@ export const routes  : Routes = [
   { path:'',component :LoginComponent},
   { path:'adminHome',component :AdminHomeComponent,children :[
      { path:'',component :StatistiquesComponent,outlet :'adminHomeRoute'},
+     { path:'statistiques',component :StatistiquesComponent,outlet :'adminHomeRoute'},
      { path:'gestionProjets',component : GestionProjetComponent,outlet :'adminHomeRoute'},
      { path:'projetDetails/:id',component : ProjetDetailsComponent,outlet :'adminHomeRoute'},
      { path:'gestionComposante/:id',component : GestionComposanteComponent,outlet :'adminHomeRoute'},        
