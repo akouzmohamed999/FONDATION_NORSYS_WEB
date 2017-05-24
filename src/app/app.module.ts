@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import { MyDatePickerModule } from 'mydatepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
 import { CalendarModule } from 'angular-calendar';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import 'rxjs/add/operator/map';
@@ -117,6 +118,7 @@ export const routes  : Routes = [
     HttpModule,
     ReactiveFormsModule,
     MyDatePickerModule,
+    NguiDatetimePickerModule,
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
     NgbModule.forRoot(),
