@@ -24,7 +24,8 @@ export class PropositionDetailsComponent {
     this.route.params.subscribe(params => {
         this.id= +params['id'];
     });
-    this.getPropositionById(this.id); 
+    this.getPropositionById(this.id);
+    
   }
 
 
@@ -42,12 +43,18 @@ export class PropositionDetailsComponent {
 
   getPropositionById(idProposition){
     this.propositionService.getPropositionByid(idProposition).subscribe(proposition => {
-      proposition.etat="Vue";
-      this.propositionService.updateProposition(proposition).subscribe(
-        propositionFinale =>{
-          this.proposition = propositionFinale;
-        }
-      )
+      if(proposition.etat=="NonVue"){
+              proposition.etat="Vue";
+          this.propositionService.updateProposition(proposition).subscribe(
+            propositionFinale =>{
+              
+              this.proposition = propositionFinale;
+            }
+          )
+      }else{
+        this.proposition = proposition;
+      }
+    console.log('FFFFFFFFFFFFFFFFFFFFFFFF '+JSON.stringify(this.proposition));
       
     })
   }

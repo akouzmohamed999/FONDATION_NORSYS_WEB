@@ -13,5 +13,6 @@ import {ProjetService} from './services/projet.service';
 })
 
 export class StatistiquesComponent{ 
+    
 
 }

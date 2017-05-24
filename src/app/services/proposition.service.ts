@@ -79,7 +79,7 @@ export class PropositionService {
 
         getPropositionByid(idProposition){
              var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/administrateur/projetById?idProposition='+idProposition,{headers:headers})
+            return this.http.get(this.APIURL+'/administrateur/propositionById?idProposition='+idProposition,{headers:headers})
             .map(response => response.json()
             );
         } 

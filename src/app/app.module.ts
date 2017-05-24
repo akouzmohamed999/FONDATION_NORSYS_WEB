@@ -51,6 +51,7 @@ import {ListePropositionComponent} from './liste-propositions.component';
 import {PropositionDetailsComponent} from './proposition-details.component';
 import {AjouterRendezVousComponent} from './ajouter-rendez-vous.component';
 
+
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
 import {PropositionService} from './services/proposition.service';

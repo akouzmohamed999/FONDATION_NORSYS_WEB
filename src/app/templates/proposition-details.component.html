@@ -136,9 +136,10 @@
                             </div>
                         <div class="row">
                             <div class="col-lg-12 pull-right">
-                                <button class="btn btn-primary"
-                                [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterRendezVous',proposition?.porteurProjet.idPorteur]}}]"><i class="fa fa-calendar"></i>Créer un Rendez-Vous</button>
-                                <button class="btn btn-danger"><i class="fa fa-trash"></i>Supprimer</button>
+                                <button class="btn btn-primary pull-right" *ngIf="proposition?.porteurProjet.idPorteur != null"
+                                [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterRendezVous',proposition?.porteurProjet.idPorteur]}}]"
+                                [disabled]="proposition.etat==Planifie"><i class="fa fa-calendar"></i>Créer un Rendez-Vous</button>
+                                <button class="btn btn-danger pull-right"><i class="fa fa-trash"></i>Supprimer</button>
                             </div>
                         </div>
                         </div>

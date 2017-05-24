@@ -22,7 +22,7 @@ import * as $ from 'jquery'
 export class AjouterRendezVousComponent {
 
     form : FormGroup;
-    porteurProjet;
+    proposition;
     administrateur;
     sub;
     id;
@@ -44,7 +44,7 @@ export class AjouterRendezVousComponent {
             this.id= +params['id'];
             });
         this.getAdministrateurById(localStorage.getItem("loggedUserId"));
-        this.getPorteurProjetById(this.id);
+        this.getPropositionById(this.id);
     }
 
  
@@ -54,21 +54,27 @@ export class AjouterRendezVousComponent {
     })
   }
 
-  getPorteurProjetById(idPorteurProjet){
-    this.propositionService.getPorteurProjetById(idPorteurProjet).subscribe(porteurProjet => {
-        this.porteurProjet=porteurProjet;
+  getPropositionById(idProposition){
+    this.propositionService.getPropositionByid(idProposition).subscribe(proposition => {
+        this.proposition=proposition;
     })
   }
 
     onSubmit(rendezVous){
         var date = rendezVous.date.formatted;
         rendezVous.administrateur=this.administrateur;
-        rendezVous.porteurProjet=this.porteurProjet;
+        rendezVous.porteurProjet=this.proposition.porteurProjet;
         rendezVous.date=date;
         this.propositionService.addRendezVous(rendezVous).subscribe(rendezVous =>{
             if(rendezVous != null){
                  this._ngZone.run(() => {
-                          this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['listeProposition']}}]); 
+                            this.proposition.etat="Planifie";
+                            this.propositionService.updateProposition(this.proposition).subscribe(
+                                proposition => {
+                                    this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['propositionDetails',this.proposition.idProposition]}}]); 
+                                }
+                            )
+                          
                         });
             }
         });
