@@ -4,6 +4,9 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import { MyDatePickerModule } from 'mydatepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/Rx';
@@ -113,6 +116,9 @@ export const routes  : Routes = [
     HttpModule,
     ReactiveFormsModule,
     MyDatePickerModule,
+    BrowserAnimationsModule,
+    CalendarModule.forRoot(),
+    NgbModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
   providers: [LoginService,ProjetService,PropositionService],
