@@ -90,4 +90,11 @@ export class PropositionService {
             .map(response => response.json()
             );
         }
+
+        getAllRendezVous(){
+            var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/administrateur/administrateur/allRendezVous',{headers:headers})
+            .map(response => response.json()
+            );
+        }
 }
