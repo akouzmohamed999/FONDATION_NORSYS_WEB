@@ -1,5 +1,6 @@
 import {Component,ChangeDetectionStrategy, ViewChild, TemplateRef} from '@angular/core';
 import {ProjetService} from './services/projet.service';
+import {PropositionService} from './services/proposition.service';
 import {  CalendarEvent,  CalendarEventAction,  CalendarEventTimesChangedEvent} from 'angular-calendar';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
@@ -49,6 +50,7 @@ export class StatistiquesComponent{
    view: string = 'month';
 
   viewDate: Date = new Date();
+  rendezVous;
 
   modalData: {
     action: string,
@@ -70,7 +72,7 @@ export class StatistiquesComponent{
 
   refresh: Subject<any> = new Subject();
 
-  events: CalendarEvent[] = [{
+  /*events: CalendarEvent[] = [{
     start: subDays(startOfDay(new Date()), 1),
     end: addDays(new Date(), 1),
     title: 'A 3 day event',
@@ -97,11 +99,16 @@ export class StatistiquesComponent{
       afterEnd: true
     },
     draggable: true
-  }];
+  }];*/
+  events: CalendarEvent[]=[];
 
   activeDayIsOpen: boolean = true;
 
-  constructor(private modal: NgbModal) {}
+  constructor(private modal: NgbModal,private propositionService: PropositionService) {}
+
+  ngOnInit(){
+    this.getAllRendezVous();
+  }
 
   dayClicked({date, events}: {date: Date, events: CalendarEvent[]}): void {
 
@@ -131,11 +138,10 @@ export class StatistiquesComponent{
     this.modal.open(this.modalContent, {size: 'lg'});
   }
 
-  addEvent(): void {
+  addEventFromRendezVous(rendezVous): void {  
     this.events.push({
-      title: 'New event',
-      start: startOfDay(new Date()),
-      end: endOfDay(new Date()),
+      title: rendezVous.sujet,
+      start: startOfDay(this.sqlToJsDate(rendezVous.date)),
       color: colors.red,
       draggable: true,
       resizable: {
@@ -143,7 +149,41 @@ export class StatistiquesComponent{
         afterEnd: true
       }
     });
-    this.refresh.next();
+  }
+
+  sqlToJsDate(sqlDate){
+    //sqlDate in SQL DATETIME format ("yyyy-mm-dd hh:mm:ss.ms")
+    var sqlDateArr1 = sqlDate.split("-");
+    //format of sqlDateArr1[] = ['yyyy','mm','dd hh:mm:ms']
+    var sYear = sqlDateArr1[0];
+    var sMonth = sqlDateArr1[1];
+    /*var sqlDateArr2 = sqlDateArr1[2].split(" ");
+    //format of sqlDateArr2[] = ['dd', 'hh:mm:ss.ms']
+    var sDay = sqlDateArr2[0];
+    var sqlDateArr3 = sqlDateArr2[1].split(":");
+    //format of sqlDateArr3[] = ['hh','mm','ss.ms']
+    var sHour = sqlDateArr3[0];
+    var sMinute = sqlDateArr3[1];
+    var sqlDateArr4 = sqlDateArr3[2].split(".");
+    //format of sqlDateArr4[] = ['ss','ms']
+    var sSecond = sqlDateArr4[0];
+    var sMillisecond = sqlDateArr4[1];*/
+    var sDay = sqlDateArr1[2];
+    return new Date(sYear,sMonth,sDay);
+}
+
+
+  getAllRendezVous(){
+    this.propositionService.getAllRendezVous().subscribe(
+      rendezVous => {
+        this.rendezVous=rendezVous;
+        rendezVous.forEach(element => {
+          console.log('RDVZ :'+JSON.stringify(element));
+          console.log('DATE OF THIS '+this.sqlToJsDate(element.date));
+          this.addEventFromRendezVous(element);
+        });
+      }
+    )
   }
 
 }

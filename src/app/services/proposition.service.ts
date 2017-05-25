@@ -93,7 +93,7 @@ export class PropositionService {
 
         getAllRendezVous(){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/administrateur/administrateur/allRendezVous',{headers:headers})
+            return this.http.get(this.APIURL+'/administrateur/allRendezVous',{headers:headers})
             .map(response => response.json()
             );
         }
