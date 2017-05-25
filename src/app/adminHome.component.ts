@@ -6,7 +6,6 @@ import * as $ from "jquery";
 
 @Component({
   selector: 'admin-home',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './templates/adminHome.component.html',
   styleUrls : ['../assets/css/bootstrap.min.css',
                 '../assets/font-awesome/css/font-awesome.css',

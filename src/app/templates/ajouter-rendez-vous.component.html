@@ -26,17 +26,9 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Date *</label>
-                                                <!--<my-date-picker name="mydate" [options]="myDatePickerOptions" 
-                                                [formControl]="form.controls['date']" required></my-date-picker>-->
-                                                <input
-                                                      [formControl]="form.controls['date']" ngui-datetime-picker
-                                                        date-format="YYYY-MM-DD hh:mm:ss"
-                                                        year="2014"
-                                                        month="12"
-                                                        day="31"
-                                                        hour="23"
-                                                        minute='59'
-                                                        [close-on-select]="false"  />
+                                                <my-date-picker name="mydate" [options]="myDatePickerOptions" 
+                                                [formControl]="form.controls['date']" required></my-date-picker>
+                                                <!--<input type="text" [formControl]="form.controls['date']" class="form-control"/>-->
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
