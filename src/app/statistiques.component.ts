@@ -51,19 +51,27 @@ export class StatistiquesComponent{
 
   viewDate: Date = new Date();
   rendezVous;
+  projets;
+  activities;
 
   modalData: {
     action: string,
     event: CalendarEvent
   };
 
+  rendezVousClickAction : CalendarEventAction[] = [{
+    label: '<i class="fa fa-search"></i>',
+    onClick: ({event}: {event: CalendarEvent}): void => {
+      console.log(" this ID redirect !! "+event.objectId)
+    }
+  }];
   actions: CalendarEventAction[] = [{
-    label: '<i class="fa fa-fw fa-pencil"></i>',
+    label: '<i class="fa fa-trash"></i>',
     onClick: ({event}: {event: CalendarEvent}): void => {
       this.handleEvent('Edited', event);
     }
   }, {
-    label: '<i class="fa fa-fw fa-times"></i>',
+    label: '<i class="fa fa-search"></i>',
     onClick: ({event}: {event: CalendarEvent}): void => {
       this.events = this.events.filter(iEvent => iEvent !== event);
       this.handleEvent('Deleted', event);
@@ -102,12 +110,14 @@ export class StatistiquesComponent{
   }];*/
   events: CalendarEvent[]=[];
 
-  activeDayIsOpen: boolean = true;
+  activeDayIsOpen: boolean = false;
 
-  constructor(private modal: NgbModal,private propositionService: PropositionService) {}
+  constructor(private modal: NgbModal,private propositionService: PropositionService,private projetService:ProjetService) {}
 
   ngOnInit(){
     this.getAllRendezVous();
+    this.getAllProjets();
+    this.getAllActivities();
   }
 
   dayClicked({date, events}: {date: Date, events: CalendarEvent[]}): void {
@@ -123,7 +133,6 @@ export class StatistiquesComponent{
         this.viewDate = date;
       }
     }
-    console.log("DAYYYYYYYYYYY  "+ this.viewDate);
   }
 
   eventTimesChanged({event, newStart, newEnd}: CalendarEventTimesChangedEvent): void {
@@ -142,12 +151,33 @@ export class StatistiquesComponent{
     this.events.push({
       title: rendezVous.sujet,
       start: startOfDay(this.sqlToJsDate(rendezVous.date)),
+      color: colors.blue,
+      draggable: true,
+      actions: this.rendezVousClickAction,
+      objectId : rendezVous.idRendezVous
+    });
+  }
+
+  addEventFromPrjet(projet){
+    this.events.push({
+      title: projet.intitule,
+      start: startOfDay(this.sqlToJsDate(projet.dateDebut)),
+      end: endOfDay(this.sqlToJsDate(projet.dateFin)),
       color: colors.red,
       draggable: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      }
+      actions: this.actions,
+      objectId: projet.idProjet
+    });
+  }
+
+  addEventFromActivite(activite){
+    this.events.push({
+      title: activite.intitule,
+      start: startOfDay(this.sqlToJsDate(activite.dateActivite)),
+      color: colors.yellow,
+      draggable: true,
+      actions: this.actions,
+      objectId : activite.idActivite
     });
   }
 
@@ -169,21 +199,42 @@ export class StatistiquesComponent{
     var sSecond = sqlDateArr4[0];
     var sMillisecond = sqlDateArr4[1];*/
     var sDay = sqlDateArr1[2];
-    return new Date(sYear,sMonth,sDay);
+    return new Date(sYear,sMonth-1,sDay);
 }
 
 
   getAllRendezVous(){
+    
     this.propositionService.getAllRendezVous().subscribe(
       rendezVous => {
         this.rendezVous=rendezVous;
         rendezVous.forEach(element => {
-          console.log('RDVZ :'+JSON.stringify(element));
-          console.log('DATE OF THIS '+this.sqlToJsDate(element.date));
           this.addEventFromRendezVous(element);
         });
       }
     )
   }
 
+  getAllProjets(){
+    this.projetService.getAdminProjets().subscribe(
+      projets => {
+        this.projets=projets;
+        projets.forEach(element => {
+          this.addEventFromPrjet(element);
+        })
+      }
+    )
+  }
+
+  getAllActivities(){
+
+        this.projetService.getAllActivities().subscribe(
+          activities => {
+            this.activities=activities;
+        activities.forEach(element => {
+          this.addEventFromActivite(element);
+        });
+          }
+        )
+  }
 }

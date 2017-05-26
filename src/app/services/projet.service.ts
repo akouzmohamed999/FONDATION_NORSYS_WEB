@@ -349,6 +349,14 @@ export class ProjetService {
             .map(response => response.json()
             );
         }
+
+        getAllActivities(){
+            var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/responsable/allActivites',{headers:headers})
+            .map(response => response.json()
+            );
+        }
+
         addFichierRapport(data){
             let headers = new Headers();
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));  
