@@ -8,7 +8,13 @@ import * as $ from 'jquery'
 
 @Component({
     selector : 'ajouterActivite',
-    templateUrl : './templates/ajouter-activite.component.html'
+    templateUrl : './templates/ajouter-activite.component.html',
+     styleUrls : ['../assets/css/bootstrap.min.css',
+                '../assets/font-awesome/css/font-awesome.css',
+                '../assets/css/plugins/iCheck/custom.css',
+                '../assets/css/plugins/toastr/toastr.min.css',
+                '../assets/js/plugins/gritter/jquery.gritter.css',
+                '../assets/css/animate.css','../assets/css/style.css']
 })
 export class AjouterActiviteComponent {
 
@@ -19,6 +25,7 @@ export class AjouterActiviteComponent {
     composante;
     id;
     sub;
+    collaborateurFilter : any = {nom : ''};
 
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router : Router,
     private _location:Location){

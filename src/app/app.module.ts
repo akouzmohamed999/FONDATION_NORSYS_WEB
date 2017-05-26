@@ -7,6 +7,7 @@ import { MyDatePickerModule } from 'mydatepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/Rx';
@@ -122,6 +123,7 @@ export const routes  : Routes = [
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
     NgbModule.forRoot(),
+    Ng2FilterPipeModule,
     RouterModule.forRoot(routes)
   ],
   providers: [LoginService,ProjetService,PropositionService],
