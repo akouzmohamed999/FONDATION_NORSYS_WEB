@@ -19,6 +19,7 @@ import {ProjetComponent} from './projet.component';
 import {GestionProjetComponent} from './gestion-projet.component';
 import {ComposanteComponent} from './composante.component';
 import {ActiviteComponent} from './activite.component';
+import {CalendrierComponent} from './calendrier.component';
 import {StatistiquesComponent} from './statistiques.component';
 import {ProjetDetailsComponent} from './projet-details.component';
 import {CollaborateurComponent} from './collaborateur.component';
@@ -62,7 +63,8 @@ import {PropositionService} from './services/proposition.service';
 export const routes  : Routes = [
   { path:'',component :LoginComponent},
   { path:'adminHome',component :AdminHomeComponent,children :[
-     { path:'',component :StatistiquesComponent,outlet :'adminHomeRoute'},
+     { path:'',component :CalendrierComponent,outlet :'adminHomeRoute'},
+     { path:'calendrier',component :StatistiquesComponent,outlet :'adminHomeRoute'},
      { path:'statistiques',component :StatistiquesComponent,outlet :'adminHomeRoute'},
      { path:'gestionProjets',component : GestionProjetComponent,outlet :'adminHomeRoute'},
      { path:'projetDetails/:id',component : ProjetDetailsComponent,outlet :'adminHomeRoute'},
@@ -107,7 +109,7 @@ export const routes  : Routes = [
     AjouterBenificiaireActiviteComponent,SupprimerActiviteComponent,
     ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent,SupprimerCollaborateurComponent,
     ListeAdministarteurComponent,AjouterRhComponent,AjouterRapportComponent,ListeRapportProjetComponent,ListeBilansProjetComponent,
-    AjouterBilanComponent,ListePropositionComponent,PropositionDetailsComponent,AjouterRendezVousComponent
+    AjouterBilanComponent,ListePropositionComponent,PropositionDetailsComponent,AjouterRendezVousComponent,CalendrierComponent
     
     
   ],

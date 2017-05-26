@@ -32,28 +32,23 @@ const colors: any = {
 };
 
 @Component({
-    selector : 'statistiques',
+    selector : 'calendrier',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl :'./templates/statistiques.component.html',
+    templateUrl :'./templates/calendrier.component.html',
     styleUrls : ['../assets/css/bootstrap.min.css',
                 '../assets/font-awesome/css/font-awesome.css',
                 '../assets/css/plugins/iCheck/custom.css',
                 '../assets/css/plugins/toastr/toastr.min.css',
                 '../assets/js/plugins/gritter/jquery.gritter.css',
                 '../assets/css/animate.css','../assets/css/style.css',
-                '../../node_modules/angular-calendar/dist/css/angular-calendar.css']
+                '../assets/css/angular-calendar.css']
 })
 
-export class StatistiquesComponent{ 
-
-    @ViewChild('modalContent') modalContent: TemplateRef<any>;
+export class CalendrierComponent{ 
     
    view: string = 'month';
 
   viewDate: Date = new Date();
-  rendezVous;
-  projets;
-  activities;
 
   modalData: {
     action: string,
@@ -79,49 +74,7 @@ export class StatistiquesComponent{
     }
   }];
 
-  actions: CalendarEventAction[] = [{
-    label: '<i class="fa fa-trash"></i>',
-    onClick: ({event}: {event: CalendarEvent}): void => {
-      this.handleEvent('Edited', event);
-    }
-  }, {
-    label: '<i class="fa fa-search"></i>',
-    onClick: ({event}: {event: CalendarEvent}): void => {
-      this.events = this.events.filter(iEvent => iEvent !== event);
-      this.handleEvent('Deleted', event);
-    }
-  }];
-
   refresh: Subject<any> = new Subject();
-
-  /*events: CalendarEvent[] = [{
-    start: subDays(startOfDay(new Date()), 1),
-    end: addDays(new Date(), 1),
-    title: 'A 3 day event',
-    color: colors.red,
-    actions: this.actions
-  }, {
-    start: startOfDay(new Date()),
-    title: 'An event with no end date',
-    color: colors.yellow,
-    actions: this.actions
-  }, {
-    start: subDays(endOfMonth(new Date()), 3),
-    end: addDays(endOfMonth(new Date()), 3),
-    title: 'A long event that spans 2 months',
-    color: colors.blue
-  }, {
-    start: addHours(startOfDay(new Date()), 2),
-    end: new Date(),
-    title: 'A draggable and resizable event',
-    color: colors.yellow,
-    actions: this.actions,
-    resizable: {
-      beforeStart: true,
-      afterEnd: true
-    },
-    draggable: true
-  }];*/
   events: CalendarEvent[]=[];
 
   activeDayIsOpen: boolean = false;
@@ -147,18 +100,6 @@ export class StatistiquesComponent{
         this.viewDate = date;
       }
     }
-  }
-
-  eventTimesChanged({event, newStart, newEnd}: CalendarEventTimesChangedEvent): void {
-    event.start = newStart;
-    event.end = newEnd;
-    this.handleEvent('Dropped or resized', event);
-    this.refresh.next();
-  }
-
-  handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = {event, action};
-    this.modal.open(this.modalContent, {size: 'lg'});
   }
 
   addEventFromRendezVous(rendezVous): void {  
@@ -218,10 +159,8 @@ export class StatistiquesComponent{
 
 
   getAllRendezVous(){
-    
     this.propositionService.getAllRendezVous().subscribe(
       rendezVous => {
-        this.rendezVous=rendezVous;
         rendezVous.forEach(element => {
           this.addEventFromRendezVous(element);
         });
@@ -232,7 +171,6 @@ export class StatistiquesComponent{
   getAllProjets(){
     this.projetService.getAdminProjets().subscribe(
       projets => {
-        this.projets=projets;
         projets.forEach(element => {
           this.addEventFromPrjet(element);
         })
@@ -241,10 +179,8 @@ export class StatistiquesComponent{
   }
 
   getAllActivities(){
-
         this.projetService.getAllActivities().subscribe(
           activities => {
-            this.activities=activities;
         activities.forEach(element => {
           this.addEventFromActivite(element);
         });
