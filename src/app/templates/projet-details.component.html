@@ -29,10 +29,10 @@
                                             {{projetDetails?.responsable.prenom}} {{projetDetails?.responsable.nom}}
                                         </td>
                                         <td class="project-title">
-                                            {{projetDetails?.dateDebut}}
+                                            {{projetDetails?.dateDebut | date:"MM/dd/yyyy"}} 
                                         </td>
                                         <td class="project-title">
-                                            {{projetDetails?.dateFin}}
+                                            {{projetDetails?.dateFin | date:"MM/dd/yyyy"}}
                                         </td>
                                         <td>
                                             <dd class="project-people" *ngFor="let partenaire of projetDetails?.partenaires">
