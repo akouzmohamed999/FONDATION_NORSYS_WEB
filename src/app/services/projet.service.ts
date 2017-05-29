@@ -357,6 +357,13 @@ export class ProjetService {
             );
         }
 
+        getAllRapports(){
+             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/responsable/rapports',{headers:headers})
+            .map(response => response.json()
+            );
+        }
+
         addFichierRapport(data){
             let headers = new Headers();
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));  
@@ -373,6 +380,12 @@ export class ProjetService {
             );
         }
 
+        getAllBilans(){
+             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/responsable/bilans',{headers:headers})
+            .map(response => response.json()
+            );
+        }
         addBilanProjet(bilanProjet){
               let headers = new Headers();
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));

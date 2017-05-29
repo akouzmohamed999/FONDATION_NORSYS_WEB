@@ -50,8 +50,10 @@ import {ListeAdministarteurComponent} from './liste-Administrateur.component';
 import {AjouterRhComponent} from './ajouter-Rh.component';
 import {AjouterRapportComponent} from './ajouter-rapport.component';
 import {ListeRapportProjetComponent} from './liste-rapport-projet.component';
+import {ListeRapportsComponent} from './liste-rapports.component'
 import {AjouterBilanComponent} from './ajouter-bilan.component';
-import {ListeBilansProjetComponent} from './liste-bilans.component';
+import {ListeBilansProjetComponent} from './liste-bilans-projet.component';
+import {ListeBilansComponent} from './liste-bilans.component'
 import {ListePropositionComponent} from './liste-propositions.component';
 import {PropositionDetailsComponent} from './proposition-details.component';
 import {AjouterRendezVousComponent} from './ajouter-rendez-vous.component';
@@ -95,6 +97,8 @@ export const routes  : Routes = [
      { path:'listeProposition',component :ListePropositionComponent,outlet :'adminHomeRoute'},
      { path:'propositionDetails/:id',component :PropositionDetailsComponent,outlet :'adminHomeRoute'},
      { path:'ajouterRendezVous/:id',component :AjouterRendezVousComponent,outlet :'adminHomeRoute'},
+     { path:'listeRapports',component :ListeRapportsComponent,outlet :'adminHomeRoute'},
+     { path:'listeBilans',component :ListeBilansComponent,outlet :'adminHomeRoute'},
   ]},
 ];
 
@@ -111,6 +115,7 @@ export const routes  : Routes = [
     ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent,SupprimerCollaborateurComponent,
     ListeAdministarteurComponent,AjouterRhComponent,AjouterRapportComponent,ListeRapportProjetComponent,ListeBilansProjetComponent,
     AjouterBilanComponent,ListePropositionComponent,PropositionDetailsComponent,AjouterRendezVousComponent,CalendrierComponent
+    ,ListeRapportsComponent,ListeBilansComponent
     
     
   ],
