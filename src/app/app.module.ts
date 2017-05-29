@@ -7,6 +7,7 @@ import { MyDatePickerModule } from 'mydatepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/Rx';
@@ -19,6 +20,7 @@ import {ProjetComponent} from './projet.component';
 import {GestionProjetComponent} from './gestion-projet.component';
 import {ComposanteComponent} from './composante.component';
 import {ActiviteComponent} from './activite.component';
+import {CalendrierComponent} from './calendrier.component';
 import {StatistiquesComponent} from './statistiques.component';
 import {ProjetDetailsComponent} from './projet-details.component';
 import {CollaborateurComponent} from './collaborateur.component';
@@ -62,7 +64,8 @@ import {PropositionService} from './services/proposition.service';
 export const routes  : Routes = [
   { path:'',component :LoginComponent},
   { path:'adminHome',component :AdminHomeComponent,children :[
-     { path:'',component :StatistiquesComponent,outlet :'adminHomeRoute'},
+     { path:'',component :CalendrierComponent,outlet :'adminHomeRoute'},
+     { path:'calendrier',component :StatistiquesComponent,outlet :'adminHomeRoute'},
      { path:'statistiques',component :StatistiquesComponent,outlet :'adminHomeRoute'},
      { path:'gestionProjets',component : GestionProjetComponent,outlet :'adminHomeRoute'},
      { path:'projetDetails/:id',component : ProjetDetailsComponent,outlet :'adminHomeRoute'},
@@ -107,7 +110,7 @@ export const routes  : Routes = [
     AjouterBenificiaireActiviteComponent,SupprimerActiviteComponent,
     ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent,SupprimerCollaborateurComponent,
     ListeAdministarteurComponent,AjouterRhComponent,AjouterRapportComponent,ListeRapportProjetComponent,ListeBilansProjetComponent,
-    AjouterBilanComponent,ListePropositionComponent,PropositionDetailsComponent,AjouterRendezVousComponent
+    AjouterBilanComponent,ListePropositionComponent,PropositionDetailsComponent,AjouterRendezVousComponent,CalendrierComponent
     
     
   ],
@@ -120,6 +123,7 @@ export const routes  : Routes = [
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
     NgbModule.forRoot(),
+    Ng2FilterPipeModule,
     RouterModule.forRoot(routes)
   ],
   providers: [LoginService,ProjetService,PropositionService],

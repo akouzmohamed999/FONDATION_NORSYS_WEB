@@ -27,6 +27,7 @@
     "jsog": "^1.0.7",
     "jsog-ts": "^0.2.4",
     "mydatepicker": "^2.0.6",
+    "ng2-filter-pipe": "^0.1.8",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },

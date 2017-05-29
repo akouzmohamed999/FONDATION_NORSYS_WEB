@@ -10,10 +10,11 @@
  <div class="row">
                 <div class="col-lg-12 wrapper wrapper-content animated fadeInUp">
                     <div class="ibox">
-                        <div>
-                            <h2>Création d'activité</h2>
-                        </div>
-                        <div class="ibox-content">      
+                        
+                        <div class="ibox-content"> 
+                            <div style="margin-bottom: 20px">
+                                 <h2>Nouvelle activité</h2>
+                            </div>     
                             <form id="form" action="#" class="wizard-big" (ngSubmit)="onSubmit(form.value)" [formGroup]="form"> 
                                     <div class="row">
                                         <div class="col-lg-8">
@@ -43,8 +44,9 @@
 
                                             <div class="form-group">
                                                 <label>Collaborateurs *</label>
+                                                <input type="text" [(ngModel)]="collaborateurFilter.nom" placeholder="name" [ngModelOptions]="{standalone: true}">
                                               <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['collaborateurs']">
-                                                <option *ngFor="let collaborateur of collaborateurs" 
+                                                <option *ngFor="let collaborateur of collaborateurs | filterBy : collaborateurFilter" 
                                                 [ngValue]="collaborateur" >{{collaborateur.prenom}} {{collaborateur.nom}}</option>                            
                                             </select>
                                             </div>
