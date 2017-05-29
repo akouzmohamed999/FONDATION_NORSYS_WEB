@@ -49,7 +49,6 @@ export class GestionComposanteComponent{
   getActivitiesByIdComposante(idCompsante){
       this.projetService.getActivitiesByComposante(idCompsante).subscribe(activities =>{
           this.activities = activities;
-          console.log('gggggggggggggg'+this.activities.length)
       });
   }
 }

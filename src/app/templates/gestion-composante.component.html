@@ -44,7 +44,7 @@
                           <h3><i>Liste des activites</i></h3>
                           <div class="row">
                                 <div class="clearfix pull-right">
-                           <a class="btn btn-white btn-sm" *ngIf="composante?.idComposante != null"
+                           <a class="btn btn-primary btn-sm" *ngIf="composante?.idComposante != null"
                             [routerLink]="['/adminHome', {outlets: {'adminHomeRoute':['ajouterActivite',composante?.idComposante]}}]">
                            <i class="fa fa-plus"></i> Ajouter une Activité </a>
                                 </div>
@@ -74,7 +74,7 @@
                                         </td>
                                         
                                         <td class="project-actions">
-                                            <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['activiteDetails',activite.idActivite]}}]" class="btn btn-white btn-sm"><i class="fa fa-search"></i> Details </a>
+                                            <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['activiteDetails',activite.idActivite]}}]" class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Details </a>
                                        </td>
                                     </tr>
                                     </tbody>

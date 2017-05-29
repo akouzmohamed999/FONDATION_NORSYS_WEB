@@ -32,7 +32,7 @@ export class ModifierCollaborateurComponent {
            'nom' : [''],
             'prenom' : [''],
             'adresse' : [''],
-            'CIN' : [''],
+            'cin' : [''],
             'numeroTelephone':[''],
             'password' : [''],
             'dateNaissance' : [''],
@@ -49,6 +49,7 @@ export class ModifierCollaborateurComponent {
     }
 
     onSubmit(Collaborateur){
+        
         this.collaborateur.nom=Collaborateur.nom;
         this.collaborateur.prenom=Collaborateur.prenom;
         this.collaborateur.adresse=Collaborateur.adresse;
@@ -59,14 +60,14 @@ export class ModifierCollaborateurComponent {
         this.collaborateur.dateNaissance=Collaborateur.dateNaissance;
         this.collaborateur.lieuNaissance=Collaborateur.lieuNaissance;
 
-        //console.log('RRRRRRRRRRR'+JSON.stringify(this.partenaire));
+        console.log('FFFFFFFFFFFFFFFFFF'+JSON.stringify(this.collaborateur));
+
 
         this.projetService.updateCollaborateur(this.collaborateur).subscribe(Collaborateur =>{
             if(Collaborateur != null){
                  this._ngZone.run(() => {
                           this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]); 
                         });
-                //console.log("Ca passe redirection now");
             }
         });
     }
@@ -76,10 +77,10 @@ export class ModifierCollaborateurComponent {
     }
 
     getCollaborateurByIdCollaborateur(idCollaborateur){
-       /* this.projetService.getollaborateurByidCollaborateur(idCollaborateur).subscribe(Collaborateur =>
+        this.projetService.getCollaborateurByidCollaborateur(idCollaborateur).subscribe(Collaborateur =>
         {
             this.collaborateur=Collaborateur;
             console.log('Collaborateur : '+JSON.stringify(this.collaborateur));
-        })*/
+        })
     }
 }

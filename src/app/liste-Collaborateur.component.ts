@@ -15,8 +15,7 @@ import * as $ from "jquery";
   
 })
 export class ListeCollaborateurComponent {
-  // responsable;
-  // administarteur;
+
   collaborateurs;
   constructor(private projetService: ProjetService,private route:ActivatedRoute,private router : Router) { }
 
@@ -25,12 +24,11 @@ export class ListeCollaborateurComponent {
   }
 
   getCollaborateurs() {
-    this.projetService.getCollaborateur().subscribe(collaborateurs => {
+    this.projetService.getCollaborateurOnly().subscribe(collaborateurs => {
       this.collaborateurs = collaborateurs;
     });
   }
   onDeleteClick(){
-    console.log('CLICK RECEIVED');
     $('#myModal').hide();
      this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]);   
   }

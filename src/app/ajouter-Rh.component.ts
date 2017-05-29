@@ -21,8 +21,6 @@ import * as $ from 'jquery'
  export class AjouterRhComponent {
 
     form : FormGroup;
-    //collaborateurs;
-
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router : Router,private _ngZone:NgZone){
         this.form = formBuilder.group({
             'nom' : [''],
@@ -36,18 +34,47 @@ import * as $ from 'jquery'
     }
 
 
-    onSubmit(collaborateur){
-        //console.log('RRRRRRRRRRR'+JSON.stringify(projet));
-        //console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEE'+this.administrateur.idAdministrateur);
-        //projet.administrateur=this.administrateur;
-        this.projetService.addCollaborateur(collaborateur).subscribe(collaborateur =>{
-            if(collaborateur != null){
-                 this._ngZone.run(() => {
-                          this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]); 
-                        });
-                console.log("Ca passe redirection now");
-            }
-        });
+    onSubmit(dto){
+
+        let collaborateur = {
+            nom:dto.nom,
+            prenom:dto.prenom,
+            adresse:dto.adresse,
+            cin:dto.cin,
+            password:dto.password,
+            email:dto.email
+        }
+        if(dto.Type=="Administrateur"){
+            this.projetService.addAdministrateur(collaborateur).subscribe(
+                collaborateur =>{
+                    if(collaborateur != null){
+                        this._ngZone.run(() => {
+                                this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]); 
+                                });
+                    }
+                            }
+            )
+        }else if(dto.Type=="Responsable"){
+                this.projetService.addResponsable(collaborateur).subscribe(
+                collaborateur =>{
+                    if(collaborateur != null){
+                        this._ngZone.run(() => {
+                                this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]); 
+                                });
+                    }
+                            }
+            )
+        }else{
+            this.projetService.addCollaborateur(collaborateur).subscribe(
+                collaborateur =>{
+                    if(collaborateur != null){
+                        this._ngZone.run(() => {
+                                this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]); 
+                                });
+                    }
+                            }
+            )
+        }
     }
     
 }

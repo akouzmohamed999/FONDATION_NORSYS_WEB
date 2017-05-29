@@ -45,6 +45,7 @@ import {ListeBenificiairesComponent} from './liste-benificiaires.component';
 import{ModifierBenificiaireActiviteComponent} from './modifier-benificiaire.comonent';
 import {SupprimerBenificiaireComponent} from './supprimer-benificiaire.component';
 import {SupprimerCollaborateurComponent} from './supprimer-Collaborateur.component';
+import {ModifierCollaborateurComponent} from './modifier-Rh.component';
 import {ListeResponsableComponent} from './liste-Responsable.component';
 import {ListeAdministarteurComponent} from './liste-Administrateur.component';
 import {AjouterRhComponent} from './ajouter-Rh.component';
@@ -88,6 +89,7 @@ export const routes  : Routes = [
      { path:'listeCollaborateur',component :ListeCollaborateurComponent,outlet :'adminHomeRoute'},
      { path:'listeResponsable',component :ListeResponsableComponent,outlet :'adminHomeRoute'},
      { path:'listeAdministrateur',component :ListeAdministarteurComponent,outlet :'adminHomeRoute'},
+     { path:'modifierCollaborateur/:id',component : ModifierCollaborateurComponent,outlet : 'adminHomeRoute'},
      { path:'supprimerCollaborateur/:id',component : SupprimerCollaborateurComponent,outlet : 'adminHomeRoute'},
      { path:'ajouterRh',component : AjouterRhComponent,outlet :'adminHomeRoute'},
      { path:'ajouterRapport/:id',component :AjouterRapportComponent,outlet :'adminHomeRoute'},
@@ -115,7 +117,7 @@ export const routes  : Routes = [
     ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent,SupprimerCollaborateurComponent,
     ListeAdministarteurComponent,AjouterRhComponent,AjouterRapportComponent,ListeRapportProjetComponent,ListeBilansProjetComponent,
     AjouterBilanComponent,ListePropositionComponent,PropositionDetailsComponent,AjouterRendezVousComponent,CalendrierComponent
-    ,ListeRapportsComponent,ListeBilansComponent
+    ,ListeRapportsComponent,ListeBilansComponent,ModifierCollaborateurComponent
     
     
   ],
