@@ -25,7 +25,8 @@ export class AjouterActiviteComponent {
     composante;
     id;
     sub;
-    collaborateurFilter : any = {nom : ''};
+    collaborateurFilter : any = {nom : '',prenom:''};
+    benificiaireFilter : any = {nom : '',prenom:''};
 
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router : Router,
     private _location:Location){
