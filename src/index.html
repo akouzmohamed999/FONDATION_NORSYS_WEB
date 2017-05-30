@@ -2,13 +2,73 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>FondationNorsysAdmin</title>
+  <title>Fondation Norsys</title>
   <base href="/">
-
+  <link rel="stylesheet" href="assets/css/normalize.css">
+	<link rel="stylesheet" href="assets/css/main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="assets/js/vendor/modernizr-2.6.2.min.js"></script>
+  <style type="text/css">
+	.back-link a {
+		color: #4ca340;
+		text-decoration: none; 
+		border-bottom: 1px #4ca340 solid;
+	}
+	.back-link a:hover,
+	.back-link a:focus {
+		color: #408536; 
+		text-decoration: none;
+		border-bottom: 1px #408536 solid;
+	}
+	h1 {
+		height: 100%;
+		/* The html and body elements cannot have any padding or margin. */
+		margin: 0;
+		font-size: 14px;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 32px;
+		margin-bottom: 3px;
+	}
+	.entry-header {
+		text-align: left;
+		margin: 0 auto 50px auto;
+		width: 80%;
+        max-width: 978px;
+		position: relative;
+		z-index: 10001;
+	}
+	#demo-content {
+		padding-top: 100px;
+	}
+	</style>
 </head>
 <body>
-  <app-root>Loading...</app-root>
+  <app-root>
+     <body class="demo">
+      <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+      <![endif]-->
+
+        <!-- Demo content -->			
+        <div id="demo-content">
+
+          <header class="entry-header">
+            <h2 class="entry-title">Chargement ...</h2>
+          </header>
+
+          <div id="loader-wrapper">
+            <div id="loader"></div>
+          </div>
+
+        </div>
+        <!-- /Demo content -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="assets/js/main.js"></script>
+
+      </body>
+  </app-root>
 </body>
 </html>

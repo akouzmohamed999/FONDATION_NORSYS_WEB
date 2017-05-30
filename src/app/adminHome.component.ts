@@ -26,7 +26,7 @@ export class AdminHomeComponent {
   nombrePropositions;
 
   ngOnInit(){
-/*
+
      if( window.localStorage )
   {
     if( !localStorage.getItem('firstLoad') )
@@ -36,7 +36,7 @@ export class AdminHomeComponent {
     }  
     else
       localStorage.removeItem('firstLoad');
-  } */
+  } 
 
     this.collaborateur=localStorage.getItem("loggedUserName");
     this.role=localStorage.getItem("loggedUserRole");

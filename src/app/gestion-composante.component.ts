@@ -29,6 +29,7 @@ export class GestionComposanteComponent{
     });
     this.getComposanteByidComposante(this.id);
     this.getActivitiesByIdComposante(this.id);
+    this.getCollaborateurByComposante(this.id);
   }
 
   getComposanteByidComposante(idComposante){
