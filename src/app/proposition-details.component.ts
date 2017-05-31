@@ -53,9 +53,7 @@ export class PropositionDetailsComponent {
           )
       }else{
         this.proposition = proposition;
-      }
-    console.log('FFFFFFFFFFFFFFFFFFFFFFFF '+JSON.stringify(this.proposition));
-      
+      }     
     })
   }
 

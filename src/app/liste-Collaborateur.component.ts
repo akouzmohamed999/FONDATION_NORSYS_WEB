@@ -16,6 +16,7 @@ import * as $ from "jquery";
 })
 export class ListeCollaborateurComponent {
 
+  loggedAdminId=localStorage.getItem("loggedUserId");
   collaborateurs;
   constructor(private projetService: ProjetService,private route:ActivatedRoute,private router : Router) { }
 

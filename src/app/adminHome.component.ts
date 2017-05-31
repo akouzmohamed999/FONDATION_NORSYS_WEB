@@ -27,7 +27,7 @@ export class AdminHomeComponent {
 
   ngOnInit(){
 
-     if( window.localStorage )
+/*     if( window.localStorage )
   {
     if( !localStorage.getItem('firstLoad') )
     {
@@ -36,14 +36,14 @@ export class AdminHomeComponent {
     }  
     else
       localStorage.removeItem('firstLoad');
-  } 
+  } */
 
     this.collaborateur=localStorage.getItem("loggedUserName");
     this.role=localStorage.getItem("loggedUserRole");
     this.getNonVuePropositions();
   }
 
-  addScripts(chemin){
+ /* addScripts(chemin){
     var script = document.createElement( 'script' );
     script.type = 'text/javascript';
     script.src = chemin;
@@ -52,7 +52,7 @@ export class AdminHomeComponent {
 
   ngAfterViewInit(){
     this.addScripts('assets/js/plugins/metisMenu/jquery.metisMenu.js'); 
-  }
+  }*/
 
   getNonVuePropositions(){
     this.propositionService.getAllNonVueProposition().subscribe(

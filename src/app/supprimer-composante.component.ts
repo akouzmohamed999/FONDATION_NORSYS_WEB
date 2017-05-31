@@ -50,7 +50,6 @@ export class SupprimerComponsanteComponent {
         .subscribe(composante => {
             this.composante = composante;
             this.idProjet=this.composante.projet.idProjet;
-            console.log('FFFFFFFFFFFFFFF'+this.idProjet);
         });
     }
 

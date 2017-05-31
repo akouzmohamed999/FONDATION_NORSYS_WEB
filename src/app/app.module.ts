@@ -58,6 +58,9 @@ import {ListeBilansComponent} from './liste-bilans.component'
 import {ListePropositionComponent} from './liste-propositions.component';
 import {PropositionDetailsComponent} from './proposition-details.component';
 import {AjouterRendezVousComponent} from './ajouter-rendez-vous.component';
+import {ListeRendezVousComponent} from './liste-rendez-vous.component';
+import {SupprimerRendezVousComponent} from './supprimer-rendez-vous.component';
+import {ModifierRendezVousComponent} from './modifier-rendez-vous.component';
 
 
 import {LoginService} from './services/login.service';
@@ -100,7 +103,9 @@ export const routes  : Routes = [
      { path:'propositionDetails/:id',component :PropositionDetailsComponent,outlet :'adminHomeRoute'},
      { path:'ajouterRendezVous/:id',component :AjouterRendezVousComponent,outlet :'adminHomeRoute'},
      { path:'listeRapports',component :ListeRapportsComponent,outlet :'adminHomeRoute'},
-     { path:'listeBilans',component :ListeBilansComponent,outlet :'adminHomeRoute'},
+     { path:'listeRendezVous',component :ListeRendezVousComponent,outlet :'adminHomeRoute'},
+     { path:'supprimerRendezVous/:id',component :SupprimerRendezVousComponent,outlet :'adminHomeRoute'},
+     { path:'modifierRendezVous/:id',component :ModifierRendezVousComponent,outlet :'adminHomeRoute'},
   ]},
 ];
 
@@ -117,7 +122,7 @@ export const routes  : Routes = [
     ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent,SupprimerCollaborateurComponent,
     ListeAdministarteurComponent,AjouterRhComponent,AjouterRapportComponent,ListeRapportProjetComponent,ListeBilansProjetComponent,
     AjouterBilanComponent,ListePropositionComponent,PropositionDetailsComponent,AjouterRendezVousComponent,CalendrierComponent
-    ,ListeRapportsComponent,ListeBilansComponent,ModifierCollaborateurComponent
+    ,ListeRapportsComponent,ListeBilansComponent,ModifierCollaborateurComponent,ListeRendezVousComponent,SupprimerRendezVousComponent,ModifierRendezVousComponent
     
     
   ],

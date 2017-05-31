@@ -38,10 +38,10 @@
                                         </td>
                                         <td class="project-actions">
                                 <a *ngIf="collaborateur?.idCollaborateur != null" [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierCollaborateur',collaborateur?.idCollaborateur]}}]"
-                                 class="btn btn-default btn-xs"><i class="fa fa-edit"></i> Modifier </a>
-                                <a *ngIf="collaborateur?.idCollaborateur != null" [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['supprimerCollaborateur',collaborateur?.idCollaborateur]}}]" 
-                                class="btn btn-danger btn-xs">
-                                    <i class="fa fa-remove"></i>Supprimer</a>
+                                 class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Modifier </a>
+                                <button *ngIf="collaborateur?.idCollaborateur != null" [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['supprimerCollaborateur',collaborateur?.idCollaborateur]}}]" 
+                                class="btn btn-danger btn-xs" [disabled]="collaborateur.idCollaborateur == loggedAdminId">
+                                    <i class="fa fa-remove"></i>Supprimer</button>
                                         </td>
                                     </tr>
                                     </tbody>
