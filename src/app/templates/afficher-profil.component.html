@@ -11,7 +11,7 @@
               <div class="row">
                 <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="assets/img/a2.jpg" class="img-circle img-responsive"> </div>
                 <div class=" col-md-9 col-lg-9 "> 
-                  <table class="table table-user-information">
+                  <table class="table table-striped">
                     <tbody>
                       <tr>
                         <td>CIN :</td>
@@ -25,20 +25,18 @@
                         <td>Email :</td>
                         <td>{{collaborateur?.email}}</td>
                       </tr>
-                   
-                         <tr>
-                             <tr>
+                      <tr>
                         <td>Date De Naissance :</td>
                         <td>{{collaborateur?.dateNaissance}}</td>
                       </tr>
-                        <tr>
+                       <tr>
                         <td>Lieu De Naissance :</td>
                         <td>{{collaborateur?.lieuNaissance}}</td>
                       </tr>
                      
                     </tbody>
                   </table>
-                  <a href="#" class="btn btn-primary"><i class="fa fa-edit"></i>Modifier mon profil</a>
+                  <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierProfil']}}]" class="btn btn-primary pull-right"><i class="fa fa-edit"></i>Modifier mon profil</a>
                 </div>
               </div>
             </div>           

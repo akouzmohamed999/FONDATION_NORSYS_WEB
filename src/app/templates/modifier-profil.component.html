@@ -1,0 +1,73 @@
+<div class="row">
+                <div class="col-lg-8 wrapper wrapper-content animated fadeInUp">
+                    <div class="panel panel-primary">
+                        <div class="ibox-title">
+                        </div>
+                        <div class="panel-body">                  
+                            <form id="form" action="#"  (ngSubmit)="onSubmit(form.value)" [formGroup]="form" >  
+                                   <h2>Modification</h2>
+                                   <div class="form-group">
+                                       <label class="control-label">Nom</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['nom']" 
+                                      [value]="collaborateur?.nom" value="{{collaborateur?.nom}}" />
+                                   </div>
+                                    <div class="form-group">
+                                       <label class="control-label">Prénom</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['prenom']" 
+                                       [value]="collaborateur?.prenom" value="{{collaborateur?.prenom}}" />
+                                   </div>
+                                    <div class="form-group">
+                                       <label class="control-label">CIN</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['cin']" 
+                                       [value]="collaborateur?.cin" value="{{collaborateur?.cin}}" />
+                                   </div>
+                                    <div class="form-group">
+                                       <label class="control-label">Numéro Téléphone</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['numeroTelephone']" 
+                                       [value]="collaborateur?.numeroTelephone" value="{{collaborateur?.numeroTelephone}}" />
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">Ancien mot de passe</label>
+                                       <input type="password" class="form-control" required [formControl]="form.controls['oldPassword']" 
+                                       [value]="collaborateur?.password" value="{{collaborateur?.password}}" />
+                                       <span *ngIf="ancienPasswordError != null" class="warning" >{{ancienPasswordError}}</span>
+                                   </div>
+                                    <div class="form-group">
+                                       <label class="control-label">Nouveau mot de passe</label>
+                                       <input type="password" class="form-control" required [formControl]="form.controls['newPassword']" />
+                                   </div>
+                                    <div class="form-group">
+                                       <label class="control-label">Répéter mot de passe</label>
+                                       <input type="password" class="form-control" required [formControl]="form.controls['confirmPassword']" />
+                                       <span *ngIf="confirmPasswordError != null" class="warning" >{{confirmPasswordError}}</span>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">Adresse *</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['adresse']" 
+                                       [value]="collaborateur?.adresse" value="{{collaborateur?.adresse}}" />
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">Date De Naissance *</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['dateNaissance']" 
+                                       [value]="collaborateur?.dateNaissance" value="{{collaborateur?.dateNaissance}}" />
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">Lieu De Naissance *</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['dateNaissance']" 
+                                       [value]="collaborateur?.dateNaissance" value="{{collaborateur?.dateNaissance}}" />
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">E-mail</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['lieuNaissance']" 
+                                       [value]="collaborateur?.email" value="{{collaborateur?.email}}" />
+                                   </div>
+		                            <div class="clearfix pull-right">
+                                        <input [disabled]="!form.valid" type="submit" value="Modifier" class="btn btn-primary"/>
+                                        <button class="btn btn-primary"
+                                       (click)="onAnullerclick()" >Annuler</button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
