@@ -5,8 +5,8 @@ import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from "jquery";
 
 @Component({
-  selector: 'liste-bilans',
-  templateUrl: './templates/liste-bilans.component.html',
+  selector: 'liste-rapports',
+  templateUrl: './templates/liste-rapports.component.html',
   styleUrls : ['../assets/css/bootstrap.min.css',
                 '../assets/font-awesome/css/font-awesome.css',
                 '../assets/css/plugins/iCheck/custom.css',
@@ -16,16 +16,24 @@ import * as $ from "jquery";
   
 })
 
-export class ListeBilansComponent {
+export class ListeRapportsComponent {
 
-    bilans;
-    bilanFilter:any = {intitule :'',fichierRapport:''}
+    rapports;
+    rapportFilter:any = {intitule :'',fichierRapport:''}
     constructor(private projetService: ProjetService,
     private route:ActivatedRoute,private router:Router,private _location:Location){
     }
 
     ngOnInit() {
        this.getRapports();
+    }
+
+    getRapportsByIdProjet(idProjet){
+      this.projetService.getRapportByIdProjet(idProjet).subscribe(
+        rapports => {
+          this.rapports = rapports;
+        }
+      )
     }
 
      addScripts(chemin){
@@ -40,9 +48,9 @@ export class ListeBilansComponent {
   }
 
   getRapports(){
-    this.projetService.getAllBilans().subscribe(
-      bilans => {
-        this.bilans=bilans;
+    this.projetService.getAllRapports().subscribe(
+      rapports => {
+        this.rapports=rapports;
       }
     )
   }

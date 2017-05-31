@@ -29,6 +29,7 @@ export class GestionComposanteComponent{
     });
     this.getComposanteByidComposante(this.id);
     this.getActivitiesByIdComposante(this.id);
+    this.getCollaborateurByComposante(this.id);
   }
 
   getComposanteByidComposante(idComposante){
@@ -49,7 +50,6 @@ export class GestionComposanteComponent{
   getActivitiesByIdComposante(idCompsante){
       this.projetService.getActivitiesByComposante(idCompsante).subscribe(activities =>{
           this.activities = activities;
-          console.log('gggggggggggggg'+this.activities.length)
       });
   }
 }

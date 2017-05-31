@@ -46,7 +46,7 @@
                                             {{activiteDetails?.intitule}}
                                         </td>
                                         <td class="project-title">
-                                            {{activiteDetails?.dateActivite}}
+                                            {{activiteDetails?.dateActivite | date:"MM/dd/yyyy"}}
                                         </td>
                                        <td class="project-title">
                                             {{activiteDetails?.dureeActivite}}
@@ -112,22 +112,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="wrapper wrapper-content project-manager animated fadeInDown">
-                    <h2 class="fa fa-tag">Pièces Jointes</h2>
-                    <img src="assets/img/file.png" class="img-responsive">
-                    <h5>Dernier Rapport Ajouté</h5>
-                    <ul class="list-unstyled project-files">
-                        <li><a href=""><i class="fa fa-file"></i> Rapport_#15.docx</a></li>
-                        <li><a href="#" class="btn btn-xs btn-primary">Ajouter un Rapport </a></li>
-                    </ul>
-                     <h5>Dernier Bilan Ajouté</h5>
-                    <ul class="list-unstyled project-files">
-                        <li><a href=""><i class="fa fa-file"></i> Bilan_#15.docx</a></li>
-                        <li><a href="#" class="btn btn-xs btn-primary">Ajouter un bilan </a></li>
-                    </ul>
                 </div>
             </div>
         </div>

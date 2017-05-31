@@ -27,9 +27,19 @@
                                        [value]="collaborateur?.numeroTelephone" value="{{collaborateur?.numeroTelephone}}" />
                                    </div>
                                    <div class="form-group">
-                                       <label class="control-label">Password</label>
-                                       <input type="password" class="form-control" required [formControl]="form.controls['password']" 
+                                       <label class="control-label">Ancien mot de passe</label>
+                                       <input type="password" class="form-control" required [formControl]="form.controls['oldPassword']" 
                                        [value]="collaborateur?.password" value="{{collaborateur?.password}}" />
+                                       <span *ngIf="ancienPasswordError != null" class="warning" >{{ancienPasswordError}}</span>
+                                   </div>
+                                    <div class="form-group">
+                                       <label class="control-label">Nouveau mot de passe</label>
+                                       <input type="password" class="form-control" required [formControl]="form.controls['newPassword']" />
+                                   </div>
+                                    <div class="form-group">
+                                       <label class="control-label">Répéter mot de passe</label>
+                                       <input type="password" class="form-control" required [formControl]="form.controls['confirmPassword']" />
+                                       <span *ngIf="confirmPasswordError != null" class="warning" >{{confirmPasswordError}}</span>
                                    </div>
                                    <div class="form-group">
                                        <label class="control-label">Adresse *</label>

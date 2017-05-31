@@ -91,6 +91,13 @@ export class PropositionService {
             );
         }
 
+        getRendezVousById(idRendezVous){
+             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/administrateur/rendezVousById?idRendezVous='+idRendezVous,{headers:headers})
+            .map(response => response.json()
+            );
+        }
+        
         getAllRendezVous(){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
             return this.http.get(this.APIURL+'/administrateur/allRendezVous',{headers:headers})

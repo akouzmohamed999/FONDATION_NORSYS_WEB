@@ -26,8 +26,8 @@ export class AdminHomeComponent {
   nombrePropositions;
 
   ngOnInit(){
-/*
-     if( window.localStorage )
+
+/*     if( window.localStorage )
   {
     if( !localStorage.getItem('firstLoad') )
     {
@@ -51,7 +51,7 @@ export class AdminHomeComponent {
   }
 
   ngAfterViewInit(){
-    this.addScripts('assets/js/plugins/metisMenu/jquery.metisMenu.js'); 
+    this.addScripts('assets/js/inspinia.js'); 
   }
 
   getNonVuePropositions(){

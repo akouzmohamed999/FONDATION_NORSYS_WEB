@@ -42,19 +42,27 @@ import {SupprimerPartenaireComponent} from './supprimer-partenaire.component';
 import {ListeCollaborateurComponent} from './liste-Collaborateur.component';
 import {ModifierActiviteComponent} from './modifier-activite.component';
 import {ListeBenificiairesComponent} from './liste-benificiaires.component';
-import{ModifierBenificiaireActiviteComponent} from './modifier-benificiaire.comonent';
+import {ModifierBenificiaireActiviteComponent} from './modifier-benificiaire.comonent';
 import {SupprimerBenificiaireComponent} from './supprimer-benificiaire.component';
 import {SupprimerCollaborateurComponent} from './supprimer-Collaborateur.component';
+import {ModifierCollaborateurComponent} from './modifier-Rh.component';
+import {AfficherProfilComponent} from './afficher-profil.component';
+import {ModifierProfilComponent} from './modifier-profil.component';  
 import {ListeResponsableComponent} from './liste-Responsable.component';
 import {ListeAdministarteurComponent} from './liste-Administrateur.component';
 import {AjouterRhComponent} from './ajouter-Rh.component';
 import {AjouterRapportComponent} from './ajouter-rapport.component';
 import {ListeRapportProjetComponent} from './liste-rapport-projet.component';
+import {ListeRapportsComponent} from './liste-rapports.component'
 import {AjouterBilanComponent} from './ajouter-bilan.component';
-import {ListeBilansProjetComponent} from './liste-bilans.component';
+import {ListeBilansProjetComponent} from './liste-bilans-projet.component';
+import {ListeBilansComponent} from './liste-bilans.component'
 import {ListePropositionComponent} from './liste-propositions.component';
 import {PropositionDetailsComponent} from './proposition-details.component';
 import {AjouterRendezVousComponent} from './ajouter-rendez-vous.component';
+import {ListeRendezVousComponent} from './liste-rendez-vous.component';
+import {SupprimerRendezVousComponent} from './supprimer-rendez-vous.component';
+import {ModifierRendezVousComponent} from './modifier-rendez-vous.component';
 
 
 import {LoginService} from './services/login.service';
@@ -86,6 +94,9 @@ export const routes  : Routes = [
      { path:'listeCollaborateur',component :ListeCollaborateurComponent,outlet :'adminHomeRoute'},
      { path:'listeResponsable',component :ListeResponsableComponent,outlet :'adminHomeRoute'},
      { path:'listeAdministrateur',component :ListeAdministarteurComponent,outlet :'adminHomeRoute'},
+     { path:'modifierCollaborateur/:id',component : ModifierCollaborateurComponent,outlet : 'adminHomeRoute'},
+     { path:'profil',component : AfficherProfilComponent,outlet : 'adminHomeRoute'},
+     { path:'modifierProfil',component : ModifierProfilComponent,outlet : 'adminHomeRoute'},
      { path:'supprimerCollaborateur/:id',component : SupprimerCollaborateurComponent,outlet : 'adminHomeRoute'},
      { path:'ajouterRh',component : AjouterRhComponent,outlet :'adminHomeRoute'},
      { path:'ajouterRapport/:id',component :AjouterRapportComponent,outlet :'adminHomeRoute'},
@@ -95,6 +106,10 @@ export const routes  : Routes = [
      { path:'listeProposition',component :ListePropositionComponent,outlet :'adminHomeRoute'},
      { path:'propositionDetails/:id',component :PropositionDetailsComponent,outlet :'adminHomeRoute'},
      { path:'ajouterRendezVous/:id',component :AjouterRendezVousComponent,outlet :'adminHomeRoute'},
+     { path:'listeRapports',component :ListeRapportsComponent,outlet :'adminHomeRoute'},
+     { path:'listeRendezVous',component :ListeRendezVousComponent,outlet :'adminHomeRoute'},
+     { path:'supprimerRendezVous/:id',component :SupprimerRendezVousComponent,outlet :'adminHomeRoute'},
+     { path:'modifierRendezVous/:id',component :ModifierRendezVousComponent,outlet :'adminHomeRoute'},
   ]},
 ];
 
@@ -111,6 +126,8 @@ export const routes  : Routes = [
     ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent,SupprimerCollaborateurComponent,
     ListeAdministarteurComponent,AjouterRhComponent,AjouterRapportComponent,ListeRapportProjetComponent,ListeBilansProjetComponent,
     AjouterBilanComponent,ListePropositionComponent,PropositionDetailsComponent,AjouterRendezVousComponent,CalendrierComponent
+    ,ListeRapportsComponent,ListeBilansComponent,ModifierCollaborateurComponent,
+    ListeRendezVousComponent,SupprimerRendezVousComponent,ModifierRendezVousComponent,AfficherProfilComponent,ModifierProfilComponent
     
     
   ],

@@ -23,16 +23,17 @@
                                     <tbody>
                                     <tr>
                                         <td class="project-title">
-                                            {{projetDetails?.administrateur.prenom}} {{projetDetails?.administrateur.nom}}
+                                            {{projetDetails?.administrateur?.prenom}} {{projetDetails?.administrateur?.nom}}
                                         </td>
                                         <td class="project-completion">
-                                            {{projetDetails?.responsable.prenom}} {{projetDetails?.responsable.nom}}
+                                            <span *ngIf="projetDetails?.responsable == null">Aucun responsable pour le moment</span>
+                                            {{projetDetails?.responsable?.prenom}} {{projetDetails?.responsable?.nom}}
                                         </td>
                                         <td class="project-title">
-                                            {{projetDetails?.dateDebut}}
+                                            {{projetDetails?.dateDebut | date:"MM/dd/yyyy"}} 
                                         </td>
                                         <td class="project-title">
-                                            {{projetDetails?.dateFin}}
+                                            {{projetDetails?.dateFin | date:"MM/dd/yyyy"}}
                                         </td>
                                         <td>
                                             <dd class="project-people" *ngFor="let partenaire of projetDetails?.partenaires">

@@ -1,0 +1,45 @@
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="wrapper wrapper-content animated fadeInUp">
+
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h4>Liste des RendezVous</h4>
+                        </div>
+                        <div class="ibox-content">                            <div class="project-list">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Sujet</th>
+                                            <th>Date De RendezVous</th>
+                                            <th>Porteur Projet</th>
+                                            <th class="project-actions">Options</th>
+                                        </tr>
+                                  </thead>
+                                    <tbody>
+                                    <tr  *ngFor="let rdv of rendezVous">
+                                        <td class="project-title">
+                                            {{rdv.sujet}}
+                                        </td>
+                                        <td class="project-completion">
+                                             {{rdv.date | date:"MM/dd/yyyy"}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{rdv.porteurProjet.prenom}} {{rdv.porteurProjet.nom}} 
+                                        </td>
+                                        <td class="project-actions">
+                                            <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierRendezVous',rdv?.idRendezVous]}}]"
+                                            class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Modifier</a>
+                                            <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['supprimerRendezVous',rdv?.idRendezVous]}}]"
+                                            class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Annuler</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     

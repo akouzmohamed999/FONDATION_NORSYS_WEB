@@ -24,6 +24,13 @@ export class ProjetService {
             );
         }
 
+        getCollaborateurOnly(){
+            var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/responsable/allCollaborateurs',{headers:headers})
+            .map(response => response.json()
+            );
+        }
+
         getResponsable(){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
             return this.http.get(this.APIURL+'/administrateur/responsables',{headers:headers})
@@ -191,6 +198,7 @@ export class ProjetService {
             .map(response => response.json()
             );
         }
+
          getCollaborateurByidCollaborateur(idCollaborateur){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
             return this.http.get(this.APIURL+'/administrateur/collaborateurById?idCollaborateur='+idCollaborateur,{headers:headers})
@@ -294,7 +302,7 @@ export class ProjetService {
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
             headers.append("Content-Type","application/json");  
             let options = new RequestOptions({headers: headers});            
-            return this.http.post(this.APIURL+'/administrateur/AddAdministrateur',administarteur,options)
+            return this.http.post(this.APIURL+'/administrateur/addAdministrateur',administarteur,options)
             .map(response => response.json()
             );
         }
@@ -303,7 +311,7 @@ export class ProjetService {
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
             headers.append("Content-Type","application/json");  
             let options = new RequestOptions({headers: headers});            
-            return this.http.post(this.APIURL+'/administrateur/AddResponsable',responsable,options)
+            return this.http.post(this.APIURL+'/administrateur/addResponsable',responsable,options)
             .map(response => response.json()
             );
         }
@@ -357,6 +365,13 @@ export class ProjetService {
             );
         }
 
+        getAllRapports(){
+             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/responsable/rapports',{headers:headers})
+            .map(response => response.json()
+            );
+        }
+
         addFichierRapport(data){
             let headers = new Headers();
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));  
@@ -373,6 +388,12 @@ export class ProjetService {
             );
         }
 
+        getAllBilans(){
+             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
+            return this.http.get(this.APIURL+'/responsable/bilans',{headers:headers})
+            .map(response => response.json()
+            );
+        }
         addBilanProjet(bilanProjet){
               let headers = new Headers();
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
