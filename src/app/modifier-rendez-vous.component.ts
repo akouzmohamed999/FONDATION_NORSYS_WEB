@@ -39,8 +39,7 @@ export class ModifierRendezVousComponent {
 
     onSubmit(rendezVous){
         this.rendezVous.sujet=rendezVous.sujet;
-        this.rendezVous.date=rendezVous.date;
-        console.log('RENDEZ VOUS '+this.rendezVous);
+        this.rendezVous.date=rendezVous.date.formatted;
         this.propositionService.updateRendezVous(this.rendezVous).subscribe(ccc =>{
             if(ccc != null){
                 $("#success").show();

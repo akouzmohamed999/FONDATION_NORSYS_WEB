@@ -1,0 +1,48 @@
+<div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-lg-12" >
+   
+   
+          <div class="ibox">
+            <div class="ibox-title">
+              <h3 class="panel-title">{{collaborateur?.nom}} {{collaborateur?.prenom}}</h3>
+            </div>
+            <div class="ibox-content">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="assets/img/a2.jpg" class="img-circle img-responsive"> </div>
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>CIN :</td>
+                        <td>{{collaborateur?.cin}}</td>
+                      </tr>
+                      <tr>
+                        <td>Téléphone :</td>
+                        <td>{{collaborateur?.numeroTelephone}}</td>
+                      </tr>
+                      <tr>
+                        <td>Email :</td>
+                        <td>{{collaborateur?.email}}</td>
+                      </tr>
+                   
+                         <tr>
+                             <tr>
+                        <td>Date De Naissance :</td>
+                        <td>{{collaborateur?.dateNaissance}}</td>
+                      </tr>
+                        <tr>
+                        <td>Lieu De Naissance :</td>
+                        <td>{{collaborateur?.lieuNaissance}}</td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                  <a href="#" class="btn btn-primary"><i class="fa fa-edit"></i>Modifier mon profil</a>
+                </div>
+              </div>
+            </div>           
+          </div>
+        </div>
+      </div>
+    </div>

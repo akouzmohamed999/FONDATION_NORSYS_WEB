@@ -46,6 +46,7 @@ import{ModifierBenificiaireActiviteComponent} from './modifier-benificiaire.como
 import {SupprimerBenificiaireComponent} from './supprimer-benificiaire.component';
 import {SupprimerCollaborateurComponent} from './supprimer-Collaborateur.component';
 import {ModifierCollaborateurComponent} from './modifier-Rh.component';
+import {AfficherProfilComponent} from './afficher-profil.component';
 import {ListeResponsableComponent} from './liste-Responsable.component';
 import {ListeAdministarteurComponent} from './liste-Administrateur.component';
 import {AjouterRhComponent} from './ajouter-Rh.component';
@@ -93,6 +94,7 @@ export const routes  : Routes = [
      { path:'listeResponsable',component :ListeResponsableComponent,outlet :'adminHomeRoute'},
      { path:'listeAdministrateur',component :ListeAdministarteurComponent,outlet :'adminHomeRoute'},
      { path:'modifierCollaborateur/:id',component : ModifierCollaborateurComponent,outlet : 'adminHomeRoute'},
+     { path:'profil',component : AfficherProfilComponent,outlet : 'adminHomeRoute'},
      { path:'supprimerCollaborateur/:id',component : SupprimerCollaborateurComponent,outlet : 'adminHomeRoute'},
      { path:'ajouterRh',component : AjouterRhComponent,outlet :'adminHomeRoute'},
      { path:'ajouterRapport/:id',component :AjouterRapportComponent,outlet :'adminHomeRoute'},
@@ -122,7 +124,8 @@ export const routes  : Routes = [
     ListeBenificiairesComponent,ModifierBenificiaireActiviteComponent,SupprimerBenificiaireComponent,SupprimerCollaborateurComponent,
     ListeAdministarteurComponent,AjouterRhComponent,AjouterRapportComponent,ListeRapportProjetComponent,ListeBilansProjetComponent,
     AjouterBilanComponent,ListePropositionComponent,PropositionDetailsComponent,AjouterRendezVousComponent,CalendrierComponent
-    ,ListeRapportsComponent,ListeBilansComponent,ModifierCollaborateurComponent,ListeRendezVousComponent,SupprimerRendezVousComponent,ModifierRendezVousComponent
+    ,ListeRapportsComponent,ListeBilansComponent,ModifierCollaborateurComponent,
+    ListeRendezVousComponent,SupprimerRendezVousComponent,ModifierRendezVousComponent,AfficherProfilComponent
     
     
   ],

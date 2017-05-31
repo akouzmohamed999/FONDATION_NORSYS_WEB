@@ -18,7 +18,7 @@
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{collaborateur}}</strong>
                              </span> <span class="text-muted text-xs block">{{role}}<b class="caret"></b></span> </span> </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a href="profile.html">Mon Profil</a></li>
+                                <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['profil']}}]" >Mon Profil</a></li>
                                 <li><a  [routerLink]="['/']">Se Deconnecter</a></li>
                             </ul>
                         </div>
