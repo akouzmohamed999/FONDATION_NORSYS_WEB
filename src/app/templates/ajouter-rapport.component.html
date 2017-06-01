@@ -23,20 +23,20 @@
                                         <div class="col-lg-8">
                                             <div class="form-group">
                                                 <label>Intitule de rapport </label>
-                                                <input type="text"  required [formControl]="form.controls['intitule']" class="form-control required" />
+                                                <input type="text"  required [formControl]="form.controls['intitule']" class="form-control" required/>
                                             </div>
                                             <div class="form-group">
                                                 <label>Type de rapport</label>
-                                                <input type="text" required [formControl]="form.controls['type']" class="form-control required" />
+                                                <input type="text" required [formControl]="form.controls['type']" class="form-control" required/>
                                             </div>
                                              <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
-                                                <input type="file" name="file" id="file"/>
+                                                <input type="file" name="file" id="file">
                                                 <input type="submit" value="Submit" id="btnSubmit" style="visibility: hidden" class="btn btn-primary"/>
                                             </form>
                                              <fieldset>
                                                 <div class="form-group pull-right">
                                                     <input type="submit" value="Valider" class="btn btn-primary"/>
-                                                    <button class="btn btn-primary" id="test">Annuler</button>
+                                                    <button class="btn btn-primary" id="test" (click)="onAnullerclick($event)">Annuler</button>
                                                 </div>
                                             </fieldset>
                                         </div>

@@ -1,6 +1,7 @@
 import {Component,NgZone} from "@angular/core";
 import {FormGroup,FormBuilder,Form} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
+import {Location} from '@angular/common';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from 'jquery';
 
@@ -28,13 +29,13 @@ export class AjouterBilanComponent {
     id;
     fire_ajax_submit:any;
 
-    constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router : Router,private _ngZone:NgZone){
+    constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,
+    private router : Router,private _ngZone:NgZone,private _location:Location){
         this.form = formBuilder.group({
             'intitule' : [''],
             'type' : ['']
         })
     }
-
 
     ngOnInit(){
         this.sub = this.route.params.subscribe(params => {
@@ -56,7 +57,9 @@ export class AjouterBilanComponent {
   }
    onSubmit(bilanProjet){
         bilanProjet.projet=this.projet;
-        bilanProjet.fichierBilan=$('#file').val();;
+        var path = $('#file').val();
+        var filename = path.replace(/^.*\\/, "");
+        bilanProjet.fichierBilan=filename;
         this.projetService.addBilanProjet(bilanProjet).subscribe( bilanProjet =>{
             if(bilanProjet != null){
                       $('#btnSubmit').click();
@@ -74,6 +77,9 @@ export class AjouterBilanComponent {
           this.projet = projet;
       })
   }
-
+  onAnullerclick(event){
+      event.preventDefault();
+      this._location.back();
+  }
   
 }
