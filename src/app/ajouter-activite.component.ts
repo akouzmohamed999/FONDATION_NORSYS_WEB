@@ -68,7 +68,8 @@ onSubmit(activite){
         });
     }
     
-  onAnullerclick(){
+  onAnullerclick(event){
+         event.preventDefault();
          this._location.back();
     }
 

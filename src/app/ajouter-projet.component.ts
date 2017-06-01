@@ -1,8 +1,9 @@
 import {Component,NgZone} from "@angular/core";
-import {FormGroup,FormBuilder} from "@angular/forms";
+import {FormGroup,FormBuilder,Validators} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import {IMyDpOptions} from 'mydatepicker';
+import {Location} from '@angular/common';
 import * as $ from 'jquery'
 
 @Component({
@@ -27,9 +28,10 @@ export class AjouterProjetComponent {
 
     private myDatePickerOptions: IMyDpOptions = {
         // other options...
-        dateFormat: 'yyyy-mm-dd',
+        dateFormat: 'dd/mm/yyyy',
     };
-    constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router : Router,private _ngZone:NgZone){
+    constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router : Router,
+    private _ngZone:NgZone,private _location:Location){
         this.form = formBuilder.group({
             'intitule' : [''],
             'description' : [''],
@@ -53,20 +55,20 @@ export class AjouterProjetComponent {
   }
 
   ngAfterViewInit(){
-     $( document ).ready(function() {
-        console.log("jQuery is ready");
-      });
-
-
-        this.addScripts('assets/js/plugins/chosen/chosen.jquery.js');
+           this.addScripts('assets/js/plugins/chosen/chosen.jquery.js');
         this.addScripts('assets/js/plugins/datapicker/bootstrap-datepicker.js');
-        
-        //this.addScripts('assets/js/multi-select.js');
-        //this.addScripts('assets/js/wizard.js');
-        //this.addScripts('assets/js/date-picker.js');
-       
   }
 
+ dateToSql(date){
+    //sqlDate in SQL DATETIME format ("yyyy-mm-dd hh:mm:ss.ms")
+    var sqlDateArr1 = date.split("/");
+    //format of sqlDateArr1[] = ['yyyy','mm','dd hh:mm:ms']
+    var sYear = sqlDateArr1[2];
+    var sMonth = sqlDateArr1[1];
+    var sDay = sqlDateArr1[0];
+    var SqlDate=sYear+'-'+sMonth+'-'+sDay;
+    return SqlDate;
+}
 
   getAllResponsable(){
       this.projetService.getAllResponsables().subscribe(responsable => {
@@ -86,13 +88,18 @@ export class AjouterProjetComponent {
     })
   }
 
+  onAnnulerClick(event){
+      event.preventDefault();
+      this._location.back();
+  }
+
     onSubmit(projet){
         var dateDebut = projet.dateDebut.formatted;
         var dateFin = projet.dateFin.formatted;
         projet.administrateur=this.administrateur;
 
-        projet.dateDebut=dateDebut;
-        projet.dateFin=dateFin;
+        projet.dateDebut=this.dateToSql(dateDebut);
+        projet.dateFin=this.dateToSql(dateFin);
         this.projetService.addProjet(projet).subscribe(projet =>{
             if(projet != null){
                  this._ngZone.run(() => {

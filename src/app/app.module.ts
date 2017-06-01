@@ -103,6 +103,8 @@ export const routes  : Routes = [
      { path:'listeRapportProjet/:id',component :ListeRapportProjetComponent,outlet :'adminHomeRoute'},
      { path:'ajouterBilan/:id',component :AjouterBilanComponent,outlet :'adminHomeRoute'},
      { path:'listeBilanProjet/:id',component :ListeBilansProjetComponent,outlet :'adminHomeRoute'},
+     { path:'listeBilans',component :ListeBilansComponent,outlet :'adminHomeRoute'},
+     { path:'ajouterBilan/:id',component :AjouterBilanComponent,outlet :'adminHomeRoute'},
      { path:'listeProposition',component :ListePropositionComponent,outlet :'adminHomeRoute'},
      { path:'propositionDetails/:id',component :PropositionDetailsComponent,outlet :'adminHomeRoute'},
      { path:'ajouterRendezVous/:id',component :AjouterRendezVousComponent,outlet :'adminHomeRoute'},

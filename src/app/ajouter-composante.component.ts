@@ -68,7 +68,8 @@ export class AjouterComponsanteComponent {
             console.log(JSON.stringify(this.thematiques));
         })
     }
-    onAnullerclick(){
+    onAnullerclick(event){
+        event.preventDefault();
          this._location.back();
     }
 }

@@ -50,7 +50,8 @@ export class AjouterPartenaireComponent {
         });
     }
 
-    onAnullerclick(){
+    onAnullerclick(event){
+        event.preventDefault();
          this._location.back();
     }
 

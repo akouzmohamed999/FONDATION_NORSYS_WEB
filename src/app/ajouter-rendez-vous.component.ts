@@ -2,6 +2,7 @@ import {Component,NgZone} from "@angular/core";
 import {FormGroup,FormBuilder} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {PropositionService} from './services/proposition.service';
+import {Location} from '@angular/common';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import {IMyDpOptions} from 'mydatepicker';
 import * as $ from 'jquery'
@@ -32,7 +33,8 @@ export class AjouterRendezVousComponent {
     };
     
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,
-    private propositionService:PropositionService,private route:ActivatedRoute,private router : Router,private _ngZone:NgZone){
+    private propositionService:PropositionService,private route:ActivatedRoute,private router : Router,
+    private _ngZone:NgZone,private _location:Location){
         this.form = formBuilder.group({
             'sujet' : [''],
             'date' : ['']
@@ -79,4 +81,9 @@ export class AjouterRendezVousComponent {
             }
         });
     }
+
+  onAnullerclick(event){
+      event.preventDefault();
+      this._location.back();
+  }
 }

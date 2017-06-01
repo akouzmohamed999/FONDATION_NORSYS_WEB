@@ -1,8 +1,10 @@
 
 import {Component,NgZone} from "@angular/core";
-import {FormGroup,FormBuilder} from "@angular/forms";
+import {FormGroup,FormBuilder,Validators,AbstractControl} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
+import {FormValidator} from './validators/form-validator';
+import {Location} from '@angular/common'
 import * as $ from 'jquery'
 
 @Component({
@@ -20,17 +22,22 @@ import * as $ from 'jquery'
 
  export class AjouterRhComponent {
 
-    form : FormGroup;
-    constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router : Router,private _ngZone:NgZone){
+    form : FormGroup; 
+    myEmail: AbstractControl;
+    constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,
+    private router : Router,private _ngZone:NgZone,private _location:Location){
         this.form = formBuilder.group({
             'nom' : [''],
             'prenom' : [''],
             'adresse' : [''],
             'Type' : [''],
             'cin' : [''],
-            'password' : [''],
-            'email' : []
+            'password' : [''], 
+            'email' :['', Validators.compose([FormValidator.isValidMailFormat])],
+            
         })
+
+        this.myEmail = this.form.controls['email'];
     }
 
 
@@ -76,5 +83,9 @@ import * as $ from 'jquery'
             )
         }
     }
-    
+
+    onAnullerclick(event){
+      event.preventDefault();
+      this._location.back();
+  }
 }
