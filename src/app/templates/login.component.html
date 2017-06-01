@@ -25,37 +25,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 </html>-->
 
-<body class="gray-bg">
+<!-- <body class="gray-bg">
+ -->
 
-    <div class="loginColumns animated fadeInDown">
-        <div class="row">
-
-            <div class="col-md-6">
-                <h2 class="font-bold">Bienvenue A La Fondation Norsys</h2>
-
-                <p>  
-                    <img src="assets/img/FondationLogi.png" /> 
-                </p>
-
+            <div class="col-md-3 col-md-offset-4" id="login-marges">
+                    <img id="img-block" src="assets/img/FondationLogi.png" /> 
             </div>
-            <div class="col-md-6">
+
+            <div class="center-box">
               <div class="ibox-content">
-    
+                <p id="auth-title"><strong>Authentification</strong></p>
                    <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form" class="m-t" role="form">
                      <div class="form-group">
-                      <input type="text" class="form-control" required [formControl]="form.controls['email']" value="E-mail address" />
+                      <input type="text" class="input-design" 
+                             required [formControl]="form.controls['email']" value="E-mail address" 
+                             placeholder="LOGIN"/>
                      </div>
                       <div class="form-group">
-                        <input type="password" class="form-control" value="Password" required [formControl]="form.controls['password']"/>
+                        <input type="password" class="input-design"
+                               value="Password" required [formControl]="form.controls['password']"
+                               placeholder="MOT DE PASSE"/>
                       </div>
-                    <input [disabled]="!form.valid"  class="btn btn-primary block full-width m-b" type="submit" value="Login" />
+                    <input [disabled]="!form.valid"  
+                           id="connect-btn" type="submit" value="SE CONNECTER" />
                 	</form>
     
               </div>
             </div>
-        </div>
-        <hr/>
-    </div>
 
-</body>
 
+<!-- </body>
+
+ -->

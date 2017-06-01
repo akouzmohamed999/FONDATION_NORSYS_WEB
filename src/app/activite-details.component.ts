@@ -5,7 +5,7 @@ import * as $ from "jquery";
 @Component({
   selector: 'activite-details',
   templateUrl: './templates/activite-details.component.html',
-  styleUrls : ['../assets/css/bootstrap.min.css',
+  styleUrls : ['../assets/css/bootstrap.css',
                 '../assets/font-awesome/css/font-awesome.css',
                 '../assets/css/plugins/iCheck/custom.css',
                 '../assets/css/plugins/toastr/toastr.min.css',

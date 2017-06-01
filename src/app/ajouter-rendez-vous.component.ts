@@ -9,14 +9,14 @@ import * as $ from 'jquery'
 @Component({
     selector : 'ajouter-rendez-vous',
     templateUrl : './templates/ajouter-rendez-vous.component.html',
-    styleUrls:["../assets/css/bootstrap.min.css",
-             "../assets/font-awesome/css/font-awesome.css",
-             "../assets/css/plugins/iCheck/custom.css",
-              "../assets/css/plugins/steps/jquery.steps.css",
-             "../assets/css/plugins/nouslider/jquery.nouislider.css",
-             "../assets/css/plugins/datapicker/datepicker3.css",
-            "../assets/css/animate.css",
-             "../assets/css/style.css"]
+    styleUrls:["../assets/css/bootstrap.css",
+                 "../assets/font-awesome/css/font-awesome.css",
+                 "../assets/css/plugins/iCheck/custom.css",
+                  "../assets/css/plugins/steps/jquery.steps.css",
+                 "../assets/css/plugins/nouslider/jquery.nouislider.css",
+                 "../assets/css/plugins/datapicker/datepicker3.css",
+                "../assets/css/animate.css",
+                 "../assets/css/style.css"]
 })
 
 export class AjouterRendezVousComponent {

@@ -5,6 +5,16 @@
  *   Copyright 2014 Webapplayers.com
  *
 */
+
+@font-face {
+    font-family: 'open_sanscondensed_light';
+    src: url('../fonts/OpenSans-CondLight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 h1,
 h2,
 h3,
@@ -2153,7 +2163,7 @@ table.dataTable thead .sorting:after {
   width: 100%;
   font-size: 0.75em;
   line-height: 1.333333em;
-  font-family: open sans, lucida grande, lucida sans unicode, helvetica, arial, sans-serif;
+  font-family: 'open_sanscondensed_light';
   padding: 5px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2704,7 +2714,7 @@ a.forum-item-title:hover {
   padding-right: 20px !important;
 }
 body {
-  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'open_sanscondensed_light';
   background-color: #2f4050;
   font-size: 13px;
   color: #676a6c;
@@ -3672,8 +3682,8 @@ body.modal-open {
   margin-top: -330px;
 }
 .loginColumns {
-  width: 760px;
-  margin: 8% auto 0;
+  /*width: 760px;*/
+  /*margin: 8% auto 0;*/
 }
 .logo-name {
   color: #e6e6e6;

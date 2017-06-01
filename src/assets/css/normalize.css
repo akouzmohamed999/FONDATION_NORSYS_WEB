@@ -7,6 +7,13 @@
 /**
  * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
  */
+@font-face {
+    font-family: 'open_sanscondensed_light';
+    src: url('../fonts/OpenSans-CondLight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 article,
 aside,
@@ -81,7 +88,7 @@ button,
 input,
 select,
 textarea {
-    font-family: sans-serif;
+    font-family:'open_sanscondensed_light';
 }
 
 /**
@@ -215,12 +222,15 @@ pre {
  * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
  */
 
+
+
+
 code,
 kbd,
 pre,
 samp {
-    font-family: monospace, serif;
-    _font-family: 'courier new', monospace;
+    font-family: 'open_sanscondensed_light';
+    _font-family: 'open_sanscondensed_light';
     font-size: 1em;
 }
 
