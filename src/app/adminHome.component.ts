@@ -43,7 +43,7 @@ export class AdminHomeComponent {
     this.getNonVuePropositions();
   }
 
- /* addScripts(chemin){
+  addScripts(chemin){
     var script = document.createElement( 'script' );
     script.type = 'text/javascript';
     script.src = chemin;
@@ -51,8 +51,8 @@ export class AdminHomeComponent {
   }
 
   ngAfterViewInit(){
-    this.addScripts('assets/js/plugins/metisMenu/jquery.metisMenu.js'); 
-  }*/
+    this.addScripts('assets/js/inspinia.js'); 
+  }
 
   getNonVuePropositions(){
     this.propositionService.getAllNonVueProposition().subscribe(

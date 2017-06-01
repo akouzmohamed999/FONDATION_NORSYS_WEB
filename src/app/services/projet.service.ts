@@ -198,6 +198,7 @@ export class ProjetService {
             .map(response => response.json()
             );
         }
+
          getCollaborateurByidCollaborateur(idCollaborateur){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
             return this.http.get(this.APIURL+'/administrateur/collaborateurById?idCollaborateur='+idCollaborateur,{headers:headers})
