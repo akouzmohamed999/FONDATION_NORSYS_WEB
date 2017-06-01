@@ -40,7 +40,8 @@
                                    </div>
                                    <div class="form-group">
                                        <label class="control-label">Date De Naissance *</label>
-                                       <input type="text" class="form-control" required [formControl]="form.controls['dateNaissance']" />
+                                        <my-date-picker name="mydate"  [options]="myDatePickerOptions"
+                                         [formControl]="form.controls['dateNaissance']" required></my-date-picker>
                                    </div>
                                    <div class="form-group">
                                        <label class="control-label">Lieu De Naissance *</label>
