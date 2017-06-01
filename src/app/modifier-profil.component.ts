@@ -50,9 +50,10 @@ export class ModifierProfilComponent {
     onSubmit(Collaborateur){
         this.ancienPasswordError=null;
         this.confirmPasswordError=null;
+        console.log('old : '+Collaborateur.oldPassword+' new '+Collaborateur.newPassword);
         if(Collaborateur.oldPassword != this.collaborateur.password){
             this.ancienPasswordError="Ancien mot de passe est incorrect !"
-        }else if(Collaborateur.oldPassword != Collaborateur.newPassword){
+        }else if(Collaborateur.newPassword != Collaborateur.confirmPassword){
             this.confirmPasswordError="les mot des passes sont pas les mêmmes"
         }else{
         this.collaborateur.nom=Collaborateur.nom;

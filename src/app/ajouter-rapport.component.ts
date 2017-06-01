@@ -50,11 +50,6 @@ export class AjouterRapportComponent {
   }
 
   ngAfterViewInit(){
-     $( document ).ready(function() {
-        console.log("jQuery is ready");
-      });
-
-
         this.addScripts('assets/js/plugins/chosen/chosen.jquery.js');
         this.addScripts('assets/js/plugins/datapicker/bootstrap-datepicker.js');
         
@@ -64,13 +59,13 @@ export class AjouterRapportComponent {
        
   }
    onSubmit(rapportProjet){
-   console.log("Ca passe redirection now !!!!!!!!!!!!!!!!!");
-
         rapportProjet.projet=this.projet;
-        rapportProjet.fichierRapport=$('#file').val();;
+        var path = $('#file').val();
+        var filename = path.replace(/^.*\\/, "");
+        console.log("FILLLLLLLLLLLE "+filename);
+        rapportProjet.fichierRapport=filename;
         this.projetService.addRapportProjet(rapportProjet).subscribe( rapportProjet =>{
             if(rapportProjet != null){
-            console.log('FFFFFFFFFFFFF'+JSON.stringify(rapportProjet ));
                // this.projetService.addFichierRapport(rapportProjet.file).subscribe(
                    // message => {
                       //  fire_ajax_submit();
