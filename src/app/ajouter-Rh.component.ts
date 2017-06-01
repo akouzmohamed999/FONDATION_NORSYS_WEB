@@ -24,6 +24,8 @@ import * as $ from 'jquery'
 
     form : FormGroup; 
     myEmail: AbstractControl;
+    myPhoneNumber : AbstractControl;
+    passwordError;
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,
     private router : Router,private _ngZone:NgZone,private _location:Location){
         this.form = formBuilder.group({
@@ -34,16 +36,24 @@ import * as $ from 'jquery'
             'cin' : [''],
             'password' : [''], 
             'email' :['', Validators.compose([FormValidator.isValidMailFormat])],
-            
+            'numeroTelephone':['',Validators.compose([FormValidator.isAPhoneNumber])],
+            'confirmPassword' : [''],
+            'dateNaissance' : [''],
+            'lieuNaissance' : [''],  
         })
 
         this.myEmail = this.form.controls['email'];
+        this.myPhoneNumber = this.form.controls['numeroTelephone'];
     }
 
 
     onSubmit(dto){
+        this.passwordError = null;
+        if(dto.password != dto.confirmPassword){
+            this.passwordError = "Les deux mot de passe sont pas équivalent !"
+        }else{
 
-        let collaborateur = {
+                 let collaborateur = {
             nom:dto.nom,
             prenom:dto.prenom,
             adresse:dto.adresse,
@@ -82,6 +92,9 @@ import * as $ from 'jquery'
                             }
             )
         }
+        }
+
+       
     }
 
     onAnullerclick(event){

@@ -7,34 +7,51 @@
                             <div class="row">
                                 <div class="col-lg-8">      
                                     <form id="form" action="#"  (ngSubmit)="onSubmit(form.value)" [formGroup]="form" >  
-                                        <h2>Nouveau Collaborateur</h2>
-                                        <div class="form-group">
-                                            <label class="control-label">Nom *</label>
-                                            <input type="text" class="form-control" required [formControl]="form.controls['nom']" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Prenom *</label>
-                                            <input type="text" class="form-control" required [formControl]="form.controls['prenom']" />
-                                        </div>
-                                            <div class="form-group">
-                                            <label class="control-label">CIN *</label>
-                                            <input type="text" class="form-control" required [formControl]="form.controls['cin']" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Adresse *</label>
-                                            <input type="text" class="form-control" required [formControl]="form.controls['adresse']" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Email *</label>
-                                            <input type="text" class="form-control" required [formControl]="form.controls['email']" />
-                                            <span class="red-warning" *ngIf="!myEmail.valid && myEmail.dirty">
-			              	     	                        Email invalide !</span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Mot de passe *</label>
-                                            <input type="password" class="form-control" required [formControl]="form.controls['password']" />
-                                        </div>
-                                            <div class="form-group">
+                                   <h2>Nouveau Collaborateur</h2>
+                                   <div class="form-group">
+                                       <label class="control-label">Nom *</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['nom']" />
+                                   </div>
+                                    <div class="form-group">
+                                       <label class="control-label">Prénom *</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['prenom']" />
+                                   </div>
+                                    <div class="form-group">
+                                       <label class="control-label">CIN *</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['cin']" />
+                                   </div>
+                                    <div class="form-group">
+                                       <label class="control-label">Numéro Téléphone *</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['numeroTelephone']" />
+                                       <p class="alert alert-danger" *ngIf="!myPhoneNumber.valid && myPhoneNumber.dirty"></p>
+                                   </div>
+                                    <div class="form-group">
+                                       <label class="control-label">Nouveau mot de passe *</label>
+                                       <input type="password" class="form-control" required [formControl]="form.controls['password']" />
+                                   </div>
+                                    <div class="form-group">
+                                       <label class="control-label">Répéter mot de passe *</label>
+                                       <input type="password" class="form-control" required [formControl]="form.controls['confirmPassword']" />
+                                       <span *ngIf="passwordError != null" class="alert alert-danger" >{{passwordError}}</span>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">Adresse *</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['adresse']" />
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">Date De Naissance *</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['dateNaissance']" />
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">Lieu De Naissance *</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['lieuNaissance']" />
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label">E-mail *</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['email']" />
+                                       <span class="alert alert-danger" *ngIf="!myEmail.valid && myEmail.dirty"></span>
+                                   </div>
+                                   <div class="form-group">
                                             <label class="control-label">Type *</label>
                                             <select class="form-control" [formControl]="form.controls['Type']" required>
                                                 <option class="form-control">Administrateur</option>
@@ -42,12 +59,13 @@
                                                 <option class="form-control">Collaborateur</option>
                                             </select>
                                         </div>
-                                        <div class="clearfix pull-right">
-                                                <input [disabled]="!form.valid" type="submit" value="Valider" class="btn btn-primary"/>
-                                                <button class="btn btn-primary"
-                                            (click)="onAnullerclick($event)" >Annuler</button>
-                                            </div>
-                                    </form>
+		                            <div class="clearfix pull-right">
+                                        <input [disabled]="!form.valid" type="submit" value="Valider" class="btn btn-primary"/>
+                                        <button class="btn btn-primary"
+                                       (click)="onAnullerclick()" >Annuler</button>
+                                    </div>
+
+                            </form>
                                 </div>
                                  <div class="col-lg-4 panel-body">
                                             <div class="text-center">
