@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'open_sanscondensed_light';
+    src: url('../fonts/OpenSans-CondLight-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-CondLight-webfont.eot'),
+         url('../fonts/OpenSans-CondLight-webfont.ttf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .note-editor {
   /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 
@@ -401,7 +411,7 @@
 .note-editor .h4,
 .note-editor .h5,
 .note-editor .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'open_sanscondensed_light';
   font-weight: 500;
   line-height: 1.1;
   color: inherit;

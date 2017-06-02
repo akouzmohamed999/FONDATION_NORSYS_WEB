@@ -8,7 +8,7 @@ import * as $ from 'jquery';
 @Component({
     selector : 'ajouter-benificiaire-activite',
     templateUrl : './templates/ajouter-benificiaire-activite.component.html',
-    styleUrls : ['../assets/css/bootstrap.min.css',
+    styleUrls : ['../assets/css/bootstrap.css',
                 '../assets/font-awesome/css/font-awesome.css',
                 '../assets/css/plugins/iCheck/custom.css',
                 '../assets/css/plugins/toastr/toastr.min.css',

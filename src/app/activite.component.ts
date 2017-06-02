@@ -4,7 +4,7 @@ import {ProjetService} from './services/projet.service';
 @Component({
     selector : 'activite',
     templateUrl :'./templates/activite.component.html',
-    styleUrls : ['../assets/css/bootstrap.min.css',
+    styleUrls : ['../assets/css/bootstrap.css',
                 '../assets/font-awesome/css/font-awesome.css',
                 '../assets/css/plugins/iCheck/custom.css',
                 '../assets/css/plugins/toastr/toastr.min.css',

@@ -11,7 +11,7 @@ import * as $ from 'jquery'
 @Component({
     selector : 'ajouter-Rh',
     templateUrl : './templates/ajouter-Rh.component.html',
-    styleUrls:["../assets/css/bootstrap.min.css",
+    styleUrls:["../assets/css/bootstrap.css",
              "../assets/font-awesome/css/font-awesome.css",
              "../assets/css/plugins/iCheck/custom.css",
               "../assets/css/plugins/steps/jquery.steps.css",

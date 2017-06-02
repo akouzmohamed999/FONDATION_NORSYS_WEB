@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/assets/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/assets/css/plugins/steps/jquery.steps.css" rel="stylesheet"> 
+    <link href="/assets/css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link href="/assets/css/plugins/nouslider/jquery.nouislider.css" rel="stylesheet">
+    <link href="/assets/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="/assets/css/animate.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+    
     <div id="wrapper">
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
@@ -41,7 +44,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-user"></i> <span class="nav-label">Gestion des Ressources Humaines </span><span class="fa arrow"></span></a>
+                        <a class="display-list-elem" style="display:flex;font-size: 14px;"><i class="fa fa-user"></i> <div class="nav-label">Gestion des Ressources Humaines </div><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]">Liste des Collaborateurs</a></li>
                             <li><a  [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterRh']}}]">Ajouter Un Collaborateur</a></li>
@@ -141,6 +144,3 @@
         </div>
         
     </div>
-
-   </body>
-</html>

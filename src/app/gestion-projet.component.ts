@@ -6,7 +6,7 @@ import * as $ from "jquery";
 @Component({
   selector: 'gestion-projet',
   templateUrl: './templates/gestion-projet.component.html',
-  styleUrls : ['../assets/css/bootstrap.min.css',
+  styleUrls : ['../assets/css/bootstrap.css',
                 '../assets/font-awesome/css/font-awesome.css',
                 '../assets/css/plugins/iCheck/custom.css',
                 '../assets/css/plugins/toastr/toastr.min.css',
