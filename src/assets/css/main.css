@@ -398,4 +398,10 @@ body{
 
 .nav-label{
     font-size: 14px;
+    font-weight: 400;
+}
+
+.subnav-label{
+    font-size: 13px;
+    font-weight: 400;   
 }

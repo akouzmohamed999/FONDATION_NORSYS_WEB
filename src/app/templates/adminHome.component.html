@@ -18,11 +18,11 @@
                             <img alt="image" class="img-rounded" src="assets/img/FondationNorsys.jpg" />
                              </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{collaborateur}}</strong>
+                            <span class="clear"> <span class="block m-t-xs subnav-label">{{collaborateur}}
                              </span> <span class="text-muted text-xs block">{{role}}<b class="caret"></b></span> </span> </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['profil']}}]" >Mon Profil</a></li>
-                                <li><a  [routerLink]="['/']">Se Deconnecter</a></li>
+                                <li><a  [routerLink]="['/']"><span class="subnav-label">Se Deconnecter</span></a></li>
                             </ul>
                         </div>
                         <div class="logo-element">
@@ -32,15 +32,21 @@
                     <li class="active">
                         <a><i class="fa fa-home"></i> <span class="nav-label">Acceuil</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li ><a  [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['calendrier']}}]">Calendrier</a></li>
-                            <li ><a href="#">Statistiques</a></li>
+                            <li >
+                              <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['calendrier']}}]">
+                                <span class="subnav-label">Calendrier</span>
+                              </a>
+                            </li>
+                            <li ><a  class="subnav-label" href="#"><span class="subnav-label">Statistiques</span></a></li>
                         </ul>
                     </li>
                     <li>
                         <a><i class="fa fa-tasks"></i> <span class="nav-label">Gestion des Projets</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['gestionProjets']}}]">Liste des Projet</a></li>
-                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterProjet']}}]">Créer un Projet</a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['gestionProjets']}}]">
+                              <span class="subnav-label">Liste des Projet</span></a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterProjet']}}]">
+                              <span class="subnav-label">Créer un Projet</span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -49,35 +55,43 @@
                           <div class="nav-label">Gestion des Ressources Humaines </div><span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]">Liste des Collaborateurs</a></li>
-                            <li><a  [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterRh']}}]">Ajouter Un Collaborateur</a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]">
+                              <span class="subnav-label">Liste des Collaborateurs</span></a></li>
+                            <li><a  [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterRh']}}]">
+                              <span class="subnav-label">Ajouter Un Collaborateur</span></a></li>
                         </ul>
                     </li>
                      <li>
                         <a><i class="fa fa-phone"></i> <span class="nav-label">Gestion des Contacts</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listePartenaire']}}]">Liste des Partenaires</a></li>
-                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeBenificiaire']}}]">Liste des Bénificiaires</a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listePartenaire']}}]">
+                              <span class="subnav-label">Liste des Partenaires</span></a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeBenificiaire']}}]">
+                              <span class="subnav-label">Liste des Bénificiaires</span></a></li>
                         </ul>
                     </li>
                     <li>
                         <a><i class="fa fa-plus"></i> <span class="nav-label">Gestion des Propositions </span><span class="fa arrow"></span></a>
                       <ul class="nav nav-second-level">
-                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeProposition']}}]">Liste des Propositions</a></li>
-                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeRendezVous']}}]">Liste des rendez-vous</a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeProposition']}}]">
+                              <span class="subnav-label">Liste des Propositions</span></a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeRendezVous']}}]">
+                              <span class="subnav-label">Liste des rendez-vous</span></a></li>
                         </ul>
                     </li>
                     <li>
                         <a><i class="fa fa-folder-open"></i> <span class="nav-label">Rapports</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeRapports']}}]">Liste des Rapports</a></li>
+                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeRapports']}}]">
+                              <span class="subnav-label">Liste des Rapports</span></a></li>
                         </ul>
                     </li>
                     <li>
                         <a><i class="fa fa-file"></i> <span class="nav-label">Bilans</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
 
-                          <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeBilans']}}]">Liste des Bilans</a></li>
+                          <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeBilans']}}]">
+                            <span class="subnav-label">Liste des Bilans</span></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -97,7 +111,7 @@
                </li>
                <li class="dropdown">
                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                       <i class="fa fa-bell"></i>  <span class="label label-primary" *ngIf="nombrePropositions != 0">{{nombrePropositions}}</span>
+                       <i class="fa fa-bell"></i>  <span class="label label-primary" style="background-color:#931D22" *ngIf="nombrePropositions != 0">{{nombrePropositions}}</span>
                    </a>
                    <ul class="dropdown-menu dropdown-alerts">
                         <li>
