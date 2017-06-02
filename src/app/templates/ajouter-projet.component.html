@@ -7,83 +7,100 @@
     <link href="/assets/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
     <link href="/assets/css/animate.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">        
-    
- <div class="row">
-                <div class="col-lg-12 wrapper wrapper-content animated fadeInUp">
-                    <div class="ibox">
-                        <div class="ibox-title">
-                            <h5>Nouveau Projet</h5>
-                        </div>
-                        <div class="ibox-content">                  
-
-                            <form id="form" action="#" class="wizard-big" (ngSubmit)="onSubmit(form.value)" [formGroup]="form">  
-                                <h1>Informations générales</h1>
-                                <fieldset>
-                                    <div class="row">
-                                        <div class="col-lg-8">
-                                            <div class="form-group">
-                                                <label>Intitule de projet *</label>
-                                                <input type="text"  required [formControl]="form.controls['intitule']" class="form-control required" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Description de projet *</label>
-                                                <input type="text" required [formControl]="form.controls['description']" class="form-control required" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Date De Debut *</label>
-                                                 <my-date-picker name="mydate" [options]="myDatePickerOptions" [formControl]="form.controls['dateDebut']" required></my-date-picker>
-                                            </div>
-                                            <div class="form-group" >
-                                                <label>Date De Fin *</label>    
-                                                <my-date-picker name="mydate"  [options]="myDatePickerOptions" [formControl]="form.controls['dateFin']" required></my-date-picker>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="text-center">
-                                                <div style="margin-top: 20px">
-                                                    <i class="fa fa-bell" style="font-size: 180px;color: #e5e5e5 "></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                                <h1>Partenaires</h1>
-                                <fieldset> 
-                                    <div class="ibox-content">
-                                        <div class="form-group">
-                                        <label class="font-noraml">Désigner vos partenaires</label>
-                                            <div class="input-group">
-                                        <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['partenaires']">
-                                             <option *ngFor="let partenaire of partenaires" [ngValue]="partenaire" >{{partenaire.nom}}</option>                            
-                                        </select>
-                                        </div>
-                                           
-                                        </div>
-                                        </div>
-                                </fieldset>
-                                <h1>Responsable</h1>
-                                <fieldset> 
-                                    <div class="ibox-content">
-                                        <div class="form-group">
-                                        <label class="font-noraml">Choisissez un responsable de projet</label>
-                                        <div class="input-group">
-                                            <select id="chosen" style="width:350px;" class="form-control" required [formControl]="form.controls['responsable']">
-                                                <option *ngFor="let responsable of responsables" 
-                                                [ngValue]="responsable" >{{responsable.prenom}} {{responsable.nom}}</option>                            
-                                            </select>
-                                        </div>
-                                           
-                                        </div>
-                                  </div>
-                                </fieldset>
-                                <fieldset>
-                                    <div class="form-group pull-right">
-                                        <input type="submit" value="Valider" class="btn btn-primary" id="test" [disabled]="!form.valid"/>
-                                        <button (click)="onAnnulerClick($event)"class="btn btn-primary" id="test">Annuler</button>
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div>
-                    </div>
-                    </div>
+ 
+        <div class="row wrapper wrapper-content animated fadeInUp">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <span class="title-label">Nouveau Projet</span>
                 </div>
+                <div class="ibox-content full-size-block">                  
+                    <form id="form" action="#" class="wizard-big" (ngSubmit)="onSubmit(form.value)" [formGroup]="form">  
+                        <!-- <span class="title-label">Informations générales</span> -->
+
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="form-group">
+                                        <label>Intitule de projet *</label>
+                                        <input type="text"  required [formControl]="form.controls['intitule']" class="form-control required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Date De Debut *</label>
+                                         <my-date-picker name="mydate" [options]="myDatePickerOptions" [formControl]="form.controls['dateDebut']" required></my-date-picker>
+                                    </div>
+                                </div>
+                                <div class="col-lg-1">
+                                    <!-- <div class="text-center">
+                                        <div style="margin-top: 20px">
+                                            <i class="fa fa-tasks" style="font-size: 180px;color: #e5e5e5 "></i>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="form-group">
+                                        <label>Description de projet *</label>
+                                        <input type="text" required [formControl]="form.controls['description']" class="form-control required" />
+                                    </div>
+                                    <div class="form-group" >
+                                        <label>Date De Fin *</label>    
+                                        <my-date-picker name="mydate"  [options]="myDatePickerOptions" [formControl]="form.controls['dateFin']" required></my-date-picker>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row wrapper wrapper-content animated fadeInUp" style="margin-top: -60px;">
+            <div class=" col-lg-6" style="padding: 0;">
+                <div class="ibox">
+                <div class="ibox-title">
+                    <span class="title-label">Partenaires</span>
+                </div>
+                <div class="ibox-content full-size-block">  
+                        <fieldset>  
+                                <div class="form-group">
+                                <label class="font-noraml">Désigner vos partenaires</label>
+                                    <div class="input-group">
+                                <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['partenaires']">
+                                     <option *ngFor="let partenaire of partenaires" [ngValue]="partenaire" >{{partenaire.nom}}</option>                            
+                                </select>
+                                </div>  
+                                </div> 
+                        </fieldset>
+                </div>
+                </div>
+            </div>
+           <!--  <div class="col-lg-1"></div> -->
+            <div class=" col-lg-5" style="padding: 0;margin-left: 30px;">
+                <div class="ibox">
+                <div class="ibox-title">
+                    <span class="title-label">Responsable</span>
+                </div>
+                <div class="ibox-content full-size-block"> 
+                        <fieldset>  
+                                <div class="form-group">
+                                <label class="font-noraml">Choisissez un responsable de projet</label>
+                                <div class="input-group">
+                                    <select id="chosen" style="width:350px;" class="form-control" required [formControl]="form.controls['responsable']">
+                                        <option *ngFor="let responsable of responsables" 
+                                        [ngValue]="responsable" >{{responsable.prenom}} {{responsable.nom}}</option>                            
+                                    </select>
+                                </div>
+                                </div> 
+                        </fieldset>
+                         <fieldset>
+                            <div class="form-group pull-right">
+                                <input type="submit" value="Valider" class="btn btn-primary" id="test" [disabled]="!form.valid" style="background-color:#2BA2AD"/>
+                                <button (click)="onAnnulerClick($event)"class="btn btn-primary" id="test">Annuler</button>
+                            </div>
+                        </fieldset>
+                </div>
+                </div>
+            </div>
+        </div>
+ 
+ 
