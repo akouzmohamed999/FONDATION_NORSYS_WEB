@@ -129,6 +129,7 @@ export class CalendrierComponent{
     this.events.push({
       title: activite.intitule,
       start: startOfDay(this.sqlToJsDate(activite.dateActivite)),
+      end: endOfDay(this.sqlToJsDate(activite.dateFin)),
       color: colors.yellow,
       draggable: true,
       actions: this.activiteClickAction,
