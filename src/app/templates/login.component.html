@@ -30,28 +30,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- <body class="gray-bg">
  -->
 
-            <div class="col-md-3 col-md-offset-4 col-lg-3 col-lg-offset-4" id="login-marges">
-                    <img id="img-block" src="assets/img/FondationLogi.png" /> 
+            <div class="row" id="login-marges">
+              <div class="col-md-3 col-md-offset-4 col-lg-3 col-lg-offset-4"><!-- id="login-marges" -->
+                      <img  src="assets/img/FondationLogi.png" /> <!-- id="img-block" -->
+              </div>
             </div>
 
-            <div class="center-box">
-              <div class="ibox-content">
-                <p id="auth-title"><strong>Authentification</strong></p>
-                   <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form" class="m-t" role="form">
-                     <div class="form-group">
-                      <input type="text" class="input-design" 
-                             required [formControl]="form.controls['email']" value="E-mail address" 
-                             placeholder="LOGIN"/>
-                     </div>
-                      <div class="form-group">
-                        <input type="password" class="input-design"
-                               value="Password" required [formControl]="form.controls['password']"
-                               placeholder="MOT DE PASSE"/>
-                      </div>
-                    <input [disabled]="!form.valid"  
-                           id="connect-btn" type="submit" value="SE CONNECTER" />
-                	</form>
-    
+            <div class="row">
+              <div class="center-box">
+                <div class="ibox-content">
+                  <p id="auth-title"><strong>Authentification</strong></p>
+                     <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form" class="m-t" role="form">
+                       <div class="form-group">
+                        <input type="text" class="input-design" 
+                               required [formControl]="form.controls['email']" value="E-mail address" 
+                               placeholder="LOGIN"/>
+                       </div>
+                        <div class="form-group">
+                          <input type="password" class="input-design"
+                                 value="Password" required [formControl]="form.controls['password']"
+                                 placeholder="MOT DE PASSE"/>
+                        </div>
+                      <input [disabled]="!form.valid"  
+                             id="connect-btn" type="submit" value="SE CONNECTER" />
+                  	</form>
+                </div>
               </div>
             </div>
 
