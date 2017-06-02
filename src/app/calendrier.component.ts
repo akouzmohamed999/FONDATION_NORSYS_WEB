@@ -4,6 +4,7 @@ import {ProjetService} from './services/projet.service';
 import {PropositionService} from './services/proposition.service';
 import {  CalendarEvent,  CalendarEventAction,  CalendarEventTimesChangedEvent} from 'angular-calendar';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import  * as $ from 'jquery';
 import {
   startOfDay,
   endOfDay,
@@ -85,6 +86,7 @@ export class CalendrierComponent{
     this.getAllRendezVous();
     this.getAllProjets();
     this.getAllActivities();
+    $('#today').click();
   }
 
   dayClicked({date, events}: {date: Date, events: CalendarEvent[]}): void {
