@@ -30,21 +30,24 @@
                         </div>
                     </li>
                     <li class="active">
-                        <a><i class="fa fa-th-large"></i> <span class="nav-label">Acceuil</span> <span class="fa arrow"></span></a>
+                        <a><i class="fa fa-home"></i> <span class="nav-label">Acceuil</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li ><a  [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['calendrier']}}]">Calendrier</a></li>
                             <li ><a href="#">Statistiques</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-bell"></i> <span class="nav-label">Gestion des Projets</span><span class="fa arrow"></span></a>
+                        <a><i class="fa fa-tasks"></i> <span class="nav-label">Gestion des Projets</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['gestionProjets']}}]">Liste des Projet</a></li>
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterProjet']}}]">Créer un Projet</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a class="display-list-elem" style="display:flex;font-size: 14px;"><i class="fa fa-user"></i> <div class="nav-label">Gestion des Ressources Humaines </div><span class="fa arrow"></span></a>
+                        <a class="display-list-elem" style="display:flex;font-size: 14px;">
+                          <i class="fa fa-users"></i>
+                          <div class="nav-label">Gestion des Ressources Humaines </div><span class="fa arrow"></span>
+                        </a>
                         <ul class="nav nav-second-level">
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]">Liste des Collaborateurs</a></li>
                             <li><a  [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterRh']}}]">Ajouter Un Collaborateur</a></li>
@@ -65,7 +68,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-file"></i> <span class="nav-label">Rapports</span><span class="fa arrow"></span></a>
+                        <a><i class="fa fa-folder-open"></i> <span class="nav-label">Rapports</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeRapports']}}]">Liste des Rapports</a></li>
                         </ul>

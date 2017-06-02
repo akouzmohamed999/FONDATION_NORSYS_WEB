@@ -364,7 +364,8 @@ body{
 }
 
 #img-block{
-    margin-left: 12%;
+   /* margin-left: 12%;*/
+   text-align: center;
 }
 
 .input-border:focus{
