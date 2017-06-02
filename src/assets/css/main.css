@@ -395,3 +395,7 @@ body{
 .display-list-elem{
     display:flex;
 }
+
+.nav-label{
+    font-size: 14px;
+}
