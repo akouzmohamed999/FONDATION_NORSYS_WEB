@@ -6,7 +6,9 @@
 
 @font-face {
     font-family: 'open_sanscondensed_light';
-    src: url('../fonts/OpenSans-CondLight-webfont.woff') format('woff');
+    src: url('../fonts/OpenSans-CondLight-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-CondLight-webfont.eot'),
+         url('../fonts/OpenSans-CondLight-webfont.ttf');
     font-weight: normal;
     font-style: normal;
 

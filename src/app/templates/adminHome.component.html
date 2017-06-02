@@ -44,7 +44,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-user"></i> <span class="nav-label">Gestion des Ressources Humaines </span><span class="fa arrow"></span></a>
+                        <a class="display-list-elem" style="display:flex;font-size: 14px;"><i class="fa fa-user"></i> <div class="nav-label">Gestion des Ressources Humaines </div><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]">Liste des Collaborateurs</a></li>
                             <li><a  [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterRh']}}]">Ajouter Un Collaborateur</a></li>

@@ -1,4 +1,4 @@
-@import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en");
+/*@import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en");*/
 /*
  *
  *   INSPINIA - Responsive Admin Theme
@@ -6,15 +6,17 @@
  *
 */
 
-@font-face {
+/*@font-face {
     font-family: 'open_sanscondensed_light';
-    src: url('../fonts/OpenSans-CondLight-webfont.woff') format('woff');
+    src: url('../fonts/OpenSans-CondLight-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-CondLight-webfont.eot'),
+         url('../fonts/OpenSans-CondLight-webfont.ttf');
     font-weight: normal;
     font-style: normal;
 
 }
 
-
+*/
 h1,
 h2,
 h3,

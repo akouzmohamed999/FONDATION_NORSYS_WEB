@@ -7,14 +7,16 @@
 /**
  * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
  */
-@font-face {
+/*@font-face {
     font-family: 'open_sanscondensed_light';
-    src: url('../fonts/OpenSans-CondLight-webfont.woff') format('woff');
+    src: url('../fonts/OpenSans-CondLight-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-CondLight-webfont.eot'),
+         url('../fonts/OpenSans-CondLight-webfont.ttf');
     font-weight: normal;
     font-style: normal;
 
 }
-
+*/
 article,
 aside,
 details,

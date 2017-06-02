@@ -12,14 +12,15 @@ Enjoy responsibly!
 @ihatetomatoes
 
 */
-@font-face {
+/*@font-face {
     font-family: 'open_sanscondensed_light';
-    src: url('../fonts/OpenSans-CondLight-webfont.woff') format('woff');
+    src: url('../fonts/OpenSans-CondLight-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-CondLight-webfont.eot'),
+         url('../fonts/OpenSans-CondLight-webfont.ttf');
     font-weight: normal;
     font-style: normal;
 
-}
-
+}*/
 /* ==========================================================================
    Chrome Frame prompt
    ========================================================================== */
@@ -384,4 +385,8 @@ body{
     padding: 10px 20px!important;
     color:white;
     border: 0px;
+}
+
+.display-list-elem{
+    display:flex;
 }
