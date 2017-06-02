@@ -1,8 +1,9 @@
 import {Component,NgZone} from "@angular/core";
 import {Location} from '@angular/common'
-import {FormGroup,FormBuilder} from "@angular/forms";
+import {FormGroup,FormBuilder,AbstractControl,Validators} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
+import {FormValidator} from './validators/form-validator'
 import * as $ from 'jquery'
 
 @Component({
@@ -24,28 +25,30 @@ export class AjouterPartenaireComponent {
     responsables;
     partenaires;
     administrateur;
+    myEmail : AbstractControl;
+    myPhoneNumber : AbstractControl;
 
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private router : Router,private _ngZone:NgZone,private _location:Location){
         this.form = formBuilder.group({
             'nom' : [''],
             'type' : [''],
             'adresse' : [''],
-            'email' : [''],
-            'numeroTelephone':['']
+            'email' : ['',Validators.compose([FormValidator.isValidMailFormat])],
+            'numeroTelephone':['',Validators.compose([FormValidator.isAPhoneNumber])],
         })
+        this.myEmail=this.form.controls['email'];
+        this.myPhoneNumber=this.form.controls['numeroTelephone'];
     }
 
     ngOnInit(){
     }
 
     onSubmit(partenaire){
-        console.log('RRRRRRRRRRR'+JSON.stringify(partenaire));
         this.projetService.addPartenaire(partenaire).subscribe(partenaire =>{
             if(partenaire != null){
                  this._ngZone.run(() => {
                           this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['listePartenaire']}}]); 
                         });
-                console.log("Ca passe redirection now");
             }
         });
     }

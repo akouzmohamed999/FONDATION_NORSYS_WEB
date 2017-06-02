@@ -34,9 +34,9 @@
                                     <thead>
                                         <tr>
                                             <th>Intitulé d'activité</th>
-                                            <th>Date d'activité</th>
-                                            <th>Duree d'activité</th>
-                                            <th>Annimateur Terrain</th>
+                                            <th>Date de début d'activité</th>
+                                            <th>Date de fin d'activité</th>
+                                            <th>Animateur Terrain</th>
                                             <th>Etat d'activités</th>
                                          </tr>
                                     </thead>
@@ -49,7 +49,7 @@
                                             {{activiteDetails?.dateActivite | date:"MM/dd/yyyy"}}
                                         </td>
                                        <td class="project-title">
-                                            {{activiteDetails?.dureeActivite}}
+                                            {{activiteDetails?.dateFin | date:"MM/dd/yyyy"}}
                                         </td>
                                         <td class="project-title">
                                            {{activiteDetails?.animateurTerrain.prenom}} {{activiteDetails?.animateurTerrain.nom}}

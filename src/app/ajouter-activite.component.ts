@@ -34,9 +34,8 @@ export class AjouterActiviteComponent {
         this.form = formBuilder.group({
             'intitule' : [''],
             'dateActivite' : [''],
-            'dureeActivite' : [''],
+            'dateFin' : [''],
             'animateurTerrain' : [''],
-            'etat' : [''],
             'collaborateurs' : [''],
             'benificiaires' : ['']
         });
@@ -45,7 +44,7 @@ export class AjouterActiviteComponent {
 
       private myDatePickerOptions: IMyDpOptions = {
         // other options...
-        dateFormat: 'yyyy-mm-dd',
+        dateFormat: 'dd/mm/yyyy',
     };
 
 ngOnInit(){
@@ -60,7 +59,9 @@ ngOnInit(){
 onSubmit(activite){
        
        activite.composante=this.composante;
-       activite.dateActivite=activite.dateActivite.formatted;
+       activite.dateActivite=this.dateToSql(activite.dateActivite.formatted);
+       activite.dateFin=this.dateToSql(activite.dateFin.formatted);
+       activite.etat="En Cours";
         this.projetService.addActivite(activite).subscribe(activite =>{
             if(activite != null){
                  this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['gestionComposante',this.composante.idComposante]}}]); 
@@ -105,5 +106,17 @@ onSubmit(activite){
             composante => this.composante=composante
         )
     }
+
+    dateToSql(date){
+    //sqlDate in SQL DATETIME format ("yyyy-mm-dd hh:mm:ss.ms")
+    var sqlDateArr1 = date.split("/");
+    //format of sqlDateArr1[] = ['yyyy','mm','dd hh:mm:ms']
+    var sYear = sqlDateArr1[2];
+    var sMonth = sqlDateArr1[1];
+    var sDay = sqlDateArr1[0];
+    var SqlDate=sYear+'-'+sMonth+'-'+sDay;
+    return SqlDate;
+}
+
 
 }
