@@ -364,7 +364,8 @@ body{
 }
 
 #img-block{
-    margin-left: 12%;
+   /* margin-left: 12%;*/
+   text-align: center;
 }
 
 .input-border:focus{
@@ -393,4 +394,14 @@ body{
 
 .display-list-elem{
     display:flex;
+}
+
+.nav-label{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.subnav-label{
+    font-size: 13px;
+    font-weight: 400;   
 }
