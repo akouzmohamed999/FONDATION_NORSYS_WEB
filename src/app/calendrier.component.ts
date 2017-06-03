@@ -86,7 +86,13 @@ export class CalendrierComponent{
     this.getAllRendezVous();
     this.getAllProjets();
     this.getAllActivities();
-    $('#today').click();
+  }
+
+   ngAfterViewInit(){
+     $(document).ready(function(){
+       console.log("HERRRRRRRE !!!!");
+      $('#today').click();
+    })
   }
 
   dayClicked({date, events}: {date: Date, events: CalendarEvent[]}): void {
