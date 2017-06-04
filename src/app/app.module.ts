@@ -63,11 +63,13 @@ import {AjouterRendezVousComponent} from './ajouter-rendez-vous.component';
 import {ListeRendezVousComponent} from './liste-rendez-vous.component';
 import {SupprimerRendezVousComponent} from './supprimer-rendez-vous.component';
 import {ModifierRendezVousComponent} from './modifier-rendez-vous.component';
+import {ListePublicationsComponent} from './liste-publications.component';
 
 
 import {LoginService} from './services/login.service';
 import {ProjetService} from './services/projet.service';
 import {PropositionService} from './services/proposition.service';
+import {PublicationService} from './services/publication.service'
 
 export const routes  : Routes = [
   { path:'',component :LoginComponent},
@@ -112,6 +114,7 @@ export const routes  : Routes = [
      { path:'listeRendezVous',component :ListeRendezVousComponent,outlet :'adminHomeRoute'},
      { path:'supprimerRendezVous/:id',component :SupprimerRendezVousComponent,outlet :'adminHomeRoute'},
      { path:'modifierRendezVous/:id',component :ModifierRendezVousComponent,outlet :'adminHomeRoute'},
+     { path:'listePublication',component :ListePublicationsComponent,outlet :'adminHomeRoute'},
   ]},
 ];
 
@@ -129,7 +132,8 @@ export const routes  : Routes = [
     ListeAdministarteurComponent,AjouterRhComponent,AjouterRapportComponent,ListeRapportProjetComponent,ListeBilansProjetComponent,
     AjouterBilanComponent,ListePropositionComponent,PropositionDetailsComponent,AjouterRendezVousComponent,CalendrierComponent
     ,ListeRapportsComponent,ListeBilansComponent,ModifierCollaborateurComponent,
-    ListeRendezVousComponent,SupprimerRendezVousComponent,ModifierRendezVousComponent,AfficherProfilComponent,ModifierProfilComponent
+    ListeRendezVousComponent,SupprimerRendezVousComponent,ModifierRendezVousComponent,AfficherProfilComponent,ModifierProfilComponent,
+    ListePublicationsComponent
     
     
   ],
@@ -145,7 +149,7 @@ export const routes  : Routes = [
     Ng2FilterPipeModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [LoginService,ProjetService,PropositionService],
+  providers: [LoginService,ProjetService,PropositionService,PublicationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -94,6 +94,14 @@
                             <span class="subnav-label">Liste des Bilans</span></a></li>
                         </ul>
                     </li>
+                     <li>
+                        <a><i class="fa fa-sitemap"></i> <span class="nav-label">Publications</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+
+                          <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listePublication']}}]">
+                            <span class="subnav-label">Liste des Publications</span></a></li>
+                        </ul>
+                    </li>
                 </ul>
 
             </div>
