@@ -64,6 +64,7 @@ import {ListeRendezVousComponent} from './liste-rendez-vous.component';
 import {SupprimerRendezVousComponent} from './supprimer-rendez-vous.component';
 import {ModifierRendezVousComponent} from './modifier-rendez-vous.component';
 import {ListePublicationsComponent} from './liste-publications.component';
+import {AjouterPublicationComponent} from './ajouter-publication.component'
 
 
 import {LoginService} from './services/login.service';
@@ -115,6 +116,7 @@ export const routes  : Routes = [
      { path:'supprimerRendezVous/:id',component :SupprimerRendezVousComponent,outlet :'adminHomeRoute'},
      { path:'modifierRendezVous/:id',component :ModifierRendezVousComponent,outlet :'adminHomeRoute'},
      { path:'listePublication',component :ListePublicationsComponent,outlet :'adminHomeRoute'},
+     { path:'ajouterPublication',component :AjouterPublicationComponent,outlet :'adminHomeRoute'},
   ]},
 ];
 
@@ -133,7 +135,7 @@ export const routes  : Routes = [
     AjouterBilanComponent,ListePropositionComponent,PropositionDetailsComponent,AjouterRendezVousComponent,CalendrierComponent
     ,ListeRapportsComponent,ListeBilansComponent,ModifierCollaborateurComponent,
     ListeRendezVousComponent,SupprimerRendezVousComponent,ModifierRendezVousComponent,AfficherProfilComponent,ModifierProfilComponent,
-    ListePublicationsComponent
+    ListePublicationsComponent,AjouterPublicationComponent
     
     
   ],
