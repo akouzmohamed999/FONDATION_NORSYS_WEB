@@ -405,3 +405,29 @@ body{
     font-size: 13px;
     font-weight: 400;   
 }
+
+.full-length-header{
+    width:100%;
+}
+
+.title-label{
+    font-size: 16px;
+    font-weight: 400;   
+}
+
+.full-size-block{
+    width:100%;
+    height:100%;
+}
+
+.label-size{
+    width:14%;
+}
+
+.custom-fg{
+    display:flex;
+}
+
+.half-ibox{
+    width:50%;
+}
