@@ -16,11 +16,7 @@
                         <div class="ibox-title">
                             <span class="title-label">Liste des projets</span>
                         </div>
-<<<<<<< HEAD
                         <div class="ibox-content full-length-header">
-=======
-                        <div class="ibox-content col-lg-12">
->>>>>>> 86cef56bc3ab9f83dd4ef057d8b39f17a382a6c5
                             <div class="project-list">
                                 <table class="table table-hover">
                                     <thead>
@@ -39,7 +35,7 @@
                                         </td>
                                         <td class="project-completion">
                                                  {{projet.administrateur.prenom}} {{projet.administrateur.nom}}
-                                            </td>
+                                        </td>
                                         <td class="project-title">
                                             {{projet.dateDebut | date:"MM/dd/yyyy"}}
                                         </td>
@@ -58,4 +54,37 @@
                 </div>
             </div>
         </div>
- 
+ <!-- <ul class="nav nav-tabs">
+    
+    <li *ngFor="let projet of projets">
+      <a data-toggle="tab" href="#content">
+      <projet class="projet"
+            [projet]="projet" (clicked)="onClicked($event)">
+        </projet>
+      </a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="content" class="tab-pane fade in active">
+        <projet-details [projetDetails]="projetDetails"></projet-details>
+        <div class="panel-group" id="accordion"> 
+              <div class="panel panel-default" *ngFor="let composante of projetDetails.composantes">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#{{composante.intitule}}">{{composante.intitule}}</a>
+                  </h4>
+                </div>
+              <div id="{{composante.intitule}}" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <composante class="composante"
+                    [composante]="composante" (composanteClicked)="onComposanteClicked($event)">
+                    </composante>
+                </div>
+             </div>
+        </div>
+      </div>
+  </div>
+</div>-->
+
+     
