@@ -17,37 +17,38 @@
                             <form id="form" action="#"  (ngSubmit)="onSubmit(form.value)" [formGroup]="form" >  
                                    <h2>Modification</h2>
                                    <div class="form-group">
-                                       <label class="control-label">Nom</label>
+                                       <label class="control-label">Nom *</label>
                                        <input type="text" class="form-control" required [formControl]="form.controls['nom']" 
                                       [value]="collaborateur?.nom" value="{{collaborateur?.nom}}" />
                                    </div>
                                     <div class="form-group">
-                                       <label class="control-label">Prénom</label>
+                                       <label class="control-label">Prénom *</label>
                                        <input type="text" class="form-control" required [formControl]="form.controls['prenom']" 
                                        [value]="collaborateur?.prenom" value="{{collaborateur?.prenom}}" />
                                    </div>
                                     <div class="form-group">
-                                       <label class="control-label">CIN</label>
+                                       <label class="control-label">CIN *</label>
                                        <input type="text" class="form-control" required [formControl]="form.controls['cin']" 
                                        [value]="collaborateur?.cin" value="{{collaborateur?.cin}}" />
                                    </div>
                                     <div class="form-group">
-                                       <label class="control-label">Numéro Téléphone</label>
+                                       <label class="control-label">Numéro Téléphone *</label>
                                        <input type="text" class="form-control" required [formControl]="form.controls['numeroTelephone']" 
                                        [value]="collaborateur?.numeroTelephone" value="{{collaborateur?.numeroTelephone}}" />
+                                        <p class="text-danger" *ngIf="!myPhoneNumber.valid && myPhoneNumber.dirty">Numéro Téléphone invalid !</p>
                                    </div>
                                    <div class="form-group">
-                                       <label class="control-label">Ancien mot de passe</label>
+                                       <label class="control-label">Ancien mot de passe *</label>
                                        <input type="password" class="form-control" required [formControl]="form.controls['oldPassword']" 
-                                       [value]="collaborateur?.password" value="{{collaborateur?.password}}" />
+                                       [value]="collaborateur?.password" />
                                        <span *ngIf="ancienPasswordError != null" class="warning" >{{ancienPasswordError}}</span>
                                    </div>
                                     <div class="form-group">
-                                       <label class="control-label">Nouveau mot de passe</label>
+                                       <label class="control-label">Nouveau mot de passe *</label>
                                        <input type="password" class="form-control" required [formControl]="form.controls['newPassword']" />
                                    </div>
                                     <div class="form-group">
-                                       <label class="control-label">Répéter mot de passe</label>
+                                       <label class="control-label">Répéter mot de passe *</label>
                                        <input type="password" class="form-control" required [formControl]="form.controls['confirmPassword']" />
                                        <span *ngIf="confirmPasswordError != null" class="warning" >{{confirmPasswordError}}</span>
                                    </div>
@@ -70,6 +71,7 @@
                                        <label class="control-label">E-mail</label>
                                        <input type="text" class="form-control" required [formControl]="form.controls['lieuNaissance']" 
                                        [value]="collaborateur?.email" value="{{collaborateur?.email}}" />
+                                        <p class="text-danger" *ngIf="!myEmail.valid && myEmail.dirty">Numéro Téléphone invalid !</p>
                                    </div>
 		                            <div class="clearfix pull-right">
                                         <input [disabled]="!form.valid" type="submit" value="Modifier" class="btn btn-primary"/>

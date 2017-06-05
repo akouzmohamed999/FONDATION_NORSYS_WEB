@@ -1,7 +1,8 @@
 import {Component,NgZone} from "@angular/core";
 import {Location} from '@angular/common'
-import {FormGroup,FormBuilder} from "@angular/forms";
+import {FormGroup,FormBuilder,Validators,AbstractControl} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
+import {FormValidator} from './validators/form-validator'
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from 'jquery'
 
@@ -25,6 +26,8 @@ export class ModifierProfilComponent {
     ancienPasswordError;
     confirmPasswordError;
 
+    myEmail : AbstractControl;
+    myPhoneNumber : AbstractControl;
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private router : Router,
     private _ngZone:NgZone,private _location:Location,
     private route:ActivatedRoute){
@@ -33,14 +36,17 @@ export class ModifierProfilComponent {
             'prenom' : [''],
             'adresse' : [''],
             'cin' : [''],
-            'numeroTelephone':[''],
+            'numeroTelephone':['',Validators.compose([FormValidator.isAPhoneNumber])],
             'oldPassword' : [''],
             'newPassword' : [''],
             'confirmPassword' : [''],
             'dateNaissance' : [''],
             'lieuNaissance' : [''],
-            'email' : [],
+            'email' : ['',Validators.compose([FormValidator.isValidMailFormat])],
         })
+
+        this.myEmail = this.form.controls['email'];
+        this.myPhoneNumber = this.form.controls['numeroTelephone'];
     }
 
     ngOnInit(){

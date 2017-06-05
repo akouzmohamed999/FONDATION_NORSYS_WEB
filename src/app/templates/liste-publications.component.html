@@ -39,13 +39,15 @@
                                         </td>
                                         <td class="project-completion">
                                              {{publication.description}}
-                                        </td>
+                                        </td> 
                                         <td class="project-title">
                                             {{publication.visible}}
                                         </td>
                                         <td class="project-actions">
                                             <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierPublication',publication?.idPublication]}}]"
                                             class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Modifier</a>
+                                             <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['supprimerPublication',publication?.idPublication]}}]"
+                                            class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Supprimer</a>
                                         </td>
                                     </tr>
                                     </tbody>

@@ -66,6 +66,7 @@ import {ModifierRendezVousComponent} from './modifier-rendez-vous.component';
 import {ListePublicationsComponent} from './liste-publications.component';
 import {AjouterPublicationComponent} from './ajouter-publication.component';
 import {ModifierPublicationComponent} from './modifier-publication.component';
+import {SupprimerPublicationComponent} from './supprimer-publication.component'
 
 
 import {LoginService} from './services/login.service';
@@ -119,6 +120,7 @@ export const routes  : Routes = [
      { path:'listePublication',component :ListePublicationsComponent,outlet :'adminHomeRoute'},
      { path:'ajouterPublication',component :AjouterPublicationComponent,outlet :'adminHomeRoute'},
      { path:'modifierPublication/:id',component :ModifierPublicationComponent,outlet :'adminHomeRoute'},
+     { path:'supprimerPublication/:id',component :SupprimerPublicationComponent,outlet :'adminHomeRoute'},
   ]},
 ];
 
@@ -137,7 +139,7 @@ export const routes  : Routes = [
     AjouterBilanComponent,ListePropositionComponent,PropositionDetailsComponent,AjouterRendezVousComponent,CalendrierComponent
     ,ListeRapportsComponent,ListeBilansComponent,ModifierCollaborateurComponent,
     ListeRendezVousComponent,SupprimerRendezVousComponent,ModifierRendezVousComponent,AfficherProfilComponent,ModifierProfilComponent,
-    ListePublicationsComponent,AjouterPublicationComponent,ModifierPublicationComponent
+    ListePublicationsComponent,AjouterPublicationComponent,ModifierPublicationComponent,SupprimerPublicationComponent
     
     
   ],
