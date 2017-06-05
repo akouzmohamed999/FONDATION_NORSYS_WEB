@@ -1,7 +1,8 @@
 import {Component,Input,Output,EventEmitter} from "@angular/core";
-import {FormGroup,FormBuilder} from "@angular/forms";
+import {FormGroup,FormBuilder,Validators,AbstractControl} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {Location} from '@angular/common';
+import {FormValidator} from './validators/form-validator'
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from 'jquery';
 
@@ -22,6 +23,8 @@ export class AjouterBenificiaireActiviteComponent {
 
     form : FormGroup;
     @Output('added')added= new EventEmitter();
+    myPhoneNumber : AbstractControl;
+    myAge : AbstractControl;
 
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router:Router,private _location:Location){
         this.form = formBuilder.group({
@@ -30,10 +33,12 @@ export class AjouterBenificiaireActiviteComponent {
             'adresse' : [''],
             'ville' : [''],
             'CIN' : [''],
-            'age' : [''],
-            'numeroTelephone' : [''],
+            'age' : ['',Validators.compose([FormValidator.isAValidNumber])],
+            'numeroTelephone' : ['',Validators.compose([FormValidator.isValidMailFormat])],
             'pays' : ['']
         });
+        this.myPhoneNumber=this.form.controls['numeroTelephone'];
+        this.myAge=this.form.controls['age'];
     }
 
     ngOnInit() {

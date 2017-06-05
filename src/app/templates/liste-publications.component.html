@@ -6,48 +6,46 @@
     <link href="/assets/css/plugins/nouslider/jquery.nouislider.css" rel="stylesheet">
     <link href="/assets/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
     <link href="/assets/css/animate.css" rel="stylesheet">
-    <link href="/assets/css/style.css" rel="stylesheet">  
-    
-        <div class="row">
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+            <div class="row">
+                <div class="col-lg-12">
+                     <button 
+                                     [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterPublication']}}]" 
+                                        class="btn btn-xs btn-primary pull-right"><i class="fa fa-plus"></i> ajouter un publication </button>
+                        </div>
             <div class="col-lg-12">
                 <div class="wrapper wrapper-content animated fadeInUp">
 
                     <div class="ibox">
                         <div class="ibox-title">
-                            <span class="title-label">Liste des projets</span>
+                            <h4>Liste des Publications</h4>
                         </div>
-<<<<<<< HEAD
-                        <div class="ibox-content full-length-header">
-=======
-                        <div class="ibox-content col-lg-12">
->>>>>>> 86cef56bc3ab9f83dd4ef057d8b39f17a382a6c5
+                        <div class="ibox-content col-lg-12">                
                             <div class="project-list">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Intitule</th>
-                                            <th>Auteur</th>
-                                            <th>Date De Début</th>
-                                            <th>Date De Fin</th>
+                                            <th>Titre</th>
+                                            <th>Description</th>
+                                            <th>Visibilité</th>
                                             <th class="project-actions">Options</th>
                                         </tr>
                                   </thead>
                                     <tbody>
-                                    <tr  *ngFor="let projet of projets">
+                                    <tr  *ngFor="let publication of publications">
                                         <td class="project-title">
-                                            {{projet.intitule}}
+                                            {{publication.titre}}
                                         </td>
                                         <td class="project-completion">
-                                                 {{projet.administrateur.prenom}} {{projet.administrateur.nom}}
-                                            </td>
-                                        <td class="project-title">
-                                            {{projet.dateDebut | date:"MM/dd/yyyy"}}
+                                             {{publication.description}}
                                         </td>
                                         <td class="project-title">
-                                            {{projet.dateFin | date:"MM/dd/yyyy"}}
+                                            {{publication.visible}}
                                         </td>
                                         <td class="project-actions">
-                                            <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['projetDetails',projet.idProjet]}}]" class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Détails</a>
+                                            <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierPublication',publication?.idPublication]}}]"
+                                            class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Modifier</a>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -58,4 +56,4 @@
                 </div>
             </div>
         </div>
- 
+     

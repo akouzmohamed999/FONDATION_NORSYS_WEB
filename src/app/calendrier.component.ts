@@ -4,6 +4,7 @@ import {ProjetService} from './services/projet.service';
 import {PropositionService} from './services/proposition.service';
 import {  CalendarEvent,  CalendarEventAction,  CalendarEventTimesChangedEvent} from 'angular-calendar';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import  * as $ from 'jquery';
 import {
   startOfDay,
   endOfDay,
@@ -87,6 +88,13 @@ export class CalendrierComponent{
     this.getAllActivities();
   }
 
+   ngAfterViewInit(){
+     $(document).ready(function(){
+       console.log("HERRRRRRRE !!!!");
+      $('#today').click();
+    })
+  }
+
   dayClicked({date, events}: {date: Date, events: CalendarEvent[]}): void {
 
     if (isSameMonth(date, this.viewDate)) {
@@ -129,6 +137,7 @@ export class CalendrierComponent{
     this.events.push({
       title: activite.intitule,
       start: startOfDay(this.sqlToJsDate(activite.dateActivite)),
+      end: endOfDay(this.sqlToJsDate(activite.dateFin)),
       color: colors.yellow,
       draggable: true,
       actions: this.activiteClickAction,
