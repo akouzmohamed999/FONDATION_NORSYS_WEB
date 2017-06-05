@@ -23,7 +23,7 @@ export class PublicationService {
 
         getAllVisiblePublications(){
                var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/administrateur/visiblePublications',{headers:headers})
+            return this.http.get(this.APIURL+'/public/visiblePublications',{headers:headers})
             .map(response => response.json()
             );  
         }

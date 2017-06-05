@@ -58,7 +58,10 @@ export class ModifierPublicationComponent {
   }
 
     onSubmit(publication){
-        this.publicationService.updatePublication(publication).subscribe(ccc =>{
+        this.publication.titre=publication.titre;
+        this.publication.description=publication.description;
+        this.publication.visible=publication.visible;
+        this.publicationService.updatePublication(this.publication).subscribe(ccc =>{
             if(ccc != null){
                 $('#idPublication').val(ccc.idPublication);
                $('#btnSubmit').click();
