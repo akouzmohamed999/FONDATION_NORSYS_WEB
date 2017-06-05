@@ -65,7 +65,7 @@
                                 <div class="form-group">
                                 <label class="font-noraml">Désigner vos partenaires</label>
                                     <div class="input-group">
-                                <select id="chosen" multiple style="width:420px;" class="form-control" required [formControl]="form.controls['partenaires']">
+                                <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['partenaires']">
                                      <option *ngFor="let partenaire of partenaires" [ngValue]="partenaire" >{{partenaire.nom}}</option>                            
                                 </select>
                                 </div>  
@@ -85,7 +85,7 @@
                                 <div class="form-group">
                                 <label class="font-noraml">Choisissez un responsable de projet</label>
                                 <div class="input-group">
-                                    <select id="chosen" style="width:540px;" class="form-control" required [formControl]="form.controls['responsable']">
+                                    <select id="chosen" style="width:420px;" class="form-control" required [formControl]="form.controls['responsable']">
                                         <option *ngFor="let responsable of responsables" 
                                         [ngValue]="responsable" >{{responsable.prenom}} {{responsable.nom}}</option>                            
                                     </select>
