@@ -8,7 +8,7 @@
     <link href="/assets/css/animate.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">  
     
-        <div class="row">
+        <div class="row"> 
             <div class="col-lg-12">
                 <div class="wrapper wrapper-content animated fadeInUp">
 
@@ -16,9 +16,7 @@
                         <div class="ibox-title">
                             <span class="title-label">Liste des projets</span>
                         </div>
-                        
                         <div class="ibox-content full-length-header">
-
                             <div class="project-list">
                                 <table class="table table-hover">
                                     <thead>
@@ -37,7 +35,7 @@
                                         </td>
                                         <td class="project-completion">
                                                  {{projet.administrateur.prenom}} {{projet.administrateur.nom}}
-                                            </td>
+                                        </td>
                                         <td class="project-title">
                                             {{projet.dateDebut | date:"MM/dd/yyyy"}}
                                         </td>
@@ -56,4 +54,37 @@
                 </div>
             </div>
         </div>
- 
+ <!-- <ul class="nav nav-tabs">
+    
+    <li *ngFor="let projet of projets">
+      <a data-toggle="tab" href="#content">
+      <projet class="projet"
+            [projet]="projet" (clicked)="onClicked($event)">
+        </projet>
+      </a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="content" class="tab-pane fade in active">
+        <projet-details [projetDetails]="projetDetails"></projet-details>
+        <div class="panel-group" id="accordion"> 
+              <div class="panel panel-default" *ngFor="let composante of projetDetails.composantes">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#{{composante.intitule}}">{{composante.intitule}}</a>
+                  </h4>
+                </div>
+              <div id="{{composante.intitule}}" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <composante class="composante"
+                    [composante]="composante" (composanteClicked)="onComposanteClicked($event)">
+                    </composante>
+                </div>
+             </div>
+        </div>
+      </div>
+  </div>
+</div>-->
+
+     
