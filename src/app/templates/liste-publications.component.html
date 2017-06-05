@@ -44,7 +44,7 @@
                                             {{publication.visible}}
                                         </td>
                                         <td class="project-actions">
-                                            <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierRendezVous']}}]"
+                                            <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierPublication',publication?.idPublication]}}]"
                                             class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Modifier</a>
                                         </td>
                                     </tr>
