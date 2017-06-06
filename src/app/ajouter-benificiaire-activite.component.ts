@@ -34,7 +34,7 @@ export class AjouterBenificiaireActiviteComponent {
             'ville' : [''],
             'CIN' : [''],
             'age' : ['',Validators.compose([FormValidator.isAValidNumber])],
-            'numeroTelephone' : ['',Validators.compose([FormValidator.isValidMailFormat])],
+            'numeroTelephone' : ['',Validators.compose([FormValidator.isAPhoneNumber])],
             'pays' : ['']
         });
         this.myPhoneNumber=this.form.controls['numeroTelephone'];
