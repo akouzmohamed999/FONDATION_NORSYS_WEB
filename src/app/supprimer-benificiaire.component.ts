@@ -22,6 +22,7 @@ export class SupprimerBenificiaireComponent {
      id;
     sub;
     @Input()benificiaire;
+    @Output('deleted') delete = new EventEmitter();
 
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private router : Router,private _location:Location,
     private route:ActivatedRoute,private _ngZone:NgZone){
@@ -31,8 +32,9 @@ export class SupprimerBenificiaireComponent {
 
     onSupprimerclick(){
         this.projetService.deleteBenificiaire(this.benificiaire.idBenificiaire).subscribe(
-            //()  => this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['listePartenaire']}}])
-            ()  => location.reload()
+            ()  => {
+                this.delete.emit();
+            }
             );
     }
 

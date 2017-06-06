@@ -49,7 +49,9 @@ export class SupprimerPartenaireComponent {
 
         this.projetService.deletePartenaire(this.partenaire.idPartenaire).subscribe(
             //()  => this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['listePartenaire']}}])
-            ()  => location.reload()
+            ()  => {
+                this.deleted.emit();
+            }
             );
     }
 

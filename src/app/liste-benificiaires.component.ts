@@ -33,7 +33,6 @@ export class ListeBenificiairesComponent {
 
   onDeleteClick(){
     console.log('CLICK RECEIVED');
-    $('#myModal').hide();
-     this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['listePartenaire']}}]);   
+    this.getBenificiaires();
   }
 }

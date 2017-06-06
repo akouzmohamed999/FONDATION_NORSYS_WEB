@@ -64,7 +64,7 @@
                                 <div class="modal-dialog">
                                 <div class="modal-content animated bounceInRight">
                                    
-                                <supprimer-benificiaire  [benificiaire]="benificiaire"></supprimer-benificiaire>
+                                <supprimer-benificiaire (deleted)="onDeleteClick()" [benificiaire]="benificiaire"></supprimer-benificiaire>
                                         
                                     </div>
                                 </div>

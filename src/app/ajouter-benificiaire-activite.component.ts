@@ -60,7 +60,8 @@ export class AjouterBenificiaireActiviteComponent {
         });
     }
 
-    onAnullerclick(){
+    onAnnulerClick(event){
+         event.preventDefault();
          $('#myModal').hide();
     }
 }

@@ -27,7 +27,7 @@
                                                  <my-date-picker name="mydate" [options]="myDatePickerOptions" [formControl]="form.controls['dateActivite']" required></my-date-picker>
                                             </div>
                                            <div class="form-group">
-                                                <label>Durée de fin d'activité *</label>
+                                                <label>Date de fin d'activité *</label>
                                                 <my-date-picker name="mydate" [options]="myDatePickerOptions" [formControl]="form.controls['dateFin']" required></my-date-picker>
                                            </div>
                                             <div class="form-group">
@@ -42,7 +42,7 @@
                                                 <label>Collaborateurs *</label>
                                                 <div class="form-group">
                                                      <label class="control-label" >Recherche</label>
-                                                     <span>
+                                                     <span style="display: flex"><button class="btn btn-primary" [disabled]="true"><i class="fa fa-search"></i></button>
                                                          <input type="text" [(ngModel)]="collaborateurFilter.nom" placeholder="Recherche par nom" [ngModelOptions]="{standalone: true}" class="form-control">
                                                         <input type="text" [(ngModel)]="collaborateurFilter.prenom" placeholder="Recherche par prénom" [ngModelOptions]="{standalone: true}" class="form-control">
                                                      </span>
@@ -55,23 +55,23 @@
                                             </select>
                                             </div>
 
-                                             <div class="form-group row">
+                                    
                                                 <label>Bénificiaires *</label>
-                                                 <div class="form-group col-lg-12">
+                                                 <div class="form-group">
                                                      <label class="control-label" >Recherche</label>
-                                                     
-                                                         <input type="text" [(ngModel)]="benificiaireFilter.nom"
-                                                          placeholder="Recherche par nom" [ngModelOptions]="{standalone: true}" class="form-control col-lg-6">
-                                                        <input type="text" [(ngModel)]="benificiaireFilter.prenom" 
-                                                        placeholder="Recherche par prénom" [ngModelOptions]="{standalone: true}" class="form-control col-lg-6">
-                                            
+                                                        <span style="display: flex"><button class="btn btn-primary" [disabled]="true"><i class="fa fa-search"></i></button>
+                                                            <input type="text" [(ngModel)]="benificiaireFilter.nom"
+                                                          placeholder="Recherche par nom" [ngModelOptions]="{standalone: true}" class="form-control">
+                                                             <input type="text" [(ngModel)]="benificiaireFilter.prenom" 
+                                                        placeholder="Recherche par prénom" [ngModelOptions]="{standalone: true}" class="form-control">
+                                                        </span>
                                                  </div>
                                                
                                               <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['benificiaires']">
                                                 <option *ngFor="let benificiaire of benificiaires | filterBy : benificiaireFilter" 
-                                                [ngValue]="benificiaire" >{{benificiaire.prenom}} {{benificiaires.nom}}</option>                            
+                                                [ngValue]="benificiaire" >{{benificiaire.prenom}} {{benificiaire.nom}}</option>                            
                                             </select>
-                                            </div>
+                                       
                                             
 
                                             <div class="input_fields_wrap">

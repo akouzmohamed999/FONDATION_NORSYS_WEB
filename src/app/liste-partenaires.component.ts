@@ -31,8 +31,6 @@ export class ListePartenairesComponent {
   }
 
   onDeleteClick(){
-    console.log('CLICK RECEIVED');
-    $('#myModal').hide();
-     this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['listePartenaire']}}]);   
+    this.getPartenaires(); 
   }
 }

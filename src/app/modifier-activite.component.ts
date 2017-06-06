@@ -3,6 +3,7 @@ import {Location} from '@angular/common'
 import {FormGroup,FormBuilder} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
+import {IMyDpOptions} from 'mydatepicker'
 import * as $ from 'jquery'
 
 @Component({
@@ -27,11 +28,19 @@ export class ModifierActiviteComponent {
     collaborateurs;
     benificiaires;
     composante;
+    
+     collaborateurFilter : any = {nom : '',prenom:''};
+    benificiaireFilter : any = {nom : '',prenom:''};
+
+      private myDatePickerOptions: IMyDpOptions = {
+        // other options...
+        dateFormat: 'dd/mm/yyyy',
+    };
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router:Router,private _location:Location,private _ngZone:NgZone){
         this.form = formBuilder.group({
             'intitule' : [''],
             'dateActivite' : [''],
-            'dureeActivite' : [''],
+            'dateFin' : [''],
             'etat' : [''],
             'lieu' : [''],
             'animateurTerrain' : [''],

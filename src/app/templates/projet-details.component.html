@@ -67,7 +67,7 @@
                                                 <a data-toggle="collapse" data-parent="#accordion" href="#{{composante.intitule}}">{{composante.intitule}}</a>
                                             </h4>
                                             </div>
-                                        <div id="{{composante.intitule}}" class="panel-collapse collapse">
+                                        <div id="{{composante.intitule}}" [ngClass]="{'panel-collapse collapse in' : composante.idComposante === 1}">
                                             <div class="panel-body">
                                             <composante class="composante"
                                                 [composante]="composante" (composanteClicked)="onComposanteClicked($event)">

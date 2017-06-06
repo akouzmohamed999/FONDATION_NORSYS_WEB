@@ -33,8 +33,7 @@ const colors: any = {
 };
 
 @Component({
-    selector : 'calendrier',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    selector : 'calendrier',  
     templateUrl :'./templates/calendrier.component.html',
     styleUrls : ['../assets/css/bootstrap.min.css',
                 '../assets/font-awesome/css/font-awesome.css',
@@ -46,7 +45,6 @@ const colors: any = {
 })
 
 export class CalendrierComponent{ 
-    
    view: string = 'month';
 
   viewDate: Date = new Date();
