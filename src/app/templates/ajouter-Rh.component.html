@@ -12,12 +12,12 @@
                 <div class="col-lg-12 wrapper wrapper-content animated fadeInUp">
                     <div class="panel panel-primary">
                         <div class="ibox-title">
+                                 <span class="title-label titre">Nouveau Collaborateur</span>
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-8">      
-                                    <form id="form" action="#"  (ngSubmit)="onSubmit(form.value)" [formGroup]="form" >  
-                                   <h2>Nouveau Collaborateur</h2>
+                                    <form id="form" action="#"  (ngSubmit)="onSubmit(form.value)" [formGroup]="form" > 
                                    <div class="form-group">
                                        <label class="control-label">Nom *</label>
                                        <input type="text" class="form-control" required [formControl]="form.controls['nom']" />

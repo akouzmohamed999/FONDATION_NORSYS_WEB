@@ -13,17 +13,21 @@
                 <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Liste des Rapport </h5>
+                        <span class="title-label titre">Liste des Rapport</span>
                     </div>
 
                     <div class="ibox-content inspinia-timeline full-width-table">
 
                          <div class="form-group col-lg-12">
-                              <label class="control-label" >Recherche</label>                         
-                                     <input type="text" [(ngModel)]="rapportFilter.intitule"
-                                        placeholder="Recherche intitule" [ngModelOptions]="{standalone: true}" class="form-control">
-                                    <input type="text" [(ngModel)]="rapportFilter.fichierRapport" 
-                                            placeholder="Recherche nom de fichier" [ngModelOptions]="{standalone: true}" class="form-control">             
+                             <div class="form-group">
+                                    <label class="control-label" >Recherche</label>
+                                            <span style="display: flex"><button class="btn btn-primary" [disabled]="true"><i class="fa fa-search"></i></button>
+                                                 <input type="text" [(ngModel)]="rapportFilter.intitule"
+                                                        placeholder="Recherche par intitule" [ngModelOptions]="{standalone: true}" class="form-control">
+                                                <input type="text" [(ngModel)]="rapportFilter.fichierRapport" 
+                                                        placeholder="Recherche par nom de fichier" [ngModelOptions]="{standalone: true}" class="form-control">
+                                            </span>
+                                 </div>         
                          </div>
                                                
                         <div class="timeline-item" *ngFor="let rapport of rapports | filterBy : rapportFilter">

@@ -14,47 +14,12 @@
                  class="btn btn-primary btn-xs pull-right"><i class="fa fa-plus"></i>Ajouter Un Partenaire </a>
             </div>
         </div>
-        <!--<div class="row">
-            <div class="col-lg-4" *ngFor="let partenaire of partenaires">
-                <div class="contact-box">
-         
-                    <div class="col-sm-3">
-                        <div class="text-center">
-                            <img alt="image" class="img-circle m-t-xs img-responsive" src="assets/img/partenaire.jpg">
-                            <div class="m-t-xs font-bold"></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <h3><strong>{{partenaire.nom}}</strong></h3>
-                        <p><i class="fa fa-bookmark"></i><strong> : {{partenaire.type}}</strong></p>
-                        <p><i class="fa fa-map-marker"></i><strong> : {{partenaire.adresse}}</strong></p>
-                        <p><i class="fa fa-at"></i><strong> : {{partenaire.email}}</strong></p>
-                        <p><i class="fa fa-phone"></i><strong> : {{partenaire.numeroTelephone}}</strong></p>
-                    </div>
-                    <div class="col-sm-3">
-                        <button [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierPartenaire',partenaire.idPartenaire]}}]"
-                        class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></button>
-                        <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
-                            <i class="fa fa-trash"></i></button>
-                        <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog">
-                                <div class="modal-content animated bounceInRight">
-                                <supprimer-partenaire (deleted)="onDeleteClick()" [partenaire]="partenaire"></supprimer-partenaire>
-                                </div>
-                                </div>
-                            </div>
-                       </div>
-                    <div class="clearfix"></div>  
-                </div>
-            </div>
-        </div>-->
       <div class="row">
             <div class="col-lg-12">
                 <div class="wrapper wrapper-content animated fadeInUp">
-
                     <div class="ibox">
                         <div class="ibox-title">
-                            <h4>La liste des Bénificiaires</h4>
+                            <span class="title-label titre">La liste des Bénificiaires</span>
                         </div>
                         <div class="ibox-content full-width-table">
                             <div class="project-list">
