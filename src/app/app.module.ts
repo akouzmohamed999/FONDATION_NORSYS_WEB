@@ -78,10 +78,10 @@ export const routes  : Routes = [
   { path:'',component :LoginComponent},
   { path:'adminHome',component :AdminHomeComponent,children :[
      { path:'',component :CalendrierComponent,outlet :'adminHomeRoute'},
-     { path:'calendrier',component :StatistiquesComponent,outlet :'adminHomeRoute'},
+     { path:'calendrier',component :CalendrierComponent,outlet :'adminHomeRoute'},
      { path:'statistiques',component :StatistiquesComponent,outlet :'adminHomeRoute'},
-     { path:'gestionProjets',component : GestionProjetComponent,outlet :'adminHomeRoute'},
-     { path:'projetDetails/:id',component : ProjetDetailsComponent,outlet :'adminHomeRoute'},
+     { path:'gestionProjets',component :GestionProjetComponent,outlet :'adminHomeRoute'},
+     { path:'projetDetails/:id',component :ProjetDetailsComponent,outlet :'adminHomeRoute'},
      { path:'gestionComposante/:id',component : GestionComposanteComponent,outlet :'adminHomeRoute'},        
      { path:'ajouterComposante/:id',component : AjouterComponsanteComponent,outlet :'adminHomeRoute'},
      { path:'ajouterProjet',component : AjouterProjetComponent,outlet :'adminHomeRoute'},

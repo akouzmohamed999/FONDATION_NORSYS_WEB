@@ -15,48 +15,6 @@
 
      <div class="row">
             <div class="wrapper wrapper-content animated fadeInDown">
-                <div class="panel panel-primary">
-                    <div class="panel-body">
-                <div class="row text-center">
-                  <div class="col-md-4">
-                    <div class="btn-group">
-                      <div
-                        class="btn btn-primary"
-                        mwlCalendarPreviousView
-                        [view]="view"
-                        [(viewDate)]="viewDate">
-                        Precédent
-                      </div>
-                      <div
-                        class="btn btn-secondary"
-                        mwlCalendarToday
-                        [(viewDate)]="viewDate">
-                        Aujourd'hui
-                      </div>
-                      <div
-                        class="btn btn-primary"
-                        mwlCalendarNextView
-                        [view]="view"
-                        [(viewDate)]="viewDate">
-                        Suivant
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'fr' }}</h3>
-                  </div>
-                </div>
-                <br>
-                  <mwl-calendar-month-view
-                    [viewDate]="viewDate"
-                    [events]="events"
-                    [refresh]="refresh"
-                    [activeDayIsOpen]="activeDayIsOpen"
-                    (dayClicked)="dayClicked($event.day)"
-                    (eventClicked)="handleEvent('Clicked', $event.event)"
-                    (eventTimesChanged)="eventTimesChanged($event)">
-                  </mwl-calendar-month-view>
-                </div>
+               <p>Affichage des statistiques</p>
               </div>
-            </div>
-          </div>
+       </div>
