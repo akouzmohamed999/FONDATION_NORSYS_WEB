@@ -18,6 +18,7 @@ export class ListeCollaborateurComponent {
 
   loggedAdminId=localStorage.getItem("loggedUserId");
   collaborateurs;
+  collaborateurFilter:any = {email :'',nom:'',prenom:''};
   constructor(private projetService: ProjetService,private route:ActivatedRoute,private router : Router) { }
 
   ngOnInit() {

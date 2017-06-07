@@ -18,6 +18,14 @@
                             <span class="title-label titre">Liste des Collaborateurs</span>
                         </div>
                         <div class="ibox-content col-lg-12 full-width-table" >
+                             <div class="form-group">
+                                    <label class="control-label" >Recherche</label>
+                                            <span style="display: flex"><button class="btn btn-primary" [disabled]="true"><i class="fa fa-search"></i></button>
+                                                <input type="text" [(ngModel)]="collaborateurFilter.nom" placeholder="Recherche par nom" [ngModelOptions]="{standalone: true}" class="form-control">
+                                                <input type="text" [(ngModel)]="collaborateurFilter.prenom" placeholder="Recherche par prénom" [ngModelOptions]="{standalone: true}" class="form-control">
+                                                <input type="text" [(ngModel)]="collaborateurFilter.email" placeholder="Recherche par email" [ngModelOptions]="{standalone: true}" class="form-control">
+                                            </span>
+                                 </div>   
                             <div class="project-list">
                                 <table class="table table-hover">
                                     <thead>
@@ -31,7 +39,7 @@
                                         </tr>
                                   </thead>
                                     <tbody>
-                                    <tr  *ngFor="let collaborateur of collaborateurs">
+                                    <tr  *ngFor="let collaborateur of collaborateurs | filterBy : collaborateurFilter">
                                         <td class="project-title">
                                             {{collaborateur.nom}}
                                         </td>

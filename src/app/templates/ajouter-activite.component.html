@@ -47,12 +47,38 @@
                                                      </span>
                                                  </div>
                                                 
-                                                
-                                              <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['collaborateurs']">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="project-actions">séléctionner</th>
+                                            <th>nom</th>
+                                            <th>prénom</th>
+                                            <th>email</th>                                           
+                                        </tr>
+                                  </thead>
+                                    <tbody>
+                                    <tr  *ngFor="let collaborateur of collaborateurs | filterBy : collaborateurFilter">
+                                        <td class="project-title">
+                                            <input type="checkbox" class="collaborateur{{collaborateur.idCollaborateur}}"/>
+                                        </td>
+                                        <td class="project-completion">
+                                            {{collaborateur.nom}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{collaborateur.prenom}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{collaborateur.email}} 
+                                        </td>
+                                    </tr> 
+                                    </tbody>
+                                </table>
+                                <span class="text-danger" *ngIf="erreurCollaborateur != null">Veuillez Séléctionner des collaborateurs</span>
+                                            <!--  <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['collaborateurs']">
                                                 <option *ngFor="let collaborateur of collaborateurs | filterBy : collaborateurFilter" 
                                                 [ngValue]="collaborateur" >{{collaborateur.prenom}} {{collaborateur.nom}}</option>                            
-                                            </select>
-                                            </div>
+                                            </select>-->
+                            </div>
 
                                     
                                                 <label>Bénificiaires *</label>
@@ -65,11 +91,39 @@
                                                         placeholder="Recherche par prénom" [ngModelOptions]="{standalone: true}" class="form-control">
                                                         </span>
                                                  </div>
+
+                         <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="project-actions">séléctionner</th>
+                                            <th>CIN</th>
+                                            <th>nom</th>
+                                            <th>prénom</th>                                           
+                                        </tr>
+                                  </thead>
+                                    <tbody>
+                                    <tr  *ngFor="let benificiaire of benificiaires | filterBy : benificiaireFilter">
+                                        <td class="project-title">
+                                            <input type="checkbox" class="benificiaire{{benificiaire.idBenificiaire}}"/>
+                                        </td>
+                                        <td class="project-completion">
+                                            {{benificiaire.cin}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{benificiaire.nom}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{benificiaire.prenom}} 
+                                        </td>
+                                    </tr> 
+                                    </tbody>
+                                </table>
+                                <span class="text-danger" *ngIf="erreurBenificiaire != null">Veuillez Séléctionner des benificiaires !</span>
                                                
-                                              <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['benificiaires']">
+                                             <!--- <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['benificiaires']">
                                                 <option *ngFor="let benificiaire of benificiaires | filterBy : benificiaireFilter" 
                                                 [ngValue]="benificiaire" >{{benificiaire.prenom}} {{benificiaire.nom}}</option>                            
-                                            </select>
+                                            </select>-->
                                        
                                             
 
@@ -96,7 +150,7 @@
                                         <div class="col-lg-4">
                                             <div class="text-center">
                                                 <div style="margin-top: 20px">
-                                                    <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
+                                                    
                                                 </div>
                                             </div>
                                         </div>

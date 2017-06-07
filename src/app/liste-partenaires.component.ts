@@ -19,7 +19,7 @@ export class ListePartenairesComponent {
 
   partenaires;
   constructor(private projetService: ProjetService,private router : Router) { }
-
+  partenaireFilter :any = {nom:'',email:'',type:''};
   ngOnInit() {
     this.getPartenaires();
   }

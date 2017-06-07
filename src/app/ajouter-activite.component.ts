@@ -21,6 +21,10 @@ export class AjouterActiviteComponent {
     form : FormGroup
     formBenificaire : FormGroup
     collaborateurs;
+    selectedCollaborateurs = [];
+    erreurCollaborateur;
+    seletedBenificiaires = [];
+    erreurBenificiaire;
     benificiaires;
     composante;
     id;
@@ -35,15 +39,12 @@ export class AjouterActiviteComponent {
             'intitule' : [''],
             'dateActivite' : [''],
             'dateFin' : [''],
-            'animateurTerrain' : [''],
-            'collaborateurs' : [''],
-            'benificiaires' : ['']
+            'animateurTerrain' : ['']
         });
         
       }
 
       private myDatePickerOptions: IMyDpOptions = {
-        // other options...
         dateFormat: 'dd/mm/yyyy',
     };
 
@@ -58,15 +59,32 @@ ngOnInit(){
 
 onSubmit(activite){
        
+       this.erreurBenificiaire = null;
+       this.erreurCollaborateur = null;
        activite.composante=this.composante;
        activite.dateActivite=this.dateToSql(activite.dateActivite.formatted);
        activite.dateFin=this.dateToSql(activite.dateFin.formatted);
        activite.etat="En Cours";
-        this.projetService.addActivite(activite).subscribe(activite =>{
+
+
+         this.getSelectedCollaborateurs();
+         this.getSelectedBenificiaires();
+       
+       if(this.selectedCollaborateurs.length == 0){
+            this.erreurCollaborateur = "Veuillez Séléctionner des collaborateurs !"
+       }else if(this.seletedBenificiaires.length == 0){
+            this.erreurBenificiaire = "Veuillez Séléctionner des benificiaires !"
+       }else{
+        activite.collaborateurs=this.selectedCollaborateurs;
+        activite.benificiaires=this.seletedBenificiaires;
+         this.projetService.addActivite(activite).subscribe(activite =>{
             if(activite != null){
                  this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['gestionComposante',this.composante.idComposante]}}]); 
             }
         });
+       }
+
+       
     }
     
   onAnullerclick(event){
@@ -89,9 +107,6 @@ onSubmit(activite){
     }
 
   onAddedClick(){
-      
-      console.log('HHHHHHERRRREE ADDED BENIFI');
-                      $('#myModal').hide();
     this.getAllBenificiaire();
   }
 
@@ -118,5 +133,21 @@ onSubmit(activite){
     return SqlDate;
 }
 
+    getSelectedCollaborateurs(){
+          this.collaborateurs.forEach(collaborateur => { 
+           var checked = $(".collaborateur"+collaborateur.idCollaborateur).is(':checked');
+           if(checked){
+                this.selectedCollaborateurs.push(collaborateur);
+           }
+          })
+    }
 
+    getSelectedBenificiaires(){
+            this.benificiaires.forEach(benificiaire => { 
+           var checked = $(".benificiaire"+benificiaire.idBenificiaire).is(':checked');
+           if(checked){
+                this.seletedBenificiaires.push(benificiaire);
+           }
+          })
+    }
 }

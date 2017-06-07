@@ -19,7 +19,7 @@ export class ListeBenificiairesComponent {
 
   benificiaires;
   constructor(private projetService: ProjetService,private router : Router) { }
-
+  benificaireFilter :any = {nom:'',prenom:'',cin:''};
   ngOnInit() {
     this.getBenificiaires();
   }

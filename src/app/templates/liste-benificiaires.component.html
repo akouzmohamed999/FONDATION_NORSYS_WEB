@@ -16,12 +16,21 @@
                             <span class="title-label titre">La liste des Bénificiaires</span>
                         </div>
                         <div class="ibox-content full-width-table">
+                             <div class="form-group">
+                                    <label class="control-label" >Recherche</label>
+                                            <span style="display: flex"><button class="btn btn-primary" [disabled]="true"><i class="fa fa-search"></i></button>
+                                                <input type="text" [(ngModel)]="benificaireFilter.cin" placeholder="Recherche par CIN" [ngModelOptions]="{standalone: true}" class="form-control">
+                                                <input type="text" [(ngModel)]="benificaireFilter.nom"  placeholder="Recherche par nom" [ngModelOptions]="{standalone: true}" class="form-control">
+                                                <input type="text" [(ngModel)]="benificaireFilter.prenom"  placeholder="Recherche par prénom" [ngModelOptions]="{standalone: true}" class="form-control">
+                                            </span>
+                                 </div>        
                             <div class="project-list">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>CIN</th>
-                                            <th>nom et prénom</th>
+                                            <th>nom</th>
+                                            <th>prénom</th>
                                             <th>Age</th>
                                             <th>Numéro de Téléphone</th>
                                             <th>Adresse</th>
@@ -31,12 +40,15 @@
                                         </tr>
                                   </thead>
                                     <tbody>
-                                    <tr  *ngFor="let benificiaire of benificiaires">
+                                    <tr  *ngFor="let benificiaire of benificiaires | filterBy : benificaireFilter">
                                         <td class="project-status">
                                             <span class="label label-primary">{{benificiaire.CIN}}</span>
                                         </td>
                                         <td class="project-title">
-                                            {{benificiaire.prenom}} {{benificiaire.nom}}
+                                            {{benificiaire.nom}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{benificiaire.prenom}}
                                         </td>
                                         <td class="project-completion">
                                             {{benificiaire.age}}
