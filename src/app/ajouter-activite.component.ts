@@ -48,6 +48,18 @@ export class AjouterActiviteComponent {
         dateFormat: 'dd/mm/yyyy',
     };
 
+    addScripts(chemin){
+    var script = document.createElement( 'script' );
+    script.type = 'text/javascript';
+    script.src = chemin;
+    $("body").append( script );
+  }
+
+  ngAfterViewInit(){
+        this.addScripts('assets/js/plugins/iCheck/icheck.min.js');
+        this.addScripts('assets/js/main.js');          
+  }
+
 ngOnInit(){
      this.sub = this.route.params.subscribe(params => {
         this.id= +params['id'];

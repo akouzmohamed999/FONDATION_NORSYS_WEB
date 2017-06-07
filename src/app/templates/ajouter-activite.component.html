@@ -59,7 +59,9 @@
                                     <tbody>
                                     <tr  *ngFor="let collaborateur of collaborateurs | filterBy : collaborateurFilter">
                                         <td class="project-title">
-                                            <input type="checkbox" class="collaborateur{{collaborateur.idCollaborateur}}"/>
+                                            <div class="checkbox i-checks">
+                                                <input type="checkbox" class="collaborateur{{collaborateur.idCollaborateur}}"/>
+                                             </div>
                                         </td>
                                         <td class="project-completion">
                                             {{collaborateur.nom}}
@@ -104,7 +106,9 @@
                                     <tbody>
                                     <tr  *ngFor="let benificiaire of benificiaires | filterBy : benificiaireFilter">
                                         <td class="project-title">
-                                            <input type="checkbox" class="benificiaire{{benificiaire.idBenificiaire}}"/>
+                                             <div class="checkbox i-checks">
+                                                <input type="checkbox" class="benificiaire{{benificiaire.idBenificiaire}}"/>
+                                             </div>
                                         </td>
                                         <td class="project-completion">
                                             {{benificiaire.cin}}
