@@ -48,28 +48,64 @@
                                 </div>
                             </div>
                         </fieldset>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="row wrapper wrapper-content animated fadeInUp" style="margin-top: -60px;">
-            <div class=" col-lg-5" style="padding: 0;">
+                        <fieldset>
+                            <div class="row">
+                                <div class=" col-lg-5" style="padding: 0;">
                 <div class="ibox">
                 <div class="ibox-title">
                     <span class="title-label">Partenaires</span>
                 </div>
                 <div class="ibox-content full-size-block">  
-                        <fieldset>  
-                                <div class="form-group">
+                        <fieldset> 
+                            
+                             <div class="form-group">
+                                 <div class="form-group">
+                                    <label class="control-label" >Recherche</label>
+                                    <span style="display: flex"><button class="btn btn-primary" [disabled]="true"><i class="fa fa-search"></i></button>
+                                        <input type="text" [(ngModel)]="partenaireFilter.nom" placeholder="Recherche par nom" [ngModelOptions]="{standalone: true}" class="form-control">
+                                        <input type="text" [(ngModel)]="partenaireFilter.email" placeholder="Recherche par email" [ngModelOptions]="{standalone: true}" class="form-control">
+                                    </span>
+                                </div>
+                                                
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="project-actions">séléctionner</th>
+                                            <th>nom</th>
+                                            <th>type</th>
+                                            <th>email</th>                                           
+                                        </tr>
+                                  </thead>
+                                    <tbody>
+                                    <tr  *ngFor="let partenaire of partenaires | filterBy : partenaireFilter">
+                                        <td class="project-title">
+                                            <div class="checkbox i-checks">
+                                                <input type="checkbox" class="partenaire{{partenaire.idPartenaire}}"/>
+                                             </div>
+                                        </td>
+                                        <td class="project-completion">
+                                            {{partenaire.nom}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{partenaire.type}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{partenaire.email}} 
+                                        </td>
+                                    </tr> 
+                                    </tbody>
+                                </table>
+                                <span class="text-danger" *ngIf="erreurPartenaires != null">Veuillez séléctionner des partenaires</span>
+                            </div>
+
+                                <!--<div class="form-group">
                                 <label class="font-noraml">Désigner vos partenaires</label>
                                     <div class="input-group">
                                 <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['partenaires']">
                                      <option *ngFor="let partenaire of partenaires" [ngValue]="partenaire" >{{partenaire.nom}}</option>                            
                                 </select>
                                 </div>  
-                                </div> 
+                                </div> -->
                         </fieldset>
                 </div>
                 </div>
@@ -92,12 +128,12 @@
                                 </div>
                                 </div> 
                         </fieldset>
-                </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row wrapper wrapper-content animated fadeInUp" style="margin-top: -60px;">
+                        </div>
+                        </div>
+                    </div>
+                            </div>
+                        </fieldset>
+                         <div class="row wrapper wrapper-content animated fadeInRight" style="margin-top: -60px;">
             <div class="ibox" style="height: 65px;">
                <!--  <div class="ibox-title">
                     <span class="title-label">Nouveau Projet</span>
@@ -113,5 +149,12 @@
             </div>
         </div>
  
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+       
                          
  

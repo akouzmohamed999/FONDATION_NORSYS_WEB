@@ -25,7 +25,9 @@ export class AjouterProjetComponent {
     responsables;
     partenaires;
     administrateur;
-
+    partenaireFilter :any = {nom:'',email:''};
+    selectedPartenaires = [];
+    erreurPartenaires;
     private myDatePickerOptions: IMyDpOptions = {
         // other options...
         dateFormat: 'dd/mm/yyyy',
@@ -37,7 +39,6 @@ export class AjouterProjetComponent {
             'description' : [''],
             'dateDebut' : [''],
             'dateFin' : [''],
-            'partenaires':[''],
             'responsable':['']
         })
     }
@@ -47,7 +48,8 @@ export class AjouterProjetComponent {
         this.getAllPartenaires();
         this.getAdministrateurById(localStorage.getItem("loggedUserId"));
     }
-   addScripts(chemin){
+    
+ addScripts(chemin){
     var script = document.createElement( 'script' );
     script.type = 'text/javascript';
     script.src = chemin;
@@ -55,8 +57,8 @@ export class AjouterProjetComponent {
   }
 
   ngAfterViewInit(){
-           this.addScripts('assets/js/plugins/chosen/chosen.jquery.js');
-        this.addScripts('assets/js/plugins/datapicker/bootstrap-datepicker.js');
+        this.addScripts('assets/js/plugins/iCheck/icheck.min.js');
+        this.addScripts('assets/js/main.js');          
   }
 
  dateToSql(date){
@@ -94,18 +96,38 @@ export class AjouterProjetComponent {
   }
 
     onSubmit(projet){
+
+        this.erreurPartenaires = null;
+
         var dateDebut = projet.dateDebut.formatted;
         var dateFin = projet.dateFin.formatted;
         projet.administrateur=this.administrateur;
 
         projet.dateDebut=this.dateToSql(dateDebut);
         projet.dateFin=this.dateToSql(dateFin);
-        this.projetService.addProjet(projet).subscribe(projet =>{
+
+        this.getSelectedPartenaires();
+
+        if(this.selectedPartenaires.length == 0){
+            this.erreurPartenaires = "Veuillez selectionez";
+        }else{
+            projet.partenaires=this.selectedPartenaires;
+            this.projetService.addProjet(projet).subscribe(projet =>{
             if(projet != null){
                  this._ngZone.run(() => {
                           this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['gestionProjets']}}]); 
                         });
             }
         });
+        }
+    }
+
+     getSelectedPartenaires(){
+          this.partenaires.forEach(partenaire => { 
+           var checked = $(".partenaire"+partenaire.idPartenaire).is(':checked');
+           if(checked){
+                this.selectedPartenaires.push(partenaire);
+           }
+          })
     }
 }
