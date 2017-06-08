@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component,Input} from "@angular/core";
 import {FormGroup,FormBuilder} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {Location} from '@angular/common';
@@ -17,43 +17,18 @@ import * as $ from 'jquery';
 })
 
 export class SupprimerComponsanteComponent {
+    @Input() composante;
 
-
-    id;
-    sub;
-    form : FormGroup;
-    thematiques;
-    composante;
-    idProjet;
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router:Router,private _location:Location){
-        this.form = formBuilder.group({
-            'intitule' : [''],
-            'thematique' : ['']
-        })
-    }
-
-    ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-        this.id= +params['id'];
-    });
-    this.getComposante(this.id);
-    }
-
+      
+    }    
     onSupprimerclick(){
         this.projetService.deleteComposante(this.composante.idComposante).subscribe(
-            ()  => this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['projetDetails',this.idProjet]}}])
+            ()  => this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['projetDetails',this.composante.projet.idProjet]}}])
         )
     }
 
-    getComposante(idComposante){
-        this.projetService.getComposanteByComposanteId(idComposante)
-        .subscribe(composante => {
-            this.composante = composante;
-            this.idProjet=this.composante.projet.idProjet;
-        });
-    }
-
     onAnullerclick(){
-         this._location.back();
+            $('#myModal').hide();
     }
 }

@@ -6,7 +6,7 @@ import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from 'jquery';
 
 @Component({
-    selector : 'supprimer-composante',
+    selector : 'supprimer-rendezVous',
     templateUrl : './templates/supprimer-rendez-vous.component.html',
     styleUrls : ['../assets/css/bootstrap.min.css',
                 '../assets/font-awesome/css/font-awesome.css',
