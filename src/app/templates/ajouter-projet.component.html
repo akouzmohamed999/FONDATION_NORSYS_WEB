@@ -8,6 +8,19 @@
     <link href="/assets/css/animate.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">        
  
+    <div class="row wrapper border-bottom white-bg page-heading">
+                    <div class="col-lg-10">
+                         <h2>Gestion des projets</h2>
+                       <ol class="breadcrumb">
+                           <li>
+                               <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['calendrier']}}]"> Acceuil</a>
+                           </li>
+                           <li>
+                                <a>Nouveau Projet</a>
+                           </li>
+                       </ol>
+                    </div>
+                </div>
         <div class="row wrapper wrapper-content animated fadeInUp">
             <div class="ibox" style="width: 99%;">
                 <div class="ibox-title">
