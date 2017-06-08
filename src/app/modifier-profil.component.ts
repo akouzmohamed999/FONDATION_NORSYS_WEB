@@ -3,6 +3,7 @@ import {Location} from '@angular/common'
 import {FormGroup,FormBuilder,Validators,AbstractControl} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {FormValidator} from './validators/form-validator'
+import {IMyDpOptions} from 'mydatepicker';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from 'jquery'
 
@@ -28,6 +29,11 @@ export class ModifierProfilComponent {
 
     myEmail : AbstractControl;
     myPhoneNumber : AbstractControl;
+    
+    private myDatePickerOptions: IMyDpOptions = {
+        // other options...
+        dateFormat: 'dd/mm/yyyy',
+    };
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private router : Router,
     private _ngZone:NgZone,private _location:Location,
     private route:ActivatedRoute){
@@ -56,7 +62,6 @@ export class ModifierProfilComponent {
     onSubmit(Collaborateur){
         this.ancienPasswordError=null;
         this.confirmPasswordError=null;
-        console.log('old : '+Collaborateur.oldPassword+' new '+Collaborateur.newPassword);
         if(Collaborateur.oldPassword != this.collaborateur.password){
             this.ancienPasswordError="Ancien mot de passe est incorrect !"
         }else if(Collaborateur.newPassword != Collaborateur.confirmPassword){
@@ -69,7 +74,7 @@ export class ModifierProfilComponent {
         this.collaborateur.numeroTelephone=Collaborateur.numeroTelephone;
         this.collaborateur.CIN=Collaborateur.CIN;
         this.collaborateur.password=Collaborateur.password;
-        this.collaborateur.dateNaissance=Collaborateur.dateNaissance;
+        this.collaborateur.dateNaissance=this.dateToSql(Collaborateur.dateNaissance.formatted);
         this.collaborateur.lieuNaissance=Collaborateur.lieuNaissance;
         this.projetService.updateCollaborateur(this.collaborateur).subscribe(Collaborateur =>{
             if(Collaborateur != null){
@@ -91,4 +96,14 @@ export class ModifierProfilComponent {
             this.collaborateur=Collaborateur;
         })
     }
+        dateToSql(date){
+            //sqlDate in SQL DATETIME format ("yyyy-mm-dd hh:mm:ss.ms")
+            var sqlDateArr1 = date.split("/");
+            //format of sqlDateArr1[] = ['yyyy','mm','dd hh:mm:ms']
+            var sYear = sqlDateArr1[2];
+            var sMonth = sqlDateArr1[1];
+            var sDay = sqlDateArr1[0];
+            var SqlDate=sYear+'-'+sMonth+'-'+sDay;
+            return SqlDate;
+        }
 }
