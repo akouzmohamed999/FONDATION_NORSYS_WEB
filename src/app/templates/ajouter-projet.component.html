@@ -57,6 +57,7 @@
                                     <div class="form-group" >
                                         <label>Date De Fin *</label>    
                                         <my-date-picker name="mydate"  [options]="myDatePickerOptions" [formControl]="form.controls['dateFin']" required></my-date-picker>
+                                        <span class="text-danger" *ngIf="erreurDates != null">Date fin de projet est après ca date de début !</span>
                                     </div>
                                 </div>
                             </div>

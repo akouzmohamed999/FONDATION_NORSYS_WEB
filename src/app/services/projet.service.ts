@@ -12,7 +12,7 @@ export class ProjetService {
     
         getAdminProjets(){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/administrateur/',{headers:headers})
+            return this.http.get(this.APIURL+'/collaborateur/projets',{headers:headers})
             .map(response => response.json()
             );
         }
@@ -40,7 +40,7 @@ export class ProjetService {
 
         getComposanteByProjet(idProjet){
              var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/administrateur/composante?idProjet='+idProjet,{headers:headers})
+            return this.http.get(this.APIURL+'/collaborateur/composante?idProjet='+idProjet,{headers:headers})
             .map(response => response.json()
             );
         }
@@ -61,7 +61,7 @@ export class ProjetService {
 
         getProjetByidProjet(idProjet){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/administrateur/projet?idProjet='+idProjet,{headers:headers})
+            return this.http.get(this.APIURL+'/collaborateur/projet?idProjet='+idProjet,{headers:headers})
             .map(response => response.json()
             );
         }

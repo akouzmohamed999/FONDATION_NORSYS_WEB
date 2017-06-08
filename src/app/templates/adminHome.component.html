@@ -22,7 +22,6 @@
                              </span> <span class="text-muted text-xs block">{{role}}<b class="caret"></b></span> </span> </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['profil']}}]" >Mon Profil</a></li>
-                                <li><a  [routerLink]="['/']"><span class="subnav-label">Se Deconnecter</span></a></li>
                             </ul>
                         </div>
                         <div class="logo-element">
@@ -42,14 +41,14 @@
                     </li>
                     <li>
                         <a><i class="fa fa-tasks"></i> <span class="nav-label">Gestion des Projets</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
+                        <ul class="nav nav-second-level">²
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['gestionProjets']}}]">
                               <span class="subnav-label">Liste des Projet</span></a></li>
-                            <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterProjet']}}]">
+                            <li *ngIf="role == 'Administrateur'"><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterProjet']}}]">
                               <span class="subnav-label">Créer un Projet</span></a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li *ngIf="role == 'Administrateur'">
                         <a class="display-list-elem" style="display:flex;font-size: 14px;">
                           <i class="fa fa-users"></i>
                           <div class="nav-label">Gestion des Ressources Humaines </div><span class="fa arrow"></span>
@@ -61,7 +60,7 @@
                               <span class="subnav-label">Ajouter Un Collaborateur</span></a></li>
                         </ul>
                     </li>
-                     <li>
+                     <li *ngIf="role == 'Administrateur'">
                         <a><i class="fa fa-phone"></i> <span class="nav-label">Gestion des Contacts</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listePartenaire']}}]">
@@ -70,7 +69,7 @@
                               <span class="subnav-label">Liste des Bénificiaires</span></a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li *ngIf="role == 'Administrateur'">
                         <a><i class="fa fa-plus"></i> <span class="nav-label">Gestion des Propositions </span><span class="fa arrow"></span></a>
                       <ul class="nav nav-second-level">
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeProposition']}}]">
@@ -79,14 +78,14 @@
                               <span class="subnav-label">Liste des rendez-vous</span></a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li *ngIf="role == 'Administrateur'">
                         <a><i class="fa fa-folder-open"></i> <span class="nav-label">Rapports</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeRapports']}}]">
                               <span class="subnav-label">Liste des Rapports</span></a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li *ngIf="role == 'Administrateur'">
                         <a><i class="fa fa-file"></i> <span class="nav-label">Bilans</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
 
@@ -94,7 +93,7 @@
                             <span class="subnav-label">Liste des Bilans</span></a></li>
                         </ul>
                     </li>
-                     <li>
+                     <li *ngIf="role == 'Administrateur'">
                         <a><i class="fa fa-sitemap"></i> <span class="nav-label">Publications</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
 
@@ -117,7 +116,7 @@
                <li>
                    <span class="m-r-sm text-muted welcome-message">Fondation Norsys</span>
                </li>
-               <li class="dropdown">
+               <li *ngIf="role == 'Administrateur'" class="dropdown">
                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                        <i class="fa fa-bell"></i>  <span class="label label-primary" style="background-color:#931D22" *ngIf="nombrePropositions != 0">{{nombrePropositions}}</span>
                    </a>
@@ -139,7 +138,7 @@
                    </ul>
                </li>
                <li>
-                   <a href="login.html">
+                   <a  [routerLink]="['/']">
                        <i class="fa fa-sign-out"></i> Se Déconnecter
                    </a>
                </li>
@@ -149,19 +148,6 @@
        
         <div class="row">
             <div class="col-lg-12">
-                <!--<div class="row wrapper border-bottom white-bg page-heading">
-                    <div class="col-lg-10">
-                         <h2>Espace Administrateur</h2>
-                       <ol class="breadcrumb">
-                           <li>
-                               <a href="index.html">Accueil</a>
-                           </li>
-                           <li>
-                               <a>Gestion Des Projets</a>
-                           </li>
-                       </ol>
-                    </div>
-                </div>-->
                        <router-outlet name="adminHomeRoute"></router-outlet> 
             </div>
         </div>

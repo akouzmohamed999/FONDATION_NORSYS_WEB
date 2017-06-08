@@ -14,6 +14,8 @@ export class LoginService {
 
         login(collaborateur){
          
+            localStorage.setItem("access_token", null);
+            
             let headers = new Headers();
             headers.append("Authorization","Basic Y2xpZW50SWRQYXNzd29yZDpzZWNyZXQ=");
             headers.append("Content-Type","application/x-www-form-urlencoded");
@@ -38,11 +40,17 @@ export class LoginService {
                     localStorage.setItem("loggedUserId", JSON.stringify(data.Collaborateur.idCollaborateur));
                     localStorage.setItem("loggedUserName", data.Collaborateur.nom+" "+data.Collaborateur.prenom);
                     localStorage.setItem("loggedUserRole", data.Role);
-                    if(data.Role=='Administrateur'){
+                    
                         this._ngZone.run(() => {
                             this.router.navigate(['/adminHome']);     
                         });
-                             }
+                            
                       });
+        }
+
+        logout(){
+                    localStorage.setItem("loggedUserId", null);
+                    localStorage.setItem("loggedUserName",null);
+                    localStorage.setItem("loggedUserRole", null);
         }
 }

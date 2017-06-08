@@ -28,6 +28,7 @@ export class AjouterProjetComponent {
     partenaireFilter :any = {nom:'',email:''};
     selectedPartenaires = [];
     erreurPartenaires;
+    erreurDates;
     private myDatePickerOptions: IMyDpOptions = {
         // other options...
         dateFormat: 'dd/mm/yyyy',
@@ -98,9 +99,15 @@ export class AjouterProjetComponent {
     onSubmit(projet){
 
         this.erreurPartenaires = null;
-
+        this.erreurDates = null;
+    
         var dateDebut = projet.dateDebut.formatted;
+        var debut = this.sqlToJsDate(dateDebut);
         var dateFin = projet.dateFin.formatted;
+        var fin = this.sqlToJsDate(dateFin);
+        var test = debut > fin;
+        console.log(' sqlDebut '+dateDebut+' sqlFin '+dateFin);
+        console.log('debut '+debut+'fin '+fin+'compare :'+test);
         projet.administrateur=this.administrateur;
 
         projet.dateDebut=this.dateToSql(dateDebut);
@@ -110,7 +117,10 @@ export class AjouterProjetComponent {
 
         if(this.selectedPartenaires.length == 0){
             this.erreurPartenaires = "Veuillez selectionez";
-        }else{
+        }else if(debut > fin){
+            console.log('entred ');
+            this.erreurDates = "error date!"
+         }else{
             projet.partenaires=this.selectedPartenaires;
             this.projetService.addProjet(projet).subscribe(projet =>{
             if(projet != null){
@@ -130,4 +140,12 @@ export class AjouterProjetComponent {
            }
           })
     }
+
+    sqlToJsDate(sqlDate){
+    var sqlDateArr1 = sqlDate.split("/");
+    var sYear = sqlDateArr1[2];
+    var sMonth = sqlDateArr1[1];
+    var sDay = sqlDateArr1[0];
+    return new Date(sYear,sMonth,sDay);
+}
 }
