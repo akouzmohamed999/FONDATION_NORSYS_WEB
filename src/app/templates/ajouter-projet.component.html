@@ -36,28 +36,27 @@
                                     <div class="form-group">
                                         <label>Intitule de projet *</label>
                                         <input type="text"  required [formControl]="form.controls['intitule']" class="form-control required" />
+                                         <p class="text-danger" *ngIf="!myIntitule.valid && myIntitule.dirty">Ce champs est nécéssaire !</p>
                                     </div>
                                     <div class="form-group">
                                         <label>Date De Debut *</label>
                                          <my-date-picker name="mydate" [options]="myDatePickerOptions" [formControl]="form.controls['dateDebut']" required></my-date-picker>
+                                         <p class="text-danger" *ngIf="!myDateDebut.valid && myDateDebut.dirty">Veuillez respecter le format dd/mm/YYYY</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-1">
-                                    <!-- <div class="text-center">
-                                        <div style="margin-top: 20px">
-                                            <i class="fa fa-tasks" style="font-size: 180px;color: #e5e5e5 "></i>
-                                        </div>
-                                    </div> -->
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="form-group">
                                         <label>Description de projet *</label>
                                         <input type="text" required [formControl]="form.controls['description']" class="form-control required" />
+                                        <p class="text-danger" *ngIf="!myDescription.valid && myDescription.dirty">Ce champs est nécéssaire !</p>
                                     </div>
                                     <div class="form-group" >
                                         <label>Date De Fin *</label>    
                                         <my-date-picker name="mydate"  [options]="myDatePickerOptions" [formControl]="form.controls['dateFin']" required></my-date-picker>
-                                        <span class="text-danger" *ngIf="erreurDates != null">Date fin de projet est après ca date de début !</span>
+                                        <span class="text-danger" *ngIf="erreurDates != null">Date fin de projet est avant ca date de début !</span>
+                                        <p class="text-danger" *ngIf="!myDateFin.valid && myDateFin.dirty">Veuillez respecter le format dd/mm/YYYY</p>
                                     </div>
                                 </div>
                             </div>
@@ -111,15 +110,6 @@
                                 </table>
                                 <span class="text-danger" *ngIf="erreurPartenaires != null">Veuillez séléctionner des partenaires</span>
                             </div>
-
-                                <!--<div class="form-group">
-                                <label class="font-noraml">Désigner vos partenaires</label>
-                                    <div class="input-group">
-                                <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['partenaires']">
-                                     <option *ngFor="let partenaire of partenaires" [ngValue]="partenaire" >{{partenaire.nom}}</option>                            
-                                </select>
-                                </div>  
-                                </div> -->
                         </fieldset>
                 </div>
                 </div>
@@ -139,6 +129,7 @@
                                         <option *ngFor="let responsable of responsables" 
                                         [ngValue]="responsable" >{{responsable.prenom}} {{responsable.nom}}</option>                            
                                     </select>
+                                    <p class="text-danger" *ngIf="!myResponsable.valid && myResponsable.dirty">Ce champs est nécéssaire !</p>
                                 </div>
                                 </div> 
                         </fieldset>

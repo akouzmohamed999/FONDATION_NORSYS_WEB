@@ -173,9 +173,9 @@
             <div class="col-lg-3">
                 <div class="wrapper wrapper-content project-manager animated fadeInDown">
                     <div class="ibox">
-                        <div class="ibox-content full-width-table">
+                        
                             <div class="row" >
-                                    <div class="contact-box">
+                              <div class="ibox-content full-width-table">
                                 <div class="col-sm-4">
                                     <div class="text-center">
                                         <img alt="image" class="img-circle m-t-xs img-responsive" src="assets/img/a2.jpg">
@@ -183,15 +183,15 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
-                                    <h3><strong>{{proposition?.porteurProjet.nom}}
-                                            {{proposition?.porteurProjet.prenom}}</strong></h3>
+                                    <h3>{{proposition?.porteurProjet.nom}}
+                                            {{proposition?.porteurProjet.prenom}}</h3>
                                     <p><i class="fa fa-at"></i>{{proposition?.porteurProjet.email}}</p>
                                     <p><i class="fa fa-phone"></i>{{proposition?.porteurProjet.numeroTelephone}}</p>
                                 </div>
-                                <div class="clearfix"></div>
-                                </div>
+                              </div>
                             </div>
                             <div class="row">
+                              <div class="ibox-content full-width-table">
                                 <h2>Annexe</h2>
                                 <p><img src="assets/img/file.png" class="img-responsive"></p>
                                 <ul class="list-unstyled project-files">
@@ -200,8 +200,9 @@
                                                         
                                    </li>
                                 </ul>
+                              </div>
                             </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

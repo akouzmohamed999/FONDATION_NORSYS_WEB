@@ -1,5 +1,5 @@
 import {Component,NgZone} from "@angular/core";
-import {FormGroup,FormBuilder,Validators} from "@angular/forms";
+import {FormGroup,FormBuilder,Validators,AbstractControl} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import {IMyDpOptions} from 'mydatepicker';
@@ -33,15 +33,30 @@ export class AjouterProjetComponent {
         // other options...
         dateFormat: 'dd/mm/yyyy',
     };
+
+    myIntitule : AbstractControl;
+    myDescription : AbstractControl;
+    myDateDebut : AbstractControl;
+    myDateFin : AbstractControl;
+    myResponsable : AbstractControl;
+
+
     constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router : Router,
     private _ngZone:NgZone,private _location:Location){
         this.form = formBuilder.group({
-            'intitule' : [''],
-            'description' : [''],
-            'dateDebut' : [''],
-            'dateFin' : [''],
-            'responsable':['']
+            'intitule' : ['',Validators.compose([Validators.required])],
+            'description' : ['',Validators.compose([Validators.required])],
+            'dateDebut' : ['',Validators.compose([Validators.required])],
+            'dateFin' : ['',Validators.compose([Validators.required])],
+            'responsable':['',Validators.compose([Validators.required])]
         })
+
+        this.myIntitule = this.form.controls['intitule'];
+        this.myDescription = this.form.controls['description'];
+        this.myDateDebut = this.form.controls['dateDebut'];
+        this.myDateFin = this.form.controls['dateFin'];
+        this.myResponsable = this.form.controls['responsable'];
+
     }
 
     ngOnInit(){
@@ -105,9 +120,7 @@ export class AjouterProjetComponent {
         var debut = this.sqlToJsDate(dateDebut);
         var dateFin = projet.dateFin.formatted;
         var fin = this.sqlToJsDate(dateFin);
-        var test = debut > fin;
-        console.log(' sqlDebut '+dateDebut+' sqlFin '+dateFin);
-        console.log('debut '+debut+'fin '+fin+'compare :'+test);
+
         projet.administrateur=this.administrateur;
 
         projet.dateDebut=this.dateToSql(dateDebut);
@@ -148,4 +161,5 @@ export class AjouterProjetComponent {
     var sDay = sqlDateArr1[0];
     return new Date(sYear,sMonth,sDay);
 }
+
 }
