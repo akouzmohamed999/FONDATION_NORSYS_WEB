@@ -53,8 +53,11 @@
                                                 <input type="file" name="file" id="file">
                                                 <input type="text" name="idPublication" id="idPublication"  style="visibility: hidden" >
                                                 <input type="submit" value="Submit" id="btnSubmit" style="visibility: hidden" class="btn btn-primary" />
-                                                <p ><img src="http://localhost:8080/fondation/public/getPublictionImage?idPublication={{publication?.idPublication}}"
-                                                 width="462.542" height="258.906" /></p>
+                                                <div>
+                                                    <p>photo actuelle</p>
+                                                    <img src="http://localhost:8080/fondation/public/getPublictionImage?idPublication={{publication?.idPublication}}"
+                                                 width="462.542" height="258.906" />
+                                                 </div>
                                             </form>
                                        <div class="form-group">
                                         <label class="font-noraml">Choisissez un projet</label>

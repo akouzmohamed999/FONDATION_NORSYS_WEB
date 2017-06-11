@@ -36,7 +36,7 @@
                                     [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierActivite',activiteDetails?.idActivite]}}]" class="btn btn-primary btn-xs">
                                     <i class="fa fa-edit"></i>Modifier </a>
 
-                                      <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal">Supprimer
+                                      <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal" *ngIf="role != 'Collaborateur'">Supprimer
                                         </button>
                         
 

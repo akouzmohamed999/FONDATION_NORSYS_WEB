@@ -15,6 +15,7 @@ import * as $ from "jquery";
 export class ActiviteDetailsComponent {
 	  id;
     activiteDetails;
+    role=localStorage.getItem("loggedUserRole");
     constructor (private projetService : ProjetService,private route : ActivatedRoute,private router:Router){};
     ngOnInit() {
     this.route.params.subscribe(params => {

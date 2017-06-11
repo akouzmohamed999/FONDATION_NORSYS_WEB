@@ -52,6 +52,7 @@ export class AjouterBenificiaireActiviteComponent {
                 $("#success").show();
                 setTimeout(function() { $("#success").hide(); }, 3000);
                  //this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['projetDetails',this.id]}}]);
+                 $('#myModal').hide();
                  this.added.emit();
             }else{
                 $("#fail").show();

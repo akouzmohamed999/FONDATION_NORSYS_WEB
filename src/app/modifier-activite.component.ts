@@ -49,6 +49,18 @@ export class ModifierActiviteComponent {
         })
     }
 
+ addScripts(chemin){
+    var script = document.createElement( 'script' );
+    script.type = 'text/javascript';
+    script.src = chemin;
+    $("body").append( script );
+  }
+
+  ngAfterViewInit(){
+        this.addScripts('assets/js/plugins/iCheck/icheck.min.js');
+        this.addScripts('assets/js/main.js');          
+  }
+
    ngOnInit(){
         this.sub = this.route.params.subscribe(params => {
         this.id= +params['id'];
@@ -79,7 +91,8 @@ export class ModifierActiviteComponent {
         });
     }
 
-    onAnullerclick(){
+    onAnullerclick(event){
+        event.pereventDefault();
          this._location.back();
     }
 
@@ -110,5 +123,9 @@ export class ModifierActiviteComponent {
         this.projetService.getComposanteByComposanteId(idComposante).subscribe(composante => {
             this.composante=composante;
         })
+    }
+
+    onAddedClick(){
+        this.getAllBenificiaire();
     }
 }

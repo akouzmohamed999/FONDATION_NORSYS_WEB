@@ -78,30 +78,49 @@
                                              <div class="form-group">
                                                 <label>Collaborateurs *</label>
                                              
-                                           
+                                           <div class="form-group">
                                                 <label class="control-label" >Recherche</label>
                                                      <span style="display: flex"><button class="btn btn-primary" [disabled]="true"><i class="fa fa-search"></i></button>
                                                          <input type="text" [(ngModel)]="collaborateurFilter.nom" placeholder="Recherche par nom" [ngModelOptions]="{standalone: true}" class="form-control">
                                                         <input type="text" [(ngModel)]="collaborateurFilter.prenom" placeholder="Recherche par prénom" [ngModelOptions]="{standalone: true}" class="form-control">
                                                  </span>
+                                            </div>
                                                 <div class="row">
-                                                <div class="col-lg-6" >
-                                                <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['collaborateurs']">
+                        
+                                                    <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="project-actions">séléctionner</th>
+                                            <th>nom</th>
+                                            <th>prénom</th>
+                                            <th>email</th>                                           
+                                        </tr>
+                                  </thead>
+                                    <tbody>
+                                    <tr  *ngFor="let collaborateur of collaborateurs | filterBy : collaborateurFilter">
+                                        <td class="project-title">
+                                            <div class="checkbox i-checks">
+                                                <input type="checkbox" class="collaborateur{{collaborateur.idCollaborateur}}"/>
+                                             </div>
+                                        </td>
+                                        <td class="project-completion">
+                                            {{collaborateur.nom}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{collaborateur.prenom}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{collaborateur.email}} 
+                                        </td>
+                                    </tr> 
+                                    </tbody>
+                                </table>
+                                               <!-- <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['collaborateurs']">
                                                 <option *ngFor="let collaborateur of collaborateurs| filterBy : collaborateurFilter" 
                                                 [ngValue]="collaborateur" >{{collaborateur.prenom}} {{collaborateur.nom}}</option>                            
-                                            </select>
-                                            
-                                            </div>
-                                            <div class="col-lg-6" >
-                                                <div class="form-group">
-                                              <label>les collaborateurs Actuel :</label>
-                                              <ul *ngFor="let collaborateur of activiteDetails?.collaborateurs">
-                                                     <li> 
-                                                          {{collaborateur.prenom}} {{collaborateur.nom}}
-                                                    </li>
-                                              </ul>
-                                              </div>
-                                              </div>
+                                            </select> -->
+                              
+                          
                                             </div>
                                              </div>
 
@@ -120,23 +139,38 @@
                                                     </div>
 
                                              <div class="row">
-                                                <div class="col-lg-6" >
-                                              <select id="chosen" multiple style="width:350px;" class="form-control" required [formControl]="form.controls['benificiaires']">
-                                                <option *ngFor="let benificiaire of benificiaires | filterBy : benificiaireFilter" 
-                                                [ngValue]="benificiaire" >{{benificiaire.prenom}} {{benificiaire.nom}}</option>                            
-                                            </select>
+
+                                              
+                         <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="project-actions">séléctionner</th>
+                                            <th>CIN</th>
+                                            <th>nom</th>
+                                            <th>prénom</th>                                           
+                                        </tr>
+                                  </thead>
+                                    <tbody>
+                                    <tr  *ngFor="let benificiaire of benificiaires | filterBy : benificiaireFilter">
+                                        <td class="project-title">
+                                             <div class="checkbox i-checks">
+                                                <input type="checkbox" class="benificiaire{{benificiaire.idBenificiaire}}"/>
+                                             </div>
+                                        </td>
+                                        <td class="project-completion">
+                                            {{benificiaire.cin}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{benificiaire.nom}}
+                                        </td>
+                                        <td class="project-title">
+                                            {{benificiaire.prenom}} 
+                                        </td>
+                                    </tr> 
+                                    </tbody>
+                                </table>
                                             
-                                                </div>
-                                              <div class="col-lg-6" >  
-                                                  <div class="form-group">
-                                              <label>les Beneficiaires Actuel :</label>
-                                              <ul *ngFor="let benificiaire of activiteDetails?.benificiaires">
-                                                  <li>
-                                                  {{benificiaire.prenom}} {{benificiaire.nom}}
-                                                  </li>
-                                             </ul>
-                                            </div>
-                                              </div>
+                                                
                                             </div>
                                         </div>
                                         
@@ -157,13 +191,12 @@
                                             </div>
                                             <div class="clearfix pull-right">
                                                <button [disabled]="!form.valid" type="submit" value="Valider" class="btn btn-primary">Valider</button>
-                                               <button class="btn btn-primary" (click)="onAnnuler()" >Annuler</button>
+                                               <button class="btn btn-primary" (click)="onAnnuler($event)" >Annuler</button>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="text-center">
                                                 <div style="margin-top: 20px">
-                                                    <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
                                                 </div>
                                             </div>
                                         </div>

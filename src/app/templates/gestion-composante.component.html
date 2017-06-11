@@ -62,9 +62,9 @@
                                 <div class="clearfix pull-right">
                                     <a *ngIf="composante?.idComposante != null" 
                                     [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierComposante',composante?.idComposante]}}]" class="btn btn-primary btn-xs">
-                                    <i class="fa fa-edit"></i>Modifier </a>
+                                    <i class="fa fa-edit" *ngIf="role != 'Collaborateur'"></i>Modifier </a>
                                     <a data-toggle="modal" data-target="#myModal" class="btn btn-danger btn-xs">
-                                    <i class="fa fa-remove"></i>Supprimer</a>
+                                    <i class="fa fa-remove" *ngIf="role != 'Collaborateur'"></i>Supprimer</a>
 
                                      <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
                                             <div class="modal-dialog">

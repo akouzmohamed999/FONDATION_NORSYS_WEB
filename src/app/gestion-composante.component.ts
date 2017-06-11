@@ -21,6 +21,7 @@ export class GestionComposanteComponent{
   composante;
   collaborateurs;
   activities;
+  role=localStorage.getItem("loggedUserRole");
 
   constructor (private projetService : ProjetService,private route : ActivatedRoute,private router:Router){};
   ngOnInit() {
