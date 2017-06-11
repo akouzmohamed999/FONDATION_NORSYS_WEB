@@ -63,8 +63,8 @@
                                     <a *ngIf="composante?.idComposante != null" 
                                     [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierComposante',composante?.idComposante]}}]" class="btn btn-primary btn-xs">
                                     <i class="fa fa-edit" *ngIf="role != 'Collaborateur'"></i>Modifier </a>
-                                    <a data-toggle="modal" data-target="#myModal" class="btn btn-danger btn-xs">
-                                    <i class="fa fa-remove" *ngIf="role != 'Collaborateur'"></i>Supprimer</a>
+                                    <a data-toggle="modal" data-target="#myModal" class="btn btn-danger btn-xs" *ngIf="role != 'Collaborateur'">
+                                    <i class="fa fa-remove" ></i>Supprimer</a>
 
                                      <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
                                             <div class="modal-dialog">
@@ -80,7 +80,7 @@
                           <h3><i>Liste des activites</i></h3>
                           <div class="row">
                                 <div class="clearfix pull-right">
-                           <a class="btn btn-primary btn-sm" *ngIf="composante?.idComposante != null"
+                           <a class="btn btn-primary btn-sm" *ngIf="composante?.idComposante != null && role != 'Collaborateur'"
                             [routerLink]="['/adminHome', {outlets: {'adminHomeRoute':['ajouterActivite',composante?.idComposante]}}]">
                            <i class="fa fa-plus"></i> Ajouter une Activité </a>
                                 </div>
