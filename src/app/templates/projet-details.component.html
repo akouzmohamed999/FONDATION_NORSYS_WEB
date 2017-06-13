@@ -90,7 +90,7 @@
                                 </table>
                             <div class="row">
                                 <div class="clearfix" style="margin: 10px">
-                                        <a *ngIf="projetDetails?.idProjet != null"
+                                        <a *ngIf="projetDetails?.idProjet != null && role != 'Collaborateur'"
                                         [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['ajouterComposante',projetDetails?.idProjet]}}]"
                                          class="btn btn-primary btn-xs pull-right"><i class="fa fa-plus"></i>Ajouter une Composante </a>
                                 </div>
@@ -118,7 +118,7 @@
                 </div>
             </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3" *ngIf="role == 'Administrateur'">
                 <div class="wrapper wrapper-content project-manager animated fadeInDown">
                     <h2>Rapport & Bilan</h2>
                     <p><img src="assets/img/file.png" class="img-responsive"></p>

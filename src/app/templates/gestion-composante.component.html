@@ -60,9 +60,9 @@
                             </div>
                             <div class="row">
                                 <div class="clearfix pull-right">
-                                    <a *ngIf="composante?.idComposante != null" 
+                                    <a *ngIf="composante?.idComposante != null && role != 'Collaborateur'" 
                                     [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierComposante',composante?.idComposante]}}]" class="btn btn-primary btn-xs">
-                                    <i class="fa fa-edit" *ngIf="role != 'Collaborateur'"></i>Modifier </a>
+                                    <i class="fa fa-edit" ></i>Modifier </a>
                                     <a data-toggle="modal" data-target="#myModal" class="btn btn-danger btn-xs" *ngIf="role != 'Collaborateur'">
                                     <i class="fa fa-remove" ></i>Supprimer</a>
 

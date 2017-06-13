@@ -19,7 +19,7 @@ export class ProjetService {
 
         getCollaborateur(){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/responsable/Collaborateurs',{headers:headers})
+            return this.http.get(this.APIURL+'/collaborateur/Collaborateurs',{headers:headers})
             .map(response => response.json()
             );
         }
@@ -47,7 +47,7 @@ export class ProjetService {
 
          getComposanteByComposanteId(idComposante){
              var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/responsable/composanteById?idComposante='+idComposante,{headers:headers})
+            return this.http.get(this.APIURL+'/collaborateur/composanteById?idComposante='+idComposante,{headers:headers})
             .map(response => response.json()
             );
         }
@@ -105,7 +105,7 @@ export class ProjetService {
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
             headers.append("Content-Type","application/json");  
             let options = new RequestOptions({headers: headers});            
-            return this.http.put(this.APIURL+'/responsable/updateActivite',activite,options)
+            return this.http.put(this.APIURL+'/collaborateur/updateActivite',activite,options)
             .map(response => response.json()
             );
         }
@@ -134,7 +134,7 @@ export class ProjetService {
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
             headers.append("Content-Type","application/json");  
             let options = new RequestOptions({headers: headers});            
-            return this.http.put(this.APIURL+'/responsable/updateComposante',composante,options)
+            return this.http.put(this.APIURL+'/collaborateur/updateComposante',composante,options)
             .map(response => response.json()
             );
         }
@@ -149,7 +149,7 @@ export class ProjetService {
 
         getAllBenificiaires(){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/responsable/benificiaires',{headers:headers})
+            return this.http.get(this.APIURL+'/collaborateur/benificiaires',{headers:headers})
             .map(response => response.json()
             );
         }
@@ -159,7 +159,7 @@ export class ProjetService {
             headers.append("Authorization","Bearer "+localStorage.getItem("access_token"));
             headers.append("Content-Type","application/json");  
             let options = new RequestOptions({headers: headers});            
-            return this.http.post(this.APIURL+'/responsable/addBenificiaire',benificiaire,options)
+            return this.http.post(this.APIURL+'/collaborateur/addBenificiaire',benificiaire,options)
             .map(response => response.json()
             );
         }
@@ -241,7 +241,7 @@ export class ProjetService {
 
         getAllCollaborateur(){
            var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
-            return this.http.get(this.APIURL+'/responsable/collaborateurs',{headers:headers})
+            return this.http.get(this.APIURL+'/collaborateur/collaborateurs',{headers:headers})
             .map(response => response.json()
             );
         }

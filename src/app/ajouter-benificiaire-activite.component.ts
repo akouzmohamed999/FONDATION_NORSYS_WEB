@@ -32,7 +32,7 @@ export class AjouterBenificiaireActiviteComponent {
             'prenom' : [''],
             'adresse' : [''],
             'ville' : [''],
-            'CIN' : [''],
+            'cin' : [''],
             'age' : ['',Validators.compose([FormValidator.isAValidNumber])],
             'numeroTelephone' : ['',Validators.compose([FormValidator.isAPhoneNumber])],
             'pays' : ['']
@@ -51,7 +51,6 @@ export class AjouterBenificiaireActiviteComponent {
             if(ccc != null){
                 $("#success").show();
                 setTimeout(function() { $("#success").hide(); }, 3000);
-                 //this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['projetDetails',this.id]}}]);
                  $('#myModal').hide();
                  this.added.emit();
             }else{

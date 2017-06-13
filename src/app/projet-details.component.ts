@@ -19,6 +19,7 @@ export class ProjetDetailsComponent {
   id;
   projetDetails;
   composantes;
+  role=localStorage.getItem("loggedUserRole");
 
   constructor (private projetService : ProjetService,private route : ActivatedRoute,private router:Router){};
   ngOnInit() {

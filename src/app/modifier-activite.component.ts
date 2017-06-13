@@ -57,8 +57,7 @@ export class ModifierActiviteComponent {
   }
 
   ngAfterViewInit(){
-        this.addScripts('assets/js/plugins/iCheck/icheck.min.js');
-        this.addScripts('assets/js/main.js');          
+        this.addStyleScripts();
   }
 
    ngOnInit(){
@@ -115,7 +114,7 @@ export class ModifierActiviteComponent {
         this.projetService.getAllBenificiaires().subscribe(
             benificiaires => {
                 this.benificiaires = benificiaires;
-               // console.log('FFFFFFFFFFFFFFFFFFFFFF'+JSON.stringify(benificiaires));
+               this.addStyleScripts();
             }
         )
     }
@@ -127,5 +126,10 @@ export class ModifierActiviteComponent {
 
     onAddedClick(){
         this.getAllBenificiaire();
+    }
+
+    addStyleScripts(){
+        this.addScripts('assets/js/plugins/iCheck/icheck.min.js');
+        this.addScripts('assets/js/main.js');     
     }
 }
