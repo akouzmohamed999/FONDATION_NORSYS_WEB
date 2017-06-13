@@ -52,10 +52,10 @@
                                                  {{projet.administrateur.prenom}} {{projet.administrateur.nom}}
                                         </td>
                                         <td class="project-title">
-                                            {{projet.dateDebut | date:"MM/dd/yyyy"}}
+                                            {{projet.dateDebut | date:"dd/MM/yyyy"}}
                                         </td>
                                         <td class="project-title">
-                                            {{projet.dateFin | date:"MM/dd/yyyy"}}
+                                            {{projet.dateFin | date:"dd/MM/yyyy"}}
                                         </td>
                                         <td class="project-actions">
                                             <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['projetDetails',projet.idProjet]}}]" class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Détails</a>
