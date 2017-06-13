@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component,Input,Output,EventEmitter} from "@angular/core";
 import {FormGroup,FormBuilder} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {Location} from '@angular/common';
@@ -19,41 +19,24 @@ import * as $ from 'jquery';
 export class SupprimerCollaborateurComponent {
 
 
-    id;
-    sub;
-    form : FormGroup;
-    collaborateur;
-    constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router:Router,private _location:Location){
-        this.form = formBuilder.group({
-            'nom' : [''],
-            'prenom' : [''],
-            'cin' : [''],
-            'adresse' : [''],
-            'email' : ['']
-        })
-    }
 
-    ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-        this.id= +params['id'];
-    });
-     this.getCollaborateur(this.id);
-    }
+    @Input()collaborateurId;
+    @Output('deleted') deleted = new EventEmitter();
+    constructor(formBuilder:FormBuilder, private projetService: ProjetService,private route:ActivatedRoute,private router:Router,private _location:Location){
+            }
 
     onSupprimerclick(){
-        this.projetService.deleteCollaborateur(this.collaborateur.idCollaborateur).subscribe(
-            ()  => this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}])
+        console.log('LOOOOOOOOOOOOOOl '+JSON.stringify(this.collaborateurId));
+        this.projetService.deleteCollaborateur(this.collaborateurId).subscribe(
+            //()  => this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}])
+            ()  => {
+                this.deleted.emit()
+                 $("#myModal").hide();
+            }
         )
     }
 
-    getCollaborateur(idCollaborateur){
-        this.projetService.getCollaborateurByidCollaborateur(idCollaborateur)
-        .subscribe(collaborateur => {
-            this.collaborateur = collaborateur;
-        });
-    }
-
     onAnullerclick(){
-         this._location.back();
+         $("#myModal").hide();
     }
 }

@@ -19,6 +19,7 @@ export class ListeCollaborateurComponent {
   loggedAdminId=localStorage.getItem("loggedUserId");
   collaborateurs;
   collaborateurFilter:any = {email :'',nom:'',prenom:''};
+  test;
   constructor(private projetService: ProjetService,private route:ActivatedRoute,private router : Router) { }
 
   ngOnInit() {
@@ -31,7 +32,10 @@ export class ListeCollaborateurComponent {
     });
   }
   onDeleteClick(){
-    $('#myModal').hide();
-     this.router.navigate(['/adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]);   
+     this.getCollaborateurs();  
+  }
+
+  onTest(val){
+    this.test=val;
   }
 }

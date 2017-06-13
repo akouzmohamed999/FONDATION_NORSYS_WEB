@@ -21,6 +21,7 @@
                         </div>
                       <input [disabled]="!form.valid"  
                              id="connect-btn" type="submit" value="SE CONNECTER" />
+                      <p><span class="text-danger" *ngIf="loginError != null">{{loginError}}</span></p>
                   	</form>
                 </div>
               </div>

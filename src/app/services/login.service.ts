@@ -23,29 +23,13 @@ export class LoginService {
             var data = "grant_type=password&client_id=clientIdPassword&username="
             +collaborateur.email+"&password="+collaborateur.password;
             return this.http.post(this.APIURL+'/oauth/token',data
-            ,options).map(response => response.json()).subscribe(
-                 data => {
-                    // this.cookieService.put("access_token",data.access_token);
-                     localStorage.setItem("access_token", data.access_token);
-                     this.getLoggedUser();
-                 }
-            );
+            ,options).map(response => response.json());
         }
 
         getLoggedUser(){
             var headers = new Headers({'Authorization':'Bearer '+ localStorage.getItem("access_token")});            
             return this.http.get(this.APIURL+'/collaborateur/loggedUser',{headers:headers})
-            .map(response => response.json()).subscribe(
-                data => {
-                    localStorage.setItem("loggedUserId", JSON.stringify(data.Collaborateur.idCollaborateur));
-                    localStorage.setItem("loggedUserName", data.Collaborateur.nom+" "+data.Collaborateur.prenom);
-                    localStorage.setItem("loggedUserRole", data.Role);
-                    
-                        this._ngZone.run(() => {
-                            this.router.navigate(['/adminHome']);     
-                        });
-                            
-                      });
+            .map(response => response.json());
         }
 
         logout(){
