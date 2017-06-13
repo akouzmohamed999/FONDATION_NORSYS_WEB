@@ -57,7 +57,7 @@ export class CalendrierComponent{
   rendezVousClickAction : CalendarEventAction[] = [{
     label: '<button class="btn btn-primary"><i class="fa fa-search"></i><button>',
     onClick: ({event}: {event: CalendarEvent}): void => {
-      this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['projetDetails',event.objectId]}}]); 
+      this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['listeRendezVous']}}]); 
     }
   }];
   projetClickAction : CalendarEventAction[] = [{
@@ -87,10 +87,7 @@ export class CalendrierComponent{
   }
 
    ngAfterViewInit(){
-     $(document).ready(function(){
-       console.log("HERRRRRRRE !!!!");
-      $('#today').click();
-    })
+     this.charge();
   }
 
   dayClicked({date, events}: {date: Date, events: CalendarEvent[]}): void {
@@ -173,6 +170,7 @@ export class CalendrierComponent{
         });
       }
     )
+    this.charge();
   }
 
   getAllProjets(){
@@ -183,6 +181,7 @@ export class CalendrierComponent{
         })
       }
     )
+    this.charge();
   }
 
   getAllActivities(){
@@ -193,5 +192,12 @@ export class CalendrierComponent{
         });
           }
         )
+        this.charge();
+  }
+  charge(){
+    $(document).ready(function(){
+       console.log("HERRRRRRRE !!!!");
+      $('#today').click();
+    })
   }
 }
