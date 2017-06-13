@@ -6,11 +6,11 @@
  *
 */
 
-/*@font-face {
-    font-family: 'open_sanscondensed_light';
-    src: url('../fonts/OpenSans-CondLight-webfont.woff') format('woff'),
-         url('../fonts/OpenSans-CondLight-webfont.eot'),
-         url('../fonts/OpenSans-CondLight-webfont.ttf');
+
+@font-face {
+    font-family: 'titilliumregular';
+    src: url('../fonts/titillium-regular-webfont.woff2') format('woff2'),
+         url('../fonts/titillium-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -2165,7 +2165,7 @@ table.dataTable thead .sorting:after {
   width: 100%;
   font-size: 0.75em;
   line-height: 1.333333em;
-  font-family: 'open_sanscondensed_light';
+  font-family: 'titilliumregular';
   padding: 5px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2716,7 +2716,7 @@ a.forum-item-title:hover {
   padding-right: 20px !important;
 }
 body {
-  font-family: 'open_sanscondensed_light';
+  font-family: 'titilliumregular';
   background-color: #2f4050;
   font-size: 13px;
   color: #676a6c;

@@ -13,7 +13,7 @@ Enjoy responsibly!
 
 */
 /*@font-face {
-    font-family: 'open_sanscondensed_light';
+    font-family: 'titilliumregular';
     src: url('../fonts/OpenSans-CondLight-webfont.woff') format('woff'),
          url('../fonts/OpenSans-CondLight-webfont.eot'),
          url('../fonts/OpenSans-CondLight-webfont.ttf');
@@ -333,13 +333,13 @@ p {
 
 html{
     height:100%;
-    font-family: 'open_sanscondensed_light';
+    font-family: 'titilliumregular';
 }
 
 body{
     height:100%;
     background-color: #999;
-    font-family: 'open_sanscondensed_light';
+    font-family: 'titilliumregular';
 }
 
 .center-box{
