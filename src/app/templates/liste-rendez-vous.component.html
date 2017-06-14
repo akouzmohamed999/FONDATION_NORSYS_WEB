@@ -30,7 +30,14 @@
                         <div class="ibox-title">
                             <span class="title-label titre">Liste des RendezVous</span>
                         </div>
-                        <div class="ibox-content full-width-table"> 
+                        <div class="ibox-content full-width-table">
+                             <div class="form-group">
+                                    <label class="control-label" >Recherche</label>
+                                            <span style="display: flex"><button class="btn btn-primary" [disabled]="true"><i class="fa fa-search"></i></button>
+                                                <input type="text" [(ngModel)]="rendezVousFilter.sujet" placeholder="Recherche par sujet" [ngModelOptions]="{standalone: true}" class="form-control">
+                                                <input type="text" [(ngModel)]="rendezVousFilter.date" placeholder="Recherche par date" [ngModelOptions]="{standalone: true}" class="form-control">
+                                            </span>
+                            </div>   
                            <div class="project-list">
                                 <table class="table table-hover">
                                     <thead>
@@ -42,7 +49,7 @@
                                         </tr>
                                   </thead>
                                     <tbody>
-                                    <tr  *ngFor="let rdv of rendezVous">
+                                    <tr  *ngFor="let rdv of rendezVous | filterBy : rendezVousFilter">
                                         <td class="project-title">
                                             {{rdv.sujet}}
                                         </td>

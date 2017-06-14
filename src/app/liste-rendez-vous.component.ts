@@ -19,6 +19,7 @@ import * as $ from "jquery";
 export class ListeRendezVousComponent {
 
   rendezVous;
+  rendezVousFilter:any = {sujet :'',date:''}
   constructor(private propositionService: PropositionService,private router : Router) { }
 
   ngOnInit() {
