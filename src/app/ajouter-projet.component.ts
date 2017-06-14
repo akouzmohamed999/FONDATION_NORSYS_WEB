@@ -7,7 +7,7 @@ import {Location} from '@angular/common';
 import * as $ from 'jquery'
 
 @Component({
-    selector : 'ajouter-composante',
+    selector : 'ajouter-projet',
     templateUrl : './templates/ajouter-projet.component.html',
     styleUrls:["../assets/css/bootstrap.css",
                "../assets/font-awesome/css/font-awesome.css",

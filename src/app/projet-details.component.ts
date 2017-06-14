@@ -41,4 +41,8 @@ export class ProjetDetailsComponent {
       this.composantes=composantes;
     });
   }
+
+  onAddedClick(){
+    this.getComposantesByIdProjet(this.projetDetails.idProjet);
+  }
 }

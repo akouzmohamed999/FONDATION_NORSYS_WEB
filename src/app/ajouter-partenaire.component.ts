@@ -7,7 +7,7 @@ import {FormValidator} from './validators/form-validator'
 import * as $ from 'jquery'
 
 @Component({
-    selector : 'ajouter-composante',
+    selector : 'ajouter-partenaire',
     templateUrl : './templates/ajouter-partenaire.component.html',
     styleUrls:["../assets/css/bootstrap.css",
                "../assets/font-awesome/css/font-awesome.css",

@@ -7,7 +7,7 @@ import {IMyDpOptions} from 'mydatepicker';
 import * as $ from 'jquery'
 
 @Component({
-    selector : 'ajouterActivite',
+    selector : 'ajouter-activite',
     templateUrl : './templates/ajouter-activite.component.html',
      styleUrls : ['../assets/css/bootstrap.css',
                 '../assets/font-awesome/css/font-awesome.css',
