@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input,Output,EventEmitter} from '@angular/core';
 import { PropositionService } from './services/proposition.service';
 import {RouterModule,Routes,Router,ActivatedRoute} from '@angular/router';
 import * as $ from "jquery";
@@ -18,6 +18,7 @@ export class PropositionDetailsComponent {
 
   id;
   proposition;
+  @Output('updated')updated = new EventEmitter();
 
   constructor (private propositionService : PropositionService,private route : ActivatedRoute,private router:Router){};
   ngOnInit() {
@@ -27,7 +28,6 @@ export class PropositionDetailsComponent {
     this.getPropositionById(this.id);
     
   }
-
 
    addScripts(chemin){
     var script = document.createElement( 'script' );
@@ -49,6 +49,7 @@ export class PropositionDetailsComponent {
             propositionFinale =>{
               
               this.proposition = propositionFinale;
+              this.updated.emit();
             }
           )
       }else{

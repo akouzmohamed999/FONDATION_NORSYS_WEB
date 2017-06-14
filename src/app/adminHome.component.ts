@@ -51,4 +51,8 @@ export class AdminHomeComponent {
       }
     )
   }
+  onPropositionUpdated(){
+    console.log('UPDATED RCEIVED');
+    this.getNonVuePropositions();
+  }
 }

@@ -70,7 +70,7 @@
                         </ul>
                     </li>
                     <li *ngIf="role == 'Administrateur'">
-                        <a><i class="fa fa-plus"></i> <span class="nav-label">Gestion des Propositions </span><span class="fa arrow"></span></a>
+                        <a><i class="fa fa-plus"></i> <span class="nav-label">Gestion des Propositions Projets</span><span class="fa arrow"></span></a>
                       <ul class="nav nav-second-level">
                             <li><a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['listeProposition']}}]">
                               <span class="subnav-label">Liste des Propositions</span></a></li>
@@ -148,7 +148,7 @@
        
         <div class="row">
             <div class="col-lg-12">
-                       <router-outlet name="adminHomeRoute"></router-outlet> 
+                       <router-outlet name="adminHomeRoute" (updated)="onPropositionUpdated()"></router-outlet> 
             </div>
         </div>
 
