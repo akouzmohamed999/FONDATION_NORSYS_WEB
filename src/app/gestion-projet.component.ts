@@ -18,6 +18,7 @@ import * as $ from "jquery";
 export class GestionProjetComponent {
 
   projets;
+  projetFilter:any = {intitule :'',dateDebut:'',dateFin:''};
   constructor(private projetService: ProjetService,private router : Router) { }
 
   ngOnInit() {
