@@ -52,7 +52,7 @@
                                  </div> 
                                     
                             <div class="project-list">
-                                <table class="table table-hover">
+                                <!--<table class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>nom</th>
@@ -97,7 +97,44 @@
                                         </td>
                                     </tr>
                                     </tbody>
-                                </table>
+                                </table> -->
+                             <div class="col-lg-4" *ngFor="let partenaire of partenaires | filterBy : partenaireFilter">
+                                <div class="contact-box">
+                                    <div class="row">
+                                        <div class="pull-right">
+                                       <button [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierPartenaire',partenaire.idPartenaire]}}]"
+                                        class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">
+                                            <i class="fa fa-trash"></i></button>
+                                        <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content animated bounceInRight">
+                                                <supprimer-partenaire (deleted)="onDeleteClick()" [partenaire]="partenaire"></supprimer-partenaire>
+                                                </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                    <a>
+                                    <div class="col-sm-4">
+                                        <div class="text-center">
+                                            <img alt="image" class="img-circle m-t-xs img-responsive" src="assets/img/a2.jpg">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h3><strong> {{partenaire.nom}}</strong></h3>
+                                        <p><i class="fa fa-user"></i> : {{partenaire.type}}</p>
+                                        <p><i class="fa fa-map-marker"></i> : {{partenaire.adresse}}</p>
+                                        <p><i class="fa fa-phone"></i> : {{partenaire.numeroTelephone}}</p>
+                                        <p><i class="fa fa-at"></i> : {{partenaire.email}}</p>
+                                    </div>
+                                   
+                                    <div class="clearfix"></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                </div>
                             </div>
                         </div>
                     </div>
