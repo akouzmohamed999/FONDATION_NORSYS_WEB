@@ -41,8 +41,8 @@
                                                 <input type="text" [(ngModel)]="collaborateurFilter.email" placeholder="Recherche par email" [ngModelOptions]="{standalone: true}" class="form-control">
                                             </span>
                                  </div>   
-                            <div class="project-list">
-                                <table class="table table-hover">
+                            <div class="project-list row">
+                               <!-- <table class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>Nom </th>
@@ -71,7 +71,7 @@
                                             {{collaborateur.email}}
                                         </td>
                                         <td class="project-actions">
-<a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierCollaborateur',collaborateur?.idCollaborateur]}}]"
+                                            <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierCollaborateur',collaborateur?.idCollaborateur]}}]"
                                             class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Modifier </a>
                                              <button data-toggle="modal" data-target="#myModal" class="btn btn-danger btn-xs" [disabled]="collaborateur.idCollaborateur == loggedAdminId" (click)="onTest(collaborateur?.idCollaborateur)">
                                                  <i class="fa fa-remove"></i> Supprimer</button>
@@ -86,7 +86,43 @@
                                         </td>
                                     </tr>
                                     </tbody>
-                                </table>
+                                </table> -->
+                            <div class="col-lg-4" *ngFor="let collaborateur of collaborateurs | filterBy : collaborateurFilter">
+                                <div class="contact-box">
+                                    <div class="row">
+                                        <div class="pull-right">
+                                        <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierCollaborateur',collaborateur?.idCollaborateur]}}]"
+                                            class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
+                                             <button data-toggle="modal" data-target="#myModal" class="btn btn-danger btn-xs" [disabled]="collaborateur.idCollaborateur == loggedAdminId" (click)="onTest(collaborateur?.idCollaborateur)">
+                                                 <i class="fa fa-trash"></i></button>
+                                            <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content animated bounceInRight">
+                                                <supprimer-collaborateur  (deleted)="onDeleteClick()" [collaborateurId]="test"></supprimer-collaborateur>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                    <a>
+                                    <div class="col-sm-4">
+                                        <div class="text-center">
+                                            <img alt="image" class="img-circle m-t-xs img-responsive" src="assets/img/a2.jpg">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h3><strong>{{collaborateur.prenom}} {{collaborateur.nom}}</strong></h3>
+                                        <p><i class="fa fa-user"></i> : {{collaborateur.cin}}</p>
+                                        <p><i class="fa fa-map-marker"></i> : {{collaborateur.adresse}}</p>
+                                        <p><i class="fa fa-at"></i> : {{collaborateur.email}}</p>
+                                    </div>
+                                   
+                                    <div class="clearfix"></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                </div>
                             </div>
                         </div>
                     </div>
