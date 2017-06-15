@@ -32,14 +32,13 @@
                             <span class="title-label titre">Liste des Propositions</span>
                         </div>
                         <div class="ibox-content full-width-table">
-                            <!--<div class="form-group"> 
+                           <div class="form-group">
                                     <label class="control-label" >Recherche</label>
                                             <span style="display: flex"><button class="btn btn-primary" [disabled]="true"><i class="fa fa-search"></i></button>
-                                                <input type="text" [(ngModel)]="propositionFilter.intitule" placeholder="Recherche par intitule" [ngModelOptions]="{standalone: true}" class="form-control">
-                                                <input type="text" [(ngModel)]="propositionFilter.zoneGeographiqe" placeholder="Recherche par date de début" [ngModelOptions]="{standalone: true}" class="form-control">
-                                                <input type="text" [(ngModel)]="propositionFilter.nom" placeholder="Recherche par date de fin" [ngModelOptions]="{standalone: true}" class="form-control">
+                                                <input type="text" [(ngModel)]="propositionFilter.objectif" placeholder="Recherche par objectif" [ngModelOptions]="{standalone: true}" class="form-control">
+                                                <input type="text" [(ngModel)]="propositionFilter.ZoneGeographique"  placeholder="Recherche par zone gé ographique" [ngModelOptions]="{standalone: true}" class="form-control">
                                             </span>
-                            </div> -->
+                                 </div> 
                             <div class="project-list">
                                 <table class="table table-hover">
                                     <thead>
@@ -52,7 +51,7 @@
                                         </tr>
                                   </thead>
                                     <tbody>
-                                    <tr  *ngFor="let proposition of propositions">
+                                    <tr  *ngFor="let proposition of propositions | filterBy : propositionFilter">
                                         <td class="project-title">
                                             {{proposition.thematique.intitule}}
                                         </td>
