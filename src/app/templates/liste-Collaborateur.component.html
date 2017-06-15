@@ -42,51 +42,7 @@
                                             </span>
                                  </div>   
                             <div class="project-list row">
-                               <!-- <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Nom </th>
-                                            <th>Prenom</th>
-                                            <th>CIN</th>
-                                            <th>Adresse</th>
-                                            <th>E-mail</th>
-                                            <th class="project-actions">Options</th>
-                                        </tr>
-                                  </thead>
-                                    <tbody>
-                                    <tr  *ngFor="let collaborateur of collaborateurs | filterBy : collaborateurFilter">
-                                        <td class="project-title">
-                                            {{collaborateur.nom}}
-                                        </td>
-                                        <td class="project-title">
-                                            {{collaborateur.prenom}}
-                                        </td>
-                                        <td class="project-title">
-                                            {{collaborateur.cin}}
-                                        </td>
-                                        <td class="project-title">
-                                            {{collaborateur.adresse}}
-                                        </td>
-                                        <td class="project-title">
-                                            {{collaborateur.email}}
-                                        </td>
-                                        <td class="project-actions">
-                                            <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierCollaborateur',collaborateur?.idCollaborateur]}}]"
-                                            class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Modifier </a>
-                                             <button data-toggle="modal" data-target="#myModal" class="btn btn-danger btn-xs" [disabled]="collaborateur.idCollaborateur == loggedAdminId" (click)="onTest(collaborateur?.idCollaborateur)">
-                                                 <i class="fa fa-remove"></i> Supprimer</button>
-
-                                            <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                <div class="modal-content animated bounceInRight">
-                                                <supprimer-collaborateur  (deleted)="onDeleteClick()" [collaborateurId]="test"></supprimer-collaborateur>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table> -->
+                               
                             <div class="col-lg-4" *ngFor="let collaborateur of collaborateurs | filterBy : collaborateurFilter">
                                 <div class="contact-box">
                                     <div class="row">
@@ -108,7 +64,8 @@
                                     <a>
                                     <div class="col-sm-4">
                                         <div class="text-center">
-                                            <img alt="image" class="img-circle m-t-xs img-responsive" src="assets/img/a2.jpg">
+                                            <img alt="image" class="img-circle m-t-xs img-responsive"
+                                             src="http://localhost:8080/fondation/public/getCollaborateurImage?idCollaborateur={{collaborateur?.idCollaborateur}}">
                                         </div>
                                     </div>
                                     <div class="col-sm-8">

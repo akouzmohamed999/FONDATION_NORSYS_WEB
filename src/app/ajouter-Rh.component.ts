@@ -82,7 +82,10 @@ import * as $ from 'jquery'
         if(dto.Type=="Administrateur"){
             this.projetService.addAdministrateur(collaborateur).subscribe(
                 collaborateur =>{
+
                     if(collaborateur != null){
+                         $('#idCollaborateur').val(collaborateur.idCollaborateur);
+                         $('#btnSubmit').click();
                         this._ngZone.run(() => {
                                 this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]); 
                                 });
@@ -93,16 +96,22 @@ import * as $ from 'jquery'
                 this.projetService.addResponsable(collaborateur).subscribe(
                 collaborateur =>{
                     if(collaborateur != null){
+                         $('#idCollaborateur').val(collaborateur.idCollaborateur);
+                         $('#btnSubmit').click();
                         this._ngZone.run(() => {
                                 this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]); 
                                 });
                     }
                             }
             )
+             
         }else{
             this.projetService.addCollaborateur(collaborateur).subscribe(
                 collaborateur =>{
                     if(collaborateur != null){
+                        console.log('ID COLLABORATEUR '+ collaborateur.idCollaborateur );
+                         $('#idCollaborateur').val(collaborateur.idCollaborateur);
+                         $('#btnSubmit').click();
                         this._ngZone.run(() => {
                                 this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['listeCollaborateur']}}]); 
                                 });
@@ -118,5 +127,16 @@ import * as $ from 'jquery'
     onAnullerclick(event){
       event.preventDefault();
       this._location.back();
+  }
+
+  addScripts(chemin){
+    var script = document.createElement( 'script' );
+    script.type = 'text/javascript';
+    script.src = chemin;
+    $("body").append( script );
+  }
+
+  ngAfterViewInit(){
+        this.addScripts('assets/js/submitPhotoCollaborateur.js');  
   }
 }
