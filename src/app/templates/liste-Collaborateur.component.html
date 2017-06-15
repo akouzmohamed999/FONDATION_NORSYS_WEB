@@ -36,9 +36,9 @@
                              <div class="form-group">
                                     <label class="control-label" >Recherche</label>
                                             <span style="display: flex"><button class="btn btn-primary" [disabled]="true"><i class="fa fa-search"></i></button>
-                                                <input type="text" [(ngModel)]="collaborateurFilter.nom" placeholder="Recherche par nom" [ngModelOptions]="{standalone: true}" class="form-control">
-                                                <input type="text" [(ngModel)]="collaborateurFilter.prenom" placeholder="Recherche par prénom" [ngModelOptions]="{standalone: true}" class="form-control">
-                                                <input type="text" [(ngModel)]="collaborateurFilter.email" placeholder="Recherche par email" [ngModelOptions]="{standalone: true}" class="form-control">
+                                                <input type="text" [(ngModel)]="collaborateurFilter.nom" placeholder="Recherche par nom" [ngModelOptions]="{standalone: true}" class="form-control recherche-first">
+                                                <input type="text" [(ngModel)]="collaborateurFilter.prenom" placeholder="Recherche par prénom" [ngModelOptions]="{standalone: true}" class="form-control recherche">
+                                                <input type="text" [(ngModel)]="collaborateurFilter.email" placeholder="Recherche par email" [ngModelOptions]="{standalone: true}" class="form-control recherche">
                                             </span>
                                  </div>   
                             <div class="project-list row">

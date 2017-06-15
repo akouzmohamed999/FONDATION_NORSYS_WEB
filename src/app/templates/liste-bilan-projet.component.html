@@ -24,6 +24,15 @@
                 </div>
     <div class="wrapper wrapper-content">
             <div class="row animated fadeInRight">
+                <div class="form-group col-lg-12">
+                             <div class="form-group">
+                                    <label class="control-label" >Recherche</label>
+                                            <span style="display: flex"><button class="btn btn-primary" [disabled]="true"><i class="fa fa-search"></i></button>
+                                                <input type="text" [(ngModel)]="bilanFilter.intitule" placeholder="Recherche par intitule" [ngModelOptions]="{standalone: true}" class="form-control recherche-first">
+                                                <input type="text" [(ngModel)]="bilanFilter.fichierRapport"  placeholder="Recherche par nom de fichier" [ngModelOptions]="{standalone: true}" class="form-control recherche">
+                                            </span>
+                                 </div>              
+                         </div>
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-12">
@@ -39,7 +48,7 @@
                     </div>
 
                     <div class="ibox-content inspinia-timeline full-width-table">
-                        <div class="timeline-item" *ngFor="let bilan of bilans">
+                        <div class="timeline-item" *ngFor="let bilan of bilans | filterBy : bilanFilter">
                             <div class="row">
                                 <div class="col-xs-3 date">
                                     <i class="fa fa-file-text"></i>

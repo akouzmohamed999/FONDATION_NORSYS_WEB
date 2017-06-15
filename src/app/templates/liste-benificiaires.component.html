@@ -32,11 +32,12 @@
                         </div>
                         <div class="ibox-content full-width-table">
                              <div class="form-group">
+                                 
                                     <label class="control-label" >Recherche</label>
                                             <span style="display: flex"><button class="btn btn-primary" [disabled]="true"><i class="fa fa-search"></i></button>
-                                                <input type="text" [(ngModel)]="benificaireFilter.cin" placeholder="Recherche par CIN" [ngModelOptions]="{standalone: true}" class="form-control">
-                                                <input type="text" [(ngModel)]="benificaireFilter.nom"  placeholder="Recherche par nom" [ngModelOptions]="{standalone: true}" class="form-control">
-                                                <input type="text" [(ngModel)]="benificaireFilter.prenom"  placeholder="Recherche par prénom" [ngModelOptions]="{standalone: true}" class="form-control">
+                                                <input type="text" [(ngModel)]="benificaireFilter.cin" placeholder="Recherche par CIN" [ngModelOptions]="{standalone: true}" class="form-control recherche-first">
+                                                <input type="text" [(ngModel)]="benificaireFilter.nom"  placeholder="Recherche par nom" [ngModelOptions]="{standalone: true}" class="form-control recherche">
+                                                <input type="text" [(ngModel)]="benificaireFilter.prenom"  placeholder="Recherche par prénom" [ngModelOptions]="{standalone: true}" class="form-control recherche">
                                             </span>
                                  </div>        
                             <div class="project-list">

@@ -5052,3 +5052,12 @@ body.skin-3 {
 .thematique{
   color : #1ab394
 }
+
+.recherche {
+  margin-left: 7px;
+  margin-right: 7px;
+}
+
+.recherche-first{
+  margin-right: 7px;
+}

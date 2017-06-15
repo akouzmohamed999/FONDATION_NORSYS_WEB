@@ -23,7 +23,7 @@ export class ListeBilansProjetComponent {
     sub;
     bilans;
     projet;
-
+    bilanFilter:any = {intitule :'',fichierRapport:''}
     constructor(private projetService: ProjetService,
     private route:ActivatedRoute,private router:Router,private _location:Location){
     }
