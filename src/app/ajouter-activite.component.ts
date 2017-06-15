@@ -56,8 +56,7 @@ export class AjouterActiviteComponent {
   }
 
   ngAfterViewInit(){
-        this.addScripts('assets/js/plugins/iCheck/icheck.min.js');
-        this.addScripts('assets/js/main.js');          
+      this.chargerJs();      
   }
 
 ngOnInit(){
@@ -120,6 +119,7 @@ onSubmit(activite){
 
   onAddedClick(){
     this.getAllBenificiaire();
+    this.chargerJs();
   }
 
     addBenificiaire(benificiaire){
@@ -161,6 +161,11 @@ onSubmit(activite){
                 this.seletedBenificiaires.push(benificiaire);
            }
           })
+    }
+
+    chargerJs(){
+        this.addScripts('assets/js/plugins/iCheck/icheck.min.js');
+        this.addScripts('assets/js/main.js');   
     }
 
 }

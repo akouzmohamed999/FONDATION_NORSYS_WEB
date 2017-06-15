@@ -153,11 +153,9 @@
                                 </table>
                                 <span class="text-danger" *ngIf="erreurBenificiaire != null">Veuillez Séléctionner des benificiaires !</span>
                                                     </div> 
-                                                </div>
-                                            </div>                                                                                          
 
-                                            <div class="input_fields_wrap">
-                                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                                                    <div class="input_fields_wrap">
+                                                <button type="button" class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal">
                                                     <i class="fa fa-plus"></i>Ajouter Beneficiaires</button>
                                                 
 
@@ -171,6 +169,11 @@
                                                         </div>
                                                     </div>
                                             </div>
+                                            
+                                                </div>
+                                            </div>                                                                                          
+
+                                            
                                             <div class="clearfix pull-right">
                                                <input [disabled]="!form.valid" type="submit" value="Valider" class="btn btn-primary"/>
                                                <button class="btn btn-primary" (click)=" onAnullerclick($event)" >Annuler</button>
