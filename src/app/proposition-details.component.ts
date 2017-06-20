@@ -26,7 +26,6 @@ export class PropositionDetailsComponent {
         this.id= +params['id'];
     });
     this.getPropositionById(this.id);
-    
   }
 
    addScripts(chemin){
@@ -56,6 +55,10 @@ export class PropositionDetailsComponent {
         this.proposition = proposition;
       }     
     })
+  }
+
+  onAddedClick(){
+     this.getPropositionById(this.id);
   }
 
 }

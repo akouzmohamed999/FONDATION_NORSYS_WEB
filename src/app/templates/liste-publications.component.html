@@ -44,8 +44,8 @@
                                                 <input type="text" [(ngModel)]="publicationFilter.description" placeholder="Recherche par description" [ngModelOptions]="{standalone: true}" class="form-control recherche">
                                             </span>
                             </div>                 
-                            <div class="project-list">
-                                <table class="table table-hover">
+                            <div class="project-list row">
+                               <!-- <table class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>Titre</th>
@@ -73,7 +73,32 @@
                                         </td>
                                     </tr>
                                     </tbody>
-                                </table>
+                                </table>-->
+     
+            <div *ngFor="let publication of publications" class="col-lg-4" style="margin: 2px">
+                <div class="row pull-right">
+                     <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['modifierPublication',publication?.idPublication]}}]"
+                                            class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                     <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['supprimerPublication',publication?.idPublication]}}]"
+                                            class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                </div>
+            <div class="row">
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <img class="img-responsive" style="float: left" 
+                  src="http://localhost:8080/fondation/public/getPublictionImage?idPublication={{publication?.idPublication}}"
+                                               />
+                </div> 
+                <div class="timeline-title" style="width: 85px;float: left;margin-left: 10px">
+                  <p>{{publication?.titre}}</p>
+                  <div class="test">
+                     <p>{{publication?.description}}</p> 
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+    
                             </div>
                         </div>
                     </div>

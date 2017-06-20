@@ -49,7 +49,7 @@
                                 <div class="col-lg-5">
                                     <div class="form-group">
                                         <label>Description de projet *</label>
-                                        <input type="text" required [formControl]="form.controls['description']" class="form-control required" />
+                                        <textarea type="text" required [formControl]="form.controls['description']" class="form-control required"></textarea>
                                         <p class="text-danger" *ngIf="!myDescription.valid && myDescription.dirty">Ce champs est nécéssaire !</p>
                                     </div>
                                     <div class="form-group" >

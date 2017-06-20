@@ -1,4 +1,4 @@
-import {Component,NgZone} from "@angular/core";
+import {Component,NgZone,Input,Output,EventEmitter} from "@angular/core";
 import {FormGroup,FormBuilder,Form} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {Location} from '@angular/common';
@@ -23,7 +23,8 @@ import * as $ from 'jquery';
 export class AjouterRapportComponent {
 
     form : FormGroup;
-    projet;
+    @Input()projet;
+    @Output('added')added = new EventEmitter();
     sub;
     id;
     fire_ajax_submit:any;
@@ -36,14 +37,6 @@ export class AjouterRapportComponent {
         })
     }
 
-
-    ngOnInit(){
-        this.sub = this.route.params.subscribe(params => {
-        this.id= +params['id'];
-        this.getProjetByid(this.id);
-    });
-    
-    }
    addScripts(chemin){
     var script = document.createElement( 'script' );
     script.type = 'text/javascript';
@@ -64,7 +57,6 @@ export class AjouterRapportComponent {
         rapportProjet.projet=this.projet;
         var path = $('#file').val();
         var filename = path.replace(/^.*\\/, "");
-        console.log("FILLLLLLLLLLLE "+filename);
         rapportProjet.fichierRapport=filename;
         this.projetService.addRapportProjet(rapportProjet).subscribe( rapportProjet =>{
             if(rapportProjet != null){
@@ -73,10 +65,10 @@ export class AjouterRapportComponent {
                       //  fire_ajax_submit();
                       $('#btnSubmit').click();
                             this._ngZone.run(() => {
-
-                          this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['projetDetails',this.id]}}]); 
+                          //this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['projetDetails',this.id]}}]); 
+                          this.added.emit();
+                          $("#myModal").hide();
                         });
-                console.log("Ca passe redirection now");
                    // }
                 //)
          }
@@ -92,7 +84,7 @@ export class AjouterRapportComponent {
 
  onAnullerclick(event){
       event.preventDefault();
-      this._location.back();
+      $("#myModal").hide();
   }  
 
   

@@ -22,7 +22,7 @@
                     </div>
                 </div>
 
-    <div class="row">
+    <!-- <div class="row">
                 <div class="col-lg-8 wrapper wrapper-content animated fadeInUp">
                     <div class="panel panel-primary">
                         <div class="ibox-title">
@@ -84,4 +84,116 @@
                         </div>
                     </div>
                     </div>
+                </div> -->
+            
+            
+                <div class="col-lg-12 wrapper wrapper-content animated fadeInUp">
+                    <div class="panel panel-primary">
+                        <div class="ibox-title">
+                                 <span class="title-label titre">modifier Collaborateur</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">      
+                                   
+                                    <form id="form" action="#"  (ngSubmit)="onSubmit(form.value)" [formGroup]="form" >
+                                 <div class="row">
+                                    <div class="col-lg-6">
+                                      <div class="form-group">
+                                        <label class="control-label">Nom *</label>
+                                        <input type="text" class="form-control" required [formControl]="form.controls['nom']" value="{{collaborateur?.nom}}"/>
+                                      </div>
+                                    </div> 
+                                    <div class="col-lg-6">
+                                         <div class="form-group">
+                                       <label class="control-label">Prénom *</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['prenom']" value="{{collaborateur?.prenom}}" />
+                                        </div>
+                                    </div>
+                                 </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="control-label">CIN *</label>
+                                                <input type="text" class="form-control" required [formControl]="form.controls['cin']" value="{{collaborateur?.cin}}"/>
+                                            </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                       <label class="control-label">Numéro Téléphone *</label>
+                                       <input type="text" class="form-control" required [formControl]="form.controls['numeroTelephone']" value="{{collaborateur?.numeroTelephone}}"/>
+                                       <p class="text-danger" *ngIf="!myPhoneNumber.valid && myPhoneNumber.dirty">Numéro Téléphone invalid !</p>
+                                   </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                            <div class="form-group">
+                                            <label class="control-label">Nouveau mot de passe *</label>
+                                            <input type="password" class="form-control" required [formControl]="form.controls['password']" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                            <div class="form-group">
+                                            <label class="control-label">Répéter mot de passe *</label>
+                                            <input type="password" class="form-control" required [formControl]="form.controls['confirmPassword']" />
+                                            <span *ngIf="passwordError != null" class="alert alert-danger" >{{passwordError}}</span>
+                                        </div>
+                                    </div>
+                                </div> 
+                                 <div class="row">
+                                    <div class="col-lg-6">      
+                                        <div class="form-group">
+                                            <label class="control-label">Adresse *</label>
+                                            <input type="text" class="form-control" required [formControl]="form.controls['adresse']" value="{{collaborateur?.adresse}}"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Date De Naissance *</label>
+                                                <my-date-picker name="mydate"  [options]="myDatePickerOptions"
+                                                [formControl]="form.controls['dateNaissance']" required></my-date-picker>
+                                        </div>
+                                    </div>
+                                 </div>
+                                  <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Lieu De Naissance *</label>
+                                            <input type="text" class="form-control" required [formControl]="form.controls['lieuNaissance']" value="{{collaborateur?.lieuNaissance}}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="control-label">E-mail *</label>
+                                            <input type="text" class="form-control" required [formControl]="form.controls['email']" value="{{collaborateur?.email}}" />
+                                            <span class="text-danger" *ngIf="!myEmail.valid && myEmail.dirty">Email Invalid !</span>
+                                        </div>
+                                    </div>
+                                  </div>
+                                   <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="control-label">photo *</label>
+                                                <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+                                                    <input type="file" name="file" id="file" required>
+                                                    <input type="text" name="idCollaborateur" id="idCollaborateur"  style="visibility: hidden" >
+                                                    <input type="submit" value="Submit" id="btnSubmit" style="visibility: hidden" class="btn btn-primary"/>
+                                                    </form>
+                                            </div>
+                                        </div>
+                                   </div>
+
+		                            <div class="clearfix pull-right">
+                                        <input [disabled]="!form.valid" type="submit" value="Valider" class="btn btn-primary"/>
+                                        <button class="btn btn-primary"
+                                       (click)="onAnullerclick()" >Annuler</button>
+                                    </div>
+
+                            </form>
+                                </div>   
+                        </div>
+                    </div>
+                    </div>
+                    
                 </div>

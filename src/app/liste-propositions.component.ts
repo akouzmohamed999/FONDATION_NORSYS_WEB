@@ -18,7 +18,7 @@ import * as $ from "jquery";
 export class ListePropositionComponent {
 
   propositions;
-  propositionFilter :any = {objectif:'',prenzoneGeographiqeom:''};
+  propositionFilter :any = {objectif:'',zoneGeographiqe:''};
   constructor(private propositionService: PropositionService,private router : Router) { }
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-import {Component,NgZone} from "@angular/core";
+import {Component,NgZone,Input,Output,EventEmitter} from "@angular/core";
 import {FormGroup,FormBuilder} from "@angular/forms";
 import {ProjetService} from './services/projet.service';
 import {PropositionService} from './services/proposition.service';
@@ -23,10 +23,12 @@ import * as $ from 'jquery'
 export class AjouterRendezVousComponent {
 
     form : FormGroup;
-    proposition;
     administrateur;
     sub;
-    id;
+    @Input()proposition;
+    @Output('added')added = new EventEmitter();
+
+
 
     private myDatePickerOptions: IMyDpOptions = {
         dateFormat: 'yyyy-mm-dd',
@@ -42,11 +44,8 @@ export class AjouterRendezVousComponent {
     }
 
     ngOnInit(){
-        this.sub = this.route.params.subscribe(params => {
-            this.id= +params['id'];
-            });
         this.getAdministrateurById(localStorage.getItem("loggedUserId"));
-        this.getPropositionById(this.id);
+        console.log('propo '+JSON.stringify(this.proposition));
     }
 
  
@@ -73,7 +72,9 @@ export class AjouterRendezVousComponent {
                             this.proposition.etat="Planifie";
                             this.propositionService.updateProposition(this.proposition).subscribe(
                                 proposition => {
-                                    this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['propositionDetails',this.proposition.idProposition]}}]); 
+                                    //this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['propositionDetails',this.proposition.idProposition]}}]); 
+                                    this.added.emit();
+                                    $("#myModal").hide();
                                 }
                             )
                           
@@ -84,6 +85,6 @@ export class AjouterRendezVousComponent {
 
   onAnullerclick(event){
       event.preventDefault();
-      this._location.back();
+      $("#myModal").hide();
   }
 }
