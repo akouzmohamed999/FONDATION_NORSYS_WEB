@@ -34,7 +34,7 @@
             </div>
             <div class="ibox-content full-width-table">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="assets/img/a2.jpg" class="img-circle img-responsive"> </div>
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://localhost:8080/fondation/public/getCollaborateurImage?idCollaborateur={{collaborateur?.idCollaborateur}}" class="img-circle img-responsive"> </div>
                 <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-striped">
                     <tbody>
@@ -52,7 +52,7 @@
                       </tr>
                       <tr>
                         <td>Date De Naissance :</td>
-                        <td>{{collaborateur?.dateNaissance}}</td>
+                        <td>{{collaborateur?.dateNaissance | date:"dd/MM/yyyy"}}</td>
                       </tr>
                        <tr>
                         <td>Lieu De Naissance :</td>

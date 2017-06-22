@@ -61,13 +61,11 @@ export class AjouterBilanComponent {
         var filename = path.replace(/^.*\\/, "");
         bilanProjet.fichierBilan=filename;
         this.projetService.addBilanProjet(bilanProjet).subscribe( bilanProjet =>{
-            if(bilanProjet != null){
                       $('#btnSubmit').click();
                             this._ngZone.run(() => {
 
                           this.router.navigate(['adminHome', {outlets: {'adminHomeRoute': ['projetDetails',this.id]}}]); 
                         });
-         }
        });
     }
 

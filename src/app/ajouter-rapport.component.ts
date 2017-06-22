@@ -59,7 +59,7 @@ export class AjouterRapportComponent {
         var filename = path.replace(/^.*\\/, "");
         rapportProjet.fichierRapport=filename;
         this.projetService.addRapportProjet(rapportProjet).subscribe( rapportProjet =>{
-            if(rapportProjet != null){
+            
                // this.projetService.addFichierRapport(rapportProjet.file).subscribe(
                    // message => {
                       //  fire_ajax_submit();
@@ -71,7 +71,7 @@ export class AjouterRapportComponent {
                         });
                    // }
                 //)
-         }
+         
        });
     }
 

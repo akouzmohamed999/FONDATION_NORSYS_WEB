@@ -43,6 +43,12 @@
                                          <my-date-picker name="mydate" [options]="myDatePickerOptions" [formControl]="form.controls['dateDebut']" required></my-date-picker>
                                          <p class="text-danger" *ngIf="!myDateDebut.valid && myDateDebut.dirty">Veuillez respecter le format dd/mm/YYYY</p>
                                     </div>
+                                     <div class="form-group" >
+                                        <label>Date De Fin *</label>    
+                                        <my-date-picker name="mydate"  [options]="myDatePickerOptions" [formControl]="form.controls['dateFin']" required></my-date-picker>
+                                        <span class="text-danger" *ngIf="erreurDates != null">Date fin de projet est avant ca date de début !</span>
+                                        <p class="text-danger" *ngIf="!myDateFin.valid && myDateFin.dirty">Veuillez respecter le format dd/mm/YYYY</p>
+                                    </div>
                                 </div>
                                 <div class="col-lg-1">
                                 </div>
@@ -51,12 +57,6 @@
                                         <label>Description de projet *</label>
                                         <textarea type="text" required [formControl]="form.controls['description']" class="form-control required"></textarea>
                                         <p class="text-danger" *ngIf="!myDescription.valid && myDescription.dirty">Ce champs est nécéssaire !</p>
-                                    </div>
-                                    <div class="form-group" >
-                                        <label>Date De Fin *</label>    
-                                        <my-date-picker name="mydate"  [options]="myDatePickerOptions" [formControl]="form.controls['dateFin']" required></my-date-picker>
-                                        <span class="text-danger" *ngIf="erreurDates != null">Date fin de projet est avant ca date de début !</span>
-                                        <p class="text-danger" *ngIf="!myDateFin.valid && myDateFin.dirty">Veuillez respecter le format dd/mm/YYYY</p>
                                     </div>
                                 </div>
                             </div>
