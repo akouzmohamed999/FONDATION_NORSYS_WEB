@@ -1,4 +1,4 @@
-    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+<link href="/assets/css/bootstrap.css" rel="stylesheet">
     <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="/assets/css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="/assets/css/plugins/steps/jquery.steps.css" rel="stylesheet"> 
@@ -8,8 +8,28 @@
     <link href="/assets/css/animate.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">   
 
+      <div class="row wrapper border-bottom white-bg page-heading">
+                    <div class="col-lg-10">
+                         <h2>Gestion des projets</h2>
+                       <ol class="breadcrumb">
+                           <li>
+                               <a [routerLink]="['/adminHome', {outlets: {'adminHomeRoute': ['calendrier']}}]"> Acceuil</a>
+                           </li>
+                           <li>
+                                <a>Nouveau Rapport</a>
+                           </li>
+                       </ol>
+                    </div>
+        </div>
+     
+    
+ <div class="row">
+    
+                <div class="col-lg-8 wrapper wrapper-content animated fadeInUp">
+                    <div class="ibox">
                         <div class="ibox-title">
-                                  <span class="title-label titre">Ajout De Fichier Rapport</span>
+
+                                  <span class="title-label titre">Nouveau Fichier Rapport</span>
                         </div>
                         <div class="ibox-content full-width-table">                  
                             <form class="wizard-big" (ngSubmit)="onSubmit(form.value)" [formGroup]="form">  
@@ -35,6 +55,13 @@
                                                 </div>
                                             </fieldset>
                                         </div>
+                                        <div class="col-lg-4">
+                                            <div class="text-center">
+                                                <div style="margin-top: 20px">
+                                                    <i class="fa fa-file" style="font-size: 180px;color: #e5e5e5 "></i>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     
                                 </fieldset>
@@ -43,4 +70,6 @@
                             </form>
                            
                         </div>
-
+                    </div>
+                    </div>
+</div>

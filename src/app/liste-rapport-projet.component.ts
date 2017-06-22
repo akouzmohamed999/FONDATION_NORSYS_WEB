@@ -68,7 +68,4 @@ export class ListeRapportProjetComponent {
     )
   }
 
-  onAddedClick(){
-    this.getProjetById(this.projet.idProjet);
-  }
 }

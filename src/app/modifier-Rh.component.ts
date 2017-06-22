@@ -70,8 +70,8 @@ export class ModifierCollaborateurComponent {
            
             this.collaborateur.nom=dto.nom,
              this.collaborateur.prenom=dto.prenom,
-            this.collaborateur. adresse=dto.adresse,
-            this.collaborateur. cin=dto.cin,
+            this.collaborateur.adresse=dto.adresse,
+            this.collaborateur.cin=dto.cin,
             this.collaborateur.password=dto.password,
              this.collaborateur.email=dto.email,
              this.collaborateur.numeroTelephone=dto.numeroTelephone,
